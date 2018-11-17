@@ -1,0 +1,14 @@
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\bin\Debug\netcoreapp2.1\MyCatalogMicroservice.deps.json
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\bin\Debug\netcoreapp2.1\MyCatalogMicroservice.runtimeconfig.json
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\bin\Debug\netcoreapp2.1\MyCatalogMicroservice.runtimeconfig.dev.json
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\bin\Debug\netcoreapp2.1\MyCatalogMicroservice.dll
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\obj\Debug\netcoreapp2.1\MyCatalogMicroservice.csprojAssemblyReference.cache
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\obj\Debug\netcoreapp2.1\MyCatalogMicroservice.csproj.CoreCompileInputs.cache
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\obj\Debug\netcoreapp2.1\MyCatalogMicroservice.RazorAssemblyInfo.cache
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\obj\Debug\netcoreapp2.1\MyCatalogMicroservice.RazorAssemblyInfo.cs
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\obj\Debug\netcoreapp2.1\MyCatalogMicroservice.AssemblyInfoInputs.cache
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\obj\Debug\netcoreapp2.1\MyCatalogMicroservice.AssemblyInfo.cs
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\obj\Debug\netcoreapp2.1\MyCatalogMicroservice.RazorTargetAssemblyInfo.cache
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\bin\Debug\netcoreapp2.1\MyCatalogMicroservice.pdb
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\obj\Debug\netcoreapp2.1\MyCatalogMicroservice.dll
+C:\Users\youlinchen\Desktop\MySample\Microservices\MyCatalogMicroservice\MyCatalogMicroservice\obj\Debug\netcoreapp2.1\MyCatalogMicroservice.pdb

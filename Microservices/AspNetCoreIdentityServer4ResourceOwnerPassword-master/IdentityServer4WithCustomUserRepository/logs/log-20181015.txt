@@ -1,0 +1,478 @@
+2018-10-15 18:51:18.938 +08:00 [Information] Starting web host
+2018-10-15 18:51:20.773 +08:00 [Information] User profile is available. Using '"C:\Users\youlinchen\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-10-15 18:51:20.833 +08:00 [Information] Creating key {7a5e5030-64e4-48c2-9096-275713e13683} with creation date 2018-10-15 10:51:20Z, activation date 2018-10-17 09:13:45Z, and expiration date 2019-01-13 10:51:20Z.
+2018-10-15 18:51:20.851 +08:00 [Information] Writing data to file '"C:\Users\youlinchen\AppData\Local\ASP.NET\DataProtection-Keys\key-7a5e5030-64e4-48c2-9096-275713e13683.xml"'.
+2018-10-15 18:51:20.945 +08:00 [Information] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2018-10-15 18:51:20.952 +08:00 [Debug] Using "idsrv" as default scheme for authentication
+2018-10-15 18:51:20.952 +08:00 [Debug] Using "idsrv" as default scheme for sign-in
+2018-10-15 18:51:20.952 +08:00 [Debug] Using "idsrv" as default scheme for sign-out
+2018-10-15 18:51:20.952 +08:00 [Debug] Using "idsrv" as default scheme for challenge
+2018-10-15 18:51:20.952 +08:00 [Debug] Using "idsrv" as default scheme for forbid
+2018-10-15 18:52:26.722 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44318/.well-known/openid-configuration  
+2018-10-15 18:52:26.826 +08:00 [Debug] Request path "/.well-known/openid-configuration" matched to endpoint type "Discovery"
+2018-10-15 18:52:26.831 +08:00 [Debug] Endpoint enabled: "Discovery", successfully created handler: "IdentityServer4.Endpoints.DiscoveryEndpoint"
+2018-10-15 18:52:26.831 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.DiscoveryEndpoint" for "/.well-known/openid-configuration"
+2018-10-15 18:52:26.834 +08:00 [Debug] Start discovery request
+2018-10-15 18:52:26.940 +08:00 [Information] Request finished in 219.1331ms 200 application/json; charset=UTF-8
+2018-10-15 18:52:27.019 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44318/.well-known/openid-configuration/jwks  
+2018-10-15 18:52:27.020 +08:00 [Debug] Request path "/.well-known/openid-configuration/jwks" matched to endpoint type "Discovery"
+2018-10-15 18:52:27.020 +08:00 [Debug] Endpoint enabled: "Discovery", successfully created handler: "IdentityServer4.Endpoints.DiscoveryKeyEndpoint"
+2018-10-15 18:52:27.020 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.DiscoveryKeyEndpoint" for "/.well-known/openid-configuration/jwks"
+2018-10-15 18:52:27.028 +08:00 [Debug] Start key discovery request
+2018-10-15 18:52:27.058 +08:00 [Information] Request finished in 39.0133ms 200 application/json; charset=UTF-8
+2018-10-15 18:52:27.336 +08:00 [Information] Request starting HTTP/1.1 POST https://localhost:44318/connect/token application/x-www-form-urlencoded 108
+2018-10-15 18:52:27.336 +08:00 [Debug] Request path "/connect/token" matched to endpoint type "Token"
+2018-10-15 18:52:27.340 +08:00 [Debug] Endpoint enabled: "Token", successfully created handler: "IdentityServer4.Endpoints.TokenEndpoint"
+2018-10-15 18:52:27.340 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.TokenEndpoint" for "/connect/token"
+2018-10-15 18:52:27.347 +08:00 [Debug] Start token request.
+2018-10-15 18:52:27.353 +08:00 [Debug] Start client validation
+2018-10-15 18:52:27.358 +08:00 [Debug] Start parsing Basic Authentication secret
+2018-10-15 18:52:27.358 +08:00 [Debug] Parser found secret: "BasicAuthenticationSecretParser"
+2018-10-15 18:52:27.358 +08:00 [Debug] Secret id found: "resourceownerclient"
+2018-10-15 18:52:27.365 +08:00 [Debug] client configuration validation for client "resourceownerclient" succeeded.
+2018-10-15 18:52:27.372 +08:00 [Debug] Secret validator success: "HashedSharedSecretValidator"
+2018-10-15 18:52:27.372 +08:00 [Debug] Client validation success
+2018-10-15 18:52:27.386 +08:00 [Information] {
+  "Name": "Client Authentication Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1010,
+  "ClientId": "resourceownerclient",
+  "AuthenticationMethod": "SharedSecret",
+  "ActivityId": "0HLHIHH5PFJFQ:00000001",
+  "TimeStamp": "2018-10-15T10:52:27Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:52:27.409 +08:00 [Debug] Start token request validation
+2018-10-15 18:52:27.420 +08:00 [Debug] Start resource owner password token request validation
+2018-10-15 18:52:27.458 +08:00 [Information] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "damienbod",
+  "SubjectId": "123",
+  "Endpoint": "Token",
+  "ActivityId": "0HLHIHH5PFJFQ:00000001",
+  "TimeStamp": "2018-10-15T10:52:27Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:52:27.458 +08:00 [Debug] Resource owner password token request validation success.
+2018-10-15 18:52:27.467 +08:00 [Information] Token request validation success
+"{
+  \"ClientId\": \"resourceownerclient\",
+  \"GrantType\": \"password\",
+  \"Scopes\": \"dataEventRecords email offline_access openid\",
+  \"UserName\": \"damienbod\",
+  \"Raw\": {
+    \"grant_type\": \"password\",
+    \"username\": \"damienbod\",
+    \"password\": \"***REDACTED***\",
+    \"scope\": \"email openid dataEventRecords offline_access\"
+  }
+}"
+2018-10-15 18:52:27.487 +08:00 [Debug] Getting claims for access token for client: "resourceownerclient"
+2018-10-15 18:52:27.487 +08:00 [Debug] Getting claims for access token for subject: "123"
+2018-10-15 18:52:27.496 +08:00 [Debug] Get profile called for subject "123" from client "resourceownerclient" with claim types ["role", "admin", "user", "dataEventRecords", "dataEventRecords.admin", "dataEventRecords.user"] via "ClaimsProviderAccessToken"
+2018-10-15 18:52:27.555 +08:00 [Debug] Creating refresh token
+2018-10-15 18:52:27.555 +08:00 [Debug] Setting an absolute lifetime: 2592000
+2018-10-15 18:52:27.582 +08:00 [Information] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "resourceownerclient",
+  "Endpoint": "Token",
+  "SubjectId": "123",
+  "Scopes": "email openid dataEventRecords offline_access",
+  "GrantType": "password",
+  "Tokens": [
+    {
+      "TokenType": "refresh_token",
+      "TokenValue": "****228c"
+    },
+    {
+      "TokenType": "access_token",
+      "TokenValue": "****k-pw"
+    }
+  ],
+  "ActivityId": "0HLHIHH5PFJFQ:00000001",
+  "TimeStamp": "2018-10-15T10:52:27Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:52:27.584 +08:00 [Debug] Token request success.
+2018-10-15 18:52:27.588 +08:00 [Information] Request finished in 252.1668ms 200 application/json; charset=UTF-8
+2018-10-15 18:53:21.093 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44318/.well-known/openid-configuration  
+2018-10-15 18:53:21.094 +08:00 [Debug] Request path "/.well-known/openid-configuration" matched to endpoint type "Discovery"
+2018-10-15 18:53:21.094 +08:00 [Debug] Endpoint enabled: "Discovery", successfully created handler: "IdentityServer4.Endpoints.DiscoveryEndpoint"
+2018-10-15 18:53:21.094 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.DiscoveryEndpoint" for "/.well-known/openid-configuration"
+2018-10-15 18:53:21.094 +08:00 [Debug] Start discovery request
+2018-10-15 18:53:21.095 +08:00 [Information] Request finished in 1.1366ms 200 application/json; charset=UTF-8
+2018-10-15 18:53:21.102 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44318/.well-known/openid-configuration/jwks  
+2018-10-15 18:53:21.102 +08:00 [Debug] Request path "/.well-known/openid-configuration/jwks" matched to endpoint type "Discovery"
+2018-10-15 18:53:21.102 +08:00 [Debug] Endpoint enabled: "Discovery", successfully created handler: "IdentityServer4.Endpoints.DiscoveryKeyEndpoint"
+2018-10-15 18:53:21.102 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.DiscoveryKeyEndpoint" for "/.well-known/openid-configuration/jwks"
+2018-10-15 18:53:21.102 +08:00 [Debug] Start key discovery request
+2018-10-15 18:53:21.102 +08:00 [Information] Request finished in 0.8857ms 200 application/json; charset=UTF-8
+2018-10-15 18:53:51.412 +08:00 [Information] Request starting HTTP/1.1 POST https://localhost:44318/connect/token application/x-www-form-urlencoded 108
+2018-10-15 18:53:51.412 +08:00 [Debug] Request path "/connect/token" matched to endpoint type "Token"
+2018-10-15 18:53:51.412 +08:00 [Debug] Endpoint enabled: "Token", successfully created handler: "IdentityServer4.Endpoints.TokenEndpoint"
+2018-10-15 18:53:51.412 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.TokenEndpoint" for "/connect/token"
+2018-10-15 18:53:51.412 +08:00 [Debug] Start token request.
+2018-10-15 18:53:51.412 +08:00 [Debug] Start client validation
+2018-10-15 18:53:51.412 +08:00 [Debug] Start parsing Basic Authentication secret
+2018-10-15 18:53:51.412 +08:00 [Debug] Parser found secret: "BasicAuthenticationSecretParser"
+2018-10-15 18:53:51.412 +08:00 [Debug] Secret id found: "resourceownerclient"
+2018-10-15 18:53:51.412 +08:00 [Debug] client configuration validation for client "resourceownerclient" succeeded.
+2018-10-15 18:53:51.413 +08:00 [Debug] Secret validator success: "HashedSharedSecretValidator"
+2018-10-15 18:53:51.413 +08:00 [Debug] Client validation success
+2018-10-15 18:53:51.413 +08:00 [Information] {
+  "Name": "Client Authentication Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1010,
+  "ClientId": "resourceownerclient",
+  "AuthenticationMethod": "SharedSecret",
+  "ActivityId": "0HLHIHH5PFJFS:00000001",
+  "TimeStamp": "2018-10-15T10:53:51Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:53:51.413 +08:00 [Debug] Start token request validation
+2018-10-15 18:53:51.413 +08:00 [Debug] Start resource owner password token request validation
+2018-10-15 18:53:51.413 +08:00 [Information] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "damienbod",
+  "SubjectId": "123",
+  "Endpoint": "Token",
+  "ActivityId": "0HLHIHH5PFJFS:00000001",
+  "TimeStamp": "2018-10-15T10:53:51Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:53:51.413 +08:00 [Debug] Resource owner password token request validation success.
+2018-10-15 18:53:51.413 +08:00 [Information] Token request validation success
+"{
+  \"ClientId\": \"resourceownerclient\",
+  \"GrantType\": \"password\",
+  \"Scopes\": \"dataEventRecords email offline_access openid\",
+  \"UserName\": \"damienbod\",
+  \"Raw\": {
+    \"grant_type\": \"password\",
+    \"username\": \"damienbod\",
+    \"password\": \"***REDACTED***\",
+    \"scope\": \"email openid dataEventRecords offline_access\"
+  }
+}"
+2018-10-15 18:53:51.413 +08:00 [Debug] Getting claims for access token for client: "resourceownerclient"
+2018-10-15 18:53:51.414 +08:00 [Debug] Getting claims for access token for subject: "123"
+2018-10-15 18:53:51.414 +08:00 [Debug] Get profile called for subject "123" from client "resourceownerclient" with claim types ["role", "admin", "user", "dataEventRecords", "dataEventRecords.admin", "dataEventRecords.user"] via "ClaimsProviderAccessToken"
+2018-10-15 18:53:51.416 +08:00 [Debug] Creating refresh token
+2018-10-15 18:53:51.416 +08:00 [Debug] Setting an absolute lifetime: 2592000
+2018-10-15 18:53:51.424 +08:00 [Information] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "resourceownerclient",
+  "Endpoint": "Token",
+  "SubjectId": "123",
+  "Scopes": "email openid dataEventRecords offline_access",
+  "GrantType": "password",
+  "Tokens": [
+    {
+      "TokenType": "refresh_token",
+      "TokenValue": "****a9dc"
+    },
+    {
+      "TokenType": "access_token",
+      "TokenValue": "****M9AQ"
+    }
+  ],
+  "ActivityId": "0HLHIHH5PFJFS:00000001",
+  "TimeStamp": "2018-10-15T10:53:51Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:53:51.424 +08:00 [Debug] Token request success.
+2018-10-15 18:53:51.424 +08:00 [Information] Request finished in 12.4474ms 200 application/json; charset=UTF-8
+2018-10-15 18:56:02.186 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44318/.well-known/openid-configuration  
+2018-10-15 18:56:02.186 +08:00 [Debug] Request path "/.well-known/openid-configuration" matched to endpoint type "Discovery"
+2018-10-15 18:56:02.186 +08:00 [Debug] Endpoint enabled: "Discovery", successfully created handler: "IdentityServer4.Endpoints.DiscoveryEndpoint"
+2018-10-15 18:56:02.186 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.DiscoveryEndpoint" for "/.well-known/openid-configuration"
+2018-10-15 18:56:02.186 +08:00 [Debug] Start discovery request
+2018-10-15 18:56:02.187 +08:00 [Information] Request finished in 0.8148ms 200 application/json; charset=UTF-8
+2018-10-15 18:56:02.273 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44318/.well-known/openid-configuration/jwks  
+2018-10-15 18:56:02.273 +08:00 [Debug] Request path "/.well-known/openid-configuration/jwks" matched to endpoint type "Discovery"
+2018-10-15 18:56:02.273 +08:00 [Debug] Endpoint enabled: "Discovery", successfully created handler: "IdentityServer4.Endpoints.DiscoveryKeyEndpoint"
+2018-10-15 18:56:02.273 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.DiscoveryKeyEndpoint" for "/.well-known/openid-configuration/jwks"
+2018-10-15 18:56:02.273 +08:00 [Debug] Start key discovery request
+2018-10-15 18:56:02.274 +08:00 [Information] Request finished in 0.6299ms 200 application/json; charset=UTF-8
+2018-10-15 18:56:02.548 +08:00 [Information] Request starting HTTP/1.1 POST https://localhost:44318/connect/token application/x-www-form-urlencoded 108
+2018-10-15 18:56:02.548 +08:00 [Debug] Request path "/connect/token" matched to endpoint type "Token"
+2018-10-15 18:56:02.548 +08:00 [Debug] Endpoint enabled: "Token", successfully created handler: "IdentityServer4.Endpoints.TokenEndpoint"
+2018-10-15 18:56:02.548 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.TokenEndpoint" for "/connect/token"
+2018-10-15 18:56:02.548 +08:00 [Debug] Start token request.
+2018-10-15 18:56:02.548 +08:00 [Debug] Start client validation
+2018-10-15 18:56:02.548 +08:00 [Debug] Start parsing Basic Authentication secret
+2018-10-15 18:56:02.549 +08:00 [Debug] Parser found secret: "BasicAuthenticationSecretParser"
+2018-10-15 18:56:02.549 +08:00 [Debug] Secret id found: "resourceownerclient"
+2018-10-15 18:56:02.549 +08:00 [Debug] client configuration validation for client "resourceownerclient" succeeded.
+2018-10-15 18:56:02.549 +08:00 [Debug] Secret validator success: "HashedSharedSecretValidator"
+2018-10-15 18:56:02.549 +08:00 [Debug] Client validation success
+2018-10-15 18:56:02.549 +08:00 [Information] {
+  "Name": "Client Authentication Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1010,
+  "ClientId": "resourceownerclient",
+  "AuthenticationMethod": "SharedSecret",
+  "ActivityId": "0HLHIHH5PFJFU:00000001",
+  "TimeStamp": "2018-10-15T10:56:02Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:56:02.549 +08:00 [Debug] Start token request validation
+2018-10-15 18:56:02.549 +08:00 [Debug] Start resource owner password token request validation
+2018-10-15 18:56:02.549 +08:00 [Information] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "damienbod",
+  "SubjectId": "123",
+  "Endpoint": "Token",
+  "ActivityId": "0HLHIHH5PFJFU:00000001",
+  "TimeStamp": "2018-10-15T10:56:02Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:56:02.549 +08:00 [Debug] Resource owner password token request validation success.
+2018-10-15 18:56:02.549 +08:00 [Information] Token request validation success
+"{
+  \"ClientId\": \"resourceownerclient\",
+  \"GrantType\": \"password\",
+  \"Scopes\": \"dataEventRecords email offline_access openid\",
+  \"UserName\": \"damienbod\",
+  \"Raw\": {
+    \"grant_type\": \"password\",
+    \"username\": \"damienbod\",
+    \"password\": \"***REDACTED***\",
+    \"scope\": \"email openid dataEventRecords offline_access\"
+  }
+}"
+2018-10-15 18:56:02.549 +08:00 [Debug] Getting claims for access token for client: "resourceownerclient"
+2018-10-15 18:56:02.549 +08:00 [Debug] Getting claims for access token for subject: "123"
+2018-10-15 18:56:02.550 +08:00 [Debug] Get profile called for subject "123" from client "resourceownerclient" with claim types ["role", "admin", "user", "dataEventRecords", "dataEventRecords.admin", "dataEventRecords.user"] via "ClaimsProviderAccessToken"
+2018-10-15 18:56:02.552 +08:00 [Debug] Creating refresh token
+2018-10-15 18:56:02.552 +08:00 [Debug] Setting an absolute lifetime: 2592000
+2018-10-15 18:56:02.562 +08:00 [Information] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "resourceownerclient",
+  "Endpoint": "Token",
+  "SubjectId": "123",
+  "Scopes": "email openid dataEventRecords offline_access",
+  "GrantType": "password",
+  "Tokens": [
+    {
+      "TokenType": "refresh_token",
+      "TokenValue": "****ba18"
+    },
+    {
+      "TokenType": "access_token",
+      "TokenValue": "****4xMA"
+    }
+  ],
+  "ActivityId": "0HLHIHH5PFJFU:00000001",
+  "TimeStamp": "2018-10-15T10:56:02Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:56:02.562 +08:00 [Debug] Token request success.
+2018-10-15 18:56:02.563 +08:00 [Information] Request finished in 14.5841ms 200 application/json; charset=UTF-8
+2018-10-15 18:56:15.900 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44318/.well-known/openid-configuration  
+2018-10-15 18:56:15.900 +08:00 [Debug] Request path "/.well-known/openid-configuration" matched to endpoint type "Discovery"
+2018-10-15 18:56:15.900 +08:00 [Debug] Endpoint enabled: "Discovery", successfully created handler: "IdentityServer4.Endpoints.DiscoveryEndpoint"
+2018-10-15 18:56:15.900 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.DiscoveryEndpoint" for "/.well-known/openid-configuration"
+2018-10-15 18:56:15.900 +08:00 [Debug] Start discovery request
+2018-10-15 18:56:15.901 +08:00 [Information] Request finished in 0.6104ms 200 application/json; charset=UTF-8
+2018-10-15 18:56:15.969 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44318/.well-known/openid-configuration/jwks  
+2018-10-15 18:56:15.969 +08:00 [Debug] Request path "/.well-known/openid-configuration/jwks" matched to endpoint type "Discovery"
+2018-10-15 18:56:15.969 +08:00 [Debug] Endpoint enabled: "Discovery", successfully created handler: "IdentityServer4.Endpoints.DiscoveryKeyEndpoint"
+2018-10-15 18:56:15.969 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.DiscoveryKeyEndpoint" for "/.well-known/openid-configuration/jwks"
+2018-10-15 18:56:15.969 +08:00 [Debug] Start key discovery request
+2018-10-15 18:56:15.969 +08:00 [Information] Request finished in 0.6021ms 200 application/json; charset=UTF-8
+2018-10-15 18:56:57.025 +08:00 [Information] Request starting HTTP/1.1 POST https://localhost:44318/connect/token application/x-www-form-urlencoded 103
+2018-10-15 18:56:57.025 +08:00 [Debug] Request path "/connect/token" matched to endpoint type "Token"
+2018-10-15 18:56:57.026 +08:00 [Debug] Endpoint enabled: "Token", successfully created handler: "IdentityServer4.Endpoints.TokenEndpoint"
+2018-10-15 18:56:57.026 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.TokenEndpoint" for "/connect/token"
+2018-10-15 18:56:57.026 +08:00 [Debug] Start token request.
+2018-10-15 18:56:57.026 +08:00 [Debug] Start client validation
+2018-10-15 18:56:57.026 +08:00 [Debug] Start parsing Basic Authentication secret
+2018-10-15 18:56:57.026 +08:00 [Debug] Parser found secret: "BasicAuthenticationSecretParser"
+2018-10-15 18:56:57.026 +08:00 [Debug] Secret id found: "resourceownerclient"
+2018-10-15 18:56:57.026 +08:00 [Debug] client configuration validation for client "resourceownerclient" succeeded.
+2018-10-15 18:56:57.026 +08:00 [Debug] Secret validator success: "HashedSharedSecretValidator"
+2018-10-15 18:56:57.026 +08:00 [Debug] Client validation success
+2018-10-15 18:56:57.026 +08:00 [Information] {
+  "Name": "Client Authentication Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1010,
+  "ClientId": "resourceownerclient",
+  "AuthenticationMethod": "SharedSecret",
+  "ActivityId": "0HLHIHH5PFJFU:00000002",
+  "TimeStamp": "2018-10-15T10:56:57Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:56:57.026 +08:00 [Debug] Start token request validation
+2018-10-15 18:56:57.032 +08:00 [Debug] Start validation of refresh token request
+2018-10-15 18:56:57.074 +08:00 [Debug] Token validation success
+"{
+  \"ClientId\": \"resourceownerclient\",
+  \"ValidateLifetime\": false,
+  \"Claims\": {
+    \"sub\": \"123\",
+    \"client_id\": \"resourceownerclient\",
+    \"scope\": [
+      \"email\",
+      \"openid\",
+      \"dataEventRecords\",
+      \"offline_access\"
+    ],
+    \"auth_time\": 1539600962,
+    \"idp\": \"local\",
+    \"amr\": \"pwd\",
+    \"role\": [
+      \"dataEventRecords.admin\",
+      \"dataEventRecords.user\"
+    ],
+    \"username\": \"damienbod\",
+    \"email\": \"damienbod@email.ch\"
+  }
+}"
+2018-10-15 18:56:57.074 +08:00 [Debug] Validation of refresh token request success
+2018-10-15 18:56:57.074 +08:00 [Information] Token request validation success
+"{
+  \"ClientId\": \"resourceownerclient\",
+  \"GrantType\": \"refresh_token\",
+  \"RefreshToken\": \"141829e3928494dc4286cc22f04e79d3185157eb5d8b2ca369fd4e7f3b76ba18\",
+  \"Raw\": {
+    \"grant_type\": \"refresh_token\",
+    \"refresh_token\": \"141829e3928494dc4286cc22f04e79d3185157eb5d8b2ca369fd4e7f3b76ba18\"
+  }
+}"
+2018-10-15 18:56:57.080 +08:00 [Debug] Getting claims for access token for client: "resourceownerclient"
+2018-10-15 18:56:57.080 +08:00 [Debug] Getting claims for access token for subject: "123"
+2018-10-15 18:56:57.081 +08:00 [Debug] Get profile called for subject "123" from client "resourceownerclient" with claim types ["role", "admin", "user", "dataEventRecords", "dataEventRecords.admin", "dataEventRecords.user"] via "ClaimsProviderAccessToken"
+2018-10-15 18:56:57.088 +08:00 [Debug] Updating refresh token
+2018-10-15 18:56:57.088 +08:00 [Debug] Token usage is one-time only. Generating new handle
+2018-10-15 18:56:57.099 +08:00 [Debug] Created refresh token in store
+2018-10-15 18:56:57.109 +08:00 [Debug] Getting claims for identity token for subject: "123" and client: "resourceownerclient"
+2018-10-15 18:56:57.109 +08:00 [Debug] In addition to an id_token, an access_token was requested. No claims other than sub are included in the id_token. To obtain more user claims, either use the user info endpoint or set AlwaysIncludeUserClaimsInIdToken on the client configuration.
+2018-10-15 18:56:57.111 +08:00 [Information] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "resourceownerclient",
+  "Endpoint": "Token",
+  "SubjectId": "123",
+  "Scopes": "email openid dataEventRecords offline_access",
+  "GrantType": "refresh_token",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****DcQg"
+    },
+    {
+      "TokenType": "refresh_token",
+      "TokenValue": "****c222"
+    },
+    {
+      "TokenType": "access_token",
+      "TokenValue": "****fmAQ"
+    }
+  ],
+  "ActivityId": "0HLHIHH5PFJFU:00000002",
+  "TimeStamp": "2018-10-15T10:56:57Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:56:57.111 +08:00 [Debug] Token request success.
+2018-10-15 18:56:57.111 +08:00 [Information] Request finished in 86.513ms 200 application/json; charset=UTF-8
+2018-10-15 18:57:07.587 +08:00 [Information] Request starting HTTP/1.1 POST https://localhost:44318/connect/token application/x-www-form-urlencoded 103
+2018-10-15 18:57:07.587 +08:00 [Debug] Request path "/connect/token" matched to endpoint type "Token"
+2018-10-15 18:57:07.587 +08:00 [Debug] Endpoint enabled: "Token", successfully created handler: "IdentityServer4.Endpoints.TokenEndpoint"
+2018-10-15 18:57:07.587 +08:00 [Information] Invoking IdentityServer endpoint: "IdentityServer4.Endpoints.TokenEndpoint" for "/connect/token"
+2018-10-15 18:57:07.587 +08:00 [Debug] Start token request.
+2018-10-15 18:57:07.587 +08:00 [Debug] Start client validation
+2018-10-15 18:57:07.587 +08:00 [Debug] Start parsing Basic Authentication secret
+2018-10-15 18:57:07.587 +08:00 [Debug] Parser found secret: "BasicAuthenticationSecretParser"
+2018-10-15 18:57:07.587 +08:00 [Debug] Secret id found: "resourceownerclient"
+2018-10-15 18:57:07.587 +08:00 [Debug] client configuration validation for client "resourceownerclient" succeeded.
+2018-10-15 18:57:07.587 +08:00 [Debug] Secret validator success: "HashedSharedSecretValidator"
+2018-10-15 18:57:07.587 +08:00 [Debug] Client validation success
+2018-10-15 18:57:07.587 +08:00 [Information] {
+  "Name": "Client Authentication Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1010,
+  "ClientId": "resourceownerclient",
+  "AuthenticationMethod": "SharedSecret",
+  "ActivityId": "0HLHIHH5PFJFU:00000003",
+  "TimeStamp": "2018-10-15T10:57:07Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:57:07.587 +08:00 [Debug] Start token request validation
+2018-10-15 18:57:07.587 +08:00 [Debug] Start validation of refresh token request
+2018-10-15 18:57:07.588 +08:00 [Debug] "refresh_token" grant with value: "141829e3928494dc4286cc22f04e79d3185157eb5d8b2ca369fd4e7f3b76ba18" not found in store.
+2018-10-15 18:57:07.588 +08:00 [Error] Invalid refresh token
+2018-10-15 18:57:07.589 +08:00 [Error] Refresh token validation failed. aborting.
+2018-10-15 18:57:07.589 +08:00 [Error] "{
+  \"ClientId\": \"resourceownerclient\",
+  \"GrantType\": \"refresh_token\",
+  \"Raw\": {
+    \"grant_type\": \"refresh_token\",
+    \"refresh_token\": \"141829e3928494dc4286cc22f04e79d3185157eb5d8b2ca369fd4e7f3b76ba18\"
+  }
+}"
+2018-10-15 18:57:07.595 +08:00 [Information] {
+  "Name": "Token Issued Failure",
+  "Category": "Token",
+  "EventType": "Failure",
+  "Id": 2001,
+  "ClientId": "resourceownerclient",
+  "Endpoint": "Token",
+  "GrantType": "refresh_token",
+  "Error": "invalid_grant",
+  "ActivityId": "0HLHIHH5PFJFU:00000003",
+  "TimeStamp": "2018-10-15T10:57:07Z",
+  "ProcessId": 19572,
+  "LocalIpAddress": "::1:44318",
+  "RemoteIpAddress": "::1"
+}
+2018-10-15 18:57:07.599 +08:00 [Information] Request finished in 12.8167ms 400 application/json; charset=UTF-8

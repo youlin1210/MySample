@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Divergent.ITOps.Interfaces\Divergent.ITOps.Interfaces.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(TargetDir)Divergent.Customers.Data.dll" "$(SolutionDir)Divergent.ITOps\Providers\Divergent.Customers.Data.dll"</PostBuildEvent>
+  </PropertyGroup>
+
+</Project>

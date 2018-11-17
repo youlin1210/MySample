@@ -1,0 +1,11 @@
+C:\Users\youlinchen\Desktop\MySample\Microservices\OcelotApiGw\OcelotApiGw\obj\Debug\netcoreapp2.1\OcelotApiGw.csproj.CoreCompileInputs.cache
+C:\Users\youlinchen\Desktop\MySample\Microservices\OcelotApiGw\OcelotApiGw\bin\Debug\netcoreapp2.1\OcelotApiGw.deps.json
+C:\Users\youlinchen\Desktop\MySample\Microservices\OcelotApiGw\OcelotApiGw\bin\Debug\netcoreapp2.1\OcelotApiGw.runtimeconfig.json
+C:\Users\youlinchen\Desktop\MySample\Microservices\OcelotApiGw\OcelotApiGw\bin\Debug\netcoreapp2.1\OcelotApiGw.runtimeconfig.dev.json
+C:\Users\youlinchen\Desktop\MySample\Microservices\OcelotApiGw\OcelotApiGw\bin\Debug\netcoreapp2.1\OcelotApiGw.dll
+C:\Users\youlinchen\Desktop\MySample\Microservices\OcelotApiGw\OcelotApiGw\obj\Debug\netcoreapp2.1\OcelotApiGw.csprojAssemblyReference.cache
+C:\Users\youlinchen\Desktop\MySample\Microservices\OcelotApiGw\OcelotApiGw\obj\Debug\netcoreapp2.1\OcelotApiGw.RazorAssemblyInfo.cache
+C:\Users\youlinchen\Desktop\MySample\Microservices\OcelotApiGw\OcelotApiGw\obj\Debug\netcoreapp2.1\OcelotApiGw.RazorAssemblyInfo.cs
+C:\Users\youlinchen\Desktop\MySample\Microservices\OcelotApiGw\OcelotApiGw\obj\Debug\netcoreapp2.1\OcelotApiGw.AssemblyInfoInputs.cache
+C:\Users\youlinchen\Desktop\MySample\Microservices\OcelotApiGw\OcelotApiGw\obj\Debug\netcoreapp2.1\OcelotApiGw.AssemblyInfo.cs
+C:\Users\youlinchen\Desktop\MySample\Microservices\OcelotApiGw\OcelotApiGw\obj\Debug\netcoreapp2.1\OcelotApiGw.RazorTargetAssemblyInfo.cache

@@ -1,0 +1,96 @@
+2018-10-15 18:51:55.705 +08:00 [Information] Starting web host
+2018-10-15 18:56:15.714 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44365/api/DataEventRecords  
+2018-10-15 18:56:16.013 +08:00 [Information] Successfully validated the token.
+2018-10-15 18:56:16.018 +08:00 [Debug] AuthenticationScheme: "Bearer" was successfully authenticated.
+2018-10-15 18:56:16.416 +08:00 [Information] Route matched with "{action = \"Get\", controller = \"DataEventRecords\"}". Executing action "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)"
+2018-10-15 18:56:16.427 +08:00 [Information] Authorization was successful.
+2018-10-15 18:56:16.439 +08:00 [Information] Executing action method "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)" - Validation state: Valid
+2018-10-15 18:56:16.440 +08:00 [Fatal] Getting a the existing records
+2018-10-15 18:56:16.447 +08:00 [Information] Entity Framework Core "2.1.4-rtm-31024" initialized '"DataEventRecordContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None"
+2018-10-15 18:56:16.466 +08:00 [Information] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;"
+2018-10-15 18:56:16.467 +08:00 [Information] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"d\".\"Id\", \"d\".\"Description\", \"d\".\"Name\", \"d\".\"Timestamp\"
+FROM \"DataEventRecords\" AS \"d\""
+2018-10-15 18:56:16.544 +08:00 [Information] Executed action method "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 101.9382ms.
+2018-10-15 18:56:16.552 +08:00 [Information] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[AspNet5SQLite.Model.DataEventRecord, AspNetCoreResourceServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2018-10-15 18:56:16.570 +08:00 [Information] Executed action "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)" in 150.296ms
+2018-10-15 18:56:16.580 +08:00 [Information] Request finished in 868.353ms 200 application/json; charset=utf-8
+2018-10-15 18:56:45.189 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44365/api/DataEventRecords  
+2018-10-15 18:56:45.190 +08:00 [Information] Successfully validated the token.
+2018-10-15 18:56:45.190 +08:00 [Debug] AuthenticationScheme: "Bearer" was successfully authenticated.
+2018-10-15 18:56:45.190 +08:00 [Information] Route matched with "{action = \"Get\", controller = \"DataEventRecords\"}". Executing action "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)"
+2018-10-15 18:56:45.190 +08:00 [Information] Authorization was successful.
+2018-10-15 18:56:45.191 +08:00 [Information] Executing action method "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)" - Validation state: Valid
+2018-10-15 18:56:45.191 +08:00 [Fatal] Getting a the existing records
+2018-10-15 18:56:45.191 +08:00 [Information] Entity Framework Core "2.1.4-rtm-31024" initialized '"DataEventRecordContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None"
+2018-10-15 18:56:45.196 +08:00 [Information] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;"
+2018-10-15 18:56:45.196 +08:00 [Information] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"d\".\"Id\", \"d\".\"Description\", \"d\".\"Name\", \"d\".\"Timestamp\"
+FROM \"DataEventRecords\" AS \"d\""
+2018-10-15 18:56:45.197 +08:00 [Information] Executed action method "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 6.1795ms.
+2018-10-15 18:56:45.197 +08:00 [Information] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[AspNet5SQLite.Model.DataEventRecord, AspNetCoreResourceServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2018-10-15 18:56:45.198 +08:00 [Information] Executed action "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)" in 7.445ms
+2018-10-15 18:56:45.198 +08:00 [Information] Request finished in 9.1222ms 200 application/json; charset=utf-8
+2018-10-15 18:56:53.081 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44365/api/DataEventRecords  
+2018-10-15 18:56:53.082 +08:00 [Information] Successfully validated the token.
+2018-10-15 18:56:53.082 +08:00 [Debug] AuthenticationScheme: "Bearer" was successfully authenticated.
+2018-10-15 18:56:53.082 +08:00 [Information] Route matched with "{action = \"Get\", controller = \"DataEventRecords\"}". Executing action "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)"
+2018-10-15 18:56:53.082 +08:00 [Information] Authorization was successful.
+2018-10-15 18:56:53.082 +08:00 [Information] Executing action method "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)" - Validation state: Valid
+2018-10-15 18:56:53.082 +08:00 [Fatal] Getting a the existing records
+2018-10-15 18:56:53.083 +08:00 [Information] Entity Framework Core "2.1.4-rtm-31024" initialized '"DataEventRecordContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None"
+2018-10-15 18:56:53.083 +08:00 [Information] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;"
+2018-10-15 18:56:53.084 +08:00 [Information] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"d\".\"Id\", \"d\".\"Description\", \"d\".\"Name\", \"d\".\"Timestamp\"
+FROM \"DataEventRecords\" AS \"d\""
+2018-10-15 18:56:53.084 +08:00 [Information] Executed action method "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 1.691ms.
+2018-10-15 18:56:53.084 +08:00 [Information] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[AspNet5SQLite.Model.DataEventRecord, AspNetCoreResourceServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2018-10-15 18:56:53.084 +08:00 [Information] Executed action "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)" in 2.1447ms
+2018-10-15 18:56:53.084 +08:00 [Information] Request finished in 3.0097ms 200 application/json; charset=utf-8
+2018-10-15 18:56:57.119 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44365/api/DataEventRecords  
+2018-10-15 18:56:57.119 +08:00 [Information] Successfully validated the token.
+2018-10-15 18:56:57.119 +08:00 [Debug] AuthenticationScheme: "Bearer" was successfully authenticated.
+2018-10-15 18:56:57.119 +08:00 [Information] Route matched with "{action = \"Get\", controller = \"DataEventRecords\"}". Executing action "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)"
+2018-10-15 18:56:57.119 +08:00 [Information] Authorization was successful.
+2018-10-15 18:56:57.120 +08:00 [Information] Executing action method "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)" - Validation state: Valid
+2018-10-15 18:56:57.120 +08:00 [Fatal] Getting a the existing records
+2018-10-15 18:56:57.120 +08:00 [Information] Entity Framework Core "2.1.4-rtm-31024" initialized '"DataEventRecordContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None"
+2018-10-15 18:56:57.121 +08:00 [Information] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;"
+2018-10-15 18:56:57.121 +08:00 [Information] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"d\".\"Id\", \"d\".\"Description\", \"d\".\"Name\", \"d\".\"Timestamp\"
+FROM \"DataEventRecords\" AS \"d\""
+2018-10-15 18:56:57.121 +08:00 [Information] Executed action method "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 1.8787ms.
+2018-10-15 18:56:57.122 +08:00 [Information] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[AspNet5SQLite.Model.DataEventRecord, AspNetCoreResourceServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2018-10-15 18:56:57.122 +08:00 [Information] Executed action "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)" in 2.4891ms
+2018-10-15 18:56:57.122 +08:00 [Information] Request finished in 3.3443ms 200 application/json; charset=utf-8
+2018-10-15 18:57:05.187 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44365/api/DataEventRecords  
+2018-10-15 18:57:05.188 +08:00 [Information] Successfully validated the token.
+2018-10-15 18:57:05.188 +08:00 [Debug] AuthenticationScheme: "Bearer" was successfully authenticated.
+2018-10-15 18:57:05.188 +08:00 [Information] Route matched with "{action = \"Get\", controller = \"DataEventRecords\"}". Executing action "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)"
+2018-10-15 18:57:05.188 +08:00 [Information] Authorization was successful.
+2018-10-15 18:57:05.188 +08:00 [Information] Executing action method "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)" - Validation state: Valid
+2018-10-15 18:57:05.188 +08:00 [Fatal] Getting a the existing records
+2018-10-15 18:57:05.188 +08:00 [Information] Entity Framework Core "2.1.4-rtm-31024" initialized '"DataEventRecordContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None"
+2018-10-15 18:57:05.189 +08:00 [Information] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;"
+2018-10-15 18:57:05.191 +08:00 [Information] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"d\".\"Id\", \"d\".\"Description\", \"d\".\"Name\", \"d\".\"Timestamp\"
+FROM \"DataEventRecords\" AS \"d\""
+2018-10-15 18:57:05.191 +08:00 [Information] Executed action method "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 2.7513ms.
+2018-10-15 18:57:05.191 +08:00 [Information] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[AspNet5SQLite.Model.DataEventRecord, AspNetCoreResourceServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2018-10-15 18:57:05.191 +08:00 [Information] Executed action "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)" in 3.4071ms
+2018-10-15 18:57:05.192 +08:00 [Information] Request finished in 4.2471ms 200 application/json; charset=utf-8
+2018-10-15 18:57:07.603 +08:00 [Information] Request starting HTTP/1.1 GET https://localhost:44365/api/DataEventRecords  
+2018-10-15 18:57:07.604 +08:00 [Debug] AuthenticationScheme: "Bearer" was not authenticated.
+2018-10-15 18:57:07.604 +08:00 [Information] Route matched with "{action = \"Get\", controller = \"DataEventRecords\"}". Executing action "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)"
+2018-10-15 18:57:07.604 +08:00 [Information] Authorization failed.
+2018-10-15 18:57:07.607 +08:00 [Information] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'.
+2018-10-15 18:57:07.618 +08:00 [Information] Executing ChallengeResult with authentication schemes ([]).
+2018-10-15 18:57:07.626 +08:00 [Information] AuthenticationScheme: "BearerIdentityServerAuthenticationJwt" was challenged.
+2018-10-15 18:57:07.626 +08:00 [Information] AuthenticationScheme: "Bearer" was challenged.
+2018-10-15 18:57:07.626 +08:00 [Information] Executed action "AspNet5SQLite.Controllers.DataEventRecordsController.Get (AspNetCoreResourceServer)" in 22.6448ms
+2018-10-15 18:57:07.628 +08:00 [Information] Request finished in 24.3823ms 401 

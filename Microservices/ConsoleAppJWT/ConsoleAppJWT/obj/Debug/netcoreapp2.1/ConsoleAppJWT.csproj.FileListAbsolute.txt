@@ -1,0 +1,10 @@
+C:\Users\youlinchen\Desktop\MySample\Microservices\ConsoleAppJWT\ConsoleAppJWT\bin\Debug\netcoreapp2.1\ConsoleAppJWT.deps.json
+C:\Users\youlinchen\Desktop\MySample\Microservices\ConsoleAppJWT\ConsoleAppJWT\bin\Debug\netcoreapp2.1\ConsoleAppJWT.runtimeconfig.json
+C:\Users\youlinchen\Desktop\MySample\Microservices\ConsoleAppJWT\ConsoleAppJWT\bin\Debug\netcoreapp2.1\ConsoleAppJWT.runtimeconfig.dev.json
+C:\Users\youlinchen\Desktop\MySample\Microservices\ConsoleAppJWT\ConsoleAppJWT\bin\Debug\netcoreapp2.1\ConsoleAppJWT.dll
+C:\Users\youlinchen\Desktop\MySample\Microservices\ConsoleAppJWT\ConsoleAppJWT\obj\Debug\netcoreapp2.1\ConsoleAppJWT.csproj.CoreCompileInputs.cache
+C:\Users\youlinchen\Desktop\MySample\Microservices\ConsoleAppJWT\ConsoleAppJWT\obj\Debug\netcoreapp2.1\ConsoleAppJWT.AssemblyInfoInputs.cache
+C:\Users\youlinchen\Desktop\MySample\Microservices\ConsoleAppJWT\ConsoleAppJWT\obj\Debug\netcoreapp2.1\ConsoleAppJWT.AssemblyInfo.cs
+C:\Users\youlinchen\Desktop\MySample\Microservices\ConsoleAppJWT\ConsoleAppJWT\bin\Debug\netcoreapp2.1\ConsoleAppJWT.pdb
+C:\Users\youlinchen\Desktop\MySample\Microservices\ConsoleAppJWT\ConsoleAppJWT\obj\Debug\netcoreapp2.1\ConsoleAppJWT.dll
+C:\Users\youlinchen\Desktop\MySample\Microservices\ConsoleAppJWT\ConsoleAppJWT\obj\Debug\netcoreapp2.1\ConsoleAppJWT.pdb

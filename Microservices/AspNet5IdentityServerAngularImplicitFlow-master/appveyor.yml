@@ -1,0 +1,21 @@
+image: Visual Studio 2017 Preview
+init:
+  - git config --global core.autocrlf true
+environment:
+  nodejs_version: "6"
+install:
+  - ECHO %APPVEYOR_BUILD_WORKER_IMAGE%
+  - ps: Install-Product node $env:nodejs_version
+  - dotnet --version
+  - dotnet restore
+build_script:
+- dotnet build
+- npm -g install npm@latest
+- cd src\AngularClient
+- npm install
+- npm run build-production
+- cd ..\ResourceWithIdentityServerWithClient
+- npm install
+- npm run build-production
+before_build:
+- appveyor-retry dotnet restore -v Minimal
