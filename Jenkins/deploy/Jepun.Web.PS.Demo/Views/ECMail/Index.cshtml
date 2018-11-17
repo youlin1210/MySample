@@ -1,0 +1,29 @@
+﻿@using Jepun.Web.PS.Comm
+@{
+    Layout = null;
+    string body = string.Format(Jepun.Resource.Mail.DefTemplate, "", ServiceHelper.GetParam("LinkUrl"), "{0}");//使用預設樣板        
+}
+<div class="alert alert-info" role="alert">郵件設定</div>
+@using (Html.BeginForm("", "ECMail", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormECMail" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <input type="hidden" name="Mailbody" value="@body" />
+            <div class="form-group">
+                <div><label>原始資料</label></div>
+                <textarea class="form-control" rows="10" readonly >@ServiceHelper.GetParam("MailNews")</textarea>
+            </div>
+            <div class="form-group">
+                <div><label>修改資料</label></div>
+                <textarea class="form-control" name="PreviewData" rows="10" >@ServiceHelper.GetParam("MailNews")</textarea>
+            </div>
+            <div class="text-center" >
+                <button class="btn btn-primary" type="button" name="BtnPreview">預覽</button>
+                <button class="btn btn-primary" type="button" name="BtnSave">存檔</button>
+            </div>
+        </div>
+
+    </div>
+}
+<script src="~/Scripts/Apps/ECMail.js?@ServiceHelper.CacheBusting()"></script>

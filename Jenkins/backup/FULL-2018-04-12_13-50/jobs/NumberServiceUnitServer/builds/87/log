@@ -1,0 +1,65 @@
+由計時器啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitServer
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\Test-pc\git\Jenkins # timeout=10
+Fetching upstream changes from \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\Test-pc\git\Jenkins +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision c7b79fc34e847a02533185091e9dc892ba7c58b6 (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f c7b79fc34e847a02533185091e9dc892ba7c58b6
+Commit message: "add version"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 9c33a17580ff22b6647dbbc3c5c1099682498057 # timeout=10
+[NumberServiceUnitServer] $ cmd /c call C:\WINDOWS\TEMP\jenkins7789472869063467675.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer>echo ....執行 NuGet 還原 
+....執行 NuGet 還原
+
+D:\Jenkins\workspace\NumberServiceUnitServer>echo ....cd D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI 
+....cd D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI
+
+D:\Jenkins\workspace\NumberServiceUnitServer>echo ...."D:\Jenkins\nuget.exe" restore JenkinsCI.sln 
+...."D:\Jenkins\nuget.exe" restore JenkinsCI.sln
+
+D:\Jenkins\workspace\NumberServiceUnitServer>exit 0 
+[NumberServiceUnitServer] $ cmd /c call C:\WINDOWS\TEMP\jenkins6612512728745406777.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer>cd D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib 
+
+D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib>dotnet restore 
+  Restoring packages for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\NumberLib.csproj...
+  Installing StyleCop.MSBuild 5.0.0.
+  Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.props.
+  Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.targets.
+  Restore completed in 2.89 sec for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\NumberLib.csproj.
+
+D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 50.55 ms for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\NumberLib.csproj.
+  NumberLib -> D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+C:\WINDOWS\system32\config\systemprofile\.nuget\packages\stylecop.msbuild\5.0.0\build\StyleCop.MSBuild.targets(101,5): error MSB4062: 無法從組件 C:\WINDOWS\system32\config\systemprofile\.nuget\packages\stylecop.msbuild\5.0.0\build\..\tools\StyleCop.dll 載入 "StyleCopTask" 工作。Could not load file or assembly 'System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'. 系統找不到指定的檔案。 請確認 <UsingTask> 宣告正確、該組件和其所有相依性都可使用，以及該工作包含一個實作 Microsoft.Build.Framework.ITask 的公用類別。 [D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\NumberLib.csproj]
+
+建置失敗。
+
+C:\WINDOWS\system32\config\systemprofile\.nuget\packages\stylecop.msbuild\5.0.0\build\StyleCop.MSBuild.targets(101,5): error MSB4062: 無法從組件 C:\WINDOWS\system32\config\systemprofile\.nuget\packages\stylecop.msbuild\5.0.0\build\..\tools\StyleCop.dll 載入 "StyleCopTask" 工作。Could not load file or assembly 'System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'. 系統找不到指定的檔案。 請確認 <UsingTask> 宣告正確、該組件和其所有相依性都可使用，以及該工作包含一個實作 Microsoft.Build.Framework.ITask 的公用類別。 [D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\NumberLib.csproj]
+    0 個警告
+    1 個錯誤
+
+經過時間 00:00:02.50
+
+D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib>exit 1 
+Build step '執行 Windows 批次指令' marked build as failure
+[MSTEST-PLUGIN] INFO processing test results in file(s) D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\TestResults\JepunTestResult.trx
+[MSTEST-PLUGIN] INFO processing report file: D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\TestResults\JepunTestResult.trx
+[MSTEST-PLUGIN] WARNING Unable to delete the file D:\Jenkins\workspace\NumberServiceUnitServer\temporary-junit-reports
+[MSTEST-PLUGIN] INFO This file is a reserved temporary file. You can delete it safely.
+[MSTEST-PLUGIN] INFO XML coverage report file not found: D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\TestResults\vstest.coveragexml
+
+[MSTEST-PLUGIN] INFO XML coverage report file not found: D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\TestResults\JepunTestResult.coveragexml
+
+Finished: FAILURE

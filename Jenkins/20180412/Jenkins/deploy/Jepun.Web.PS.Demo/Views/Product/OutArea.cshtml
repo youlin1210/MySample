@@ -1,0 +1,31 @@
+﻿@using Jepun.Web.PS.Comm
+@model Jepun.Web.PS.Models.BasePageModel
+@{
+}
+@using (Html.BeginForm("", "OutArea", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormOutArea" }))
+{
+    <div class="container">
+        <div class="row">
+            <section class="content">
+                <div class="container">
+                    <div class="cus-breadcrumb-wrapper">
+                        <ol class="breadcrumb">
+                            <li><a href="~/Home/Index">首頁</a></li>
+                            <li class="active">境外基金</li>
+                        </ol>
+                    </div>
+                    <div class="page-header-wrapper">
+                        <h3 class="title"><span>境外基金</span></h3>
+                        <hr>
+                        <div class="funds-area">
+                            @Html.Raw(Model.Dictionary["FundProduct"])
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/ProductOutArea.js?@ServiceHelper.CacheBusting()"></script>

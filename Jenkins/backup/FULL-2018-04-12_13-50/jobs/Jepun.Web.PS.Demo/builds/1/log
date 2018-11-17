@@ -1,0 +1,28 @@
+¥Ñ¨Ï¥ÎªÌ [8mha:////4E9IgijjWSh0iFjZlKLafM0SZiAtWdbV06BAJlP2qvUsAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyuEgYe/dLi1CL9yvxSoI0AG1rJssEAAAA=[0myoulinchen ±Ò°Ê
+«Ø¸m¤¤ ¤u§@°Ï D:\Jenkins\workspace\Jepun.Web.PS.Demo
+Cloning the remote Git repository
+Cloning repository \\jprd\git\Jepun.FMS.Out
+ > C:\Program Files\Git\bin\git.exe init D:\Jenkins\workspace\Jepun.Web.PS.Demo # timeout=10
+Fetching upstream changes from \\jprd\git\Jepun.FMS.Out
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\jprd\git\Jepun.FMS.Out +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\jprd\git\Jepun.FMS.Out # timeout=10
+ > C:\Program Files\Git\bin\git.exe config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\jprd\git\Jepun.FMS.Out # timeout=10
+Fetching upstream changes from \\jprd\git\Jepun.FMS.Out
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\jprd\git\Jepun.FMS.Out +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe config remote.origin1.url \\jprd\git\Jepun.Web # timeout=10
+Fetching upstream changes from \\jprd\git\Jepun.Web
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\jprd\git\Jepun.Web +refs/heads/*:refs/remotes/origin1/*
+Seen branch in repository origin/master
+Seen branch in repository origin1/master
+Seen 2 remote branches
+ > C:\Program Files\Git\bin\git.exe show-ref --tags -d # timeout=10
+Multiple candidate revisions
+Scheduling another build to catch up with Jepun.Web.PS.Demo
+Checking out Revision 6a8594350288381793c98d23d83e3a90910aa415 (origin1/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f 6a8594350288381793c98d23d83e3a90910aa415
+Commit message: "Add version"
+First time build. Skipping changelog.
+Finished: SUCCESS

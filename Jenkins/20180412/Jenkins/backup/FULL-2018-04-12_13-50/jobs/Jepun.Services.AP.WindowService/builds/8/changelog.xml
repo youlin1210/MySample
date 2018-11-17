@@ -1,0 +1,93 @@
+commit 187eba28a7e2183d3ac999e0b2b6a858d64bd538
+tree c48ec739ab19e0789d7a002798c7fe248faa75e3
+parent 48b567b484c84764beede3ac4c5900af482ecae7
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-28 11:20:24 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-28 11:20:24 +0800
+
+    Add version
+
+
+
+:100644 100644 22c69fb86e7c198513bc61a030fa120bc18e8002 9274366a3123803724a1da1ea896d3a5fd506933 M	Jepun.Web.PS/Controllers/ProductController.cs
+:100644 100644 2de910f439bf9993d0b3ee999a86b92199e2313c aef3c62d90753477f29e6dcd5a1028383e19a5f5 M	Jepun.Web.PS/Scripts/Apps/ProductFundration.js
+:100644 100644 ca9c0f362ce6da9ef194ce36baa6dd487afbfa7f c6713f032e403fb3bbcf42843238fcfff97340c5 M	Jepun.Web.PS/Scripts/Apps/ProductInsideDetail.js
+:100644 100644 40740bad3000fc92aafbdb97fb61186156465cd7 d9d5a282a33cf49c836e2c0b55c7f8876bf99d0b M	Jepun.Web.PS/Scripts/Apps/ProductInsideDistribution.js
+:100644 100644 9a268f4891da2e3976fbbed42f23afe948077c7c fab3aa1ecbd3f0726ae0d69340facd24ef33da28 M	Jepun.Web.PS/Views/Product/fundration.cshtml
+commit 48b567b484c84764beede3ac4c5900af482ecae7
+tree 61e4d554646a5e4506cc0f2e9be52cc81bec02be
+parent abd11d0f63c4dd590b509b9788a851da25a972f0
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-28 09:17:48 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-28 09:17:48 +0800
+
+    add version
+
+
+
+:100644 100644 f82c3e0d84d17472eb99d09054b07e9b16f7a9b4 3587d1ee39beae818c765aa02edbea82e0fe5d19 M	DB/PS/SP/PR_PsFundPerformanceOnlineSel.sql
+:100644 100644 87d2f36ee03e79c23cb87b59e2b14bd84635ebb2 3f18883029d342190513174ed86e4133b539716b M	DB/PS/SP/PR_PsProductFundOnlineSel.sql
+:100644 100644 954515b74828a3c24b8e70b5517e5ef558287661 805eaeff3c10044f031bd27c3cf9b330ab30e6d4 M	DB/PS/SP/PR_TaDistributionForPsSel.sql
+:100644 100644 6e5dbfd9e06a0a9e78ab5d74202d0668010a8e15 3fd64b8ef5db38105172083613108f168e5d0fe8 M	Jepun.Services.AP.Contract/IPortalService.cs
+:100644 100644 eac9ea835eed2341164ddf5d3d44c619e3a81aba ef12d44ed72d4a632af55688e03a2c16da64bdd1 M	Jepun.Services.AP.Repository/PortalService.cs
+:100644 100644 71bb012c82f4b4d53076ce0e45b3c60b9460a986 480bbe5793d44eebe34367ae84522d6cca7e387e M	Jepun.Web.PS/Comm/ServiceHelper.cs
+:100644 100644 94800cf245a37f3a21ef7ec3121382495cde26f1 22c69fb86e7c198513bc61a030fa120bc18e8002 M	Jepun.Web.PS/Controllers/ProductController.cs
+commit abd11d0f63c4dd590b509b9788a851da25a972f0
+tree c457325cfba191e7560d2ddd6b0a24fa2b797552
+parent 8760491b73d1b3bcbb1862d2727dbb0813d9f81c
+author AlexChen <alex568873@gmail.com> 2018-03-27 16:26:05 +0800
+committer AlexChen <alex568873@gmail.com> 2018-03-27 16:26:05 +0800
+
+    ADD VERSION
+
+
+
+:100644 100644 6c93b734dc6e66de581f2b580357bd7779fbf2ee 68c6aaf08abb28b51c3c28595f9fae61856ff569 M	DB/PS/SP/PR_PsFundPerformanceMod.sql
+:100644 100644 8569fac27be99cf367daecf4a2718b1e678fd264 c820d550946204ba098155aa872271110a6724b0 M	DB/PS/SP/PR_PsFundPerformanceSel.sql
+:100644 100644 ea6580f6a78879aa8c624d8a4eb242ee69ccddef 0018a058cc4b28520315e512f7377fa7b30db020 M	DB/PS/SP/PR_PsHoldingWeightCurSel.sql
+:100644 100644 de99b6cc913f956ee5ab798eda90aebb709585b6 51ed4d8f35d24d2ae659f26faf940e789cf068d8 M	DB/PS/SP/PR_PsHoldingWeightSel.sql
+:100644 100644 d269d97b32f5ad9d6073b0d49f12e10aaeffef08 d6ad3f9abafbc23e8a9d1a12897074c9520464db M	DB/PS/SP/PR_PsProductFundMod.sql
+:100644 100644 bad057c65daa8606aba345823dadeed215bf8ec6 114f0c88dbf3e733083392fbcb525ea47add859e M	DB/PS/SP/PR_PsProductFundSel.sql
+commit 8760491b73d1b3bcbb1862d2727dbb0813d9f81c
+tree a30fcd06a500c82c554e324633ae201c89ad9ac6
+parent cfce8e97ccea6100769c47c3b069ef56e0419b9e
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-27 16:14:39 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-27 16:14:39 +0800
+
+    Add version
+
+
+
+:100644 100644 7508d1f11b3f7657b9498c5012d4de05e0b39717 94800cf245a37f3a21ef7ec3121382495cde26f1 M	Jepun.Web.PS/Controllers/ProductController.cs
+:100644 100644 032e33a8d7767667091cd558c9a8bba9bfec53ca 2de910f439bf9993d0b3ee999a86b92199e2313c M	Jepun.Web.PS/Scripts/Apps/ProductFundration.js
+commit cfce8e97ccea6100769c47c3b069ef56e0419b9e
+tree 37a19f91faaff4957ece3cf8345ce056aa265129
+parent bda18357d8f53a54d28b879ac029226d74cc84d7
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-27 15:58:57 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-27 15:58:57 +0800
+
+    Add version
+
+
+
+:100644 100644 1131451af496001f899a5b0ff9ba3643b6348649 10551566cccb13ab35c9823380505b8c25887ed6 M	Jepun.Web.EC/Scripts/Apps/FundMyTransfer.js
+commit bda18357d8f53a54d28b879ac029226d74cc84d7
+tree 3e2a350db6ecd27ee6f2fbef7aa4b33e8615dc89
+parent c087c666f8ed3ca356545838db9f7332b3ffc200
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-27 14:41:15 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-27 14:41:15 +0800
+
+    Add version
+
+
+
+:100644 100644 d151c95097a7258bdac2dd583fbd27f13b16b047 7508d1f11b3f7657b9498c5012d4de05e0b39717 M	Jepun.Web.PS/Controllers/ProductController.cs
+commit c087c666f8ed3ca356545838db9f7332b3ffc200
+tree b042fc8a4c7628e46f86946670c8aa6dd8036f0d
+parent 6b95db00741022e9dee654a774278ed9fb4d1253
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-27 14:24:18 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-27 14:24:18 +0800
+
+    Add version
+
+
+
+:100644 100644 76e2b49667174147d0f7183785c27264dea9c545 eac9ea835eed2341164ddf5d3d44c619e3a81aba M	Jepun.Services.AP.Repository/PortalService.cs

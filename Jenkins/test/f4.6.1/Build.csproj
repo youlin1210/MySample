@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!--Import Config-->
+	<Import Project="$(MSBuildProjectDirectory)\$(BuildSetting)"/>	
+	<Import Project="$(MSBuildProjectDirectory)\$(ToolSetting)"/>	
+	
+	<Target Name="Build">
+		<Message Text="INFO: Start Build Project, Enable Build Project: $(EnableBuildProject)"  Importance="high" />
+		<CallTarget Targets="BuildProject"/>
+		
+		<Message Text="INFO: Start UnitTest, Enable UnitTest: $(EnableUnitTest)"  Importance="high" />
+		<CallTarget Targets="UnitTest"/>
+		
+		<Message Text="INFO: Start StyleCop Scan, Enable StyleCop: $(EnableStyleCop)"  Importance="high" />
+		<CallTarget Targets="StyleCop"/>
+		
+		<Message Text="INFO: Start FxCop Scan, Enable FxCop: $(EnableFxCop)"  Importance="high" />
+		<CallTarget Targets="FxCop"/>
+		
+		<Message Text="INFO: Start Simian Scan, Enable Simian: $(EnableSimian)"  Importance="high" />
+		<CallTarget Targets="Simian"/>
+		
+		<Message Text="INFO: Start SourceMonitor Analysis, Enable SourceMonitor: $(EnableSourceMonitor)" Importance="high" />
+		<CallTarget Targets="SourceMonitor"/>
+	</Target>
+
+	<Target Name="BuildProject" Condition="'$(EnableBuildProject)' == 'True'">
+		<Exec Command="$(MsBuildPath) /p:Configuration=Debug "/p:Platform=Any CPU" "$(SolutionPath)""/>
+	</Target>	
+
+	<Target Name="UnitTest" Condition="'$(EnableUnitTest)' == 'True'">  
+		<!--Create TestContainer Parameters-->
+		<CreateItem Include="@(UnitTestDlls->'/testcontainer:%(FullPath)',' ')">
+			<Output TaskParameter="Include" ItemName="UnitTestDllFiles" />
+		</CreateItem>			
+
+		<!-- Run UnitTest-->
+		<Exec Command=""$(MsTestPath)" "/resultsfile:$(MsTestResultOutputPath)" "/testsettings:$(UnitTestSettingPath)" "@(UnitTestDllFiles)"" />
+
+		<!-- Convert CodeCoverage Report To Emma Format -->
+		<Exec Command="$(CodeCoverageConverterPath) "$(MSBuildStartupDirectory)\TestResults" "$(CodeCoverageResultXmlPath)"" />
+		<Exec Command="$(XslConverterPath) "$(CodeCoverageResultXmlPath)" $(CodeCoverageXslPath) -o "$(CodeCoverageResultXmlPath)"" />
+	</Target>	
+	
+	<Target Name="StyleCop"  Condition="'$(EnableStyleCop)' == 'True'">	
+		<!-- Create a collection of files to scan--> 
+		<CreateItem Include="$(SourceCodesInclude)" Exclude="$(SourceCodesExclude)">
+			<Output TaskParameter="Include" ItemName="StyleCopFiles" />
+		</CreateItem>
+		
+		<StyleCopTask
+			ProjectFullPath="$(MSBuildProjectDirectory)"
+			SourceFiles="@(StyleCopFiles)"
+			ForceFullAnalysis="true"			
+			TreatErrorsAsWarnings="true"			
+			OutputFile="$(StyleCopOutputPath)"
+			CacheResults="true" />
+	</Target>
+
+	<Target Name="FxCop" Condition="'$(EnableFxCop)' == 'True'">
+		<!--Create FxCop Parameters-->
+		<CreateItem Include="@(OutputDlls->'/file:%(FullPath)',' ')">
+			<Output TaskParameter="Include" ItemName="OutputDllFiles" />
+		</CreateItem>
+		
+		<Exec Command=""$(FxCopPath)" "@(OutputDllFiles)" "/rule:$(FxCopRulePath)" "/out:$(FxCopResultOutputPath)" /searchgac" />
+	</Target>
+
+	<Target Name="Simian" Condition="'$(EnableSimian)' == 'True'">
+		<Exec Command=""$(SimianPath)" "$(SourceCodesInclude)" "-formatter=$(SimianFormatter)" -threshold=$(SimianThreshold) -language=$(SimianLanguage) "-excludes=$(SourceCodesExclude)"" IgnoreExitCode="true" />
+	</Target>
+
+	<Target Name="SourceMonitor" Condition="'$(EnableSourceMonitor)' == 'True'">
+		<!-- Create the command file -->
+		<WriteLinesToFile File="$(MSBuildStartupDirectory)\SourceMonitorCommands.xml" Lines="$(SourceMonitorCommand)" Overwrite="true" />
+		<!-- Execute SourceMonitor-->
+		<Exec Command=""$(SourceMonitorPath)" /C "$(MSBuildStartupDirectory)\SourceMonitorCommands.xml"" />
+		<!-- Convert SourceMonitor Report To Html-->
+		<Exec Command="$(XslConverterPath) "$(SourceMonitorResultPath)" "$(SourceMonitorSummaryXslPath)" -o "$(MSBuildStartupDirectory)\SourceMonitorSummaryGeneration.xml"" />
+		<Exec Command="$(XslConverterPath) "$(MSBuildStartupDirectory)\SourceMonitorSummaryGeneration.xml" "$(SourceMonitorResultXslPath)" -o "$(MSBuildStartupDirectory)\SourceMonitorResult.html"" />
+	</Target>
+
+</Project>

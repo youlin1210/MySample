@@ -1,0 +1,2 @@
+/*! jepun 2018-03-29 */
+$(document).ready(function(){var a=$("#FormSecCalendar").comm();a.callAjax("Home/GetTaSecCalendarT4default",{},function(b){var c=a.getCtrl("calendarList");c.empty();var d=Object.getOwnPropertyNames(b.data);d.forEach(function(a){c.append("<li>"+a+"："+b.data[a]+"</li>")}),a.getCtrl("calendar").calendar(b.info)})});

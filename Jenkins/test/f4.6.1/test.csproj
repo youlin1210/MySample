@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>		
+		<ProjectFiles Include="D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\**\*.cs" />		
+	</ItemGroup>
+	<PropertyGroup>
+		<SourceMonitorPath>"C:\Program Files (x86)\SourceMonitor\SourceMonitor.exe"</SourceMonitorPath>		
+	</PropertyGroup>
+	<Target Name="Build">
+		<!-- <CallTarget Targets="Step 1"/>
+				
+		<CallTarget Targets="Step 2"/>
+				
+		<CallTarget Targets="Step 3"/>	
+		<Message Text="@(ProjectFiles,'Seperator')" />
+		<Message Text="@(ProjectFiles->'Files:%(FullPath)','%0a')" />  -->
+		<Message Text="$(SourceMonitorPath)" />
+	</Target>
+	
+	
+	
+	
+	
+	
+	<Target Name="Step 1">	
+		<Message Text="Step 1" />
+	</Target>
+	
+	<Target Name="Step 2">
+		<Message Text="Step 2" />
+	</Target>
+	
+	<Target Name="Step 3">
+		<Message Text="Step 3" />
+	</Target>
+	
+	
+	
+	
+</Project>

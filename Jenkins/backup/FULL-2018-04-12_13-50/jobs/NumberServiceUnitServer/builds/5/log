@@ -1,0 +1,18 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitTest
+Cloning the remote Git repository
+Cloning repository \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe init D:\Jenkins\workspace\NumberServiceUnitTest # timeout=10
+Fetching upstream changes from \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\Test-pc\git\Jenkins +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\Test-pc\git\Jenkins # timeout=10
+ > C:\Program Files\Git\bin\git.exe config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\Test-pc\git\Jenkins # timeout=10
+Fetching upstream changes from \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\Test-pc\git\Jenkins +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "origin/master^{commit}" # timeout=10
+ERROR: Couldn't find any revision to build. Verify the repository and branch configuration for this job.
+Finished: FAILURE

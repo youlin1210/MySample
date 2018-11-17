@@ -1,0 +1,47 @@
+¥Ñ¨Ï¥ÎªÌ unknown or anonymous ±Ò°Ê
+«Ø¸m¤¤ ¤u§@°Ï D:\Jenkins\workspace\NumberServiceUnitServer461Build
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\Test-pc\git\Jenkins # timeout=10
+Fetching upstream changes from \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\Test-pc\git\Jenkins +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision e3e6bdecf8d3afc57cb4514f9e27898145950fde (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f e3e6bdecf8d3afc57cb4514f9e27898145950fde
+Commit message: "add bbb"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 6cb57300f2829d81104a7ff84aaa7979835bb233 # timeout=10
+Path To MSBuild.exe: C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\msbuild.exe
+Executing the command cmd.exe /C " "C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\msbuild.exe" /p:BuildSetting=BuildSetting.xml /p:ToolSetting=ToolSetting.xml D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj " && exit %%ERRORLEVEL%% from D:\Jenkins\workspace\NumberServiceUnitServer461Build
+[NumberServiceUnitServer461Build] $ cmd.exe /C " "C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\msbuild.exe" /p:BuildSetting=BuildSetting.xml /p:ToolSetting=ToolSetting.xml D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj " && exit %%ERRORLEVEL%%
+Microsoft (R) Build Engine for .NET Framework 15.7.66.2115 ª©
+Copyright (C) Microsoft Corporation. µÛ§@Åv©Ò¦³¡A¨Ã«O¯d¤@¤ÁÅv§Q¡C
+
+¤w¸g¶}©l«Ø¸m©ó 2018/4/11 ¤U¤È 04:30:23¡C
+¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤Wªº±M®× "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj"¡C
+Build:
+  INFO: Start NuGet, Enable Build Project: True
+NuGet:
+  "D:\Jenkins\tools\NuGet.exe" restore "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI.sln"
+  ¿é¤JÀÉ¤£¦s¦b: D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI.sln¡C
+[8mha:////4Df3bOA7sAQIbBlO1io7iBxUZFTlqmUkxzc2AYhDcPhGAAAAZR+LCAAAAAAAAP9b85aBtbiIQT2jNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUS7FhXlF/nll6RqTW873+akuJiJgaGiiEEKqis5P684PydVzxlCgxQyQAAjSGEBAFZoBDtlAAAA[0mD:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj(34,3): error MSB3073: ""D:\Jenkins\tools\NuGet.exe" restore "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI.sln"" ©R¥O¥Hªð¦^½X 1 µ²§ô¡C
+±M®× "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨ -- ¥¢±Ñ¡C
+
+«Ø¸m¥¢±Ñ¡C
+
+"D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj" (¹w³]¥Ø¼Ð) (1) ->
+(NuGet ¥Ø¼Ð) -> 
+[8mha:////4Df3bOA7sAQIbBlO1io7iBxUZFTlqmUkxzc2AYhDcPhGAAAAZR+LCAAAAAAAAP9b85aBtbiIQT2jNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUS7FhXlF/nll6RqTW873+akuJiJgaGiiEEKqis5P684PydVzxlCgxQyQAAjSGEBAFZoBDtlAAAA[0m  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj(34,3): error MSB3073: ""D:\Jenkins\tools\NuGet.exe" restore "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI.sln"" ©R¥O¥Hªð¦^½X 1 µ²§ô¡C
+
+    0 ­ÓÄµ§i
+    1 ­Ó¿ù»~
+
+¸g¹L®É¶¡ 00:00:00.82
+Build step 'Build a Visual Studio project or solution using MSBuild' marked build as failure
+[htmlpublisher] Archiving HTML reports...
+[htmlpublisher] Archiving at BUILD level D:\Jenkins\workspace\NumberServiceUnitServer461Build to C:\Program Files (x86)\Jenkins\jobs\NumberServiceUnitServer461Build\builds\3\htmlreports\Source_Monitor_Report
+[MSTEST-PLUGIN] INFO processing test results in file(s) TestResult.trx
+ERROR: Step ¡¥Publish MSTest test result report¡¦ failed: [MSTEST-PLUGIN] No MSTest TRX test report files were found. Configuration error?
+Finished: FAILURE

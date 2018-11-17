@@ -1,0 +1,206 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitTestClient
+[NumberServiceUnitTestClient] $ cmd /c call C:\WINDOWS\TEMP\jenkins5815767117928387015.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTestClient>cd D:\JenkinsGit\JenkinsCI\NumberLib 
+
+D:\JenkinsGit\JenkinsCI\NumberLib>dotnet restore 
+  Restore completed in 37.47 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+
+D:\JenkinsGit\JenkinsCI\NumberLib>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 35.01 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+  NumberLib -> D:\JenkinsGit\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:00.93
+
+D:\JenkinsGit\JenkinsCI\NumberLib>exit 0 
+[NumberServiceUnitTestClient] $ cmd /c call C:\WINDOWS\TEMP\jenkins2530471034115307665.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTestClient>cd D:\JenkinsGit\JenkinsCI\NumberLibTest 
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>dotnet restore 
+  Restore completed in 41.09 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 53.03 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 73.64 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 37.1 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 51.05 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 71.4 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  NumberLib -> D:\JenkinsGit\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+  NumberLibTest -> D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\NumberLibTest.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:01.75
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>exit 0 
+[NumberServiceUnitTestClient] $ cmd /c call C:\WINDOWS\TEMP\jenkins5884390799244834581.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTestClient>cd D:\JenkinsGit\JenkinsCI\NumberLibTest 
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>dotnet test -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 46.75 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 58.06 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 79.69 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+已開始建置，請稍候...
+建置完成。
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\NumberLibTest.dll(.NETCoreApp,Version=v2.0) 的測試回合
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180221-13 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+正在啟動測試執行，請稍候...
+
+測試總計: 2。成功: 2。失敗: 0。略過: 0。
+測試回合成功。
+測試執行時間: 1.3200 秒
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>exit 0 
+[NumberServiceUnitTestClient] $ cmd /c call C:\WINDOWS\TEMP\jenkins4125007173712410900.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTestClient>cd D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0\ 
+系統找不到指定的路徑。
+
+D:\Jenkins\workspace\NumberServiceUnitTestClient>vstest.console.exe NumberLibTest.dll /EnableCodeCoverage /Logger:trx 
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180307-01 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+找不到提供的測試來源檔案 "D:\Jenkins\workspace\NumberServiceUnitTestClient\NumberLibTest.dll"。
+用法: vstest.console.exe [引數] [選項] [[--] <RunSettings 引數>...]]
+
+描述: 從指定的檔案執行測試。
+
+引數:
+
+[TestFileNames]
+      從指定的檔案執行測試。請以空格分隔多個
+      測試檔案名稱。
+      範例: mytestproject.dll
+                mytestproject.dll myothertestproject.exe
+
+選項:
+
+--Tests|/Tests:<測試名稱>
+      執行測試，其名稱符合提供的值。若要
+      提供多個值，請使用逗點加以分隔。
+      範例: /Tests:TestMethod1
+                /Tests:TestMethod1,testMethod2
+
+--TestCaseFilter|/TestCaseFilter:<運算式>
+      執行符合給定運算式的測試。
+      <運算式> 的格式為 <property>Operator<value>[|&<Expression>]
+         其中 Operator 是 =、!= 或 ~ 中的其中一項 (運算子 ~ 具有 'contains'
+         語意，而且適用於 DisplayName 之類的字串屬性)。
+         您可以使用括號 () 將子運算式分組。
+      範例: /TestCaseFilter:"Priority=1"
+                /TestCaseFilter:"(FullyQualifiedName~Nightly
+                                  |Name=MyTestMethod)"
+
+--Framework|/Framework:<Framework 版本>
+      要用於測試執行的目標 .Net Framework 版本。 
+      有效值為 ".NETFramework,Version=v4.5.1"、".NETCoreApp,Version=v1.0" 等
+      其他支援的值為 Framework35、Framework40、Framework45 和 FrameworkCore10。
+
+--Platform|/Platform:<平台類型>
+      要用於測試執行的目標平台架構。
+      有效值為 x86、x64 和 ARM。
+
+--Settings|/Settings:<設定檔>
+      執行測試時要使用的設定。
+
+RunSettings 引數:
+      透過命令列傳遞 runsettings 組態的引數。引數可以接在 "-- " 之後，以 [名稱]=[值] 的格式指定名稱/值配對。請注意 -- 之後的空格。
+      使用空格以隔開多個 [名稱]=[值]。
+      RunSettings 引數支援的詳細資訊: https://aka.ms/vstest-runsettings-arguments
+
+-lt|--ListTests|/lt|/ListTests:<檔案名稱>
+      列出從指定測試容器探索到的所有測試。
+
+--Parallel|/Parallel
+      指定平行執行測試。根據預設，最多會使用
+      機器上所有的可用核心。可使用設定檔設定
+      要使用的核心數。
+
+--TestAdapterPath|/TestAdapterPath
+      這可讓 vstest.console.exe 處理序在測試回合中使用
+      給定路徑 (如果有的話) 中的自訂測試配接器。
+      範例  /TestAdapterPath:<pathToCustomAdapters>
+
+--Blame|/Blame
+      在 Blame 模式中執行測試。此選項有助於隔離造成測試主機損毀的問題測試。其會在目前的目錄中建立 "Sequence.xml" 這樣的輸出檔案，以擷取損毀前執行測試的順序。
+
+--Diag|/Diag:<記錄檔的路徑>
+      啟用測試平台的詳細資訊記錄檔。
+      記錄會寫入提供的檔案中。
+
+--logger|/logger:<記錄器 URI/易記名稱>
+      指定測試結果的記錄器。例如，若要將結果記錄到 
+      Visual Studio 測試結果檔案 (TRX)，請使用 /logger:trx[;LogFileName=<預設為唯一的檔案名稱>]
+      使用指定的 LogFileName 在 TestResults 目錄中建立檔案。
+
+      變更主控台記錄器中，記錄訊息的詳細資訊層級，如下所示
+      範例: /logger:console;verbosity=<預設為 "minimal">
+      允許的詳細資訊值: quiet、minimal 及 normal。
+
+      變更主控台記錄器的診斷層級前置詞，如下所示
+      範例: /logger:console;prefix=<預設為 "false">
+      您可在此處找到主控台記錄器的詳細資訊: https://aka.ms/console-logger
+
+      若要將測試結果發佈至 Team Foundation Server，請使用 TfsPublisher，如下所示
+      範例: /logger:TfsPublisher;
+                Collection=<Team 專案集合 URL>;
+                BuildName=<組建名稱>;
+                TeamProject=<Team 專案名稱>
+                [;Platform=<預設為 [任何 CPU]>]
+                [;Flavor=<預設為 [偵錯]>]
+                [;RunTitle=<標題>]
+
+--ResultsDirectory|/ResultsDirectory
+      若沒有測試結果目錄，將會在指定的路徑中加以建立。
+      範例: /ResultsDirectory:<pathToResultsDirectory>
+
+--ParentProcessId|/ParentProcessId:<ParentProcessId>
+      負責啟動目前處理序之父處理序的處理序識別碼。
+
+--Port|/Port:<連接埠>
+      用於通訊端連線以及接收事件訊息的連接埠。
+
+-?|--Help|/?|/Help
+      顯示此使用方式訊息。
+
+--Collect|/Collect:<資料收集器的易記名稱>
+      為測試回合啟用資料收集器。如需詳細資訊，請參閱: https://aka.ms/vstest-collect
+
+--InIsolation|/InIsolation
+      在隔離的處理序中執行測試。這樣會降低 vstest.console.exe 
+      處理序在測試中發生錯誤而停止的可能性，但是測試 
+      可能會執行得較慢。
+
+@<檔案>
+      讀取回應檔以取得更多選項。
+
+  若要執行測試:
+    >vstest.console.exe tests.dll 
+  若要使用資料收集器一類的其他設定執行測試:
+    >vstest.console.exe  tests.dll /Settings:Local.RunSettings
+
+
+D:\Jenkins\workspace\NumberServiceUnitTestClient>exit 1 
+Build step '執行 Windows 批次指令' marked build as failure
+Finished: FAILURE

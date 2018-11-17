@@ -1,0 +1,97 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@{
+}
+
+<div class="container">
+    <div class="row">
+        <section class="content">
+            <div class="container">
+                <div class="cus-breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        <li><a href="~/Home/Index">首頁</a></li>
+                        <li class="active">@Model.H1</li>
+                    </ol>
+                </div>
+                <div class="page-header-wrapper">
+                    <h3 class="title"><span>@Model.H1</span></h3>
+                    <hr>
+                </div>
+                <div class="funds-area">
+                    <div class="col-xs-12">
+                        <p>
+                            本公司依行政院金融監督管理委員會核定「中華民國證券投資信託暨顧問商業同業公會會員及其銷售機構基金通路報酬揭露施行要點」之規定，辦理銷售機構報酬揭露。
+                        </p>
+                        <p>
+                            投資人向本公司購買總代理之英傑華投資或透過銷售機構購買本公司基金，於持有期間本公司或該銷售機構仍持續收取經理費分成報酬；投資人可依本公司網站設置之『通路報酬揭露專區』，查詢通路報酬揭露內容或銷售機構通路報酬揭露網址等相關資訊。
+                        </p>
+
+                        <div class="table">
+                            <table name="SaleTable" class="table table-striped table-hover award-table text-center">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            銷售中信投信發行基金之銷售機構
+                                        </th>
+                                        <th>
+                                            銷售機構電話
+                                        </th>
+                                        <th>
+                                            通路報酬揭露網址
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>康和綜合證券</td><td>02-87871888</td><td><a href="http://www.6016.com.tw/download/kbc/國內基金揭露內容.pdf" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr><td>兆豐證券</td><td>02-23278988</td><td><a href="https://globaltrade.emega.com.tw/WealthMgt.EC.Web/FundReturnExpose/BAOPrintFundReturnExpose" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr><td>永豐金證券</td><td>02-23165552</td><td><a href="http://www.sinotrade.com.tw/Wealth/Wealth_7_4" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr><td>群益金鼎證券</td><td>02-87898888</td><td><a href="http://wwwfund.capital.com.tw/index.asp?menuid=7&surl=$REMUNERATION[MAIN]ASP" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr><td>凱基證券</td><td>02-21818103</td><td><a href="https://www.kgieworld.com.tw/Fund/Fund_12_2_2.aspx?findex=4" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr><td>日盛證券</td><td>02-25048888</td><td><a href="https://secure5.jihsun.com.tw/JssFHCTradeNet/fundfee.aspx" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr><td>元富證券</td><td>02-23255818</td><td><a href="http://www.masterlink.com.tw/Fund/mgmt_fee.aspx?area=A" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr><td>合作金庫證券</td><td>02-27319987</td><td><a href="http://www.tcfhc-sec.com.tw/Fund.aspx?MenuID=112" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr><td>中國信託證券</td><td>02-87808867</td><td><a href="https://www.win168.com.tw/" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr><td>容海投顧</td><td>02-77060708</td><td><a href="http://www.roundhigh.com/product_cg61221.html#245990" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr><td>臺銀證券</td><td>02-23882188</td><td><a href="http://www.twfhcsec.com.tw/Expose/Remuneration.aspx" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr><td>先鋒投顧</td><td>02-77088888</td><td><a href="http://www.ezfunds.com.tw/Commission.aspx" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr class="text-center">
+                                        <th>
+                                            總代理法盛投資系列基金
+                                        </th>
+                                        <th>
+                                            銷售機構電話
+                                        </th>
+                                        <th>
+                                            通路報酬揭露網址
+                                        </th>
+                                    </tr>
+                                    <tr><td>中國信託投信</td><td>02-26526688</td><td><a href="~/Content/pdf/reward-aviva.pdf" target="_blank">通路報酬揭露</a></td></tr>
+                                    <tr class="text-center">
+                                        <th>
+                                            銷售總代理英傑華投資之銷售機構
+                                        </th>
+                                        <th>
+                                            銷售機構電話
+                                        </th>
+                                        <th>
+                                            通路報酬揭露網址
+                                        </th>
+                                    </tr>
+                                    <tr><td>中國信託投信</td><td>02-26526688</td><td><a href="~/Content/pdf/reward-aviva.pdf" target="_blank">通路報酬揭露</a></td></tr>
+
+                                </tbody>
+                            </table>
+
+                            <div class="pagination-wrapper">
+                                <nav aria-label="Page navigation">
+                                </nav>
+                            </div>
+                        </div>
+                        <p>
+                            另，投信投顧公會為使投資人瞭解基金通路報酬揭露措施之目的，及教育投資人運用該等資訊為正確之投資，以強化投資人對自身權益之保護，特別製作了<a href="http://www.ctbcinvestments.com/report/sitca-%E9%80%9A%E8%B7%AF%E5%A0%B1%E9%85%AC%E4%BB%8B%E7%B4%B9.pdf" target="_blank">看懂通路報酬資訊</a>說明文宣，歡迎您自行下載。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

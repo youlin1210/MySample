@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="00e74b54-cdf2-4e57-9c5e-23eccb281f7f" name="SYSTEM@YOULIN-PC 2018-03-29 09:01:01" runUser="NT AUTHORITY\SYSTEM" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="預設測試設定" id="63039688-182c-42bd-812e-e8065347fabe">
+    <Deployment userDeploymentRoot="D:\Jenkins\workspace\TestUnitTest" useDefaultDeploymentRoot="false" runDeploymentRoot="SYSTEM_YOULIN-PC 2018-03-29 09_01_01" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Properties />
+  </TestSettings>
+  <Times creation="2018-03-29T09:01:01.6438259+08:00" queuing="2018-03-29T09:01:01.9847404+08:00" start="2018-03-29T09:01:02.0397481+08:00" finish="2018-03-29T09:01:02.1237579+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="2" executed="2" passed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Withdraw_ValidAmount_ChangesBalance" storage="d:\jenkins\workspace\testunittest\unittestproject1\bin\debug\unittestproject1.dll" id="262ffcb6-838b-844b-893b-96ebcee117c4">
+      <Execution timeOut="1800000" id="98dd1d25-e90d-4587-a498-dfb9e376c107" />
+      <TestMethod codeBase="D:/Jenkins/workspace/TestUnitTest/UnitTestProject1/bin/Debug/UnitTestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTestProject1.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Withdraw_ValidAmount_ChangesBalance" />
+    </UnitTest>
+    <UnitTest name="Withdraw_AmountMoreThanBalance_Throws" storage="d:\jenkins\workspace\testunittest\unittestproject1\bin\debug\unittestproject1.dll" id="21385c4e-dc6a-be60-a86d-45a6fa9931f3">
+      <Execution timeOut="1800000" id="7c51169d-a539-460b-928e-76b22192e6e4" />
+      <TestMethod codeBase="D:/Jenkins/workspace/TestUnitTest/UnitTestProject1/bin/Debug/UnitTestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTestProject1.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Withdraw_AmountMoreThanBalance_Throws" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="不在清單中的結果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有載入的結果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="21385c4e-dc6a-be60-a86d-45a6fa9931f3" executionId="7c51169d-a539-460b-928e-76b22192e6e4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="262ffcb6-838b-844b-893b-96ebcee117c4" executionId="98dd1d25-e90d-4587-a498-dfb9e376c107" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="7c51169d-a539-460b-928e-76b22192e6e4" testId="21385c4e-dc6a-be60-a86d-45a6fa9931f3" testName="Withdraw_AmountMoreThanBalance_Throws" computerName="YOULIN-PC" duration="00:00:00.0059035" startTime="2018-03-29T09:01:02.0677509+08:00" endTime="2018-03-29T09:01:02.0847526+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7c51169d-a539-460b-928e-76b22192e6e4">
+    </UnitTestResult>
+    <UnitTestResult executionId="98dd1d25-e90d-4587-a498-dfb9e376c107" testId="262ffcb6-838b-844b-893b-96ebcee117c4" testName="Withdraw_ValidAmount_ChangesBalance" computerName="YOULIN-PC" duration="00:00:00.0121031" startTime="2018-03-29T09:01:02.0907538+08:00" endTime="2018-03-29T09:01:02.1027538+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="98dd1d25-e90d-4587-a498-dfb9e376c107">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失敗。預期: &lt;9&gt;。實際: &lt;0&gt;。</Message>
+          <StackTrace>   於 UnitTestProject1.UnitTest1.Withdraw_ValidAmount_ChangesBalance() 於 d:\Jenkins\workspace\TestUnitTest\UnitTestProject1\UnitTest1.cs: 行 22
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

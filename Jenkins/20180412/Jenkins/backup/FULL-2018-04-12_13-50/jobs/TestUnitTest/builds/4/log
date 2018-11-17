@@ -1,0 +1,88 @@
+¥Ñ¨Ï¥ÎªÌ [8mha:////4E9IgijjWSh0iFjZlKLafM0SZiAtWdbV06BAJlP2qvUsAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyuEgYe/dLi1CL9yvxSoI0AG1rJssEAAAA=[0myoulinchen ±Ò°Ê
+«Ø¸m¤¤ ¤u§@°Ï D:\Jenkins\workspace\TestUnitTest
+Path To MSBuild.exe: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe
+Executing the command cmd.exe /C " C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe /p:Configuration=Debug /p:AspnetCompilerPath=C:\windows\Microsoft.NET\Framework64\v4.0.30319 /p:VisualStudioVersion=12.0 D:\Jenkins\workspace\TestUnitTest\TestUnitTest\TestUnitTest.csproj " && exit %%ERRORLEVEL%% from D:\Jenkins\workspace\TestUnitTest
+[TestUnitTest] $ cmd.exe /C " C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe /p:Configuration=Debug /p:AspnetCompilerPath=C:\windows\Microsoft.NET\Framework64\v4.0.30319 /p:VisualStudioVersion=12.0 D:\Jenkins\workspace\TestUnitTest\TestUnitTest\TestUnitTest.csproj " && exit %%ERRORLEVEL%%
+Microsoft (R) Build Engine ª©¥» 4.7.2556.0
+[Microsoft .NET Framework¡Aª©¥» 4.0.30319.42000]
+Copyright (C) Microsoft Corporation. µÛ§@Åv©Ò¦³¡A¨Ã«O¯d¤@¤ÁÅv§Q¡C
+
+¤w¸g¶}©l«Ø¸m©ó 2018/3/29 ¤W¤È 09:01:00¡C
+¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤Wªº±M®× "D:\Jenkins\workspace\TestUnitTest\TestUnitTest\TestUnitTest.csproj"¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  TestUnitTest -> D:\Jenkins\workspace\TestUnitTest\TestUnitTest\bin\Debug\TestUnitTest.dll
+±M®× "D:\Jenkins\workspace\TestUnitTest\TestUnitTest\TestUnitTest.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+
+«Ø¸m¦¨¥\¡C
+    0 ­ÓÄµ§i
+    0 ­Ó¿ù»~
+
+¸g¹L®É¶¡ 00:00:00.14
+Path To MSBuild.exe: C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe
+Executing the command cmd.exe /C " C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe /p:Configuration=Debug /p:AspnetCompilerPath=C:\windows\Microsoft.NET\Framework64\v4.0.30319 /p:VisualStudioVersion=12.0 D:\Jenkins\workspace\TestUnitTest\UnitTestProject1\UnitTestProject1.csproj " && exit %%ERRORLEVEL%% from D:\Jenkins\workspace\TestUnitTest
+[TestUnitTest] $ cmd.exe /C " C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe /p:Configuration=Debug /p:AspnetCompilerPath=C:\windows\Microsoft.NET\Framework64\v4.0.30319 /p:VisualStudioVersion=12.0 D:\Jenkins\workspace\TestUnitTest\UnitTestProject1\UnitTestProject1.csproj " && exit %%ERRORLEVEL%%
+Microsoft (R) Build Engine ª©¥» 4.7.2556.0
+[Microsoft .NET Framework¡Aª©¥» 4.0.30319.42000]
+Copyright (C) Microsoft Corporation. µÛ§@Åv©Ò¦³¡A¨Ã«O¯d¤@¤ÁÅv§Q¡C
+
+¤w¸g¶}©l«Ø¸m©ó 2018/3/29 ¤W¤È 09:01:00¡C
+¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤Wªº±M®× "D:\Jenkins\workspace\TestUnitTest\UnitTestProject1\UnitTestProject1.csproj"¡C
+±M®× "D:\Jenkins\workspace\TestUnitTest\UnitTestProject1\UnitTestProject1.csproj" (1) ¥¿¦b¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤W«Ø¸m "D:\Jenkins\workspace\TestUnitTest\TestUnitTest\TestUnitTest.csproj" (2)¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  TestUnitTest -> D:\Jenkins\workspace\TestUnitTest\TestUnitTest\bin\Debug\TestUnitTest.dll
+±M®× "D:\Jenkins\workspace\TestUnitTest\TestUnitTest\TestUnitTest.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  UnitTestProject1 -> D:\Jenkins\workspace\TestUnitTest\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+±M®× "D:\Jenkins\workspace\TestUnitTest\UnitTestProject1\UnitTestProject1.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+
+«Ø¸m¦¨¥\¡C
+    0 ­ÓÄµ§i
+    0 ­Ó¿ù»~
+
+¸g¹L®É¶¡ 00:00:00.20
+Path To MSTest.exe: C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\MSTest.exe
+Delete old result file file:/D:/Jenkins/workspace/TestUnitTest/TestResult.trx
+[TestUnitTest] $ "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\MSTest.exe" /resultsfile:TestResult.trx /noisolation /testcontainer:D:\Jenkins\workspace\TestUnitTest\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+Microsoft (R) Test Execution Command Line Tool Version 12.0.21005.1
+Copyright (c) Microsoft Corporation. µÛ§@Åv©Ò¦³¡A¨Ã«O¯d¤@¤ÁÅv§Q¡C
+    
+¥¿¦b¸ü¤J D:\Jenkins\workspace\TestUnitTest\UnitTestProject1\bin\Debug\UnitTestProject1.dll...
+¥¿¦b±Ò°Ê°õ¦æ...
+
+µ²ªG          ³Ì¤W¼h´ú¸Õ
+--          -----
+¦¨¥\          UnitTestProject1.UnitTest1.Withdraw_AmountMoreThanBalance_Throws
+¥¢±Ñ          UnitTestProject1.UnitTest1.Withdraw_ValidAmount_ChangesBalance
+1/2 ´ú¸Õ ¦¨¥\, 1 ¥¢±Ñ
+
+ºK­n
+--
+´ú¸Õ¦^¦X ¥¢±Ñ¡C
+  ¦¨¥\  1
+  ¥¢±Ñ  1
+  -----
+  Á`­p  2
+µ²ªGÀÉ®×: D:\Jenkins\workspace\TestUnitTest\TestResult.trx
+´ú¸Õ³]©w: ¹w³]´ú¸Õ³]©w
+Build step 'Run unit tests with MSTest' marked build as failure
+[MSTEST-PLUGIN] INFO processing test results in file(s) TestResult.trx
+[MSTEST-PLUGIN] INFO processing report file: D:\Jenkins\workspace\TestUnitTest\TestResult.trx
+[MSTEST-PLUGIN] WARNING Unable to delete the file D:\Jenkins\workspace\TestUnitTest\temporary-junit-reports
+[MSTEST-PLUGIN] INFO This file is a reserved temporary file. You can delete it safely.
+[MSTEST-PLUGIN] INFO XML coverage report file not found: D:\Jenkins\workspace\TestUnitTest\vstest.coveragexml
+
+[MSTEST-PLUGIN] INFO XML coverage report file not found: D:\Jenkins\workspace\TestUnitTest\TestResult.coveragexml
+
+Finished: FAILURE

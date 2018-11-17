@@ -1,0 +1,239 @@
+¥Ñ­p®É¾¹±Ò°Ê
+«Ø¸m¤¤ ¤u§@°Ï D:\Jenkins\workspace\Jepun.Web.PS.Demo
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\jprd\git\Jepun.FMS.Out # timeout=10
+Fetching upstream changes from \\jprd\git\Jepun.FMS.Out
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\jprd\git\Jepun.FMS.Out +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision a8bcd60eb95d1b311406cd20290d8e001d37ad5b (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f a8bcd60eb95d1b311406cd20290d8e001d37ad5b
+Commit message: "Add version"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk a8bcd60eb95d1b311406cd20290d8e001d37ad5b # timeout=10
+[Jepun.Web.PS.Demo] $ cmd /c call C:\WINDOWS\TEMP\jenkins4096085249688193713.bat
+
+D:\Jenkins\workspace\Jepun.Web.PS.Demo>"D:\Jenkins\NuGet.exe" restore D:\Jenkins\workspace\Jepun.Web\Jepun.Web.sln  
+MSBuild auto-detection: using msbuild version '15.7.66.2115' from 'C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\bin'.
+packages.config ¤¤¦C¥Xªº©Ò¦³«Ê¸Ë§¡¤w¦w¸Ë¡C
+
+D:\Jenkins\workspace\Jepun.Web.PS.Demo>"D:\Jenkins\NuGet.exe" restore D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.FMS.sln 
+MSBuild auto-detection: using msbuild version '15.7.66.2115' from 'C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\bin'.
+packages.config ¤¤¦C¥Xªº©Ò¦³«Ê¸Ë§¡¤w¦w¸Ë¡C
+
+D:\Jenkins\workspace\Jepun.Web.PS.Demo>exit 0 
+Path To MSBuild.exe: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe
+Executing the command cmd.exe /C " C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe /p:publishUrl=D:\Jenkins\deploy\Jepun.Web.PS.Demo /p:Configuration=Demo /p:DeployOnBuild=true /p:PublishProfile=D:\Jenkins\deploy\Jepun.Web.PS.Demo\PublishProfiles\Jepun.Web.PS.pubxml /p:AspnetCompilerPath=C:\windows\Microsoft.NET\Framework64\v4.0.30319 /p:VisualStudioVersion=12.0 D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.Web.PS\Jepun.Web.PS.csproj " && exit %%ERRORLEVEL%% from D:\Jenkins\workspace\Jepun.Web.PS.Demo
+[Jepun.Web.PS.Demo] $ cmd.exe /C " C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe /p:publishUrl=D:\Jenkins\deploy\Jepun.Web.PS.Demo /p:Configuration=Demo /p:DeployOnBuild=true /p:PublishProfile=D:\Jenkins\deploy\Jepun.Web.PS.Demo\PublishProfiles\Jepun.Web.PS.pubxml /p:AspnetCompilerPath=C:\windows\Microsoft.NET\Framework64\v4.0.30319 /p:VisualStudioVersion=12.0 D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.Web.PS\Jepun.Web.PS.csproj " && exit %%ERRORLEVEL%%
+Microsoft (R) Build Engine ª©¥» 4.7.2556.0
+[Microsoft .NET Framework¡Aª©¥» 4.0.30319.42000]
+Copyright (C) Microsoft Corporation. µÛ§@Åv©Ò¦³¡A¨Ã«O¯d¤@¤ÁÅv§Q¡C
+
+¤w¸g¶}©l«Ø¸m©ó 2018/4/2 ¤W¤È 08:14:48¡C
+¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤Wªº±M®× "D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.Web.PS\Jepun.Web.PS.csproj"¡C
+±M®× "D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.Web.PS\Jepun.Web.PS.csproj" (1) ¥¿¦b¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤W«Ø¸m "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj" (2)¡C
+±M®× "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj" (2) ¥¿¦b¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤W«Ø¸m "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\Jepun.Web.Resource.csproj" (3)¡C
+CoreResGen:
+  ¬Û¹ï©ó¸ê·½ªº¨Ó·½ÀÉ®×¡A¨Ã¨S¦³¸ê·½¹L´Á¡C±N²¤¹L²£¥Í¸ê·½¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+GenerateSatelliteAssemblies:
+±N²¤¹L¥Ø¼Ð "GenerateSatelliteAssemblies"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+GenerateSatelliteAssemblies:
+±N²¤¹L¥Ø¼Ð "GenerateSatelliteAssemblies"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  Jepun.Web.Resource -> D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\bin\Demo\Jepun.Web.Resource.dll
+±M®× "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\Jepun.Web.Resource.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+_CopyAppConfigFile:
+±N²¤¹L¥Ø¼Ð "_CopyAppConfigFile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  Jepun.Web.Base -> D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\bin\Demo\Jepun.Web.Base.dll
+±M®× "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+ResolveAssemblyReferences:
+  ²Î¤@¥D­n°Ñ¦Ò "WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"¡C
+      ¥Ñ©óÀÉ®× "Web.config" ¤¤ªºÃ´µ²­«·s¾É¦V¶µ¥Ø¡A©Ò¥H¨Ï¥Î³o­Óª©¥»¥N´À "D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\System.Web.Optimization.HashCache.1.0.5493.16874\lib\net40\System.Web.Optimization.HashCache.dll" ¤¤ªº­ì©lª©¥» "1.5.2.14234"¡C
+      ¥Ñ©óÀÉ®× "Web.config" ¤¤ªºÃ´µ²­«·s¾É¦V¶µ¥Ø¡A©Ò¥H¨Ï¥Î³o­Óª©¥»¥N´À "D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll" ¤¤ªº­ì©lª©¥» "1.5.1.25624"¡C
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0mC:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets(1605,5): warning MSB3245: µLªk¸ÑªR¦¹°Ñ¦Ò¡C§ä¤£¨ì²Õ¥ó "WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"¡C½ÐÀË¬d¥H½T©wºÏºÐ¤W¦³¸Ó²Õ¥ó¡C ¦pªGµ{¦¡½X»Ý­n¦¹°Ñ¦Ò¡A¥i¯à·|µo¥Í½sÄ¶¿ù»~¡C [D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.Web.PS\Jepun.Web.PS.csproj]
+          °w¹ï SearchPath "D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\System.Web.Optimization.HashCache.1.0.5493.16874\lib\net40"¡C
+          ¤w¦Ò¼{ "D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\System.Web.Optimization.HashCache.1.0.5493.16874\lib\net40\WebGrease.winmd"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\System.Web.Optimization.HashCache.1.0.5493.16874\lib\net40\WebGrease.dll"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\System.Web.Optimization.HashCache.1.0.5493.16874\lib\net40\WebGrease.exe"¡A¦ý¥¦¤£¦s¦b¡C
+          °w¹ï SearchPath "D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40"¡C
+          ¤w¦Ò¼{ "D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\WebGrease.winmd"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\WebGrease.dll"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\WebGrease.exe"¡A¦ý¥¦¤£¦s¦b¡C
+          °w¹ï SearchPath "{HintPathFromItem}"¡C
+          ¤w¦Ò¼{ "packages\WebGrease.1.6.0\lib\WebGrease.dll"¡A¦ý¥¦¤£¦s¦b¡C
+          °w¹ï SearchPath "{TargetFrameworkDirectory}"¡C
+          ¤w¦Ò¼{ "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\WebGrease.winmd"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\WebGrease.dll"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\WebGrease.exe"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\WebGrease.winmd"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\WebGrease.dll"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\WebGrease.exe"¡A¦ý¥¦¤£¦s¦b¡C
+          °w¹ï SearchPath "{Registry:Software\Microsoft\.NETFramework,v4.5,AssemblyFoldersEx}"¡C
+          ¤w¦Ò¼{ AssemblyFoldersEx ¦ì¸m¡C
+          °w¹ï SearchPath "{AssemblyFolders}"¡C
+          ¤w¦Ò¼{ "C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.5\WebGrease.winmd"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.5\WebGrease.dll"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.5\WebGrease.exe"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "C:\Program Files\IIS\Microsoft Web Deploy V3\WebGrease.winmd"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "C:\Program Files\IIS\Microsoft Web Deploy V3\WebGrease.dll"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "C:\Program Files\IIS\Microsoft Web Deploy V3\WebGrease.exe"¡A¦ý¥¦¤£¦s¦b¡C
+          °w¹ï SearchPath "{GAC}"¡C
+          ¤w¦Ò¼{ "WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"¡A¦ý¦b GAC ¤¤§ä¤£¨ì¥¦¡C
+          °w¹ï SearchPath "bin\"¡C
+          ¤w¦Ò¼{ "bin\WebGrease.winmd"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "bin\WebGrease.dll"¡A¦ý¥¦¤£¦s¦b¡C
+          ¤w¦Ò¼{ "bin\WebGrease.exe"¡A¦ý¥¦¤£¦s¦b¡C
+  AssemblyFoldersEx ¦ì¸m: "{Registry:Software\Microsoft\.NETFramework,v4.5,AssemblyFoldersEx}"
+          C:\Program Files (x86)\Microsoft Web Tools\ReferenceAssemblies\12.0\
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\ReferenceAssemblies\v4.5\
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\PublicAssemblies\
+          C:\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\Type Providers\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.1.0\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.4.0.0\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\Type Providers\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.1.0\
+          C:\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\
+          C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\ReferenceAssemblies\v4.5\
+          C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\PublicAssemblies\
+          C:\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\
+          C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.5\Prototyping\Libraries\
+          C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.5\Libraries\
+          C:\Program Files\Reference Assemblies\Microsoft\Workflow Manager\1.0\
+          
+          
+          C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.9\bin\plugins\Diagnostics\
+          C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.9\ref\Caching\
+          C:\Program Files (x86)\Microsoft WCF Data Services\5.6\bin\.NETFramework\
+          C:\Program Files\Reference Assemblies\Microsoft\VSTO40\v4.0.Framework\
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\Visual Studio Tools for Office\PIA\Office15\
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\Visual Studio Tools for Office\PIA\Office14\
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\Visual Studio Tools for Office\PIA\Common\
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\Extensions\Microsoft\SharePoint\PublicAssemblies\
+          C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\ReferenceAssemblies\v4.0\
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\ReferenceAssemblies\v4.0\
+          C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\ReferenceAssemblies\v4.0\
+          C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\
+          C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Tasks
+          C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Tasks
+          C:\Program Files (x86)\Microsoft SQL Server\140\DTS\PipelineComponents\
+          C:\Program Files (x86)\Microsoft SQL Server\110\DTS\PipelineComponents\
+          C:\Program Files (x86)\Microsoft SQL Server\140\DTS\ForEachEnumerators
+          C:\Program Files (x86)\Microsoft SQL Server\110\DTS\ForEachEnumerators
+          C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Connections\
+          C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Connections\
+          C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\16\TEMPLATE\WorkflowActivities\
+          
+          C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\15\TEMPLATE\WorkflowActivities\
+          C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\16\ISAPI\
+          C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\15\ISAPI\
+          C:\Program Files (x86)\Microsoft SDKs\RIA Services\v1.0\Libraries\Server\
+          C:\Program Files (x86)\Microsoft Visual Studio 10.0\ReportViewer\
+          C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PublicAssemblies\
+          C:\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\
+          C:\Program Files (x86)\Open XML SDK\V2.5\lib
+          D:\app\youlin\product\12.1.0\client_1\ODP.NET\managed\common\
+          D:\app\youlin\product\12.1.0\client_1\ODP.NET\bin\4\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\Type Providers\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.1.0\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.4.0.0\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\Type Providers\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.1.0\
+          C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.0\Prototyping\Libraries\
+          C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.0\Libraries\
+          C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\
+          C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\
+          C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\
+          D:\app\youlin\product\12.1.0\client_1\ASP.NET\bin\4\
+          
+          C:\Program Files\Reference Assemblies\Microsoft\Microsoft Identity Extensions\1.0\
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\Extensions\Microsoft\SharePoint\PublicAssemblies\
+          C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\ReferenceAssemblies\v2.0\
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\ReferenceAssemblies\v2.0\
+          C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\ReferenceAssemblies\v2.0\
+          C:\Program Files (x86)\Microsoft SDKs\Microsoft Sync Framework\2.1\Runtime\x86\
+          C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.9\ref
+          C:\Program Files (x86)\Microsoft Visual Studio 10.0\ReportViewer\
+          C:\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\\PublicAssemblies
+          D:\app\youlin\product\12.1.0\client_1\ODP.NET\bin\2.x\
+          C:\Program Files (x86)\Microsoft SDKs\Microsoft Sync Framework\2.1\Runtime\ADO.NET\V3.1\x86\
+          C:\Program Files (x86)\Microsoft Chart Controls\Assemblies
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v2.0\2.3.0.0\
+          C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v2.0\2.3.0.0\
+          C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\
+          D:\app\youlin\product\12.1.0\client_1\ASP.NET\bin\2.x\
+          C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.9\ref
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+  C:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /platform:AnyCPU /errorreport:prompt /define:TRACE /highentropyva+ /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\Dlls\Jepun.Core.Common.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\Dlls\Jepun.Core.LoadBalancing.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\Dlls\Jepun.Core.Log.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\Dlls\Jepun.Core.WCF.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\Dlls\Jepun.Core.Web.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\Dlls\Jepun.Resource.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\Dlls\Jepun.Services.AP.Contract.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\Dlls\Jepun.Services.Fix.Contract.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\Dlls\Jepun.Services.Mail.Contract.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\Dlls\Jepun.Services.Message.Contract.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\Dlls\Jepun.Services.Proxy.dll /reference:D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\bin\Demo\Jepun.Web.Base.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\Dlls\Jepun.Web.Resource.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Microsoft.CSharp.dll" /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /reference:"C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.9\bin\plugins\Diagnostics\Newtonsoft.Json.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.ComponentModel.DataAnnotations.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Configuration.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.DataSetExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.DirectoryServices.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.EnterpriseServices.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Net.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Net.Http.WebRequest.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.Abstractions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.ApplicationServices.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.DynamicData.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.Entity.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.Extensions.dll" /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\System.Web.Optimization.HashCache.1.0.5493.16874\lib\net40\System.Web.Optimization.HashCache.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.Routing.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.Services.dll" /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll /reference:D:\Jenkins\workspace\Jepun.Web.PS.Demo\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.Linq.dll" /debug:pdbonly /optimize+ /out:obj\Demo\Jepun.Web.PS.dll /subsystemversion:6.00 /target:library /utf8output App_Start\BundleConfig.cs App_Start\FilterConfig.cs App_Start\RouteConfig.cs Comm\DataShelter.cs Comm\Role.cs Comm\SelectItemListHelper.cs Comm\ServiceHelper.cs Controllers\AccOpenController.cs Controllers\AccountController.cs Controllers\ArticleController.cs Controllers\BackActivityController.cs Controllers\BackAdminController.cs Controllers\BackArtController.cs Controllers\BackBannerController.cs Controllers\BackClueController.cs Controllers\BackDocDownloadController.cs Controllers\BackECTestController.cs Controllers\BackFeeRateController.cs Controllers\BackFlowDetailController.cs Controllers\BackFundAccController.cs Controllers\BackFundPerformanceController.cs Controllers\BackFundPerformanceOutController.cs Controllers\BackHoldingWeightController.cs Controllers\BackHoldingWeightCurController.cs Controllers\BackHoldingWeightOutSideController.cs Controllers\BackHomeController.cs Controllers\BackInvestorsController.cs Controllers\BackKeywordsController.cs Controllers\BackLaunderingController.cs Controllers\BackMasterController.cs Controllers\BackMemberController.cs Controllers\BackMemberDetailController.cs Controllers\BackNewsController.cs Controllers\BackOptionController.cs Controllers\BackProductETFController.cs Controllers\BackProductFundController.cs Controllers\BackProductOutSideController.cs Controllers\BackProductPrivateFundController.cs Controllers\BackSalesController.cs Controllers\BackStockController.cs Controllers\BackUpComingController.cs Controllers\CommonController.cs Controllers\ECMailController.cs Controllers\ErrorController.cs Controllers\HomeController.cs Controllers\PersonalController.cs Controllers\PrivateListController.cs Controllers\PrivateListDetailController.cs Controllers\PrivateNotController.cs Controllers\ProductController.cs Global.asax.cs Models\AccOpenViewModel.cs Models\BasePageModel.cs Models\LayoutViewModel.cs Models\LoginViewModel.cs Models\PsActivityViewModel.cs Models\PsAdminViewModel.cs Models\PsArtViewModel.cs Models\PsBannerViewModel.cs Models\PsClueViewModel.cs Models\PsDocDownloadViewModel.cs Models\PsFeeRateViewModel.cs Models\PsFundAccViewModel.cs Models\PsFundPerformanceOutViewModel.cs Models\PsFundPerformanceViewModel.cs Models\PsHoldingWeightCurViewModel.cs Models\PsHoldingWeightOutSideViewModel.cs Models\PsHoldingWeightViewModel.cs Models\PsInvestorsViewModel.cs Models\PsKeywordsViewModel.cs Models\PsLaunderingViewModel.cs Models\PsMasterViewModel.cs Models\PsMemberViewModel.cs Models\PsNewsViewModel.cs Models\PsOptionViewModel.cs Models\PsProductEtfViewModel.cs Models\PsProductFundViewModel.cs Models\PsProductOutSideViewModel.cs Models\PsSalesViewModel.cs Models\PsStockViewModel.cs Models\PsUpComingViewModel.cs Properties\AssemblyInfo.cs "C:\WINDOWS\TEMP\.NETFramework,Version=v4.5.AssemblyAttributes.cs"
+[8mha:////4Df3bOA7sAQIbBlO1io7iBxUZFTlqmUkxzc2AYhDcPhGAAAAZR+LCAAAAAAAAP9b85aBtbiIQT2jNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUS7FhXlF/nll6RqTW873+akuJiJgaGiiEEKqis5P684PydVzxlCgxQyQAAjSGEBAFZoBDtlAAAA[0mComm\ServiceHelper.cs(788,42): error CS1061: 'Jepun.Services.AP.Contract.IPortalService' ¤£¥]§t 'GetPsMasterOnlineT4' ªº©w¸q¡A¤]§ä¤£¨ìÂX¥R¤èªk 'GetPsMasterOnlineT4' ¨Ó±µ¨üÃþ«¬ 'Jepun.Services.AP.Contract.IPortalService' ªº²Ä¤@­Ó¤Þ¼Æ (±z¬O§_¿òº| using «ü¥Üµü©Î²Õ¥ó°Ñ¦Ò?) [D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.Web.PS\Jepun.Web.PS.csproj]
+±M®× "D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.Web.PS\Jepun.Web.PS.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨ -- ¥¢±Ñ¡C
+
+«Ø¸m¥¢±Ñ¡C
+
+"D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.Web.PS\Jepun.Web.PS.csproj" (¹w³]¥Ø¼Ð) (1) ->
+(ResolveAssemblyReferences ¥Ø¼Ð) -> 
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0m  C:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\Microsoft.Common.targets(1605,5): warning MSB3245: µLªk¸ÑªR¦¹°Ñ¦Ò¡C§ä¤£¨ì²Õ¥ó "WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"¡C½ÐÀË¬d¥H½T©wºÏºÐ¤W¦³¸Ó²Õ¥ó¡C ¦pªGµ{¦¡½X»Ý­n¦¹°Ñ¦Ò¡A¥i¯à·|µo¥Í½sÄ¶¿ù»~¡C [D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.Web.PS\Jepun.Web.PS.csproj]
+
+
+"D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.Web.PS\Jepun.Web.PS.csproj" (¹w³]¥Ø¼Ð) (1) ->
+(CoreCompile ¥Ø¼Ð) -> 
+[8mha:////4Df3bOA7sAQIbBlO1io7iBxUZFTlqmUkxzc2AYhDcPhGAAAAZR+LCAAAAAAAAP9b85aBtbiIQT2jNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUS7FhXlF/nll6RqTW873+akuJiJgaGiiEEKqis5P684PydVzxlCgxQyQAAjSGEBAFZoBDtlAAAA[0m  Comm\ServiceHelper.cs(788,42): error CS1061: 'Jepun.Services.AP.Contract.IPortalService' ¤£¥]§t 'GetPsMasterOnlineT4' ªº©w¸q¡A¤]§ä¤£¨ìÂX¥R¤èªk 'GetPsMasterOnlineT4' ¨Ó±µ¨üÃþ«¬ 'Jepun.Services.AP.Contract.IPortalService' ªº²Ä¤@­Ó¤Þ¼Æ (±z¬O§_¿òº| using «ü¥Üµü©Î²Õ¥ó°Ñ¦Ò?) [D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.Web.PS\Jepun.Web.PS.csproj]
+
+    1 ­ÓÄµ§i
+    1 ­Ó¿ù»~
+
+¸g¹L®É¶¡ 00:00:00.85
+Build step 'Build a Visual Studio project or solution using MSBuild' marked build as failure
+Sending e-mails to: youlinchen@jepun.com.tw
+ERROR: Could not connect to SMTP host: smtp.gmail.com, port: 587
+javax.mail.MessagingException: Could not connect to SMTP host: smtp.gmail.com, port: 587;
+  nested exception is:
+	javax.net.ssl.SSLException: Unrecognized SSL message, plaintext connection?
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1934)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:638)
+	at javax.mail.Service.connect(Service.java:317)
+	at javax.mail.Service.connect(Service.java:176)
+	at javax.mail.Service.connect(Service.java:125)
+	at javax.mail.Transport.send0(Transport.java:194)
+	at javax.mail.Transport.send(Transport.java:124)
+	at hudson.tasks.MailSender.run(MailSender.java:131)
+	at hudson.tasks.Mailer.perform(Mailer.java:171)
+	at hudson.tasks.BuildStepCompatibilityLayer.perform(BuildStepCompatibilityLayer.java:81)
+	at hudson.tasks.BuildStepMonitor$1.perform(BuildStepMonitor.java:20)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.perform(AbstractBuild.java:744)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.performAllBuildSteps(AbstractBuild.java:690)
+	at hudson.model.Build$BuildExecution.post2(Build.java:186)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.post(AbstractBuild.java:635)
+	at hudson.model.Run.execute(Run.java:1752)
+	at hudson.model.FreeStyleBuild.run(FreeStyleBuild.java:43)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+Caused by: javax.net.ssl.SSLException: Unrecognized SSL message, plaintext connection?
+	at sun.security.ssl.InputRecord.handleUnknownRecord(Unknown Source)
+	at sun.security.ssl.InputRecord.read(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+	at com.sun.mail.util.SocketFetcher.configureSSLSocket(SocketFetcher.java:507)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:238)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1900)
+	... 18 more
+Finished: FAILURE

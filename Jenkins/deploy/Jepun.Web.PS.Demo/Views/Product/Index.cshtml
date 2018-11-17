@@ -1,0 +1,25 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@{
+}
+<div class="container">
+    <div class="row">
+        <section class="content">
+            <div class="container">
+                <div class="cus-breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        @Html.Raw(Model.Breadcrumb)
+                    </ol>
+                </div>
+                <div class="page-header-wrapper">
+                    <h3 class="title"><span>境內基金</span></h3>
+                    <hr>
+                    <div class="funds-area">
+                        @Html.Raw(Model.Dictionary["FundProduct"])
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>

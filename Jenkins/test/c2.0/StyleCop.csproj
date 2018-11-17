@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Defaulttargets="StyleCop" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<UsingTask AssemblyFile="C:\Users\youlinchen\.nuget\packages\stylecop.msbuild\5.0.0\tools\StyleCop.dll" TaskName="StyleCopTask"/>
+	<!--<UsingTask AssemblyFile="C:\Windows\System32\config\systemprofile\.nuget\packages\stylecop.msbuild\5.0.0\tools\StyleCop.dll" TaskName="StyleCopTask"/>-->
+	<ItemGroup>		
+		<StyleCopFiles Include="D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\**\*.cs" Exclude="D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\**\AssemblyInfo.cs;D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\**\*Test*.cs" />		
+	</ItemGroup>
+	
+	<Target Name="StyleCop">		   
+		<StyleCopTask
+			ProjectFullPath="$(MSBuildProjectDirectory)"
+			SourceFiles="@(StyleCopFiles)"			 
+			ForceFullAnalysis="true"			 
+			TreatErrorsAsWarnings="true"
+			CacheResults="true"			 
+			OutputFile="$(MSBuildProjectDirectory)\StyleCopViolations.xml">			 
+		</StyleCopTask>
+	</Target>
+</Project>

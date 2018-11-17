@@ -1,0 +1,5 @@
+D:\Jenkins\workspace\TestUnitTest\TestUnitTest\bin\Debug\TestUnitTest.dll
+D:\Jenkins\workspace\TestUnitTest\TestUnitTest\bin\Debug\TestUnitTest.pdb
+D:\Jenkins\workspace\TestUnitTest\TestUnitTest\obj\Debug\TestUnitTest.dll
+D:\Jenkins\workspace\TestUnitTest\TestUnitTest\obj\Debug\TestUnitTest.pdb
+D:\Jenkins\workspace\TestUnitTest\TestUnitTest\obj\Debug\TestUnitTest.csprojResolveAssemblyReference.cache

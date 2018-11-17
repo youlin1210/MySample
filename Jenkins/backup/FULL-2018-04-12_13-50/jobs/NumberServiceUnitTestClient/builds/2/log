@@ -1,0 +1,23 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitTest3
+[NumberServiceUnitTest3] $ cmd /c call C:\WINDOWS\TEMP\jenkins7716509138834256504.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest3>cd D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0\ 
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0>vstest.console.exe NumberLibTest.dll /EnableCodeCoverage /Logger:trx 
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180307-01 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+正在啟動測試執行，請稍候...
+2.8696
+資料收集器 'Code Coverage' 的訊息: Cannot find CodeCoverage.exe.。
+System.IO.FileNotFoundException: D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0\NumberLibTest.dll 中沒有可用的測試。請確定測試專案具有套件 "Microsoft.NET.Test.Sdk" 的 NuGet 參考，且架構的版本設定適當，然後再試一次。
+   於 Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Hosting.DotnetTestHostManager.GetTestHostProcessStartInfo(IEnumerable`1 sources, IDictionary`2 environmentVariables, TestRunnerConnectionInfo connectionInfo)
+   於 Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Client.ProxyOperationManager.SetupChannel(IEnumerable`1 sources, CancellationToken cancellationToken)
+   於 Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Client.ProxyExecutionManager.StartTestRun(TestRunCriteria testRunCriteria, ITestRunEventsHandler eventHandler)
+
+測試回合已中止。
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0>exit 1 
+Build step '執行 Windows 批次指令' marked build as failure
+Finished: FAILURE

@@ -1,0 +1,11 @@
+commit abb1768b6123626d3dd8cfe78ab83f5b63be4559
+tree a5f42a107e9176c40663787e8ef08916f362c3b7
+parent a3606f5f70339afa802d548077021e5a96c87e12
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-29 15:01:44 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-29 15:01:44 +0800
+
+    add
+
+
+
+:100644 100644 720cae5ad2166755f7261a0cf85043bb9db29c20 f66120c8fa452618d1a6b85d18f29c77b47a95a4 M	JenkinsCI/NumberLibTest/NuberServiceTest.cs

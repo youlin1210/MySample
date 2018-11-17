@@ -1,0 +1,694 @@
+﻿body {
+    padding-top: 104px;
+    padding-bottom: 20px;
+}
+.jepun-navbar-fixed-second {
+    position:fixed;
+    top:50px;
+    width:100%;
+    z-index:1029;
+    /*background:#ffd280;*/
+}
+.jepun-provision-box {
+    height:450px;
+    overflow-y:auto;
+}
+.jepun-navbar-fixed-second .navbar-collapse {
+    max-height: 240px;
+}
+/*reset ul li start*/
+ul, li{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+ol, ul {
+	list-style: none;
+}
+/*reset ul li end*/
+input[type=checkbox],input[type=radio] {
+    width:16px;
+    height:16px;
+    vertical-align: middle;
+}
+
+
+.panel {
+    background-color: transparent;
+}
+.checkbox-inline + .checkbox-inline, .radio-inline + .radio-inline {
+    margin-top: 0;
+    margin-left: 0; 
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+textarea,select {
+    /*max-width: 320px;*/
+}
+
+.input-validation-error { border: 1px solid #ff0000 }
+.input-validation-valid  { border: 1px solid #00ff00 }
+.field-validation-error { color: #ff0000 }
+.field-validation-valid { display: none }
+.validation-summary-errors { font-weight: bold; color: #ff0000 }
+.validation-summary-valid { display: none }
+.btn{white-space: normal !important;}
+.jepun-btn-left {text-align:left;}
+
+/*for watermark*/
+.form-control,.btn{
+    color:black;
+    background-color:transparent;
+}
+.jepun-btn-info {
+background:rgb(0,124,126);
+color:#fff;
+}
+/*IE 9,10 要有,不然會click到頁面*/
+.modal{
+    background-color:white;
+}
+.modal-content,.input-group-addon,.jumbotron{
+    background-color:transparent;
+}
+.modal-dialog {
+    background:rgba(255,255,255,0.8);
+}
+.jepun-watermark{
+    position:fixed;
+    z-index:-1000;
+    /*width:550px;
+    height:398px;*/
+    width:50%;
+    height:80%;
+    fill:#cccccc;
+    font-family:標楷體;     
+    left:30%;
+    top:30%;
+}
+.jepun-watermark-logo-img{
+     height:120px;/*ie無效*/
+     width:120px;/*ie無效*/
+     opacity:0.4;/* 透明*/
+     filter:alpha(opacity=40); /* 透明  IE8 以及更早的版本 */
+}
+.jepun-watermark-logo{
+     font-size:120px;
+}
+.jepun-watermark-under{
+   font-size:36px;
+   font-weight: bold;
+}
+.jepun-security-icon{
+    display:none;
+    padding-top:10px;     
+    border-radius:3px;
+    background-color:lightgreen;   
+    position:absolute;
+    top:10%;
+    left:95%;
+    opacity:0.6;/* 透明*/
+    filter:alpha(opacity=60); /* 透明  IE8 以及更早的版本 */
+}
+.jepun-gotop
+{    
+    overflow:auto;
+    border-radius:3px;
+    background-color:orange;
+    color:#fff;
+    text-align:center;
+    padding:12px 14px 14px 12px;
+    position:fixed;
+    cursor:pointer;
+    display:none;
+    font-size:18px;
+    line-height:10px;
+    cursor:pointer;
+    transition:all .7s ease-in-out;
+    opacity: 0.4;/* 透明*/
+    filter: alpha(opacity=40);/* 透明  IE8 以及更早的版本 */
+} 
+.jepun-list-group {
+     /*width:150px;*/
+}
+.jepun-list-group div{
+    display:none; 
+}
+.jepun-mobile-show {
+    display:none !important;
+}
+.jepun-table-autoline {
+    word-wrap:break-word; word-break:break-all;
+}
+.jepun-table-rwd{}
+/*收折後的問題先以父繼承(initial)處理*/
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    position:initial;
+}
+/*處理input-group checkbox label 跑版問題*/
+.input-group-addon input[type=checkbox] {vertical-align:middle;}
+.input-group-addon label {font-weight:normal;margin:0;}
+.input-group-addon:last-child {border-left: 1px solid #ccc;}
+/**Logan Add CSS控制 div顯示或隱藏 **/
+input[type=checkbox][name=currency1] ~ [name=currencyblock1] {
+    display:none;
+}
+input[type=checkbox][name=currency1]:checked ~ [name=currencyblock1] {
+    display:block;
+}
+input[type=checkbox][name=currency2] ~ [name=currencyblock2] {
+    display:none;
+}
+input[type=checkbox][name=currency2]:checked ~ [name=currencyblock2] {
+    display:block;
+}
+
+
+input[type=checkbox][name=Buy1] ~ .BuyBlock1 {
+    display:none;
+}
+input[type=checkbox][name=Buy1]:checked ~ .BuyBlock1 {
+    display:block;
+}
+input[type=checkbox][name=Buy2] ~ .BuyBlock2 {
+    display:none;
+}
+input[type=checkbox][name=Buy2]:checked ~ .BuyBlock2 {
+    display:block;
+}
+input[type=checkbox][name=Buy3] ~ .BuyBlock3 {
+    display:none;
+}
+input[type=checkbox][name=Buy3]:checked ~ .BuyBlock3 {
+    display:block;
+}
+
+/**進度條CSS**/
+/*Modalstep*/
+/*step*/
+a {
+	cursor: pointer;
+}
+.step {
+	counter-reset: flag;
+}
+.step li {
+	position: relative;
+}
+.step li a:before {
+	content: counter(flag);
+	counter-increment: flag;
+}
+.step li a:after {
+	content: "";
+}
+/**/
+/*steparrow*/
+
+/*step-progress*/
+.step-progress {
+	margin-top: 60px;
+}
+.step-progress>li>a {
+	color: #CCCCCC;
+	padding-top: 1.8rem;
+}
+.step-progress>li>a span.caret {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	transform: rotate(180deg);
+	top: -4px;
+}
+.step-progress>li.active>a
+,.step-progress>li.active>a:focus
+,.step-progress>li.active>a:hover {
+	color: #337AB7;
+	background-color: rgba(0, 0, 0, 0);
+}
+.step-progress li a:before {
+   
+	position: absolute;
+	z-index: 2;
+	top: -35px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	line-height: 2rem;
+	box-shadow: 0 0 0 5px rgb(204, 204, 204)
+}
+.step-progress li a:after {
+	content: "";
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
+	background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
+	-webkit-background-size: 40px 40px;
+	background-size: 40px 40px;
+	background-color: #CCCCCC;
+	float: left;
+	width: 100%;
+	-webkit-transition: width .6s ease;
+	-o-transition: width .6s ease;
+	transition: width .6s ease;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 10px;
+}
+.step-progress li a:hover {
+	background-color: rgba(0, 0, 0, 0);
+	color: #337AB7;
+}
+.step-progress li:hover a:before,
+.step-progress li.active a:before {
+	background-color: #337AB7;
+	color: #FFFFFF;
+}
+.step-progress li:hover a:after,
+.step-progress li.active a:after {
+	background-color: #337AB7;
+}
+.step-progress li.active a:after {
+	-webkit-animation: progress-bar-stripes 2s linear infinite;
+	-o-animation: progress-bar-stripes 2s linear infinite;
+	animation: progress-bar-stripes 2s linear infinite;
+}
+.step-progress li:first-child a:after {
+	border-radius: 5px 0 0 5px;
+}
+.step-progress li:last-child a:after {
+	border-radius: 0 5px 5px 0;
+}
+/**進度條CSS**/
+/*必填星號*/
+.muted:before
+{
+    content: "\002a";
+    color:red;
+    vertical-align:middle;  
+    font-family: 'Glyphicons Halflings';
+    font-size:10px;
+    font-weight: 100;
+}
+
+/**LoadingBar**/
+.Jepun-loading {
+    color: #fff;
+    position: fixed;
+    box-sizing: border-box;
+    /*background-color: rgba(0,0,0,0.75);*/
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    z-index: 999999;
+}
+@keyframes Jepun-loading-animation {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+.Jepun-loading:after, .Jepun-loading:before {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    border: solid 8px;
+    animation: Jepun-loading-animation 0.5s linear infinite;
+    box-sizing: border-box;
+    display: block;
+}
+
+.Jepun-loading:after {
+    width: 52px;
+    height: 52px;
+    border-color: #f0f0f0;
+    border-right-color: transparent;
+    top: calc(50% - 26px);
+    left: calc(50% - 26px);
+}
+
+.Jepun-loading:before {
+    width: 70px;
+    height: 70px;
+    border-color: #5bc0de;
+    border-left-color: transparent;
+    animation-duration: 1s;
+    top: calc(50% - 35px);
+    left: calc(50% - 35px);
+}
+/**loading end**/
+
+
+  .custom-combobox {
+    position: relative;
+    display: inline-block;
+  }
+  .custom-combobox-toggle {
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+  }
+  .custom-combobox-input {
+    margin: 0;
+    padding: 5px 10px;
+  }
+.ui-autocomplete {
+    z-index:99999;
+    max-height:200px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    background:white;
+}
+.jepunhidden {
+    width: 0px !important;
+    height: 0px !important;
+    background: none;
+    border: none;
+    position: absolute !important;
+    z-index: -99;
+    top: 0;
+    opacity: 0.01;
+}
+
+
+
+
+
+@media only screen and (min-width: 768px) {
+	/*loginmodal*/
+	
+	#myModal .modal-content {
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}
+	#myModal .modal-dialog {
+		margin-top: 6rem;
+	}
+
+     /**fixedHeader**/
+    .fixedHeaderOuter {
+        position: relative;
+        overflow:hidden;
+    }
+    .fixedHeaderInner {
+        /* overflow-y: auto;
+      max-height:400px;*/
+    }
+    table.fixedHeader thead {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width:100%;
+        display:table;
+    }
+    table.fixedHeader thead tr{
+        position: static;
+        width:100% !important;
+        display:table-row;
+    }
+     table.fixedHeader thead th{
+        position: static;
+        display: table-cell;
+        float: none;
+    }
+     
+.customScroll {
+  /*overflow: hidden !important;*/
+  position: relative;
+  max-height: 400px;
+
+}
+  .customScroll .scrollDiv {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    height: 100%;
+    z-index:3;
+        max-height: 400px;
+    }
+  .customScroll .scrollContent {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+     }
+  .customScroll .scrollbar {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    bottom: 6px;
+    background: transparent;
+    width: 6px;
+    border-radius: 3px;
+    transition: background-color 0.5s; }
+    .customScroll .scrollbar:hover {
+      cursor: pointer; }
+      .customScroll .scrollbar:hover div:hover {
+        background: #777;
+        background: rgba(0, 0, 0, 0.55); }
+    .customScroll .scrollbar, .customScroll .scrollbar div {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
+  .customScroll .scrollbar div {
+    height: 100px;
+    width: 6px;
+    border-radius: 3px;
+    background: transparent;
+    transition: background-color 0.5s; }
+  .customScroll:hover .scrollbar {
+    background: #ddd;
+    background: rgba(0, 0, 0, 0.15); }
+  .customScroll:hover .scrollbar div {
+    background: #aaa;
+    background: rgba(0, 0, 0, 0.35); }
+  .customScroll .unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+
+
+}
+@media only screen and (max-width: 767px) {
+	/*loginmodal*/
+	.jepun-provision-box {
+        max-height:250px;
+    }
+	#myModal .container-fluid {
+		padding: 0 5%;
+	}
+    .step-progress > li {
+        margin-top:50px;
+    }
+    .step-progress li:first-child {
+        margin-top:0px;
+    }
+    .step-progress li a:after {
+        border-radius: 5px ;
+    }
+    .step-progress li:first-child a:after {
+	    border-radius: 5px ;
+    }
+    .step-progress li:last-child a:after {
+	    border-radius: 5px ;
+    }
+     /*, table th[class*=col-]*/
+    table td[class*=col-] {
+    display: block; 
+
+    }
+    .jepun-table-rwd{
+        min-width: 100%;
+    }
+    /*針對tr去做隱藏*/
+    .jepun-table-rwd thead tr{
+        display: none !important;
+    }
+  /*讓tr變成區塊主要讓他有個區塊*/
+    .jepun-table-rwd tr{
+        display: block;
+        border: 1px solid #ddd;
+        margin-top: 5px;
+        margin-bottom:5px;
+    }
+
+    .jepun-table-rwd td {
+        text-align: left;
+        font-size: 15px;
+        overflow: hidden;
+        width: 100%;
+        display: block;
+    }
+    .jepun-table-rwd td:before {
+        z-index:0;
+        /*最重要的就是這串*/
+        content: attr(data-th) " : ";
+        /*最重要的就是這串*/
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-right: 10px;
+        color: #D20B2A;
+    }
+    /*當RWD縮小的時候.table-bordered 會有兩條線，所以針對.table-bordered去做修正*/
+    .jepun-table-rwd.table-bordered td,.jepun-table-rwd.table-bordered th,.jepun-table-rwd.table-bordered{
+        border:0;
+    }
+    /*處理 -input-group RWD時不會跟著往下收取 START */
+    .input-group-rwd,.field-validation-error{
+        width: 100%;
+        max-width:320px;
+        display: block;
+    }
+    .input-group .form-control, .input-group-addon, .input-group-btn {
+        display: block;
+    }
+    .field-validation-valid {
+        display:none;
+    }
+    .input-group .form-control  {
+        float:none;
+    }
+
+    .input-group-addon:first-child {
+         border-right: 1px solid #ccc; 
+         border-radius: 3px;
+    }
+    .input-group-addon:last-child {
+        border-left: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    .jepun-mobile-noshow {
+        display:none !important;
+    }
+    .jepun-mobile-show {
+        display:block !important;
+    }
+    .input-group-rwd >span.input-group-rwd{
+        background:rgb(0,124,126);
+        color:#fff;
+    }
+    /*處理 -inputgroup RWD時不會跟著往下收取 END */
+
+     .btn-group-justified>.btn-group-rwd {
+        display:block;
+        width:100%;
+    }
+    .btn-group > .btn-group-rwd:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group-rwd:first-child:not(:last-child) > .dropdown-toggle 
+    ,.btn-group>.btn-group-rwd:last-child:not(:first-child)>.btn:first-child
+    {
+        border-radius: 4px;
+    }
+}
+@media (max-device-width: 480px) and (orientation: landscape) {
+    .jepun-navbar-fixed-second .navbar-collapse {
+        max-height: 150px;
+    }
+    .jepun-provision-box {
+        max-height:150px;
+    }
+}
+.print-break{
+        page-break-inside: avoid !important;
+     }
+@media print {  
+@page {
+        /*size:landscape;*/
+        margin:12px;
+        size: portrait;
+     }  
+    body {
+         font-size: .12em;
+     }
+     head,input,textarea,button,select,.print-noshow {
+        display: none !important;
+     }
+     form,.panel,.panel-footer,.panel-body,.btn{
+         border: none;  
+     }
+     div,table{   /*要加float:none 不然page-break-after 會失效*/
+        float: none !important;
+     }
+}
+
+
+/**collapse 裡面放table會跑掉**/
+.jepun-table-collapse {
+  display: none;
+}
+.jepun-table-collapse.in{
+  display: table;
+}
+
+
+.w11-white {
+    font-family: Arial, "新細明體";
+    font-size: 11px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+.a12-green {
+    font-family: "Microsoft JhengHei UI";
+    font-size: 12px;
+    line-height: 18px;
+    color: #00655B;
+}
+.a12-red {
+    font-family: "Microsoft JhengHei UI";
+    font-size: 12px;
+    line-height: 18px;
+    color: #FF0000;
+}
+
+.backbody {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.backstatus {
+    padding-left: 205px;
+}
+.backinputfile {
+    height:36px;
+}
+.backselect {
+    width:40%;
+}
+.border-none {
+    border:none;
+}
+/*fix date picker*/
+.input-group .form-control {
+z-index:0;
+}

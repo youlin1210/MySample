@@ -1,0 +1,107 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@{
+}
+<div class="container inner">
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <h1>@Model.H1</h1>
+            <a><u>今年度配息日查詢</u></a>
+        </div>
+        <div class="col-md-12 form-group">
+            <label class="col-md-2">基金類型 ｜</label>
+            <label class="radio-inline">
+                <input type="radio">ETF
+            </label>
+            <label class="radio-inline">
+                <input type="radio">中國信託系列
+            </label>
+            <label class="radio-inline">
+                <input type="radio">境外基金
+            </label>
+        </div>
+        <div class="col-md-12 form-group">
+            <label class="col-md-2">請選擇基金名稱</label>
+            @Html.DropDownListFor(model => model.Body, Enumerable.Empty<SelectListItem>()).Sel()
+        </div>
+        <div class="col-md-12 form-group">
+            <label class="col-md-2">配息年份 ｜</label>
+            <label class="radio-inline">
+                <input type="radio">2017
+            </label>
+            <label class="radio-inline">
+                <input type="radio">2016
+            </label>
+            <label class="radio-inline">
+                <input type="radio">2015
+            </label>
+            <label class="radio-inline">
+                <input type="radio">2014
+            </label>
+            <label class="radio-inline">
+                <input type="radio">2013
+            </label>
+            <label class="radio-inline">
+                <input type="radio">2012 以前
+            </label>
+        </div>
+        <div class="form-group col-md-12">
+            <div class="col-md-2">
+                <label>查詢區間</label>
+            </div>
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Body).DT(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.StartDate, ErrMsg = Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.StartDate })
+            </div>
+
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Body).DT(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.EndDate, ErrMsg = Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.EndDate })
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-primary" name="BtnQuery">查詢</button>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <table class="table table-bordered ">
+                <thead>
+                    <tr class="bg-green">
+                        <th class="col-md-2">月份可分配淨利本金</th>
+                        <th class="col-md-2">每單位配息 (元) </th>
+                        <th class="col-md-3">可分配淨利÷配息 (%)</th>
+                        <th class="col-md-3">本金÷配息 (%) </th>
+                        <th class="col-md-2">年化配息率 (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">YYYY/MM</td>
+                        <td class="col-md-2"></td>
+                        <td class="col-md-3"></td>
+                        <td class="col-md-3"></td>
+                        <td class="col-md-2"></td>
+                    </tr>
+                    <tr class="bg-green">
+                        <td class="col-md-2">收益分配基準日</td>
+                        <td class="col-md-2">除息日</td>
+                        <td class="col-md-3">收益分配發放日</td>
+                        <td class="col-md-3">幣別</td>
+                        <td class="col-md-2">配息頻率</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">YYYY/MM/DD</td>
+                        <td class="col-md-2">YYYY/MM/DD</td>
+                        <td class="col-md-3">YYYY/MM/DD</td>
+                        <td class="col-md-3">TWD/台幣</td>
+                        <td class="col-md-2"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12 form-group">
+            <p class="color-danger">注意事項</p>
+            <p class="color-danger">v本基金配息來源可能為本金，且進行配息前未先扣除應負擔之相關費用。</p>
+            <p class="color-danger">v基金配息率不代表基金報酬率，且過去配息率不代表未來配息率；基金淨值可能因市場素而上下波動，於獲配息</p>
+            <p class="color-danger">時須一併注意基金淨值之變動。</p>
+            <p>v基金配息之年化配息率 = 每單位配息金額 ÷ 除息日前一日之淨值 × 一年配息次數 × 100%。年化配息率為估算值。</p>
+            <p>v本配息組成項目表之揭露原則係依照中華民國證券投資信託暨顧問商業同業公會會員及其銷售機構從事廣告及營業。</p>
+        </div>
+    </div>
+</div>

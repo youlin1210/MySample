@@ -1,0 +1,4411 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Jepun.Core.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Jepun.Core.Common.ConsistentHashing">
+            <summary>
+            一至性演算法實作
+            1、平衡性(Balance)：平衡性是指哈希的结果能够尽可能分布到所有的缓冲中去，这样可以使得所有的缓冲空间都得到利用。很多哈希算法都能够满足这一条件。
+            2、单调性(Monotonicity)：单调性是指如果已经有一些内容通过哈希分派到了相应的缓冲中，又有新的缓冲加入到系统中。哈希的结果应能够保证原有已分配的内容可以被映射到原有的或者新的缓冲中去，而不会被映射到旧的缓冲集合中的其他缓冲区。 
+            3、分散性(Spread)：在分布式环境中，终端有可能看不到所有的缓冲，而是只能看到其中的一部分。当终端希望通过哈希过程将内容映射到缓冲上时，由于不同终端所见的缓冲范围有可能不同，从而导致哈希的结果不一致，最终的结果是相同的内容被不同的终端映射到不同的缓冲区中。这种情况显然是应该避免的，因为它导致相同内容被存储到不同缓冲中去，降低了系统存储的效率。分散性的定义就是上述情况发生的严重程度。好的哈希算法应能够尽量避免不一致的情况发生，也就是尽量降低分散性。 
+            4、负载(Load)：负载问题实际上是从另一个角度看待分散性问题。既然不同的终端可能将相同的内容映射到不同的缓冲区中，那么对于一个特定的缓冲区而言，也可能被不同的用户映射为不同 的内容。与分散性一样，这种情况也是应当避免的，因此好的哈希算法应能够尽量降低缓冲的负荷。
+            一致性哈希算法在保持了单调性的同时，还是数据的迁移达到了最小，这样的算法对分布式集群来说是非常合适的，避免了大量数据迁移，减小了服务器的的压力
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.ConsistentHashing.#ctor(System.Collections.Generic.List{System.String},System.Int32)">
+            <summary>
+            建構子
+            </summary>
+            <example>
+            <code language="cs" title=" ">
+            List&lt;string&gt; nodes = new List&lt;string&gt;();
+            nodes.Add("_1");
+            nodes.Add("_2");
+            nodes.Add("_3");
+            ConsistentHashing ch = new ConsistentHashing(nodes.ToList(), 160);
+            string nodeName = ch.GetPrimary("test");
+            </code>
+            </example>
+            <param name="nodes">節點名稱</param>
+            <param name="nodeCopies">節點虛擬次數</param>
+        </member>
+        <member name="M:Jepun.Core.Common.ConsistentHashing.AddNode(System.String)">
+            <summary>
+            加入新結點
+            </summary>
+            <param name="nodeName">節點名稱</param>
+        </member>
+        <member name="M:Jepun.Core.Common.ConsistentHashing.RemoveNode(System.String)">
+            <summary>
+            移除結點
+            </summary>
+            <param name="nodeName">節點名稱</param>
+        </member>
+        <member name="M:Jepun.Core.Common.ConsistentHashing.GetPrimary(System.String)">
+            <summary>
+            一至性演算法取得節點
+            </summary>
+            <param name="input">hash的依據</param>
+            <returns>傳回節點名稱</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.ConsistentHashing.GetNodeMapValue(System.Int64)">
+            <summary>
+            取出節點
+            </summary>
+            <param name="key">hash值</param>
+            <returns>傳回節點名稱</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.ConsistentHashing.NodeList">
+            <summary>
+            節點清單
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.IHashPartition">
+            <summary>
+            分片介面
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.IHashPartition.AddNode(System.String)">
+            <summary>
+            加入新結點
+            </summary>
+            <param name="item">節點名稱</param>
+        </member>
+        <member name="M:Jepun.Core.Common.IHashPartition.RemoveNode(System.String)">
+            <summary>
+            移除結點
+            </summary>
+            <param name="item">節點名稱</param>
+        </member>
+        <member name="M:Jepun.Core.Common.IHashPartition.GetPrimary(System.String)">
+            <summary>
+             取得節點名稱
+            </summary>
+            <param name="input">hash的依據</param>
+            <returns>傳回節點名稱</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.IHashPartition.NodeList">
+            <summary>
+            節點清單
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.RoundRobinHashing">
+            <summary>
+            Round Robin , 缺點 當機器(服務)回來時,會無法回到原機器(服務),因為隨時都在偵測服務是否斷掉heart Beat,一至性演算法可回來且分布較平均
+            除非去管理員使清單,太麻煩,
+            在分布式集群中，对机器的添加删除，或者机器故障后自动脱离集群这些操作是分布式集群管理最基本的功能。如果采用常用的hash(object)%N算法，
+            那么在有机器添加或者删除后，很多原有的数据就无法找到了，这样严重的违反了单调性原则。會造成大量数据迁移
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.RoundRobinHashing.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            節點名稱清單
+            </summary>
+            <param name="nodes"></param>
+        </member>
+        <member name="M:Jepun.Core.Common.RoundRobinHashing.AddNode(System.String)">
+            <summary>
+            加入新結點
+            </summary>
+            <param name="item">節點名稱</param>
+        </member>
+        <member name="M:Jepun.Core.Common.RoundRobinHashing.RemoveNode(System.String)">
+            <summary>
+            移除結點
+            </summary>
+            <param name="item">節點名稱</param>
+        </member>
+        <member name="M:Jepun.Core.Common.RoundRobinHashing.GetPrimary(System.String)">
+            <summary>
+             取得節點名稱
+            </summary>
+            <param name="input">hash的依據</param>
+            <returns>傳回節點名稱</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.RoundRobinHashing.NodeList">
+            <summary>
+            節點清單
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.Compressor">
+            <summary>
+            壓縮/解壓縮工具類別
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.Compressor.CompressFile(System.String,System.IO.Compression.CompressionLevel)">
+            <summary>
+            單檔壓縮
+            </summary>
+            <param name="fileToCompress">檔案Path</param>
+            <param name="level">壓縮等級: NoCompression(無壓縮) / Fastest(最快) / Optimal(最佳)[預設]</param>
+        </member>
+        <member name="M:Jepun.Core.Common.Compressor.CompressFile(System.IO.FileInfo,System.IO.Compression.CompressionLevel)">
+            <summary>
+            單檔壓縮
+            </summary>
+            <param name="fileToCompress">檔案資訊</param>
+            <param name="level">壓縮等級: NoCompression(無壓縮) / Fastest(最快) / Optimal(最佳)[預設]</param>
+        </member>
+        <member name="M:Jepun.Core.Common.Compressor.CompressFolder(System.String,System.String,System.IO.Compression.CompressionLevel)">
+            <summary>
+            目錄壓縮
+            注意: 來源和目標目錄必須不同
+            </summary>
+            <param name="folderToCompress">欲壓縮目錄</param>
+            <param name="zipPath">目標壓縮檔案Path</param>
+            <param name="level">壓縮等級</param>
+        </member>
+        <member name="M:Jepun.Core.Common.Compressor.DecompressFile(System.String)">
+            <summary>
+            單檔解壓縮
+            </summary>
+            <param name="fileToDecompress">檔案Path</param>
+        </member>
+        <member name="M:Jepun.Core.Common.Compressor.DecompressFile(System.IO.FileInfo)">
+            <summary>
+            單檔解壓縮
+            </summary>
+            <param name="fileToDecompress">檔案資訊</param>
+        </member>
+        <member name="M:Jepun.Core.Common.Compressor.DecompressFolder(System.String,System.String)">
+            <summary>
+            目錄解壓縮
+            </summary>
+            <param name="zipPath">壓縮檔Path</param>
+            <param name="folderToDecompress">欲解壓縮至目標目錄</param>
+        </member>
+        <member name="T:Jepun.Core.Common.SevenZip">
+            <summary>
+            壓縮/解壓縮工具
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.SevenZip.CompressFiles(System.String,System.String,System.String[])">
+            <summary>
+            壓縮檔案
+            </summary>
+            <param name="zip">壓縮檔</param>
+            <param name="password">密碼</param>
+            <param name="files">欲壓縮檔案</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.SevenZip.CompressFolder(System.String,System.String,System.String)">
+            <summary>
+            目錄壓縮
+            注意: 來源和目標目錄必須不同
+            </summary>
+            <param name="srcFolder">欲壓縮目錄</param>
+            <param name="zip">目標壓縮檔案輸出目錄</param>
+            <param name="password">密碼</param>
+        </member>
+        <member name="M:Jepun.Core.Common.SevenZip.Decompress(System.String,System.String,System.String)">
+            <summary>
+            解壓縮
+            </summary>
+            <param name="zip">壓縮檔</param>
+            <param name="exPath">解壓縮目錄</param>
+            <param name="password">密碼</param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.ConfigHelper">
+            <summary>
+            Config協助靜態類別,判斷取得WEB或WINDOW類型的 Configuration
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.ConfigHelper.AutoGetConfig">
+            <summary>
+            自動判斷取得WEB或WINDOW類型的 Configuration
+            </summary>
+            <returns>WEB或WINDOW類型的 Configuration</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.ConfigHelper.GetAppConfig">
+            <summary>
+            取得App.config 組態
+            </summary>
+            <returns>WINDOW類型的 Configuration</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.ConfigHelper.GetWebConfig">
+            <summary>
+            取得 Web.config 組態
+            </summary>
+            <returns> WEB 類型的 Configuration</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.GenericElement">
+            <summary>
+            Jepun組態檔 通用元素
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.GenericElement.ElementKey">
+            <summary>元素的主鍵</summary>
+        </member>
+        <member name="T:Jepun.Core.Common.GenericElementCollection`1">
+            <summary>
+            Jepun組態檔 通用元素集合
+            </summary>
+            <typeparam name="ItemType">元素型別</typeparam>
+        </member>
+        <member name="M:Jepun.Core.Common.GenericElementCollection`1.Add(`0)">
+            <summary>
+            Add 
+            </summary>
+            <param name="element">元素</param>
+        </member>
+        <member name="M:Jepun.Core.Common.GenericElementCollection`1.Remove(System.Object)">
+            <summary>
+            Remove 
+            </summary>
+            <param name="key">key</param>
+        </member>
+        <member name="M:Jepun.Core.Common.GenericElementCollection`1.RemoveAt(System.Int32)">
+            <summary>
+            RemoveAt
+            </summary>
+            <param name="index">index</param>
+        </member>
+        <member name="M:Jepun.Core.Common.GenericElementCollection`1.Clear">
+            <summary>
+            Clear
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.GenericElementCollection`1.CreateNewElement">
+            <summary>
+            Create New Element
+            </summary>
+            <returns>New Element</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.GenericElementCollection`1.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            取得元素key值
+            </summary>
+            <param name="element">元素</param>
+            <returns>元素key值</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.GenericElementCollection`1.Item(System.Int32)">
+            <summary>
+            元素型別 索引子 依據index
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.GenericElementCollection`1.Item(System.String)">
+            <summary>
+            元素型別 索引子依據key
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.GenericElementCollection`1.CollectionType">
+            <summary>
+            Collection Type
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.JepunConfig">
+            <summary>
+            Jepun Config  組態檔
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.JepunConfig.GetSection``1">
+            <summary>
+            由Section Name區段名稱 取得JepunSection
+            </summary>
+            <typeparam name="TSection">型別為 ConfigurationSection 類別</typeparam>       
+            <returns>JepunSection</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunConfig.AppInfo">
+            <summary>
+            Web or Win
+            </summary>
+            <example>
+            <code language="cs" title="取得Jepun設定檔資訊">
+            Console.WriteLine(JepunConfig.AppInfo);
+            Console.WriteLine(JepunConfig.Mail.SmtpServer);
+            </code>
+            </example>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunConfig.CultureInfo">
+            <summary>
+            文化特性
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunConfig.CustomerDllName">
+            <summary>
+            客製化dll名稱
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunConfig.ClusterServer">
+            <summary>
+            叢集伺服器名稱
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunConfig.ClusterRole">
+            <summary>
+            叢集角色
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunConfig.Mail">
+            <summary>
+            Mail 設定
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunConfig.Shard">
+            <summary>
+            Shard 設定
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.JepunSection">
+            <summary>
+            Jepun Section 區段組態檔 
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunSection.AppInfo">
+            <summary>
+            AppInfo屬性
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunSection.CultureInfo">
+            <summary>
+            CultureInfo屬性
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunSection.ClusterServer">
+            <summary>
+            ClusterServer屬性
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunSection.ClusterRole">
+            <summary>
+            ClusterRole屬性
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunSection.CustomerDllName">
+            <summary>
+            CustomerDllName屬性
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunSection.Mail">
+            <summary>
+            Mail區段
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.JepunSection.Shard">
+            <summary>
+            Shard區段
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.MailElement">
+            <summary>
+            Jepun.Config 的 Mail Element 設定區段 
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.MailElement.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.MailElement.#ctor(System.String,System.Int32,System.Int32,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            郵件設定參數
+            </summary>
+            <param name="smtpServer">Smtp Server</param>
+            <param name="port">port</param>
+            <param name="timeOut">單位:ms</param>
+            <param name="interval">單位:ms</param>
+            <param name="authenticate">0:不驗證 1:Basic驗證  2:NTLM驗證</param>
+            <param name="userName">使用者ID</param>
+            <param name="passWord">使用者密碼</param>
+            <param name="encoding">編碼</param>
+            <param name="leftTag">資料取代字串左方Tag符號</param>
+            <param name="rightTag">資料取代字串右方Tag符號</param>
+            <param name="enableSSL">enableSSL</param>
+        </member>
+        <member name="P:Jepun.Core.Common.MailElement.SmtpServer">
+            <summary>
+            SmtpServer
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.MailElement.Port">
+            <summary>
+            數字不要指定 StringValidator
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.MailElement.TimeOut">
+            <summary>
+            數字不要指定 StringValidator
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.MailElement.Interval">
+            <summary>
+            數字不要指定 StringValidator
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.MailElement.Authenticate">
+            <summary>
+            預設 SMTP 驗證   0:不驗證 1:Basic驗證  2:NTLM驗證
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.MailElement.UserName">
+            <summary>
+            UserName
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.MailElement.PassWord">
+            <summary>
+            PassWord
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.MailElement.Encoding">
+            <summary>
+            Encoding
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.MailElement.LeftTag">
+            <summary>
+            LeftTag
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.MailElement.RightTag">
+            <summary>
+            RightTag
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.MailElement.EnableSSL">
+            <summary>
+            EnableSSL
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.SendList">
+            <summary>
+            Jepun.Config的Mail寄件清單區段
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.SendList.GetSendList(System.String)">
+            <summary>
+            取得SendToElement
+            </summary>
+            <param name="Name">名字</param>
+            <returns>SendTo Element</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.SendToElement">
+            <summary>
+            Jepun.Config的Mail收件者清單區段
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.SendToElement.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.SendToElement.#ctor(System.String,System.String)">
+            <summary>
+            SendToElement
+            </summary>
+            <param name="name">名字</param>
+            <param name="address">mail address</param>
+        </member>
+        <member name="P:Jepun.Core.Common.SendToElement.Name">
+            <summary>
+            當作識別的KEY
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.SendToElement.Address">
+            <summary>
+            Address
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.SendToElement.ElementKey">
+            <summary>
+            注意,這裡要給 Key值,取得資料用
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.ShardElement">
+            <summary>
+            分片設定
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.ShardElement.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.ShardElement.ShardList">
+            <summary>
+            ShardList
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.ShardList">
+            <summary>
+            Jepun.Config的Shard 清單區段
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.ShardList.GetShardList(System.String)">
+            <summary>
+            取得SendToElement
+            </summary>
+            <param name="Name">名字</param>
+            <returns>SendTo Element</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.ShardServerElement">
+            <summary>
+            Jepun.Config的分片清單區段
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.ShardServerElement.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.ShardServerElement.#ctor(System.String,System.String)">
+            <summary>
+            ShardServerElement
+            </summary>
+            <param name="name">DB連線名稱</param>
+            <param name="map">對應值</param>
+        </member>
+        <member name="P:Jepun.Core.Common.ShardServerElement.ElementKey">
+            <summary>
+            注意,這裡要給 Key值,取得資料用
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.ShardServerElement.Name">
+            <summary>
+            當作識別的KEY
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.ShardServerElement.Map">
+            <summary>
+            Map
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.CryptoHelper">
+            <summary>
+            加密 協助靜態類別,使用AES 加解密 或  模擬驗章的功能  使用  SHA512
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.CryptoHelper.EncryptData(System.String)">
+            <summary>
+            加密字串,使用AES
+            </summary>
+            <example>
+            <code language="cs" title="加解密">
+            string EText = "Hello World!!".EncryptData();
+            Console.WriteLine("加密:" + EText);
+            Console.WriteLine("解密後:" + EText.DecryptData());
+            </code>
+            </example>
+            <param name="plainText">被加密對象</param>
+            <returns>加密後字串</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.CryptoHelper.DecryptData(System.String)">
+            <summary>
+            解密字串,使用AES
+            </summary>
+            <param name="encryptString">解密對象</param>
+            <returns>解密後字串</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.CryptoHelper.GetHashData(System.String)">
+            <summary>
+            Hash an input string and return the hash as
+            a 32 character hexadecimal string.模擬驗章的功能  使用  SHA512
+            </summary>
+            <example>
+            <code language="cs" title="簽章和驗章">
+            string input = "Hello World!!".GetHashData();
+            Console.WriteLine(input);
+            Console.WriteLine("Hello World!!".VerifyHashData(input)); //成功 true
+            </code>
+            </example>
+            <param name="input">輸入</param>
+            <returns>a 32 character hexadecimal string.(32字元16進制)</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.CryptoHelper.VerifyHashData(System.String,System.String)">
+            <summary>
+            模擬驗章的功能   Verify a hash against a string.  使用  SHA512
+            </summary>
+            <param name="input">比對的內容</param>
+            <param name="hash">雜湊值 (Hash Value)</param>
+            <returns>true:驗章成功 false:驗章失敗</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.PasswordGenerator">
+            <summary>
+            Password Generator 協助靜態類別 
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.PasswordGenerator.Generator(System.Int32,Jepun.Core.Common.PasswordStrength)">
+            <summary>
+            密碼產生器
+            </summary>
+            <param name="len">密碼長度</param>
+            <param name="pwdStrength">1:數字 2:數字+小寫 3:數字+小寫+大寫 4:數字+小寫+大寫+符號</param>
+            <returns>密碼值</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.RNG">
+            <summary>
+            亂數產生協助靜態類別 
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.RNG.Next">
+            <summary>
+            產生一個非負數的亂數
+            </summary>
+            <returns>非負數的亂數</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.RNG.Next(System.Int32)">
+            <summary>
+            產生一個非負數且最大值 max 以下的亂數
+            </summary>
+            <param name="max">最大值</param>
+            <returns>非負數且最大值 max 以下的亂數</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.RNG.Next(System.Int32,System.Int32)">
+            <summary>
+            產生一個非負數且最小值在 min 以上最大值在 max 以下的亂數
+            </summary>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+            <returns>非負數且最小值在 min 以上最大值在 max 以下的亂數</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.CultureHelper">
+            <summary>
+            文化特性協助靜態類別,如設定語系 或 取得語系等
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.CultureHelper.GetDefaultCulture">
+            <summary>
+            取得語系預設值
+            </summary>
+            <returns>語系預設值</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.CultureHelper.GetNeutralCulture(System.String)">
+            <summary>
+            取得相近似名稱如  en-  開頭的  如 en-sg 新加坡
+            </summary>
+            <param name="name">語系名</param>
+            <returns>語系頭</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.CultureHelper.GetCulture(System.String)">
+            <summary>
+            取得正確語系
+            </summary>
+            <param name="name">語系名</param>
+            <returns>語系值</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.CultureHelper.GetThreadCulture">
+            <summary>
+            取得目前執行緒文化特性
+            </summary>
+            <returns>文化特性</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.CultureHelper.SetCulture(System.String)">
+            <summary>
+            自行指定語系 zh-cn 中国 或 zh-hk 香港 或 en-us 美国 或 en-sg 新加坡 或 en-ph 菲律宾 或 en-my 马来西亚 或 h-TH 泰国 或 vi-VN 越南
+            </summary>
+            <param name="CultureInfoVal">zh-cn</param>
+        </member>
+        <member name="P:Jepun.Core.Common.CultureHelper.ThreadCultureInfo">
+            <summary>
+            取得目前執行緒文化特性
+            </summary>
+            <returns>文化特性</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.DapperHelper">
+            <summary>
+             DapperHelper
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.DapperHelper.Query``1(System.Data.IDbConnection,System.String,System.Data.CommandType,System.Data.Common.DbParameter[],System.Data.IDbTransaction,System.Boolean)">
+            <summary>
+            Dapper靜態查詢
+            </summary>
+            <typeparam name="T">指定型別(必要)</typeparam>
+            <param name="conn">Db連線(必要)</param>
+            <param name="sql">(必要)</param>
+            <param name="cmdType">(必要)</param>
+            <param name="args">(必要)</param>
+            <param name="trans">(必要)</param>
+            <param name="buffer">預設是true</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.DapperHelper.Query(System.Data.IDbConnection,System.String,System.Data.CommandType,System.Data.Common.DbParameter[],System.Data.IDbTransaction,System.Boolean)">
+            <summary>
+            Dapper動態查詢
+            </summary>
+            <param name="conn">Db連線(必要)</param>
+            <param name="sql">(必要)</param>
+            <param name="cmdType">(必要)</param>
+            <param name="args">(必要)</param>
+            <param name="trans">(必要)</param>
+            <param name="buffer">(必要)</param>
+            <returns>預設型別:DapperRow</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.DapperHelper.Execute(System.Data.IDbConnection,System.String,System.Data.CommandType,System.Data.Common.DbParameter[],System.Data.IDbTransaction,System.Boolean)">
+            <summary>
+            Dapper非查詢執行
+            </summary>
+            <param name="conn">Db連線(必要)</param>
+            <param name="sql">(必要)</param>
+            <param name="cmdType">(必要)</param>
+            <param name="args">(必要)</param>
+            <param name="trans">(必要)</param>
+            <param name="buffer">(必要)</param>
+            <returns>影響筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.DapperHelper.ToObservable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            IEnumerable轉型ObservableCollection(擴充方式)
+            </summary>
+            <typeparam name="T">(必要)</typeparam>
+            <param name="source">(必要)</param>
+            <returns>ObservableCollection</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.DbHelper">
+            <summary>
+            Db協助靜態類別 ,做 資料物件的ORM 由 DbDataReader 或 DataTable 轉成資料物件
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.DbHelper.SetPropertyValue``1(``0,System.String,System.Object)">
+            <summary>
+            對泛型資料物件欄位做mapping
+            </summary>
+            <typeparam name="TEntity">泛型資料型別</typeparam>
+            <param name="entity">泛型資料物件</param>
+            <param name="propName">屬性名稱</param>
+            <param name="val">值</param>
+        </member>
+        <member name="M:Jepun.Core.Common.DbHelper.GetEntityHashtable``1(``0)">
+            <summary>
+            提供 將Entity轉成  Hashtable 方便更新資料庫
+            </summary>
+            <typeparam name="TEntity"> BindingFlags.Public | BindingFlags.Instance </typeparam>
+            <param name="entity"></param>
+            <returns>Hashtable</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.DbHelper.GetEntityPairing``1(System.Data.Common.DbDataReader)">
+            <summary>
+            物件型別實體和資料欄位配對
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="reader">DbDataReader</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.DbHelper.DataReaderBinding``1(System.Data.Common.DbDataReader)">
+            <summary>
+            將DbDataReader Binding 到資料物件方式
+            </summary>         
+            <typeparam name="TEntity">泛型資料物件型別</typeparam>
+            <param name="reader">DbDataReader</param>
+            <returns>列舉集合</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.DbHelper.DataReaderBindingEx``1(System.Data.Common.DbDataReader)">
+            <summary>
+            DataReaderBindingEx 針對泛型型別且具有IEntity介面的,但要確保Reader的欄位順序和Initialize參數一致  
+            泛型型別的欄位需允許null 例如    int?  bool?    
+            reader的欄位名稱不須和資料物件一樣,因為邏輯在Initialize方法裡
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.DbHelper.DataTableBinding``1(System.Data.DataTable)">
+            <summary>
+            DataTable Binding 到資料物件方式 ,資源耗損多 建議使用 DataReaderBinding
+            </summary>
+            <typeparam name="TEntity">泛型資料物件型別</typeparam>
+            <param name="table">DataTable</param>
+            <returns>列舉集合</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.DbHelper.GeneratedQuery(System.Collections.Hashtable,System.Collections.Hashtable@,System.String)">
+            <summary>
+            產生查詢語法,使用參數方式
+            </summary>
+            <param name="queryData">查詢參數</param>
+            <param name="args">外部參數</param>
+            <param name="alias">別名</param>
+            <returns>查詢參數字串</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.DbHelper.GeneratedQuery(System.Collections.Hashtable,System.String)">
+            <summary>
+            產生查詢語法,使用字串方式
+            </summary>
+            <param name="queryData">查詢參數</param>
+            <param name="alias">別名</param>
+            <returns>查詢 字串</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.DynamicReader">
+            <summary>
+            Dynamic Reader類別 ,利用Dynamic方式將IDataRecord型別的屬性值取出
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.DynamicReader.#ctor(System.Data.IDataRecord)">
+            <summary>
+            使用Dynamic讀出DatrReader的欄位
+            </summary>
+            <example>
+            <code language="cs" title="DynamicReader 用法">
+            var db = DbFactory.Create();
+            var dr = db.ExecuteReaderByText("SELECT TOP 1000 [LastName],[FirstName],[BirthDate],[Address],[City] FROM [Northwind].[dbo].[Employees]");
+            dynamic dc = new DynamicReader(dr);
+            while (dr.Read())
+             {
+                 Employee emp = new Employee();
+                 emp.LastName = dc.LastName;
+                 emp.FirstName = dc.FirstName;
+                 emp.BirthDate = dc.BirthDate;
+                 emp.Address = dc.Address;
+                 emp.City = dcd.City;
+                 Console.WriteLine(dc.LastName + dc.FirstName  + dc.BirthDate  + dc.Address  + dc.City );
+             }
+             dr.Close();
+             Console.ReadKey();
+            </code>
+            </example>
+            <param name="dr">IDataRecord物件</param>
+        </member>
+        <member name="M:Jepun.Core.Common.DynamicReader.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            Dynamic 物件 試著取值除來 Try Get Member
+            </summary>
+            <param name="binder">表示呼叫位置上動態取得成員</param>
+            <param name="result">結果值</param>
+            <returns>true:取值成功 false:失敗</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.IEntity">
+            <summary>
+             提供給public IEnumerable TEntity  ExecuteReaderEx TEntity (String commandText, CommandType commandType, params DbParameter[] args) 方法使用 
+             ,TEntity需實作Initialize方法,reader的欄位名稱不須和資料物件一樣,因為邏輯在Initialize方法裡
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.IEntity.Initialize(System.Object[])">
+            <summary>
+            初始化資料物件值
+            </summary>
+            <param name="args">參數</param>
+        </member>
+        <member name="T:Jepun.Core.Common.ClusterState">
+            <summary>
+            Cluster State
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ClusterState.StateUnknown">
+            <summary>
+            State Unknown
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ClusterState.Online">
+            <summary>
+            Online
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ClusterState.Offline">
+            <summary>
+            Offline
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ClusterState.Failed">
+            <summary>
+            Failed
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ClusterState.PartialOnline">
+            <summary>
+            PartialOnline
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ClusterState.Pending">
+            <summary>
+            Pending
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ClusterState.SystemCrash">
+            <summary>
+            SystemCrash
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.CultureCode">
+            <summary>
+            語系
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.CultureCode.EN_US">
+            <summary>
+            英文
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.CultureCode.ZH_TW">
+            <summary>
+            繁中
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.CultureCode.ZH_CN">
+            <summary>
+            簡中
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.EnumHelper">
+            <summary>
+            Enum Helper
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.EnumHelper.Parse``1(System.String,System.Boolean)">
+            <summary>
+            字串轉換 成 enum 
+            </summary>
+            <typeparam name="TEnum">enum </typeparam>
+            <param name="value">包含要轉換的 名稱 或 數值</param>
+            <param name="ignoreCase">true:忽略大小寫</param>
+            <returns>列舉</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.EnumHelper.Parse``1(System.Int64,System.Boolean)">
+            <summary>
+             ascii 的數值 比對出 列舉
+            </summary>
+            <typeparam name="TEnum">enum</typeparam>
+            <param name="value">ascii數值</param>
+            <param name="ignoreCase">true:忽略大小寫</param>
+            <returns>列舉</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.EnumHelper.Parse``2(System.String,System.Boolean)">
+            <summary>
+            字串轉換 成 enum 並傳回指定基本型別
+            </summary>
+            <typeparam name="TEnum">enum</typeparam>
+            <typeparam name="T">指定基本型別</typeparam>
+            <param name="value">包含要轉換的 名稱 或 數值</param>
+            <param name="ignoreCase">true:忽略大小寫</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.EnumHelper.Parse``2(System.Int64,System.Boolean)">
+            <summary>
+            ascii 的數值 比對出 列舉 傳回指定的泛型
+            </summary>
+            <typeparam name="TEnum">列舉 泛型</typeparam>
+            <typeparam name="T">傳回指定的泛型</typeparam>
+            <param name="value"> ascii 的數值</param>
+            <param name="ignoreCase">true:忽略大小寫</param>
+            <returns>傳回指定的泛型</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.ProcessState">
+            <summary>
+            process 執行狀態
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ProcessState.Wait">
+            <summary>
+            等待
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ProcessState.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ProcessState.Failed">
+            <summary>
+            失敗
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.OperatingSystem">
+            <summary>
+            作業系統資訊
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.OperatingSystem.Is64Bit">
+            <summary>
+            是否64位元，否則32
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.ImageHelper">
+            <summary>
+            ImageHelper
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.ImageHelper.Scale(System.Drawing.Image,System.Double)">
+            <summary>
+            放大縮小圖示
+            </summary>
+            <param name="image">圖示</param>
+            <param name="ratio">比例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.ImageHelper.FromByteArray(System.Byte[])">
+            <summary>
+            從byte陣列轉Image
+            </summary>
+            <param name="byteArray"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.Base64Helper">
+            <summary>
+            Bass64協助靜態類別,如Bytes To Base64 String 反之
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.Base64Helper.BytesToBase64String(System.Byte[])">
+            <summary>
+            Bytes To Base64 String
+            </summary>
+            <param name="bytes">位元組</param>
+            <returns>Base64 String</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.Base64Helper.Base64StringToBytes(System.String)">
+            <summary>
+            Base64 String To Bytes
+            </summary>
+            <param name="base64String">Base64 String</param>
+            <returns>位元組</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.DateTimeHandler">
+            <summary>
+            日期處理類別(靜態)
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.DateTimeHandler.ToGregorian(System.DateTime,System.String)">
+            <summary>
+            轉成西元日期格式字串
+            </summary>
+            <param name="dt">日期</param>
+            <param name="format">轉換格式</param>
+            <returns>格式化後之西元日期字串</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.DateTimeHandler.ToGregorian(System.String,System.String)">
+            <summary>
+            轉成西元日期
+            </summary>
+            <param name="dt">日期字串</param>
+            <param name="format">格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.DateTimeHandler.ToTaiwanese(System.DateTime,System.String)">
+            <summary>
+            轉成民國日期格式字串
+            </summary>
+            <param name="dt">日期</param>
+            <param name="format">轉換格式</param>
+            <returns>格式化後之民國日期字串</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.DateTimeHandler.ToTaiwanese(System.String,System.String)">
+            <summary>
+            轉成民國日期
+            </summary>
+            <param name="dt">日期字串</param>
+            <param name="format">格式</param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.FileWatcher">
+            <summary>
+            FileSystemWatcher
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.FileWatcher.#ctor(System.String,System.String)">
+            <summary>
+            FileSystemWatcher
+            </summary>
+            <param name="path">檔案位置</param>
+            <param name="filter">過濾條件</param>
+        </member>
+        <member name="P:Jepun.Core.Common.FileWatcher.EnableRaisingEvents">
+            <summary>
+            true: Begin watching. false:stop watching.
+            </summary>
+        </member>
+        <member name="E:Jepun.Core.Common.FileWatcher.Changed">
+            <summary>
+            Changed
+            </summary>
+        </member>
+        <member name="E:Jepun.Core.Common.FileWatcher.Created">
+            <summary>
+            Created
+            </summary>
+        </member>
+        <member name="E:Jepun.Core.Common.FileWatcher.Deleted">
+            <summary>
+             Deleted
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.FtpDirectoryEntry">
+            <summary>
+            Ftp目錄資訊, 搭配FtpClient使用
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpDirectoryEntry.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpDirectoryEntry.CreateTime">
+            <summary>
+            Create Time
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpDirectoryEntry.IsDirectory">
+            <summary>
+            Is Directory?
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpDirectoryEntry.Size">
+            <summary>
+            Size
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpDirectoryEntry.Group">
+            <summary>
+            Group (UNIX only)
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpDirectoryEntry.Owner">
+            <summary>
+            Owner
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpDirectoryEntry.Flags">
+            <summary>
+            Flags
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.FtpClient">
+            <summary>
+            通用FTP客戶端類別
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpClient._host">
+            <summary>
+            目前FTP位置的工具類別
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.ListDirectory">
+            <summary>
+            目前指定FTP位置的目錄清單
+            </summary>
+            <returns>目錄清單</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.ChangeDirectory(System.String)">
+            <summary>
+            變更目前指定的FTP位置. 如果是 "/" 則是相對於根目錄. 如果是 ".." 則代表父目錄
+            </summary>
+            <param name="directory">FTP位置</param>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.FileExists(System.String)">
+            <summary>
+            遠端檔案是否存在
+            </summary>
+            <param name="file">檔案</param>
+            <returns>true : 存在</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.DirectoryExists(System.String)">
+            <summary>
+            遠端目錄是否存在
+            </summary>
+            <param name="directory">測試的目錄(可用絕對或相對的路徑表示)</param>
+            <returns>true : 存在</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.GetFileLastModified(System.String)">
+            <summary>
+            取得遠端檔案上次修改的時間
+            </summary>
+            <param name="path">檔案位置</param>
+            <returns>上次修改時間</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.CreateDirectory(System.String)">
+            <summary>
+            建立遠端目錄, 一個路徑中的所有階層的目錄如果不存在都會被建立
+            </summary>
+            <param name="directory">目錄位置表示</param>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.MoveFile(System.String,System.String)">
+            <summary>
+            搬移檔案
+            </summary>
+            <param name="source">來源檔案</param>
+            <param name="dest">目標檔案</param>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.UploadFiles(System.String[])">
+            <summary>
+            上傳多個檔案至遠端目前指定的位置
+            </summary>
+            <param name="paths">多個檔案位置</param>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.DownloadFiles(System.String,System.String[])">
+            <summary>
+            下載遠端(多個)檔案
+            </summary>
+            <param name="path">遠端目錄</param>
+            <param name="files">該目錄下的指定檔案, 若未指定則目錄下所有檔案皆會被下載</param>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.DownloadFileStream(System.String)">
+            <summary>
+            下載檔案至記憶體
+            </summary>
+            <param name="file">遠端檔案</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.DeleteFiles(System.String[])">
+            <summary>
+            刪除(多個)遠端檔案
+            </summary>
+            <param name="files">(多個)檔案位置</param>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.DeleteDirectory(System.String)">
+            <summary>
+            刪除遠端目錄 (注意: 該目錄下所有檔案及子目錄會全被刪除)
+            </summary>
+            <param name="directory">目錄位置</param>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.GetRequest">
+            <summary>
+            Constructs an FTP web request
+            </summary>
+            <returns>FTP web request</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.GetRequest(System.String)">
+            <summary>
+            Constructs an FTP web request with the given filename
+            </summary>
+            <param name="filename">檔名</param>
+            <returns>FTP web request</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.ParseDirectoryListing(System.String)">
+            <summary>
+            Converts a directory listing to a list of FtpDirectoryEntrys
+            </summary>
+            <param name="listing">FtpDirectoryEntrys</param>
+            <returns>list of FtpDirectoryEntrys</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.ParseWindowsDirectoryListing(System.String)">
+            <summary>
+            Parses a line from a Windows-format listing
+            </summary>
+            <param name="text">Assumes listing style as:02-03-04  07:46PM        DIR           Append</param>
+            <returns>FtpDirectoryEntry</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.CutSubstringWithTrim(System.String@,System.Char,System.Int32)">
+            <summary>
+            Removes the token ending in the specified character
+            </summary>
+            <param name="s">目標字串</param>
+            <param name="c">比對字元</param>
+            <param name="startIndex">起始位置</param>
+            <returns>token ending</returns>         
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.Dispose(System.Boolean)">
+            <summary>
+            關閉 host
+            </summary>
+            <param name="disposing"> true:要關閉host false:不關閉host</param>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpClient.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.FtpClient.Host">
+            <summary>
+            存取目前FTP domain(根目錄)或其下指定的目錄
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.FtpClient.IsVirtualMask">
+            <summary>
+            存取虛擬FTP表示
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.FtpClient.Username">
+            <summary>
+            存取使用者名稱
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.FtpClient.Password">
+            <summary>
+            存取使用者密碼
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.FtpClient.IsRootDirectory">
+            <summary>
+            是否為根目錄
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.FtpDirectory">
+            <summary>
+            目前FTP位置的工具類別, 搭配FtpClient使用
+            (目前不開放獨立使用)
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpDirectory._slashes">
+            <summary>
+            尾隨斜線
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpDirectory.BackSlash">
+            <summary>
+            Back Slash
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpDirectory.ForwardSlash">
+            <summary>
+            Forward Slash
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpDirectory._domain">
+            <summary>
+            No trailing slash
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.FtpDirectory._cwd">
+            <summary>
+            Leading, no trailing slash
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpDirectory.#ctor">
+            <summary>
+             Construction
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpDirectory.SetUrl(System.String)">
+            <summary>
+            Sets the domain and current directory from a URL.
+            </summary>
+            <param name="url">URL to set to</param>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpDirectory.GetUrl">
+            <summary>
+            Returns the domain and current directory as a URL.
+            </summary>
+            <returns>Url</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FtpDirectory.GetUrl(System.String)">
+            <summary>
+             Returns the domain and current directory as a URL.
+            </summary>
+            <param name="directory">Partial directory or filename applied to the current working directory</param>
+            <returns>Url</returns>        
+        </member>
+        <member name="M:Jepun.Core.Common.FtpDirectory.ApplyDirectory(System.String)">
+            <summary>
+            Applies the given directory to the current directory and returns the
+            result.
+            
+            If directory starts with "/", it replaces all of the current directory.
+            If directory is "..", the top-most subdirectory is removed from
+            the current directory.
+            </summary>
+            <param name="directory">The directory to apply</param>
+            <returns>Ftp位置</returns>       
+        </member>
+        <member name="M:Jepun.Core.Common.FtpDirectory.ToString">
+            <summary>
+            Returns the domain and current directory as a URL
+            </summary>
+            <returns>URL</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.FtpDirectory.Domain">
+            <summary>
+            Domain (沒有尾隨斜線)
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.FtpDirectory.IsVirtualMask">
+            <summary>
+            存取虛擬FTP表示
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.FtpDirectory.IsRootDirectory">
+            <summary>
+            Determines if the current directory is the root directory.
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.FtpDirectory.CurrentDirectory">
+            <summary>
+            Gets or sets the current FTP directory.
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.OfficeHelper">
+            <summary>
+            靜態類別 協助判斷是否存在Office軟體
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.OfficeHelper.CheckIsExistWord">
+            <summary>
+            是否存在Word文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.OfficeHelper.CheckIsExistExcel">
+            <summary>
+            是否存在Excel文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.PathHelper">
+            <summary>
+            檔案或網路格式通用工具
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.PathHelper.Combine(System.String[])">
+            <summary>
+            連結不同的路徑成絕對
+            </summary>
+            <param name="paths">路徑部份表示</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.PathHelper.GetFileName(System.String)">
+            <summary>
+            取得檔案名稱
+            </summary>
+            <param name="path">路徑</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.PathHelper.GetPath(System.String)">
+            <summary>
+            取得檔案路徑
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.PathHelper.RelativeDestination(System.String,System.String)">
+            <summary>
+            以來源為基準轉換目標對應相對位置
+            </summary>
+            <param name="source">來源</param>
+            <param name="dest">目標</param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.JsonHelper">
+            <summary>
+            Json協助靜態類別 ,做 物件 轉為 JSON或由JSON STRING 轉為物件 等
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.JsonHelper.ObjToJson(System.Object)">
+            <summary>
+            物件 轉為 JSON STRING
+            </summary>
+            <param name="obj">物件</param>         
+            <returns>JSON STRING</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.JsonHelper.JsonToObj``1(System.String)">
+            <summary>
+            由JSON STRING 轉為物件
+            </summary>
+            <typeparam name="TObj">物件TYPE</typeparam>
+            <param name="json">JSON STRING</param>
+            <returns>物件</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.JsonHelper.XmlToJson(System.Xml.XmlNode)">
+            <summary>
+            是標準的  XmlDocument 轉換過來的 json string
+            </summary>
+            <param name="doc">XmlDocumen</param>
+            <returns>json string</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.JsonHelper.JsonToXml(System.String)">
+            <summary>
+            必須是標準的  XmlDocument 轉換過來的 json string
+            </summary>
+            <param name="json">標準的  XmlDocument 轉換過來的 json string</param>
+            <returns>XmlDocument</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.JsonHelper.JsonToXmlReader(System.String,System.String)">
+            <summary>
+            一般的 json string,即原來並非是XML結構的 轉換為 XmlReader
+            </summary>
+            <param name="json"> 一般的 json string,即原來並非是XML結構</param>
+            <param name="nodeName">節點名稱</param>
+            <returns>XmlReader</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.ManagementAppSettings">
+            <summary>
+            Management AppSettings 協助靜態類別 ,用於管理組態檔AppSettings區段
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ManagementAppSettings.AppSettingSettingCache">
+            <summary>
+            用來放AppSettings裡的值 (安全執行緒)
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.ManagementAppSettings.GetVal(System.String,System.Boolean)">
+            <summary>
+            GetVal
+            </summary>
+            <param name="key">key</param>
+            <param name="isCache">是否快取</param>         
+            <returns>值</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.ManagementAppSettings.Add(System.String,System.String)">
+            <summary>
+            Add
+            </summary>
+            <example>
+            <code language="cs" title="組態檔AppSettings">
+             ManagementAppSettings.Add("test", "121345678");
+             Console.WriteLine(ManagementAppSettings.GetVal("test"));  
+             ManagementAppSettings.Modify("test", "8654321");
+             Console.WriteLine(ManagementAppSettings.GetVal("test",false));// false : 不快取,一律重讀
+             ManagementAppSettings.Remove("test");
+            </code>
+            </example>
+            <param name="key">key</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:Jepun.Core.Common.ManagementAppSettings.Remove(System.String)">
+            <summary>
+            Remove
+            </summary>
+            <param name="key">key</param>      
+        </member>
+        <member name="M:Jepun.Core.Common.ManagementAppSettings.Modify(System.String,System.String)">
+            <summary>
+            Modify
+            </summary>
+            <param name="key">key</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:Jepun.Core.Common.ManagementAppSettings.WebRefresh">
+            <summary>
+            Web重新整理
+            </summary>
+            <returns>false:重新整理失敗</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.ManagementAppSettings.AppRefresh">
+            <summary>
+            App重新整理
+            </summary>
+            <returns>false:重新整理失敗</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.AbstractLoadBalance">
+            <summary>
+            實做負載平衡機制時的抽象類別,需被繼承
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.ILoadBalance">
+            <summary>
+            負載平衡介面定義
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.ILoadBalance.GetLocator(System.String)">
+            <summary>
+            取得  節點
+            </summary>
+            <param name="input">hash的依據</param>
+            <returns>傳回節點名稱</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.ILoadBalance.GetCurrentLocator(System.String)">
+            <summary>
+            取得原本節點
+            </summary>
+            <param name="input">hash的依據</param>
+            <returns>傳回原本節點名稱</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.ILoadBalance.RemoveNode(System.String)">
+            <summary>
+            主動移除節點
+            </summary>
+            <param name="nodeName">節點名稱</param>         
+        </member>
+        <member name="M:Jepun.Core.Common.ILoadBalance.Refresh">
+            <summary>
+            重新整理節點
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.ILoadBalance.IsDisconnectedExists">
+            <summary>
+            用來判斷是否已經加事件了
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.ILoadBalance.IsReconnectedExists">
+            <summary>
+            用來判斷是否已經加事件了
+            </summary>
+        </member>
+        <member name="E:Jepun.Core.Common.ILoadBalance.Reconnected">
+            <summary>
+            發生重新連線  事件
+            </summary>
+        </member>
+        <member name="E:Jepun.Core.Common.ILoadBalance.Disconnected">
+            <summary>
+            發生斷線   事件
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.AbstractLoadBalance.OnReconnected(Jepun.Core.Common.ConnectionNodeEventArgs)">
+            <summary>
+            發生重新連線
+            </summary>
+            <param name="e">ConnectionNodeEventArgs</param>
+        </member>
+        <member name="M:Jepun.Core.Common.AbstractLoadBalance.OnDisconnected(Jepun.Core.Common.ConnectionNodeEventArgs)">
+            <summary>
+            發生斷線
+            </summary>
+            <param name="e">ConnectionNodeEventArgs</param>
+        </member>
+        <member name="F:Jepun.Core.Common.AbstractLoadBalance.HeartBeatDetection">
+            <summary>
+            偵測的實作
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.AbstractLoadBalance.StartHeartBeat(System.Double)">
+            <summary>
+            啟動偵測 interval=0 時不偵測
+            </summary>
+            <param name="interval">時間間隔:毫秒</param>
+        </member>
+        <member name="M:Jepun.Core.Common.AbstractLoadBalance.GetLocator(System.String)">
+            <summary>
+            取得  節點
+            </summary>
+            <param name="input">hash的依據</param>
+            <returns>傳回節點名稱</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AbstractLoadBalance.GetCurrentLocator(System.String)">
+            <summary>
+            取得原本節點
+            </summary>
+            <param name="input">hash的依據</param>
+            <returns>傳回原本節點名稱</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AbstractLoadBalance.RemoveNode(System.String)">
+            <summary>
+            主動移除節點
+            </summary>
+            <param name="nodeName">節點名稱</param>    
+        </member>
+        <member name="M:Jepun.Core.Common.AbstractLoadBalance.Refresh">
+            <summary>
+            重新整理節點
+            </summary>
+        </member>
+        <member name="E:Jepun.Core.Common.AbstractLoadBalance.Reconnected">
+            <summary>
+            發生重新連線  委讓事件
+            </summary>
+        </member>
+        <member name="E:Jepun.Core.Common.AbstractLoadBalance.Disconnected">
+            <summary>
+            發生斷線   委讓事件
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AbstractLoadBalance.IsDisconnectedExists">
+            <summary>
+            用來判斷是否已經加事件了
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AbstractLoadBalance.IsReconnectedExists">
+            <summary>
+            用來判斷是否已經加事件了
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AbstractLoadBalance.IsMultiSettings">
+            <summary>
+            是否多組負載平衡設定
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AbstractLoadBalance.Copies">
+            <summary>
+            複製次數
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AbstractLoadBalance.ReconnectedNode">
+            <summary>
+            重新連線節點名稱
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AbstractLoadBalance.DisconnectedNode">
+            <summary>
+            斷線節點名稱
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.ConnectionNodeEventArgs">
+            <summary>
+            連線參數
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ConnectionNodeEventArgs.NodeName">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.ConnectionNodeEventArgs.#ctor(System.String)">
+            <summary>
+            建構子
+            </summary>       
+            <param name="nodeName">節點名稱</param>
+        </member>
+        <member name="T:Jepun.Core.Common.LoadBalanceHelper">
+            <summary>
+            LoadBalanceHelper
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.LoadBalanceHelper.GetSignalrCurrentLocator(System.String)">
+            <summary>
+            取得此uno下的Signalr Current Locator
+            </summary>
+            <param name="uno"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.LoadBalanceHelper.GetMqCurrentLocator(System.String)">
+            <summary>
+            取得此uno下的Mq Current Locator
+            </summary>
+            <param name="uno"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.LoadBalanceHelper.GetWcfCurrentLocator(System.String)">
+            <summary>
+            取得此uno下的Wcf Current Locator
+            </summary>
+            <param name="uno"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.PerfmonCategoryName">
+            <summary>
+            效能計數器分類
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCategoryName.ServiceModelService">
+            <summary>
+            ServiceModelService 4.0.0.0計數器
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCategoryName.Processor">
+            <summary>
+            處理器
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCategoryName.Memory">
+            <summary>
+            記憶體
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.PerfmonCounterName">
+            <summary>
+            效能計數器的名稱
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.Calls">
+            <summary>
+            呼叫次數
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.CallsDuration">
+            <summary>
+            呼叫時間
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.CallsPerSecond">
+            <summary>
+            每秒調用
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.Instances">
+            <summary>
+            實例
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.InstancesCreatedPerSecond">
+            <summary>
+            實例創建每秒
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.PercentOfMaxConcurrentSessions">
+            <summary>
+            百分比最大並發會話
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.PercentOfMaxConcurrentInstances">
+            <summary>
+            百分比最大並發實例
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.ProcessorTime">
+            <summary>
+            CPU使用率
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.TotalProcessorTime">
+            <summary>
+            處理器的平均值
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.PrivilegedTime">
+            <summary>
+            相當於處理器花費在執行 Microsoft Windows 核心命令 (如處理 SQL Server I/O 要求) 的時間百分比
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.UserTime">
+            <summary>
+            相當於處理器花費在執行使用者處理序 (如 SQL Server) 的時間百分比
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.ProcessorQueueLength">
+            <summary>
+            相當於等候處理器時間的執行緒數目。 當處理序的執行緒所需的處理器循環超過可用數量時，就會形成處理器瓶頸
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.AvailableBytes">
+            <summary>
+            計數器代表目前有多少記憶體位元組可供處理序使用,計數器的數值偏低，代表電腦整體地缺乏記憶體，或有某個應用程式沒有釋出記憶體
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonCounterName.PagesSec">
+            <summary>
+            計數器數值過高可能代表過度分頁
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.PerfmonInstanceName">
+            <summary>
+            效能計數器Instance Name
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PerfmonInstanceName.Total">
+            <summary>
+            全部 如用在  處理器
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.PerformanceHelper">
+            <summary>
+            效能計數器協助靜態類別
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.PerformanceHelper.GetRawValue(System.String,System.String,System.String)">
+            <summary>
+            Windows NT 效能計數器元件取得這個計數器的未經處理或未經計算的值
+            </summary>
+            <example>
+            <code language="cs" title="效能計數器元件取得這個計數器的未經處理或未經計算的值">
+            Console.WriteLine(PerformanceHelper.GetRawValue(CategoryName.ServiceModelService, CounterName.PercentOfMaxConcurrentSessions, "SystemService@net.tcp:||localhost:818|SystemService"));
+            </code>
+            </example>
+            <param name="categoryName">與這個效能計數器相關的效能計數器分類 (效能物件) 名稱</param>
+            <param name="counterName">效能計數器的名稱</param>
+            <param name="instanceName">能計數器分類執行個體的名稱；如果分類含有單一執行個體，則為空字串 ("")</param>
+            <returns>值</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.PerformanceHelper.IsCategoryExists(System.String)">
+            <summary>
+            判斷分類是否登錄在指定電腦上
+            </summary>
+            <param name="categoryName">要尋找的效能計數器分類名稱</param>
+            <returns>果分類已登錄，則為 true，否則為 false</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.PerformanceHelper.GetCategoryNames">
+            <summary>
+            擷取登錄在本機電腦上的效能計數器分類清單
+            </summary>
+            <example>
+            <code language="cs" title="計數器分類清單">
+            foreach(string name in PerformanceHelper.GetCategoryNames())
+             {
+                 Console.WriteLine(name);
+             }
+             Console.ReadLine();
+            </code>
+            </example>
+            <returns>計數器分類清單</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.PerformanceHelper.GetInstanceNames(System.String)">
+            <summary>
+            擷取與這個分類相關的效能物件執行個體清單
+            </summary>
+            <example>
+            <code language="cs" title="執行個體清單">
+            foreach(string name in PerformanceHelper.GetInstanceNames(PerfmonCategoryName.ServiceModelService))
+             {
+                 Console.WriteLine(name);
+             }
+             Console.ReadLine();
+            </code>
+            </example>
+            <param name="categoryName">與這個效能計數器相關的效能計數器分類 (效能物件) 名稱</param>
+            <returns>表示與這個分類相關的效能物件執行個體名稱，或者包含空字串 ("") 的單一項目陣列 (如果分類只包含一個效能物件執行個體)</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.PerformanceHelper.GetCounterNames(System.String,System.String)">
+            <summary>
+            擷取只包含一個執行個體的效能計數器分類中的計數器清單
+            </summary>
+            <example>
+            <code language="cs" title="計數器清單">
+            foreach(string name in PerformanceHelper.GetCounterNames(PerfmonCategoryName.Processor, PerfmonInstanceName.Total))
+             {
+                 Console.WriteLine(name);
+             }
+             Console.ReadLine();
+            </code>
+            </example>
+            <param name="categoryName">與這個效能計數器相關的效能計數器分類 (效能物件) 名稱</param>
+            <param name="instanceName">表示與這個分類相關的效能物件執行個體名稱，或者包含空字串 ("") 的單一項目陣列 (如果分類只包含一個效能物件執行個體)</param>
+            <returns>計數器清單</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.Properties.Resources">
+            <summary>
+              用於查詢當地語系化字串等的強類型資源類別。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Properties.Resources.ResourceManager">
+            <summary>
+              傳回這個類別使用的快取的 ResourceManager 執行個體。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Properties.Resources.Culture">
+            <summary>
+              覆寫目前執行緒的 CurrentUICulture 屬性，對象是所有
+              使用這個強類型資源類別的資源查閱。
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.Resource.Resources">
+            <summary>
+              用於查詢當地語系化字串等的強類型資源類別。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.ResourceManager">
+            <summary>
+              傳回這個類別使用的快取的 ResourceManager 執行個體。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.Culture">
+            <summary>
+              覆寫目前執行緒的 CurrentUICulture 屬性，對象是所有
+              使用這個強類型資源類別的資源查閱。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_CantContainID">
+            <summary>
+              查詢類似 不可包含ID 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_CharsRepeatLimit">
+            <summary>
+              查詢類似 同樣字元不能連續{0}次以上 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_CharsSeqLimit">
+            <summary>
+              查詢類似 鍵盤順序連續「{0}」 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_ContentFormatFailed">
+            <summary>
+              查詢類似 內容不符合規則! 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_IDEmpty">
+            <summary>
+              查詢類似 ID不可為空白 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_IsAlphabet">
+            <summary>
+              查詢類似 英文字  的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_IsAlphabetSensitive">
+            <summary>
+              查詢類似 區分大小寫的英文字  的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_IsNumeric">
+            <summary>
+              查詢類似 數字  的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_IsSymbol">
+            <summary>
+              查詢類似 符號  的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_KeyboardOrderLimit">
+            <summary>
+              查詢類似 升冪降冪連續「{0}」 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_Length">
+            <summary>
+              查詢類似 長度必須位於{0}~{1}碼! 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_MinUniqueChars">
+            <summary>
+              查詢類似 至少要{0}種不同的字元 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_WhiteSpace">
+            <summary>
+              查詢類似 空白  的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.Resources.PatternManager_WhiteSpaceNotAllowed">
+            <summary>
+              查詢類似 目前設定不能包含空白字元! 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.RegHelper">
+            <summary>
+            機碼協助靜態類別 
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.RegHelper.Read(System.String)">
+            <summary>
+            Read registry key from sub registry (if sub not provided then base registry)
+            </summary>
+            <param name="KeyName">Key Name</param>
+            <returns>值</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.RegHelper.Write(System.String,System.Object)">
+            <summary>
+            write key/value under sub registry
+            </summary>
+            <param name="KeyName">Key Name</param>
+            <param name="Value">值</param>
+            <returns>true:寫入成功</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.RegHelper.DeleteKey(System.String)">
+            <summary>
+            delete key/value pair from sub registry
+            </summary>
+            <param name="KeyName">Key Name</param>
+            <returns>true:刪除成功</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.RegHelper.DeleteSubKeyTree">
+            <summary>
+            delete the entire sub registry
+            </summary>
+            <returns>true:刪除成功</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.RegHelper.SubKeyCount">
+            <summary>
+            count the subkey from sub registry
+            note:not the key/value count (use ValueCount() for this purpose)
+            </summary>
+            <returns>count the subkey</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.RegHelper.ValueCount">
+            <summary>
+            count the key/value pairs from sub registry
+            </summary>
+            <returns>count the key/value pairs</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.RegHelper.ThrowErrorMessage(System.Exception,System.String)">
+            <summary>
+            throw the exception with given title
+            </summary>
+            <param name="e">Exception</param>
+            <param name="Title">名稱</param>
+        </member>
+        <member name="P:Jepun.Core.Common.RegHelper.BaseRegistryKey">
+            <summary>
+            Base registry 
+            Default: HKEY_CURRENT_USER\Software\JEPUN
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.RegHelper.SubKey">
+            <summary>
+            sub registry path under base registry
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.AppPrincipal">
+            <summary>
+            身分識別繼承至IPrincipal
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.AppPrincipal.#ctor(System.Security.Principal.IIdentity)">
+            <summary>
+            建構子
+            </summary>
+            <param name="identity">識別</param>
+        </member>
+        <member name="M:Jepun.Core.Common.AppPrincipal.IsInRole(System.String)">
+            <summary>
+            是否為合法角色
+            </summary>
+            <param name="role">角色名稱</param>
+            <returns>true:合法</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.AppPrincipal.Identity">
+            <summary>
+            識別
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppPrincipal.roles">
+            <summary>
+            角色字串陣列
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.AppMsg">
+            <summary>
+            Jepun定義來放MSMQ訊息的交換物件
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.AppMsg.AddOrReplaceParameterData(System.String,System.String)">
+            <summary>
+            加入參數資料
+            </summary>
+            <param name="key">key</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:Jepun.Core.Common.AppMsg.RemoveParameterData(System.String)">
+            <summary>
+            移除參數資料
+            </summary>
+            <param name="key">key</param>
+        </member>
+        <member name="M:Jepun.Core.Common.AppMsg.GetParameterData(System.String)">
+            <summary>
+            取得參數資料
+            </summary>
+            <param name="key">key</param>
+            <returns>value</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.AppMsg.Type">
+            <summary>
+            訊息種類
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppMsg.AutoOpen">
+            <summary>
+            是否主動打開
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppMsg.SendTime">
+            <summary>
+            寄送時間
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppMsg.AssemblyName">
+            <summary>
+            AssemblyName
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppMsg.ClassName">
+            <summary>
+            ClassName
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppMsg.FormName">
+            <summary>
+            表單名稱
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppMsg.From">
+            <summary>
+            寄件者
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppMsg.To">
+            <summary>
+            收件者
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppMsg.Body">
+            <summary>
+            主體內容
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppMsg.ParameterData">
+            <summary>
+            夾帶參數資料
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.Security.Impersonation">
+            <summary>
+            模擬帳號權限
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.Security.Impersonation.LogOn(System.String,System.String)">
+            <summary>
+            模擬帳號登入驗證
+            </summary>
+            <example>
+            <code language="cs" title="網域呼叫方式">
+            using (var imp = Impersonation.LogOn("JEPUN\JackWang", "12345"))
+            {
+                //模擬帳號權限在此使用
+            }
+            </code>
+            <code language="cs" title="單機呼叫方式">
+            using (var imp = Impersonation.LogOn("Server01\JackWang", "12345"))
+            {
+                //模擬帳號權限在此使用
+            }
+            </code>
+            </example>
+            <param name="account">帳號</param>
+            <param name="password">密碼</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.Security.Impersonation.LogOff">
+            <summary>
+            模擬帳號登出
+            其權限隨之失效
+            </summary>
+            <returns>bool取消過程是否成功</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.Security.Impersonation.Dispose(System.Boolean)">
+            <summary>
+            註記釋放可回收
+            </summary>
+            <param name="disposing">是否回收Managed物件</param>
+        </member>
+        <member name="M:Jepun.Core.Common.Security.Impersonation.Dispose">
+            <summary>
+            註記釋放可回收
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.Security.Impersonation.Finalize">
+            <summary>
+            註銷子 (時間點依系統決定)
+            自動註記類別資源回收,如果使用者沒有執行Dispose()
+            內含LogOff()
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Security.Impersonation.Result">
+            <summary>
+            權限模擬結果(提供外部輸出)
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonUser(System.String,System.String,System.String,Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonType,Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonProvider,System.IntPtr@)">
+            <summary>
+            Logs on the user.
+            </summary>
+            <param name="userName">Name of the user.</param>
+            <param name="domain">The domain.</param>
+            <param name="password">The password.</param>
+            <param name="logonType">Type of the logon.</param>
+            <param name="logonProvider">The logon provider.</param>
+            <param name="token">The token.</param>
+            <returns>True if the function succeeds, false if the function fails.
+            To get extended error information, call GetLastError.</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.Security.Impersonation.NativeMethods.DuplicateToken(System.IntPtr,Jepun.Core.Common.Security.Impersonation.NativeMethods.SecurityImpersonationLevel,System.IntPtr@)">
+            <summary>
+            Duplicates the token.
+            </summary>
+            <param name="existingTokenHandle">The existing token
+            handle.</param>
+            <param name="securityImpersonationLevel">The security impersonation
+            level.</param>
+            <param name="duplicateTokenHandle">The duplicate token
+            handle.</param>
+            <returns>True if the function succeeds, false if the function fails.
+            To get extended error information, call GetLastError.</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.Security.Impersonation.NativeMethods.CloseHandle(System.IntPtr)">
+            <summary>
+            Closes the handle.
+            </summary>
+            <param name="handle">The handle.</param>
+            <returns>True if the function succeeds, false if the function fails.
+            To get extended error information, call GetLastError.</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonType">
+            <summary>
+            The type of logon operation to perform.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonType.Interactive">
+            <summary>
+            This logon type is intended for users who will be interactively
+            using the computer, such as a user being logged on by a
+            terminal server, remote shell, or similar process.
+            This logon type has the additional expense of caching logon
+            information for disconnected operations; therefore, it is
+            inappropriate for some client/server applications, such as a
+            mail server.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonType.Network">
+            <summary>
+            This logon type is intended for high performance servers to
+            authenticate plaintext passwords.
+            The LogonUser function does not cache credentials for this
+            logon type.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonType.Batch">
+            <summary>
+            This logon type is intended for batch servers, where processes
+            may be executing on behalf of a user without their direct
+            intervention.  This type is also for higher performance servers
+            that process many plaintext authentication attempts at a time,
+            such as mail or Web servers.
+            The LogonUser function does not cache credentials for this
+            logon type.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonType.Service">
+            <summary>
+            Indicates a service-type logon.  The account provided must have
+            the service privilege enabled.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonType.Unlock">
+            <summary>
+            This logon type is for GINA DLLs that log on users who will be
+            interactively using the computer.
+            This logon type can generate a unique audit record that shows
+            when the workstation was unlocked.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonType.NetworkCleartext">
+            <summary>
+            This logon type preserves the name and password in the
+            authentication package, which allows the server to make
+            connections to other network servers while impersonating the
+            client.  A server can accept plaintext credentials from a
+            client, call LogonUser, verify that the user can access the
+            system across the network, and still communicate with other
+            servers.
+            NOTE: Windows NT:  This value is not supported.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonType.NewCredentials">
+            <summary>
+            This logon type allows the caller to clone its current token
+            and specify new credentials for outbound connections.  The new
+            logon session has the same local identifier but uses different
+            credentials for other network connections.
+            NOTE: This logon type is supported only by the
+            LOGON32_PROVIDER_WINNT50 logon provider.
+            NOTE: Windows NT:  This value is not supported.
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonProvider">
+            <summary>
+            Specifies the logon provider.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonProvider.Default">
+            <summary>
+            Use the standard logon provider for the system.
+            The default security provider is negotiate, unless you pass
+            NULL for the domain name and the user name is not in UPN format.
+            In this case, the default provider is NTLM.
+            NOTE: Windows 2000/NT:   The default security provider is NTLM.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonProvider.WinNT35">
+            <summary>
+            Use this provider if you'll be authenticating against a Windows
+            NT 3.51 domain controller (uses the NT 3.51 logon provider).
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonProvider.WinNT40">
+            <summary>
+            Use the NTLM logon provider.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.LogonProvider.WinNT50">
+            <summary>
+            Use the negotiate logon provider.
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.Security.Impersonation.NativeMethods.SecurityImpersonationLevel">
+            <summary>
+            The type of logon operation to perform.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.SecurityImpersonationLevel.Anonymous">
+            <summary>
+            The server process cannot obtain identification information
+            about the client, and it cannot impersonate the client.  It is
+            defined with no value given, and thus, by ANSI C rules,
+            defaults to a value of zero.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.SecurityImpersonationLevel.Identification">
+            <summary>
+            The server process can obtain information about the client,
+            such as security identifiers and privileges, but it cannot
+            impersonate the client.  This is useful for servers that export
+            their own objects, for example, database products that export
+            tables and views.  Using the retrieved client-security
+            information, the server can make access-validation decisions
+            without being able to use other services that are using the
+            client's security context.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.SecurityImpersonationLevel.Impersonation">
+            <summary>
+            The server process can impersonate the client's security
+            context on its local system.  The server cannot impersonate the
+            client on remote systems.
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.Security.Impersonation.NativeMethods.SecurityImpersonationLevel.Delegation">
+            <summary>
+            The server process can impersonate the client's security
+            context on remote systems.
+            NOTE: Windows NT:  This impersonation level is not supported.
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.JepunCustomer">
+            <summary>
+            處理Jepun.Customer之類別
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.JepunCustomer.RequestFileTransferAuth(System.String,System.String)">
+            <summary>
+            要求檔案傳輸之客製化權限
+            否則提供系統參數之對應
+            </summary>
+            <param name="account">帳號(解析之前)</param>
+            <param name="password">密碼</param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.LowerCase">
+            <summary>
+            用於小寫規則比較
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.LowerCase.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.LowerCase.#ctor(System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="text">內容字串</param>
+        </member>
+        <member name="M:Jepun.Core.Common.LowerCase.Equals(Jepun.Core.Common.LowerCase)">
+            <summary>
+            比較
+            </summary>
+            <param name="other">比較對象</param>
+            <returns>true:相同   false:不同</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.LowerCase.Equals(System.String)">
+            <summary>
+            比較字串
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.LowerCase.Equals(System.Object)">
+            <summary>
+            比較Object
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.LowerCase.GetHashCode">
+            <summary>
+            HashCode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.LowerCase.CompareTo(Jepun.Core.Common.LowerCase)">
+            <summary>
+            Compare
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Jepun.Core.Common.LowerCase.Text">
+            <summary>
+            內容字串小寫
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.PatternManager">
+            <summary>
+            密碼字串模式檢查
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.PatternManager.PwdCheckAll(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            密碼檢查所有規則
+            </summary>
+            <param name="input">使用者輸入</param>
+            <param name="id">使用者帳號</param>
+            <param name="parameters">資料庫設定資料</param>
+            <returns>錯誤訊息(空白為成功)</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.PatternManager.Length(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            檢查字串長度範圍
+            </summary>
+            <param name="input">使用者輸入</param>
+            <param name="parameters">資料庫設定資料</param>
+            <returns>錯誤訊息(空白為成功)</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.PatternManager.Content(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            密碼組合
+            </summary>
+            <param name="input">使用者輸入</param>
+            <param name="parameters">資料庫設定資料</param>
+            <returns>錯誤訊息(空白為成功)</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.PatternManager.Special(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            特殊限制
+            </summary>
+            <param name="input">使用者輸入</param>
+            <param name="id">ID</param>
+            <param name="parameters">資料庫設定資料</param>
+            <returns>錯誤訊息(空白為成功)</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.StringHelper">
+            <summary>
+            String Helper
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.StringHelper.ToASCII(System.String)">
+            <summary>
+            將字串第一個位置 轉成 ASCII
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.StringHelper.ReplaceEmpty(System.String,System.String)">
+            <summary>
+            將空字串取代
+            </summary>
+            <param name="str"></param>
+            <param name="replaceStr">取代字串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.StringHelper.DoubleByteSubstr(System.String,System.Int32)">
+            <summary>
+            從位置0依長度截取字串
+            有處理雙位元字元截斷問題
+            </summary>
+            <param name="str">原始字串</param>
+            <param name="len">截取長度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.StringHelper.ByteLength(System.String)">
+            <summary>
+            取得位元長度
+            用於中(或全形)英混合字串
+            </summary>
+            <param name="str">原始字串</param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.UpperCase">
+            <summary>
+            用於大寫規則比較
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.UpperCase.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.UpperCase.#ctor(System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="text">內容字串</param>
+        </member>
+        <member name="M:Jepun.Core.Common.UpperCase.Equals(Jepun.Core.Common.UpperCase)">
+            <summary>
+            比較
+            </summary>
+            <param name="other">比較對象</param>
+            <returns>true:相同   false:不同</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UpperCase.Equals(System.String)">
+            <summary>
+            比較字串
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UpperCase.Equals(System.Object)">
+            <summary>
+            比較Object
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UpperCase.GetHashCode">
+            <summary>
+            HashCode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UpperCase.CompareTo(Jepun.Core.Common.UpperCase)">
+            <summary>
+            Compare
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Jepun.Core.Common.UpperCase.Text">
+            <summary>
+            內容字串大寫
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.Threading.LockHolder`1">
+            <summary>
+            有timeout的執行序鎖
+            </summary>
+            <example>
+            object lockHandle = new object;
+            using(LockHolder objecT lockObj = new LockHolder object (lockHandle,1000))
+            {
+                if(lockObj.LockSuccessful)
+                {
+                 //write code
+                }
+            } //Dispose()
+            </example>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Jepun.Core.Common.Threading.LockHolder`1.#ctor(`0,System.Int32)">
+            <summary>
+            建構子
+            </summary>
+            <param name="handle">鎖定物件</param>
+            <param name="millisecondsTimeout">milliseconds timeout</param>
+        </member>
+        <member name="M:Jepun.Core.Common.Threading.LockHolder`1.Dispose">
+            <summary>
+            解鎖
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Threading.LockHolder`1.LockSuccessful">
+            <summary>
+            是否鎖定中
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.Threading.PCQueue">
+            <summary>
+            producer/consumer queue
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.Threading.PCQueue.#ctor(System.Int32)">
+            <summary>
+            建構子
+            </summary>
+            <param name="workerCount">生成Thread數目</param>
+        </member>
+        <member name="M:Jepun.Core.Common.Threading.PCQueue.Shutdown(System.Boolean)">
+            <summary>
+            關閉PCQueue
+            </summary>
+            <param name="waitForWorkers">是否等待完成</param>
+        </member>
+        <member name="M:Jepun.Core.Common.Threading.PCQueue.EnqueueItem(System.Action)">
+            <summary>
+            加入工作
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="T:Jepun.Core.Common.SafeDictionary`2">
+            <summary>
+            執行緒安全字典集合
+            </summary>
+            <typeparam name="TKey">泛型 key</typeparam>
+            <typeparam name="TValue">泛型 值</typeparam>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeDictionary`2.Add(`0,`1)">
+            <summary>
+            新增 或更新
+            </summary>
+            <param name="key">key</param>
+            <param name="val">val</param>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeDictionary`2.TryGetValue(`0,`1@)">
+            <summary>
+            取值
+            </summary>
+            <param name="key">key</param>
+            <param name="value">value</param>
+            <returns>true:成功</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeDictionary`2.ContainsKey(`0)">
+            <summary>
+            是否存在
+            </summary>
+            <param name="key">key</param>
+            <returns>true:存在</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeDictionary`2.Remove(`0)">
+            <summary>
+            移除
+            </summary>
+            <param name="key">key</param>       
+        </member>
+        <member name="M:Jepun.Core.Common.SafeDictionary`2.Clear">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeDictionary`2.GetEnumerator">
+            <summary>
+            逐一查看列舉值
+            </summary>
+            <returns>列舉值</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeDictionary`2.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{TKey@TValue}}#GetEnumerator">
+            <summary>
+            逐一查看列舉值
+            </summary>
+            <returns>列舉值</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.SafeDictionary`2.Count">
+            <summary>
+            數量
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.SafeDictionary`2.Item(`0)">
+            <summary>
+            索引子
+            </summary>
+            <param name="key">key</param>
+            <returns>val</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.SafeDictionary`2.Keys">
+            <summary>
+             keys 列舉清單
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.SafeList`1">
+            <summary>
+            執行緒安全Lisr集合
+            </summary>
+            <typeparam name="T">泛型型別</typeparam>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeList`1.#ctor(System.Collections.Generic.List{`0})">
+            <summary>
+            傳入泛型型別集合
+            </summary>
+            <param name="list">泛型型別集合</param>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeList`1.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeList`1.Add(`0)">
+            <summary>
+            Add Item
+            </summary>
+            <param name="item">泛型型別項目</param>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeList`1.Remove(`0)">
+            <summary>
+            Remove Item
+            </summary>
+            <param name="item">泛型型別項目</param>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeList`1.Contains(`0)">
+            <summary>
+            是否包含項目
+            </summary>
+            <param name="item">泛型型別項目</param>
+            <returns>true:包含項目</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeList`1.GetEnumerator">
+            <summary>
+            逐一查看列舉值
+            </summary>
+            <returns>列舉值</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeList`1.Clear">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.SafeList`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator">
+            <summary>
+            逐一查看列舉值
+            </summary>
+            <returns>列舉值</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.SafeList`1.Item(System.Int32)">
+            <summary>
+            傳回或設定項目索引
+            </summary>
+            <param name="index">項目索引</param>
+            <returns>泛型型別項目</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.ThreadHelper">
+            <summary>
+            ThreadHelper
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.ThreadHelper.Execute(System.Action,System.Int32)">
+            <summary>
+            不同條執行續執行一個 action,可設定 timeout
+            </summary>
+            <param name="action">Action</param>
+            <param name="millisecondsTimeout">Timeout</param>
+        </member>
+        <member name="M:Jepun.Core.Common.ThreadHelper.CallWithTimeout(System.Action,System.Int32)">
+            <summary>
+            同一條執行續
+            </summary>
+            <param name="action"></param>
+            <param name="millisecondsTimeout"></param>
+        </member>
+        <member name="T:Jepun.Core.Common.StopTimerException">
+            <summary>
+            提供SimplexWorkerTiming工作排程計時器,拋出一個停止計時錯誤讓計時器停止計時
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.StopTimerException.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.StopTimerException.#ctor(System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="message">錯誤原因</param>
+        </member>
+        <member name="M:Jepun.Core.Common.StopTimerException.#ctor(System.String,System.Exception)">
+            <summary>
+            建構子
+            </summary>
+            <param name="message">錯誤原因</param>
+            <param name="inner">Inner Exception</param>
+        </member>
+        <member name="M:Jepun.Core.Common.StopTimerException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            This constructor is needed for serialization.
+            </summary>
+            <param name="info">Serialization Info</param>
+            <param name="context">Streaming Context</param>
+        </member>
+        <member name="M:Jepun.Core.Common.StopTimerException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            使用序列化目標的所有例外狀況物件資料來設定 SerializationInfo。 在還原序列化期間，從在資料流上傳輸的 SerializationInfo 重新組成例外狀況。
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Jepun.Core.Common.CmdProcess">
+            <summary>
+            執行CMD視窗指令無畫面
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.CmdProcess.myProcess">
+            <summary>
+            Process
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.CmdProcess.#ctor(System.String,System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="fileName">執行檔</param>
+            <param name="args">參數</param>        
+        </member>
+        <member name="M:Jepun.Core.Common.CmdProcess.Run(System.Int32)">
+            <summary>
+            執行
+            </summary>
+            <param name="millisecondsTimeout">Timeout</param>
+        </member>
+        <member name="M:Jepun.Core.Common.CmdProcess.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.CmdProcess.Dispose(System.Boolean)">
+            <summary>
+            實作Dispose
+            </summary>
+            <param name="disposing">true of false 皆將queue關閉</param>
+        </member>
+        <member name="P:Jepun.Core.Common.CmdProcess.Arguments">
+            <summary>
+            提供參數設定
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.CmdProcess.ExitCode">
+            <summary>
+            取得相關處理序終止時指定的值
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.CmdProcess.AllOutputData">
+            <summary>
+            AllOutputData
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.CmdProcess.OutputData">
+            <summary>
+            OutputData
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.CmdProcess.ErrorData">
+            <summary>
+            ErrorData
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.Util.Comparable">
+            <summary>
+            比較 擴充方法
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.Util.Comparable.LessThen``1(``0,``0)">
+            <summary>
+            小於 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.Util.Comparable.GreaterThen``1(``0,``0)">
+            <summary>
+            大於
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.Util.Comparable.LessThenEqual``1(``0,``0)">
+            <summary>
+            小於等於
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.Util.Comparable.GreaterThenEqual``1(``0,``0)">
+            <summary>
+            大於等於
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.CsvFileReader">
+            <summary>
+            Class to read data from a CSV file
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvFileReader.#ctor(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            建構子
+            </summary>
+            <param name="stream">串流</param>
+            <param name="encoding">編碼</param>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvFileReader.#ctor(System.IO.Stream)">
+            <summary>
+            建構子
+            </summary>
+            <param name="stream">串流</param>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvFileReader.#ctor(System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="filename">完整檔名</param>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvFileReader.#ctor(System.String,System.Text.Encoding)">
+            <summary>
+            建構子
+            </summary>
+            <param name="filename">完整檔名</param>
+            <param name="encoding">編碼</param>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvFileReader.ReadRow(Jepun.Core.Common.CsvRow)">
+            <summary>
+            Reads a row of data from a CSV file
+            </summary>
+            <param name="row"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.CsvFileWriter">
+            <summary>
+            Class to write data to a CSV file
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvFileWriter.#ctor(System.IO.Stream)">
+            <summary>
+            建構子
+            </summary>
+            <param name="stream">串流</param>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvFileWriter.#ctor(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            建構子
+            </summary>
+            <param name="stream">串流</param>
+            <param name="encoding">編碼</param>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvFileWriter.#ctor(System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="filename">完整檔名</param>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvFileWriter.#ctor(System.String,System.Text.Encoding)">
+            <summary>
+            建構子
+            </summary>
+            <param name="filename">完整檔名</param>
+            <param name="encoding">編碼</param>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvFileWriter.WriteRow(Jepun.Core.Common.CsvRow)">
+            <summary>
+            Writes a single row to a CSV file.
+            </summary>
+            <param name="row">The row to be written</param>
+        </member>
+        <member name="T:Jepun.Core.Common.CsvHelper">
+            <summary>
+            csv helper
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvHelper.ParseLine(System.String,System.Char)">
+            <summary>
+            Parse Line
+            </summary>
+            <param name="line">Line</param>
+            <param name="separator">分隔符號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvHelper.ParseLine(System.Collections.Generic.IEnumerable{System.String},System.Char)">
+            <summary>
+            Parse Line
+            </summary>
+            <param name="lines"></param>
+            <param name="separator">分隔符號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvHelper.ReadLines(System.String,System.Text.Encoding,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            讀出CSV
+            </summary>
+            <code>
+            var values = from line in src.ReadLines(path, encoding,appendFields)
+                         select line.ParseLine();
+                         or
+            var values = (from line in src.ReadLines(path, encoding,appendFields)
+                         select line.ParseLine()).TakeWhile((lineOfValues) => lineOfValues.Contains(""));              
+            </code> 
+            <param name="path"></param>
+            <param name="encoding">編碼</param>
+            <param name="appendFields">擴充欄位和值</param>
+            <param name="separator">分隔符號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvHelper.ReadLines(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            給client將ResponseMsg的CSV格式字串形成列舉
+            </summary>
+            <param name="csv">CSV格式字串</param>  
+            <param name="appendFields">擴充欄位和值</param>
+            <param name="separator">分隔符號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvHelper.CsvToDataTable(System.String,System.String,System.Text.Encoding,System.Collections.Generic.Dictionary{System.String,System.String},System.Char)">
+            <summary>
+            Csv To DataTable
+            </summary>
+            <param name="tableName">tableName</param>
+            <param name="path">path</param>
+            <param name="encoding">編碼</param>
+            <param name="appendFields">擴充欄位和值</param>
+            <param name="separator">分隔符號</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.CsvHelper.CsvToDataTable(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Char)">
+            <summary>
+            Csv To DataTable
+            </summary>
+            <param name="tableName">tableName</param>
+            <param name="csv">CSV格式字串</param>
+            <param name="appendFields">擴充欄位和值</param>
+            <param name="separator">分隔符號</param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.CsvRow">
+            <summary>
+            每列資料
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.CsvRow.LineText">
+            <summary>
+            列資料
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.UtilHelper">
+            <summary>
+            工具協助
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.Merge``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})">
+            <summary>
+            合併,將兩個列舉項目合併,依據委讓方法
+            </summary>
+            <typeparam name="T1">列舉項目1</typeparam>
+            <typeparam name="T2">列舉項目2</typeparam>
+            <typeparam name="TOutput">新的輸出</typeparam>
+            <param name="left">列舉項目</param>
+            <param name="right">列舉項目</param>
+            <param name="generator">委讓方法</param>
+            <returns>新的輸出</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.Max``1(``0,``0)">
+            <summary>
+            Max
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.Max(System.Double,System.Double)">
+            <summary>
+            Max
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.Min``1(``0,``0)">
+            <summary>
+            Min
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.Min(System.Double,System.Double)">
+            <summary>
+            Min 
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.Unique``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            取出不重複的集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sequence">來源清單</param>
+            <returns>清單</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.EveryNthItem``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            每 period 筆 採樣一次
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sequence">來源清單</param>
+            <param name="period">每 n 筆</param>
+            <returns>清單</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.Generator``1(System.Int32,System.Func{``0})">
+            <summary>
+            產生集合
+            </summary>
+            <typeparam name="TResult">傳回型別</typeparam>
+            <param name="numnber">集合筆數</param>
+            <param name="generator"></param>
+            <returns>清單</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.Map``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            轉換
+            </summary>
+            <typeparam name="Tin">型別</typeparam>
+            <typeparam name="Tout">傳回型別</typeparam>
+            <param name="sequence">來源清單</param>
+            <param name="mapFunc">轉換function</param>
+            <returns>清單</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0})">
+            <summary>
+            ForEach 和 Map 相似
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sequence"></param>
+            <param name="forEachFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.FindSingle``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            找尋到條件資料後返回
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sequence"></param>
+            <param name="findSingleFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.Map``2(``0,System.Func{``0,``1})">
+            <summary>
+            轉換
+            </summary>
+            <typeparam name="Tin">型別</typeparam>
+            <typeparam name="Tout">傳回型別</typeparam>
+            <param name="element">來源</param>
+            <param name="mapFunc">轉換function</param>
+            <returns>傳回型別</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.Sum``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``0,``1,``1})">
+            <summary>
+            累加
+            </summary>
+            <typeparam name="T">型別</typeparam>
+            <typeparam name="TResult">傳回型別</typeparam>
+            <param name="sequence">來源清單</param>
+            <param name="total">總和</param>
+            <param name="accumnlator">總和function</param>
+            <returns>總和</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.JoinCollection``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            串連集合的成員，並在每個成員之間使用指定的分隔符號
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="values"></param>
+            <param name="separator">分隔符號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.DefaultParse``1(System.String,System.String)">
+            <summary>
+            取得由字串轉換後的正確型別值
+            </summary>
+            <typeparam name="T">轉換型別</typeparam>
+            <param name="input">字串值</param>
+            <param name="defVal">預設值</param>
+            <returns>型別值</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.DefaultParse``1(System.Object,System.String)">
+            <summary>
+            取得由object轉換後的正確型別值
+            </summary>
+            <typeparam name="T">轉換型別</typeparam>
+            <param name="obj">object</param>
+            <param name="defVal">預設值</param>
+            <returns>型別值</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.DefaultParse(System.Object)">
+            <summary>
+            給DB Param 使用 ,簡化 null 時 判斷 語句
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.AddOrSet(System.Collections.IDictionary,System.Object,System.Object)">
+            <summary>
+            針對 IDictionary 的 類別 ,免去判斷是否包含key ,如果包含則取代
+            </summary>
+            <param name="dictionary">IDictionary</param>
+            <param name="key">key</param>
+            <param name="value">value</param>         
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.AddOnly(System.Collections.IDictionary,System.Object,System.Object)">
+            <summary>
+            針對 IDictionary 的 類別 ,免去判斷是否包含key ,如果包含則離開
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.SetOnly(System.Collections.IDictionary,System.Object,System.Object)">
+            <summary>
+            針對 IDictionary 的 類別 ,免去判斷是否包含key ,如果包含則取代
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.IsBig5Encoding(System.Byte[])">
+            <summary>
+            偵測byte[]是否為BIG5編碼
+            </summary>
+            <param name="bytes"></param>
+            <returns>true: big5</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.IsBig5Encoding(System.String)">
+            <summary>
+            偵測檔案否為BIG5編碼
+            </summary>
+            <param name="file">完整檔名</param>
+            <returns>true: big5</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.UtilHelper.ToConsoleArgs(System.String)">
+            <summary>
+            將雙引號可顯示到Console的args
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.WcfHelper">
+            <summary>
+            Wcf協助靜態類別 ,如取得 表頭字串資料或取得服務端點名稱集合等
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.WcfHelper.GetHeader(System.String,System.String)">
+            <summary>
+            取得表頭字串資料,由CLIENT到SERVER
+            </summary>
+            <param name="headName">表頭名稱</param>
+            <param name="ns">Jepun網址</param>
+            <returns>表頭string</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.WcfHelper.GetClientEndpointName">
+            <summary>
+            取得服務端點名稱集合
+            </summary>
+            <returns>服務端點名稱集合</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.WcfHelper.GetClientEndpoints">
+            <summary>
+            取得Client服務端點名稱和Uri字典集合
+            </summary>
+            <returns>服務端點名稱和Uri字典集合</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.WcfHelper.GetClientContracts">
+            <summary>
+            取得Client服務端點名稱和合約可重複集合
+            </summary>
+            <returns>服務端點名稱和合約可重複集合</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.WcfHelper.GetServicesNames``1">
+            <summary>
+            取得services服務名稱
+            </summary>
+            <typeparam name="T">LowerCase or String</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.WcfHelper.GetConfigServiceTypes(System.Collections.Generic.List{System.String},System.Type[])">
+            <summary>
+            取得services Type
+            </summary>
+            <param name="serviceNames">集合</param>
+            <param name="types">型別</param>
+            <returns>型別</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.WcfHelper.GetIP">
+            <summary>
+            Get IP
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.WcfHelper.GetHost">
+            <summary>
+            取得執行個體主機元件
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.WcfHelper.GetAbsoluteUri">
+            <summary>
+            取得Service絕對Uri
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.WcfHelper.GetPort">
+            <summary>
+            取得Service   Port
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.WcfHelper.GetAction">
+            <summary>
+            取得Operation加上address
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.WmiHelper">
+            <summary>
+            Windows Management Infrastructure  Helper
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.WmiHelper.GetClusterNames(System.String,System.String,System.String)">
+            <summary>
+            取得Cluster名稱
+            </summary>
+            <param name="serverName">Server Name</param>
+            <param name="userName">帳號</param>
+            <param name="passWord">密碼</param>
+            <returns>Cluster Name</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.WmiHelper.GetClusterNodeNames(System.String,System.String,System.String)">
+            <summary>
+            取得Cluster底下 Node名稱
+            </summary>
+            <param name="serverName">Server Name</param>
+            <param name="userName">帳號</param>
+            <param name="passWord">密碼</param>
+            <returns>Cluster Node Name List</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.WmiHelper.GetClusterRoleNames(System.String,System.String,System.String)">
+            <summary>
+            取得Cluster Role名稱
+            </summary>
+            <param name="serverName">Server Name</param>
+            <param name="userName">帳號</param>
+            <param name="passWord">密碼</param>
+            <returns>Cluster Node Name List</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.WmiHelper.GetClusterRoleState(System.String,System.String,System.String,System.String)">
+            <summary>
+            取得Cluster Role state
+            </summary>
+            <param name="serverName">Server Name</param>
+            <param name="name">Role name</param>
+            <param name="userName">帳號</param>
+            <param name="passWord">密碼</param>
+            <returns>Cluster State</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.WmiHelper.GetClusterRolesActiveNode(System.String,System.String,System.String)">
+            <summary>
+            取得Cluster Role Active Node 字典清單
+            </summary>
+            <param name="serverName">server Name</param>
+            <param name="userName">帳號</param>
+            <param name="passWord">密碼</param>
+            <returns>Get Cluster Role Active Node</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.WmiHelper.Query(System.String,System.String,System.String,System.String)">
+            <summary>
+            WMI查詢
+            </summary>
+            <param name="path">伺服器和命名空間</param>
+            <param name="wql">WMI Query Language</param>
+            <param name="userName">帳號</param>
+            <param name="passWord">密碼</param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.GenericXmlPersistenceManager`1">
+            <summary>
+            泛型XML序列/反序列
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:Jepun.Core.Common.GenericXmlPersistenceManager`1.factory">
+            <summary>
+            創建後緩存
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.GenericXmlPersistenceManager`1.LoadFromFile(System.String)">
+            <summary>
+            檔案載入 反序列 成 T
+            </summary>
+            <param name="filePath">檔名路徑</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.GenericXmlPersistenceManager`1.ReadFromStream(System.Xml.XmlReader)">
+            <summary>
+            串流載入 反序列 成 T
+            </summary>
+            <param name="inputStream">串流</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.GenericXmlPersistenceManager`1.SaveToFile(System.String,`0)">
+            <summary>
+            存成檔案
+            </summary>
+            <param name="filePath">檔名路徑</param>
+            <param name="data">物件T</param>
+        </member>
+        <member name="M:Jepun.Core.Common.GenericXmlPersistenceManager`1.AddToStream(System.Xml.XmlWriter,`0)">
+            <summary>
+            加到串流
+            </summary>
+            <param name="ouputStream">串流</param>
+            <param name="data">物件T</param>
+        </member>
+        <member name="T:Jepun.Core.Common.XmlHelper">
+            <summary>
+            Xml協助靜態類別 ,如將對象序列化為XML或由XML序列化為對象和XSL轉換編譯
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XmlSerialize(System.Object,System.String)">
+            <summary>
+            將一個對象序列化為XML字串
+            </summary>
+            <param name="obj">要序列化的對象</param>
+            <param name="encoding">編碼方式</param>
+            <returns>序列化產生的XML字串</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XmlSerialize(System.Object,System.Text.Encoding)">
+            <summary>
+            將一個對象序列化為XML字串
+            </summary>
+            <param name="obj">要序列化的對象</param>
+            <param name="encoding">編碼方式</param>
+            <returns>序列化產生的XML字串</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XmlSerializeToFile(System.Object,System.String,System.String)">
+            <summary>
+            將一個對象按XML序列化的方式写入到一個文件
+            </summary>
+            <param name="obj">要序列化的對象</param>
+            <param name="path">保存文件路徑</param>
+            <param name="encoding">編碼方式</param>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XmlSerializeToFile(System.Object,System.String,System.Text.Encoding)">
+            <summary>
+            將一個對象按XML序列化的方式写入到一個文件
+            </summary>
+            <param name="obj">要序列化的對象</param>
+            <param name="path">保存文件路徑</param>
+            <param name="encoding">編碼方式</param>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XmlDeserialize``1(System.String,System.String)">
+            <summary>
+            从XML字串中反序列化對象
+            </summary>
+            <typeparam name="T">结果對象類型</typeparam>
+            <param name="xmlMarkup">包含對象的XML字串</param>
+            <param name="encoding">編碼方式</param>
+            <returns>反序列化得到的對象</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XmlDeserialize``1(System.String,System.Text.Encoding)">
+            <summary>
+            从XML字串中反序列化對象
+            </summary>
+            <typeparam name="T">结果對象類型</typeparam>
+            <param name="xmlMarkup">包含對象的XML字串</param>
+            <param name="encoding">編碼方式</param>
+            <returns>反序列化得到的對象</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XmlDeserializeFromFile``1(System.String,System.String)">
+            <summary>
+            讀入一個文件，按XML的方式反序列化對象。
+            </summary>
+            <typeparam name="T">结果對象類型</typeparam>
+            <param name="path">文件路徑</param>
+            <param name="encoding">編碼方式</param>
+            <returns>反序列化得到的對象</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XmlDeserializeFromFile``1(System.String,System.Text.Encoding)">
+            <summary>
+            讀入一個文件，按XML的方式反序列化對象。
+            </summary>
+            <typeparam name="T">结果對象類型</typeparam>
+            <param name="path">文件路徑</param>
+            <param name="encoding">編碼方式</param>
+            <returns>反序列化得到的對象</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XslTrans(System.String,System.String,System.Xml.Xsl.XsltArgumentList,System.String)">
+            <summary>
+            XSL轉換編譯
+            </summary>
+            <param name="xmlMarkup">xml資料格式</param>
+            <param name="stylesheet">XSLT檔案位置 或 長相</param>       
+            <param name="argList">XSLT 參數</param>
+            <param name="encoding">編碼,預設UTF-8</param>
+            <returns>XSL轉換編譯後的格式</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XslTrans(System.String,System.String,System.Xml.Xsl.XsltArgumentList,System.Text.Encoding)">
+            <summary>
+            XSL轉換編譯
+            </summary>
+            <param name="xmlMarkup">xml</param>
+            <param name="stylesheet">XSLT檔案位置 或 長相</param>       
+            <param name="argList">XSLT 參數</param>
+            <param name="encoding">編碼 </param>
+            <returns>XSL轉換編譯後的格式</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XslTrans(System.Data.DataSet,System.String,System.String)">
+            <summary>
+            將 DataSet資料 XSL轉換編譯後的格式
+            </summary>
+            <param name="ds">DataSet</param>
+            <param name="stylesheet">XSLT檔案位置 或 長相</param>
+            <param name="encoding">編碼,預設UTF-8</param>
+            <returns>XSL轉換編譯後的格式</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XslTrans(System.Data.DataSet,System.String,System.Text.Encoding)">
+            <summary>
+            將 DataSet資料 XSL轉換編譯後的格式
+            </summary>
+            <param name="ds">DataSet</param>
+            <param name="stylesheetUri">XSLT檔案位置 或 長相</param>
+            <param name="encoding">編碼</param>
+            <returns>XSL轉換編譯後的格式</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XslTrans(System.Data.DataTable,System.String,System.String)">
+            <summary>
+            DataTable資料 和 XSLT格式  XSL轉換編譯後的格式
+            </summary>
+            <param name="table"> DataTable </param>
+            <param name="stylesheetUri">XSLT檔案位置 或 長相</param>
+            <param name="encoding">編碼,預設UTF-8</param>
+            <returns>XSL轉換編譯後的格式</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XslTrans(System.Data.DataTable,System.String,System.Text.Encoding)">
+            <summary>
+            DataTable資料 和 XSLT格式  XSL轉換編譯後的格式
+            </summary>
+            <param name="table"> DataTable </param>
+            <param name="stylesheet">XSLT檔案位置 或 長相</param>
+            <param name="encoding">編碼</param>
+            <returns>XSL轉換編譯後的格式</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.XslTransInternal(System.Xml.XmlReader,System.Xml.XPath.XPathDocument,System.Xml.Xsl.XsltArgumentList,System.Text.Encoding)">
+            <summary>
+            XSL轉換編譯
+            </summary>
+            <param name="doc">XmlReader</param>
+            <param name="xPath">XSLT檔案位置 或 長相</param>       
+            <param name="argList">XSLT 參數</param>
+            <param name="encoding">編碼</param>
+            <returns>XSL轉換編譯後的格式</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.GetXmlReader(System.String)">
+            <summary>
+            取得XmlReader
+            </summary>
+            <param name="makeup">XML 或 XSLT 長相</param>
+            <returns>XmlReader</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XmlHelper.DataToHTML(System.Data.DataSet,System.String)">
+            <summary>
+            Data To HTML
+            </summary>
+            <param name="ds">DataSet</param>
+            <param name="tempfile">樣式檔</param>
+            <returns>網頁格式</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.XslAdapter">
+            <summary>
+            Xsl包裝類別 ,輸出xsl樣板 加入參數後的長相
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.XslAdapter.#ctor">
+            <summary>
+            XSLT 包裝物件  主要用途為NEW 一次後反覆使用 ,例如 參數改變
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.XslAdapter.#ctor(System.String)">
+            <summary>
+            XSLT 包裝物件 主要用途為NEW 一次後反覆使用 ,例如 參數改變
+            </summary>
+            <param name="xmlMarkup">XML字串</param>
+        </member>
+        <member name="M:Jepun.Core.Common.XslAdapter.LoadByUri(System.String)">
+            <summary>
+            載入XSLT實體檔案位置
+            </summary>
+            <example>
+            <code language="cs" title="XSLT 於 xml用法和傳入參數">
+            string xml = "<order><book ISBN='10-861003-324'><title>The Handmaid's Tale</title><price>19.95</price></book><cd ISBN='2-3631-4'><title>Americana</title><price>16.95</price></cd></order>";
+            XslAdapter xsla = new XslAdapter(xml);
+            xsla.LoadByUri(FileHelper.GetAppPath() + "discount.xsl");
+            DateTime orderDate = new DateTime(2004, 01, 15);
+            DateTime discountDate = orderDate.AddDays(20);
+            xsla.AddParam("discount", discountDate.ToString());
+            Console.WriteLine(xsla.Transform("utf-8"));
+            xsla.Clear();
+            discountDate = orderDate.AddDays(130);
+            xsla.AddParam("discount", discountDate.ToString());
+            Console.WriteLine(xsla.Transform("utf-8"));
+            </code>
+            </example>
+            <param name="stylesheetUri">xsl樣板Uri位置</param>
+        </member>
+        <member name="M:Jepun.Core.Common.XslAdapter.LoadByMarkup(System.String)">
+            <summary>
+            Load By Markup 傳入xsl樣板
+            </summary>
+            <param name="xslMarkup">xsl樣板長相</param>
+        </member>
+        <member name="M:Jepun.Core.Common.XslAdapter.AddParam(System.String,System.Object,System.String)">
+            <summary>
+            將 XSLT 參數加入至 XsltArgumentList
+            </summary>
+            <param name="name">參數名</param>
+            <param name="parameter">System.String System.Boolean System.Double 等</param>
+            <param name="namespaceUri">命名空間 URI</param>
+        </member>
+        <member name="M:Jepun.Core.Common.XslAdapter.RemoveParam(System.String,System.String)">
+            <summary>
+            移除參數
+            </summary>
+            <param name="name">參數名</param>
+            <param name="namespaceUri">命名空間 URI</param>
+        </member>
+        <member name="M:Jepun.Core.Common.XslAdapter.Clear">
+            <summary>
+            清除參數
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.XslAdapter.Transform(System.String)">
+            <summary>
+            轉換XSLT和XML 
+            </summary>
+            <param name="encoding">編碼</param>
+            <returns>文件</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XslAdapter.Transform(System.Text.Encoding)">
+            <summary>
+            轉換XSLT和XML 
+            </summary>
+            <param name="encoding">編碼</param>
+            <returns>文件</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.XslAdapter.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.XslAdapter.Dispose(System.Boolean)">
+            <summary>
+            關閉資源
+            </summary>
+            <param name="disposing"> true:要釋放資源 false:要釋放資源</param>
+        </member>
+        <member name="P:Jepun.Core.Common.XslAdapter.Xml">
+            <summary>
+            可改變Xml字串
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.PasswordStrength">
+            <summary>
+            Password Strength 定義
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PasswordStrength.Numbers">
+            <summary>
+            數字
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PasswordStrength.NumbersAndLowercase">
+            <summary>
+            數字和小寫
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PasswordStrength.NumbersAndLowercaseAndUppercase">
+            <summary>
+            數字和小寫和大寫
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.PasswordStrength.NumbersAndLowercaseAndUppercaseAndSymbols">
+            <summary>
+            數字和小寫和大寫和符號
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.ErrorCode">
+            <summary>
+            Jepun定義給Client端使用服務時,產生的錯誤碼,讓Client程式繼續處理 
+            這裡的Client端可為  WPF  WEB  等使用服務的...
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ErrorCode.none">
+            <summary>
+            沒有
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ErrorCode.Exception">
+            <summary>
+            系統例外
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ErrorCode.Custom">
+            <summary>
+            自訂訊息
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.ErrorCode.IdentityTimeOut">
+            <summary>
+            使用者超過時間未使用
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.MsgType">
+            <summary>
+            Jepun SignalR訊息定義
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.MsgType.None">
+            <summary>
+            無
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.MsgType.Broadcast">
+            <summary>
+            廣播
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.MsgType.Personal">
+            <summary>
+            個人
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.MsgType.System">
+            <summary>
+            系統
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.MsgType.DataCacheRefresh">
+            <summary>
+            資料快取更新
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.MsgType.MenuPrivilegeRefresh">
+            <summary>
+            選單權限更新
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.MsgType.RefreshUsers">
+            <summary>
+            選單權限更新
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.MsgType.Custom">
+            <summary>
+            自訂
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.IConnectionStringSetting">
+            <summary>
+            給Jepun.Customer使用來取得連線字串和DB提供者的介面定義
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.IConnectionStringSetting.GetConnectionString(System.String)">
+            <summary>
+            Get Connection String
+            </summary>
+            <param name="ConnectionStringName">連線名稱</param>
+            <returns>連線字串,提供者</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.IFileTransferSettings">
+            <summary>
+            給Jepun.Customer使用來取得系統使用的檔案傳輸帳密的介面定義
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.IFileTransferSettings.GetFileTransferAuthority">
+            <summary>
+            取得系統使用的檔案傳輸帳密
+            </summary>
+            <returns>
+            Item1為帳號 (格式: 網域名稱\使用者ID 或 機器名稱\使用者ID)
+            Item2為密碼
+            </returns>
+        </member>
+        <member name="T:Jepun.Core.Common.FileHelper">
+            <summary>
+            File協助靜態類別 ,如 base64字串 轉換成 串流或檔案轉換成位元組 等IO操作
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.FileHelper.Base64StringToStream(System.String)">
+            <summary>
+            Base64 String To Stream
+            </summary>
+            <param name="base64String">base64字串</param>
+            <returns>Stream</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FileHelper.Base64StringToFile(System.String,System.String)">
+            <summary>
+            Base64 String To File
+            </summary>
+            <param name="base64String">base64字串</param>
+            <param name="pathNew">檔名含路徑</param>
+        </member>
+        <member name="M:Jepun.Core.Common.FileHelper.FileToBase64String(System.String)">
+            <summary>
+            File To Base 64 String
+            </summary>
+            <param name="pathSource">檔名含路徑</param>
+            <returns>base64字串</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FileHelper.FileToBytes(System.String)">
+            <summary>
+            File To Bytes
+            </summary>
+            <example>
+            <code language="cs" title="檔案和位元組">
+            FileHelper.BytesToFile("d:\\test.pdf", FileHelper.FileToBytes("D:\\codes\\PDF\\The Art of Readable Code.pdf"));
+            </code>
+            </example>
+            <param name="pathSource">檔名含路徑</param>
+            <returns>位元組</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FileHelper.FileToStream(System.String)">
+            <summary>
+            File To Stream
+            </summary>
+            <param name="pathSource">檔名含路徑</param>
+            <returns>Stream</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FileHelper.BytesToFile(System.String,System.Byte[])">
+            <summary>
+            Bytes To File
+            </summary>
+            <param name="pathNew">檔名含路徑</param>
+            <param name="bytes">Bytes</param>
+        </member>
+        <member name="M:Jepun.Core.Common.FileHelper.IsExist(System.String,System.String)">
+            <summary>
+            確認檔案是否存在
+            </summary>
+            <param name="fileName">檔案名稱 如  test.dll </param>
+            <param name="path">路徑 如 D:\\test\\ 不輸入時 使用 System.AppDomain.CurrentDomain.BaseDirectory  </param>
+            <returns> true:存在 </returns>
+        </member>
+        <member name="M:Jepun.Core.Common.FileHelper.GetAppPath">
+            <summary>
+            取得App執行路徑
+            </summary>
+            <returns>App執行路徑  如 D:\\test\\ </returns>
+        </member>
+        <member name="T:Jepun.Core.Common.StreamHelper">
+            <summary>
+            Stream協助靜態類別 ,如將串流轉換成位元組,反之
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.StreamHelper.BytesToStream(System.Byte[])">
+            <summary>
+            將BYTES 轉換 Stream
+            </summary>
+            <param name="bytes">bytes</param>
+            <returns>Stream</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.StreamHelper.StreamToBytes(System.IO.Stream)">
+            <summary>
+            Stream To Bytes
+            </summary>
+            <param name="stream">stream</param>
+            <returns>Bytes</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.StreamHelper.StreamToString(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            將 Stream 轉換 字串
+            </summary>
+            <param name="stream">stream</param>
+            <param name="encoding">編碼</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.StreamHelper.StringToStream(System.String,System.Text.Encoding)">
+            <summary>
+            將 字串 轉換 Stream
+            </summary>
+            <param name="aString">a String</param>
+            <param name="encoding">編碼</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.StreamHelper.StreamToStreamReader(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            將 Stream 轉換 StreamReader
+            </summary>
+            <param name="stream">stream</param>
+            <param name="encoding">編碼</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Common.StreamHelper.StreamToStreamWriter(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            將 Stream 轉換 StreamWriter
+            </summary>
+            <param name="stream">stream</param>
+            <param name="encoding">編碼</param>
+            <returns></returns>
+        </member>
+        <member name="T:Jepun.Core.Common.LogHelper">
+            <summary>
+            Log協助靜態類別 ,處裡Exception時,如何輸出 Log格式
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.LogHelper.BuildExceptionMessage(System.Exception,System.String,System.String)">
+            <summary>
+            產生LOG紀錄用的只走兩層,InnerException
+            </summary>
+            <param name="ex">系統Exception物件</param>
+            <param name="faultCode">錯誤碼</param>
+            <param name="path">服務位置</param>        
+            <returns>LOG內容</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.LogHelper.BuildCustomMessage(System.String,System.String,System.String)">
+            <summary>
+            產生自訂LOG訊息格式
+            </summary>
+            <param name="reason">原因</param>
+            <param name="faultCode">錯誤代碼</param>
+            <param name="path">服務路徑</param>
+            <returns>自訂LOG訊息格式</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.AssemblyHelp">
+            <summary>
+            反射靜態協助,透過指定dll名稱方式,以固定的執行路徑下生成物件或以組件完整格式取出所有型別等
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.GetTypesByLoad(System.String)">
+            <summary>
+            載入組件，其名稱指定為完整格式。
+            </summary>
+            <param name="assemblyString">組件名稱的完整格式</param>
+            <returns>包含在這個組件中定義的所有型別。</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.GetTypesByLoadFile(System.String)">
+            <summary>
+            載入指定路徑上組件檔案的內容。
+            </summary>
+            <param name="path">要載入之檔案的路徑</param>
+            <returns>包含在這個組件中定義的所有型別。</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.GetTypesByLoadFrom(System.String)">
+            <summary>
+            載入組件，指定其檔案名稱或路徑。
+            </summary>
+            <param name="assemblyFile">檔案的名稱或路徑，包含組件的資訊清單</param>
+            <returns>包含在這個組件中定義的所有型別。</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.GetTypesByLoad(System.String,System.Type)">
+            <summary>
+            載入組件，其名稱指定為完整格式,傳回符合基底類別之類別陣列
+            </summary>
+            <param name="assemblyString">組件名稱的完整格式</param>
+            <param name="baseType">基底類別</param>
+            <returns>包含在這個組件中定義的所有型別。</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.LoadAssembly(System.String,System.String,System.String)">
+            <summary>
+            載入指定名稱之Assembly,以固定的執行路徑下
+            </summary>
+            <param name="assemblyName">namespace 名稱(Assembly Name)</param>
+            <param name="className">type 名稱(Class Name)</param>
+            <param name="dllName">dll的實際檔案名稱,不只定時是 用 >namespace 名稱(Assembly Name)</param>
+            <returns>反射物件</returns>     
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.LoadAssembly``1(System.String,System.String,System.String)">
+            <summary>
+            載入指定名稱之Assembly,以固定的執行路徑下
+            </summary>
+            <example>
+            <code language="cs" title="載入指定名稱之Assembly,以固定的執行路徑下">
+            ILoadBalance loadBalance = AssemblyHelp.LoadAssembly&lt;ILoadBalance&gt;("Jepun.Services.Proxy.LoadBalancing", "ConsistentHashingAlgorithm", "Jepun.Services.Proxy");
+            </code>
+            </example>
+            <typeparam name="TObj">轉換的TYPE</typeparam>
+            <param name="assemblyName">namespace 名稱(Assembly Name)</param>
+            <param name="className">type 名稱(Class Name)</param>
+            <param name="dllName">dll的實際檔案名稱,不只定時是 用 >namespace 名稱(Assembly Name)</param>
+            <returns>反射物件已轉型</returns>     
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.LoadAssembly``1(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            使用有參數建構函數指定由泛型參數型別執行個體
+            </summary>
+            <typeparam name="TObj">泛型參數型別</typeparam>
+            <param name="assemblyName">namespace 名稱(Assembly Name)</param>
+            <param name="className">type 名稱(Class Name)</param>
+            <param name="dllName">Client.dll 去掉 .dll 傳入 Client</param>         
+            <param name="args">建構子所需參數</param>
+            <returns>泛型參數型別執行個體</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.DynamicPublicMethod(System.Object,System.String,System.Object[])">
+            <summary>
+            動態繫結公用Method
+            </summary>
+            <param name="MethodNoumenon">instance</param>
+            <param name="MethodName">Method Name</param>
+            <param name="MethodVariable">參數</param>
+            <returns>表示叫用的成員之傳回值的物件</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.DynamicNonPublicMethod(System.Object,System.String,System.Object[])">
+            <summary>
+            動態繫結非公用Method
+            </summary>
+            <param name="MethodNoumenon">instance</param>
+            <param name="MethodName">Method Name</param>
+            <param name="MethodVariable">參數</param>
+            <returns>表示叫用的成員之傳回值的物件</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.DynamicExecuteMethod(System.Object,System.String,System.Object[],System.Reflection.BindingFlags)">
+            <summary>
+            動態繫結Method
+            </summary>
+            <param name="MethodNoumenon">instance</param>
+            <param name="MethodName">Method Name</param>
+            <param name="MethodVariable">參數</param>
+            <param name="MethodFlag">位元遮罩，由一個或多個 BindingFlags 組成，而這些旗標會指定執行搜尋的方式</param>
+            <returns>表示叫用的成員之傳回值的物件</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.GetVariable(System.String,System.Object)">
+            <summary>
+            根據指定名稱取得變數值
+            </summary>
+            <param name="strFindName">變數名稱</param>
+            <param name="objTarget">對象</param>
+            <returns>表示叫用的成員之傳回值的物件</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.SetVariable(System.String,System.Object,System.Object[])">
+            <summary>
+            根據指定名稱設定變數值
+            </summary>
+            <param name="strFindName">變數名稱</param>
+            <param name="objTarget">對象</param>
+            <param name="args">設定值</param>
+            <returns>表示叫用的成員之傳回值的物件</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.StaticPublicMethod(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            靜態繫結公用Method
+            </summary>
+            <param name="AssemblyName">Assembly Name</param>
+            <param name="ClassName">Class Name</param>
+            <param name="MethodName">Method Name</param>
+            <param name="MethodVariable">object陣列</param>
+            <returns>傳回值</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.CreateObject``1(System.Object[])">
+            <summary>
+            使用有建構子傳入參數或無參數的方式來生成泛型物件
+            </summary>
+            <typeparam name="T">泛型物件</typeparam>         
+            <param name="args">建構子傳入參數</param>
+            <returns>泛型物件</returns>
+        </member>
+        <member name="M:Jepun.Core.Common.AssemblyHelp.DynamicNew``1">
+            <summary>
+            Generates a Dynamic method that can act as a more performant version of 'new T();'
+            Note: this is a slow operation, hence the bootstrap or JIT generation.
+            當資料物件需要大量生成時可使用  70000 次  
+            </summary>
+            <typeparam name="TEntity">Data Class to create</typeparam>
+            <returns>delegate for invocation</returns>
+        </member>
+        <member name="T:Jepun.Core.Common.Resource.ErrorResource">
+            <summary>
+              用於查詢當地語系化字串等的強類型資源類別。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.ErrorResource.ResourceManager">
+            <summary>
+              傳回這個類別使用的快取的 ResourceManager 執行個體。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.ErrorResource.Culture">
+            <summary>
+              覆寫目前執行緒的 CurrentUICulture 屬性，對象是所有
+              使用這個強類型資源類別的資源查閱。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.ErrorResource.AppSettingNotFound">
+            <summary>
+              查詢類似 配置檔appSettings區段,沒有key:{0} 的值!! 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.ErrorResource.HashtableError">
+            <summary>
+              查詢類似 Hashtable產生錯誤,HashKey:{0} 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.ErrorResource.HeaderIsEmptyError">
+            <summary>
+              查詢類似 無法取得表頭資料!! 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.ErrorResource.ReflectionError">
+            <summary>
+              查詢類似 反射錯誤,請確認DLL路徑:{0} 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.Resource.ErrorResource.ReflectionTypeLoadError">
+            <summary>
+              查詢類似 無法載入一個或多個要求類型: 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.AppContext">
+            <summary>
+            Jepun定義來給Client使用交換訊息的靜態方法
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.AppContext.IsValid">
+            <summary>
+            是否超過逾時時間,如未超過逾時,則更新 ServiceTime 
+            </summary>       
+            <returns>true:未逾時 false:逾時</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.AppContext.AppToken">
+            <summary>
+            跟WCF溝通用的Token
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppContext.CultureInfo">
+            <summary>
+            AP用的語系  zh-tw  us   zh-cn
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppContext.UserName">
+            <summary>
+            使用者中文名稱
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppContext.UserEName">
+            <summary>
+            使用者英文名稱
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppContext.UserID">
+            <summary>
+            使用者代號
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppContext.Uno">
+            <summary>
+            使用者內部代號
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppContext.UserIP">
+            <summary>
+            使用者IP
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppContext.TimeOutMinute">
+            <summary>
+            設定為操作時間上限.單位:分鐘
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppContext.ServiceTime">
+            <summary>
+            設定目前操作時間
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppContext.LoginTime">
+            <summary>
+            登入時間
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.AppIdentity">
+            <summary>
+            身分物件,繼承至IIdentity
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.AppIdentity.#ctor(System.String,System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="name">名字</param>
+            <param name="authenticationType">認證類型 如 Forms</param>
+        </member>
+        <member name="M:Jepun.Core.Common.AppIdentity.IsValid(System.Int32)">
+            <summary>
+            是否超過逾時時間,如未超過逾時,則更新 ServiceTime 
+            </summary>
+            <param name="minute">逾時時間 : 單位分鐘</param>
+            <returns>true:未逾時 false:逾時</returns>
+        </member>
+        <member name="P:Jepun.Core.Common.AppIdentity.AuthenticationType">
+            <summary>
+            認證類型
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppIdentity.IsAuthenticated">
+            <summary>
+            是否認證
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppIdentity.Name">
+            <summary>
+            名字
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppIdentity.AppToken">
+            <summary>
+            跟WCF溝通用的Token
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppIdentity.UserName">
+            <summary>
+            使用者中文名稱
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppIdentity.UserEName">
+            <summary>
+            使用者英文名稱
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppIdentity.UserID">
+            <summary>
+            使用者代號
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppIdentity.Uno">
+            <summary>
+            使用者內部代號
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppIdentity.UserIP">
+            <summary>
+            使用者IP
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Common.AppIdentity.ServiceTime">
+            <summary>
+            服務時間
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.SimplexWorkerTiming">
+            <summary>
+            工作排程計時器,做完在做下一個工作,會開一條新的執行緒
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Common.SimplexWorkerTiming.WorkAction">
+            <summary>
+            WorkAction 執行內容
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.SimplexWorkerTiming.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.SimplexWorkerTiming.#ctor(System.Double)">
+            <summary>
+            建構子
+            </summary>
+            <param name="interval">時間間隔 毫秒</param>
+        </member>
+        <member name="M:Jepun.Core.Common.SimplexWorkerTiming.Start">
+            <summary>
+            Start
+            </summary>
+            <example>
+            <code language="cs" title="工作排程計時器">
+            SimplexWorkerTiming aTimer = new SimplexWorkerTiming(1000); //間隔1秒
+            aTimer.WorkAction = (e) =>
+            {
+                 Console.WriteLine("工作5秒");
+                 Thread.Sleep(5000);
+            };
+            aTimer.Start();
+            Console.ReadLine();
+            </code>
+            </example>
+        </member>
+        <member name="M:Jepun.Core.Common.SimplexWorkerTiming.Stop">
+            <summary>
+            Stop
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.SimplexWorkerTiming.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.SimplexWorkerTiming.Dispose(System.Boolean)">
+            <summary>
+            釋放資源
+            </summary>
+            <param name="disposing"> true:要釋放資源 false:要釋放資源</param>
+        </member>
+        <member name="P:Jepun.Core.Common.SimplexWorkerTiming.Interval">
+            <summary>
+            取得或設定引發 Elapsed 事件的間隔 (單位為毫秒)
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Common.ValidHelper">
+            <summary>
+            Valid協助靜態類別 ,如有定義物件模型屬性的檢核屬性,可使用
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Common.ValidHelper.IsValid(System.Object,System.Collections.Generic.List{System.ComponentModel.DataAnnotations.ValidationResult}@)">
+            <summary>
+            將物件模型屬性做檢核
+            </summary>
+            <example>
+            <code language="cs" title=" ">
+            List&lt;ValidationResult&gt; vv;
+            Employee emp = new Employee();
+            if (!emp.IsValid(out vv))
+            {
+                Console.WriteLine(vv.ToString());
+            }
+                Console.ReadKey();
+            </code>
+            </example>
+             <param name="obj">物件模型</param>
+            <param name="validations">檢核結果清單</param>         
+            <returns>true:檢核OK</returns>
+        </member>
+    </members>
+</doc>

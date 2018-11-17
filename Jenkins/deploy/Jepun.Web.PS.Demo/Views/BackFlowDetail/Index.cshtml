@@ -1,0 +1,26 @@
+﻿@using Jepun.Web.PS.Comm
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("", "BackFlowDetail", FormMethod.Post, new { @class = "form-horizontal", id = "FormBackFlowDetail" }))
+{
+    <div class="form-group">
+        <div class="col-sm-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>角色</th>
+                        <th>ID</th>
+                        <th>狀態</th>
+                        <th>異動時間</th>
+                    </tr>
+                </thead>
+                <tbody name="flowDetail">
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/BackFlowDetail.js"></script>

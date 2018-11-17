@@ -1,0 +1,79 @@
+﻿@using Jepun.Web.PS.Comm
+@{
+    Layout = null;
+}
+<div class="alert alert-info" role="alert">會員資料查詢</div>
+@using (Html.BeginForm("", "BackMember", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormBackMember", onsubmit = "return false" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="col-md-3 control-label">
+                    <label>會員ID(身分證字號)</label>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="Acc"/>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary" type="button" name="BtnQry">查詢</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td class="col-sm-1">會員資料</td>
+                                <td class="col-sm-1"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>　會員ID</th>
+                                <td><span name="CNO"></span></td>
+                            </tr>
+                            <tr>
+                                <th>　姓名</th>
+                                <td><span name="Name"></span></td>
+                            </tr>
+                            @*<tr>
+                                <th>　是否為本公司客戶</th>
+                                <td>　<input type="checkbox" class="checkbox-inline" />是 (戶號:0000000) <input type="checkbox" class="checkbox-inline" />否</td>
+                            </tr>
+                            <tr>
+                                <th>　是否為本公司電子交易戶</th>
+                                <td>　<input type="checkbox" class="checkbox-inline" />是  <input type="checkbox" class="checkbox-inline" />否</td>
+                            </tr>*@
+                            <tr>
+                                <th>　電子信箱</th>
+                                <td><span name="Email"></span></td>
+                            </tr>
+                            <tr>
+                                <th>　出生年月日</th>
+                                <td><span name="Birth_DT"></span></td>
+                            </tr>
+                            <tr>
+                                <th>　通訊地址</th>
+                                <td><span name="Mail_City"></span><span name="Mail_Area"></span><span name="Mail_Address"></span></td>
+                            </tr>
+                            <tr>
+                                <th>　行動電話</th>
+                                <td><span name="CellPhone"></span></td>
+                            </tr>
+                            <tr>
+                                <th>　是否開通</th>
+                                <td><span name="IsAvailable"></span></td>
+                            </tr>
+                            @*<tr>
+                                <th>　紅利點數</th>
+                                <td>　20,000 <a href="#" name="IBackMember" data-jepun-view="BackMemberDetail">(點數歷程查詢)</a></td>
+                            </tr>*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/BackMember.js?@ServiceHelper.CacheBusting()"></script>

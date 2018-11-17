@@ -1,0 +1,116 @@
+¥Ñ¨Ï¥ÎªÌ [8mha:////4E9IgijjWSh0iFjZlKLafM0SZiAtWdbV06BAJlP2qvUsAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyuEgYe/dLi1CL9yvxSoI0AG1rJssEAAAA=[0myoulinchen ±Ò°Ê
+«Ø¸m¤¤ ¤u§@°Ï D:\Jenkins\workspace\Jepun.Services.AP.WindowService
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\jprd\git\Jepun.FMS.Out # timeout=10
+Fetching upstream changes from \\jprd\git\Jepun.FMS.Out
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\jprd\git\Jepun.FMS.Out +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision f3afe1beb62585846f34bfb8f04e484fa63c66d6 (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f f3afe1beb62585846f34bfb8f04e484fa63c66d6
+Commit message: "add version"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 187eba28a7e2183d3ac999e0b2b6a858d64bd538 # timeout=10
+Path To MSBuild.exe: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe
+Executing the command cmd.exe /C " C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe /p:Configuration=Release /p:AspnetCompilerPath=C:\windows\Microsoft.NET\Framework64\v4.0.30319 /p:VisualStudioVersion=12.0 D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService.csproj " && exit %%ERRORLEVEL%% from D:\Jenkins\workspace\Jepun.Services.AP.WindowService
+[Jepun.Services.AP.WindowService] $ cmd.exe /C " C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe /p:Configuration=Release /p:AspnetCompilerPath=C:\windows\Microsoft.NET\Framework64\v4.0.30319 /p:VisualStudioVersion=12.0 D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService.csproj " && exit %%ERRORLEVEL%%
+Microsoft (R) Build Engine ª©¥» 4.7.2556.0
+[Microsoft .NET Framework¡Aª©¥» 4.0.30319.42000]
+Copyright (C) Microsoft Corporation. µÛ§@Åv©Ò¦³¡A¨Ã«O¯d¤@¤ÁÅv§Q¡C
+
+¤w¸g¶}©l«Ø¸m©ó 2018/3/29 ¤W¤È 09:00:21¡C
+¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤Wªº±M®× "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService.csproj"¡C
+±M®× "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService.csproj" (1) ¥¿¦b¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤W«Ø¸m "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.Repository\Jepun.Services.AP.Repository.csproj" (2)¡C
+±M®× "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.Repository\Jepun.Services.AP.Repository.csproj" (2) ¥¿¦b¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤W«Ø¸m "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\FundAppForm\FundAppForm.csproj" (3)¡C
+CoreResGen:
+  ¬Û¹ï©ó¸ê·½ªº¨Ó·½ÀÉ®×¡A¨Ã¨S¦³¸ê·½¹L´Á¡C±N²¤¹L²£¥Í¸ê·½¡C
+CompileLicxFiles:
+±N²¤¹L¥Ø¼Ð "CompileLicxFiles"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  FundAppForm -> D:\Jenkins\workspace\Jepun.Services.AP.WindowService\FundAppForm\bin\Release\FundAppForm.dll
+±M®× "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\FundAppForm\FundAppForm.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+±M®× "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.Repository\Jepun.Services.AP.Repository.csproj" (2) ¥¿¦b¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤W«Ø¸m "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Resource\Jepun.Resource.csproj" (4)¡C
+CoreResGen:
+  ¬Û¹ï©ó¸ê·½ªº¨Ó·½ÀÉ®×¡A¨Ã¨S¦³¸ê·½¹L´Á¡C±N²¤¹L²£¥Í¸ê·½¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+GenerateSatelliteAssemblies:
+±N²¤¹L¥Ø¼Ð "GenerateSatelliteAssemblies"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+GenerateSatelliteAssemblies:
+±N²¤¹L¥Ø¼Ð "GenerateSatelliteAssemblies"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  Jepun.Resource -> D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Dlls\Jepun.Resource.dll
+±M®× "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Resource\Jepun.Resource.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+±M®× "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.Repository\Jepun.Services.AP.Repository.csproj" (2) ¥¿¦b¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤W«Ø¸m "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.Contract\Jepun.Services.AP.Contract.csproj" (5)¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  Jepun.Services.AP.Contract -> D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Dlls\Jepun.Services.AP.Contract.dll
+±M®× "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.Contract\Jepun.Services.AP.Contract.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  Jepun.Services.AP.Repository -> D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Dlls\Jepun.Services.AP.Repository.dll
+±M®× "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.Repository\Jepun.Services.AP.Repository.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+CoreResGen:
+  ¬Û¹ï©ó¸ê·½ªº¨Ó·½ÀÉ®×¡A¨Ã¨S¦³¸ê·½¹L´Á¡C±N²¤¹L²£¥Í¸ê·½¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+_CopyFilesMarkedCopyLocal:
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Dlls\Oracle.DataAccess.dll" ½Æ»s¨ì "bin\Release\Oracle.DataAccess.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Dlls\Oracle.ManagedDataAccess.dll" ½Æ»s¨ì "bin\Release\Oracle.ManagedDataAccess.dll"¡C
+_CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\ReadMe.txt" ½Æ»s¨ì "bin\Release\ReadMe.txt"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\NLog.config" ½Æ»s¨ì "bin\Release\NLog.config"¡C
+_CopyAppConfigFile:
+±N²¤¹L¥Ø¼Ð "_CopyAppConfigFile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  Jepun.Services.AP.WindowService -> D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\bin\Release\Jepun.Services.AP.WindowService.exe
+PostBuildEvent:
+  if AnyCPU  == x86  (
+  xcopy D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x86\*.dll D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\bin\Release\ /S /Y /I
+  ) else (
+  xcopy D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\*.dll D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\bin\Release\ /S /Y /I
+  )
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\Oracle.DataAccess.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\Oracle.ManagedDataAccess.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\Oracle.ManagedDataAccessDTC.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\Oracle.ManagedDataAccessIOP.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\x64.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\CefSharp.BrowserSubprocess.Core.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\CefSharp.Core.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\CefSharp.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\CefSharp.Wpf.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\libcef.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\msvcp120.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\msvcr120.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\vccorlib120.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\OptRef\d3dcompiler_43.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\OptRef\d3dcompiler_47.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\OptRef\libEGL.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\OptRef\libGLESv2.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\CefSharp\OptRef\widevinecdmadapter.dll
+  D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\..\Dlls\x64\SevenZip\7z.dll
+  ¤w½Æ»s 19 ­ÓÀÉ®×
+±M®× "D:\Jenkins\workspace\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService\Jepun.Services.AP.WindowService.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+
+«Ø¸m¦¨¥\¡C
+    0 ­ÓÄµ§i
+    0 ­Ó¿ù»~
+
+¸g¹L®É¶¡ 00:00:03.91
+Finished: SUCCESS

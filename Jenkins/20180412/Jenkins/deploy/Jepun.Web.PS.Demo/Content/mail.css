@@ -1,0 +1,25 @@
+﻿body {
+    font-size:14px; 
+    color: #333; 
+    font-family: 微軟正黑體, 新細明體;
+
+}
+table {
+    font-size:14px; 
+    color: #333; 
+    text-align: justify;
+
+}
+td {
+    text-align: center;
+}
+.cnt {
+    width: 800px; 
+    text-align: justify;
+}
+#Table_01 tr .cnt p strong {
+	color: #F00;
+}
+#Table_01 tr .cnt p strong {
+	color: #F00;
+}

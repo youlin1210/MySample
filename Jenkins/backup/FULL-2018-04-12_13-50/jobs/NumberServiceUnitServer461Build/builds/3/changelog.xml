@@ -1,0 +1,11 @@
+commit e3e6bdecf8d3afc57cb4514f9e27898145950fde
+tree 569b0032b029e2f11278aad4bfe217dd742f6a95
+parent 6cb57300f2829d81104a7ff84aaa7979835bb233
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 16:30:05 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 16:30:05 +0800
+
+    add bbb
+
+
+
+:100644 100644 c546417e253c6a6a569c8244d1e9f78f3936bbff e9707a617c030eb09923ce3b0044c865e88122f7 M	ClassLibCI/Build.csproj

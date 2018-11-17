@@ -1,0 +1,75 @@
+﻿@using Jepun.Web.PS.Comm
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("", "InsideDistribution", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormInsideDistribution" }))
+{
+    @Html.ValidationSummary(true)
+    <style>
+        .ui-datepicker-calendar {
+            display: none;
+        }
+        #ui-datepicker-div {
+            top: 234px !important;
+        }
+    </style>
+
+    <div class="page-header-wrapper">
+        <h3 class="title"><span name="ProductFundName"></span></h3>
+    </div>
+
+    <div class="fundration-wrapper">
+        <div class="search-field-wrapper">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="fundration-date row">
+                        <div class="col-md-12">
+                            <label for="">自訂配息日期區間：</label>
+                            <div class="form-group">
+                                <label for="">從：</label>
+                                <input data-val="true" data-val-dateformat="請輸入正確年月(YYYY/MM)"
+                                       data-val-dateformat-culture="zh-TW"
+                                       data-val-dateformat-format="YYYY/MM"
+                                       data-val-required="開始日期 欄位是必要項。"
+                                       class="form-control-date"
+                                       placeholder="請輸入 開始日期"
+                                       name="StartDate" type="text" value="@DateTime.Now.AddMonths(-6).ToString("yyyy/MM")">
+                                <label for="">至：</label>
+                                <input data-val="true" data-val-dateformat="請輸入正確年月(YYYY/MM)"
+                                       data-val-dateformat-culture="zh-TW"
+                                       data-val-dateformat-format="YYYY/MM"
+                                       data-val-required="開始日期 欄位是必要項。"
+                                       class="form-control-date"
+                                       placeholder="請輸入 開始日期"
+                                       name="EndDate" type="text" value="@DateTime.Now.ToString("yyyy/MM")">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button name="searchBtn" class="searchBtn">搜尋</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div name="FundList">
+
+        </div>
+        <div class="notice-field-wrapper">
+            <h3><b> 說明：</b></h3>
+            <ol class="notice-list">
+                <li>基金配息之年化配息率=每單位配息金額÷除息日前一日之淨值×一年配息次數×100%。</li>
+                <li>年化配息率為估算值。</li>
+                <li>單月報酬率(含息)=((當月除息日淨值÷每單位配息金額)/前月除息日淨值-1)*100%。</li>
+                <li>本基金自成立以來由本金支付配息之相關資料可至本公司官網<a href="www.ctbcinvestments.com" target="_blank">www.ctbcinvestments.com</a>查詢。</li>
+            </ol>
+
+        </div>
+
+    </div>
+
+
+}
+<script src="~/Scripts/Apps/ProductInsideDistribution.js?@ServiceHelper.CacheBusting()"></script>
+
+

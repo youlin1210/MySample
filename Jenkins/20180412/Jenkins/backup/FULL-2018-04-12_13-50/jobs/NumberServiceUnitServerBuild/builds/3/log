@@ -1,0 +1,65 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitServerBuild
+Cloning the remote Git repository
+Cloning repository \\Test-pc\git\Jenkins
+ERROR: Failed to clean the workspace
+java.io.IOException: Unable to delete 'D:\Jenkins\workspace\NumberServiceUnitServerBuild'. Tried 3 times (of a maximum of 3) waiting 0.1 秒 between attempts.
+	at hudson.Util.deleteContentsRecursive(Util.java:254)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl$2.execute(CliGitAPIImpl.java:555)
+	at hudson.plugins.git.GitSCM.retrieveChanges(GitSCM.java:1120)
+	at hudson.plugins.git.GitSCM.checkout(GitSCM.java:1160)
+	at hudson.scm.SCM.checkout(SCM.java:504)
+	at hudson.model.AbstractProject.checkout(AbstractProject.java:1208)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.defaultCheckout(AbstractBuild.java:574)
+	at jenkins.scm.SCMCheckoutStrategy.checkout(SCMCheckoutStrategy.java:86)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.run(AbstractBuild.java:499)
+	at hudson.model.Run.execute(Run.java:1727)
+	at hudson.model.FreeStyleBuild.run(FreeStyleBuild.java:43)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+Caused by: java.nio.file.FileSystemException: D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI: 程序無法存取檔案，因為檔案正由另一個程序使用。
+
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(Unknown Source)
+	at java.nio.file.Files.deleteIfExists(Unknown Source)
+	at hudson.Util.tryOnceDeleteFile(Util.java:313)
+	at hudson.Util.tryOnceDeleteRecursive(Util.java:385)
+	at hudson.Util.tryOnceDeleteContentsRecursive(Util.java:404)
+	at hudson.Util.deleteContentsRecursive(Util.java:249)
+	... 12 more
+ERROR: Error cloning remote repo 'origin'
+hudson.plugins.git.GitException: Failed to delete workspace
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl$2.execute(CliGitAPIImpl.java:558)
+	at hudson.plugins.git.GitSCM.retrieveChanges(GitSCM.java:1120)
+	at hudson.plugins.git.GitSCM.checkout(GitSCM.java:1160)
+	at hudson.scm.SCM.checkout(SCM.java:504)
+	at hudson.model.AbstractProject.checkout(AbstractProject.java:1208)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.defaultCheckout(AbstractBuild.java:574)
+	at jenkins.scm.SCMCheckoutStrategy.checkout(SCMCheckoutStrategy.java:86)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.run(AbstractBuild.java:499)
+	at hudson.model.Run.execute(Run.java:1727)
+	at hudson.model.FreeStyleBuild.run(FreeStyleBuild.java:43)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+Caused by: java.io.IOException: Unable to delete 'D:\Jenkins\workspace\NumberServiceUnitServerBuild'. Tried 3 times (of a maximum of 3) waiting 0.1 秒 between attempts.
+	at hudson.Util.deleteContentsRecursive(Util.java:254)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl$2.execute(CliGitAPIImpl.java:555)
+	... 11 more
+Caused by: java.nio.file.FileSystemException: D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI: 程序無法存取檔案，因為檔案正由另一個程序使用。
+
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(Unknown Source)
+	at java.nio.file.Files.deleteIfExists(Unknown Source)
+	at hudson.Util.tryOnceDeleteFile(Util.java:313)
+	at hudson.Util.tryOnceDeleteRecursive(Util.java:385)
+	at hudson.Util.tryOnceDeleteContentsRecursive(Util.java:404)
+	at hudson.Util.deleteContentsRecursive(Util.java:249)
+	... 12 more
+ERROR: Error cloning remote repo 'origin'
+Finished: FAILURE

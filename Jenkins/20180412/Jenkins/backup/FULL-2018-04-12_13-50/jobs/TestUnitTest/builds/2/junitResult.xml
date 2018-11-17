@@ -1,0 +1,36 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<result plugin="junit@1.24">
+  <suites>
+    <suite>
+      <file>D:\Jenkins\workspace\TestUnitTest\temporary-junit-reports\TEST-0.xml</file>
+      <name>MSTestSuite</name>
+      <duration>0.0</duration>
+      <time>0</time>
+      <enclosingBlocks/>
+      <enclosingBlockNames/>
+      <cases>
+        <case>
+          <duration>0.0127157</duration>
+          <className>UnitTestProject1.UnitTest1</className>
+          <testName>Withdraw_AmountMoreThanBalance_Throws</testName>
+          <skipped>false</skipped>
+          <errorStackTrace></errorStackTrace>
+          <errorDetails>測試方法 UnitTestProject1.UnitTest1.Withdraw_AmountMoreThanBalance_Throws 未擲回預期的例外狀況 System.ArgumentException。</errorDetails>
+          <failedSince>2</failedSince>
+        </case>
+        <case>
+          <duration>0.0065498</duration>
+          <className>UnitTestProject1.UnitTest1</className>
+          <testName>Withdraw_ValidAmount_ChangesBalance</testName>
+          <skipped>false</skipped>
+          <errorStackTrace>   於 UnitTestProject1.UnitTest1.Withdraw_ValidAmount_ChangesBalance() 於 d:\Jenkins\workspace\TestUnitTest\UnitTestProject1\UnitTest1.cs: 行 22
+</errorStackTrace>
+          <errorDetails>Assert.AreEqual 失敗。預期: &lt;9&gt;。實際: &lt;0&gt;。</errorDetails>
+          <failedSince>2</failedSince>
+        </case>
+      </cases>
+    </suite>
+  </suites>
+  <duration>0.0</duration>
+  <keepLongStdio>false</keepLongStdio>
+</result>

@@ -1,0 +1,309 @@
+﻿@model Jepun.Web.PS.Models.PsUpComingViewModel
+@using Jepun.Web.PS.Comm
+@{
+    Layout = null;
+}
+<div class="alert alert-info" role="alert">待辦工作事項</div>
+@using (Html.BeginForm("", "BackUpComing", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormBackUpComing", onsubmit = "return false" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+         
+    </div>
+
+}
+<div class="panel-group" id="myCollapsible" role="tablist" aria-multiselectable="true">       
+    @*<div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackStock" aria-expanded="false" aria-controls="collapseOne">
+                    全球股市一覽<span id="BackStockCount" name="StockCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackStock" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>*@
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackBanner" aria-expanded="false" aria-controls="collapseOne">
+                    首頁Banner<span id="BackBannerCount" name="BannerCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackBanner" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackKeywords" aria-expanded="false" aria-controls="collapseOne">
+                    關鍵字查詢<span id="BackKeywordsCount" name="KeywordsCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackKeywords" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackProductFund" aria-expanded="false" aria-controls="collapseOne">
+                    境內基金專區<span id="BackProductFundCount" name="ProductFundCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackProductFund" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackHoldingWeightCur" aria-expanded="false" aria-controls="collapseOne">
+                    貨幣型境內基金持股<span id="BackHoldingWeightCurCount" name="HoldingWeightCurCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackHoldingWeightCur" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackHoldingWeight" aria-expanded="false" aria-controls="collapseOne">
+                    境內基金持股<span id="BackHoldingWeightCount" name="HoldingWeightCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackHoldingWeight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackFundPerformance" aria-expanded="false" aria-controls="collapseOne">
+                    境內基金績效<span id="BackFundPerformanceCount" name="FundPerformanceCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackFundPerformance" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackProductOutSide" aria-expanded="false" aria-controls="collapseOne">
+                    境外專區<span id="BackProductOutSideCount" name="ProductOutSideCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackProductOutSide" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackHoldingWeightOutSide" aria-expanded="false" aria-controls="collapseOne">
+                    境外基金持股<span id="BackHoldingWeightOutSideCount" name="HoldingWeightOutSideCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackHoldingWeightOutSide" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackFundPerformanceOut" aria-expanded="false" aria-controls="collapseOne">
+                    境外基金績效<span id="BackFundPerformanceOutCount" name="FundPerformanceOutCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackFundPerformanceOut" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackDocDownload" aria-expanded="false" aria-controls="collapseOne">
+                    表單下載<span id="BackDocDownloadCount" name="DocDownloadCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackDocDownload" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackFeeRate" aria-expanded="false" aria-controls="collapseOne">
+                    手續費率表<span id="BackFeeRateCount" name="FeeRateCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackFeeRate" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackFundAcc" aria-expanded="false" aria-controls="collapseOne">
+                    基金匯款帳號<span id="BackFundAccCount" name="FundAccCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackFundAcc" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    @*<div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackProductPrivateFund" aria-expanded="false" aria-controls="collapseOne">
+                    私募基金專區<span id="BackProductPrivateFundCount" name="ProductPrivateFundCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackProductPrivateFund" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>*@
+
+    @*<div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackActivity" aria-expanded="false" aria-controls="collapseOne">
+                    活動專區<span id="BackActivityCount" name="ActivityCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackActivity" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>*@
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackArt" aria-expanded="false" aria-controls="collapseOne">
+                    投資好文<span id="BackArtCount" name="ArtCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackArt" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackMaster" aria-expanded="false" aria-controls="collapseOne">
+                    大師開講<span id="BackMasterCount" name="MasterCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackMaster" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackNews" aria-expanded="false" aria-controls="collapseOne">
+                    公告訊息<span id="BackNewsCount" name="NewsCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackNews" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackSales" aria-expanded="false" aria-controls="collapseOne">
+                    銷售通路查詢<span id="BackSalesCount" name="SalesCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackSales" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackLaundering" aria-expanded="false" aria-controls="collapseOne">
+                    防制洗錢及打擊資恐專區<span id="BackLaunderingCount" name="LaunderingCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackLaundering" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackClue" aria-expanded="false" aria-controls="collapseOne">
+                    法定揭露專區<span id="BackClueCount" name="ClueCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackClue" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#myCollapsible" href="#colBackInvestors" aria-expanded="false" aria-controls="collapseOne">
+                    機構投資人盡治理守則遵循聲明<span id="BackInvestorsCount" name="InvestorsCount" class="badge"></span> 筆待辦事項
+                </a>
+            </h4>
+        </div>
+        <div id="colBackInvestors" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+<script src="~/Scripts/Apps/BackUpComing.js?@ServiceHelper.CacheBusting()"></script>
+
+

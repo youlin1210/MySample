@@ -1,0 +1,79 @@
+﻿@using Jepun.Web.PS.Comm
+@model Jepun.Web.PS.Models.BasePageModel
+@{
+
+}
+@using (Html.BeginForm("", "Fundration", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormFundration" }))
+{
+
+    <div class="container">
+        <input type="hidden" name="location" value="@Request["location"]" />
+        <div class="row">
+            <section class="content">
+                <div class="container">
+                    <div class="cus-breadcrumb-wrapper">
+                        <ol class="breadcrumb">
+                            <li><a href="~/Home/Index">首頁</a></li>
+                            <li class="active">@Model.H1</li>
+                        </ol>
+                    </div>
+                    <div class="page-header-wrapper">
+                        <h3 class="title"><span>@Model.H1</span></h3>
+                        <hr>
+                        <div class="search-field-wrapper">
+                            <div class="serach-titile">
+                                <h4><b>所有配息資訊查詢</b></h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="fundration-date row">
+                                        <div class="col-md-6">
+                                            <label for="">基金類型：</label>
+                                            <label class="select">
+                                                <select class="form-control" name="AID">
+                                                    <option value="GetPsProductFundOnlineT3">中國信託基金</option>
+                                                    <option value="GetPsProductOutSideOnlineT6">境外基金</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="">基金名稱：</label>
+                                            <label class="select">
+                                                <select class="form-control" name="FID">
+
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button name="searchBtn" class="searchBtn">搜尋</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="current-year-timelist">
+                            <a href="~/Product/FundSecCalendar">2018年配息時間表</a>
+                        </div>
+                        <div name="FundList">
+
+                        </div>
+                        <div class="notice-field-wrapper">
+                            <h3 style="color: #ff0000;"><b>注意事項</b></h3>
+                            <ol class="notice-list">
+                                <li style="color: #ff0000;">本基金配息來源可能為本金，且進行配息前未先扣除應負擔之相關費用。</li>
+                                <li style="color: #ff0000;">基金配息率不代表基金報酬率，且過去配息率不代表未來配息率；基金淨值可能因市場因素而上下波動，於獲配息時須一併注意基金淨值之變動。</li>
+                                <li>基金配息之年化配息率 = 每單位配息金額 ÷ 除息日前一日之淨值 × 一年配息次數 × 100%。年化配息率為估算值。</li>
+                                <li>本配息組成項目表之揭露原則係依照中華民國證券投資信託暨顧問商業同業公會會員及其銷售機構從事廣告及營業。</li>
+                            </ol>
+                            <p></p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/ProductFundration.js?@ServiceHelper.CacheBusting()"></script>

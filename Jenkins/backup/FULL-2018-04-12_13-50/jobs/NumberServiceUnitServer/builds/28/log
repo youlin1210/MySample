@@ -1,0 +1,79 @@
+由計時器啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitTest
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\Test-pc\git\Jenkins # timeout=10
+Fetching upstream changes from \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\Test-pc\git\Jenkins +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision 71f87b9ed01fd883574819cb44faa4edc8e773ce (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f 71f87b9ed01fd883574819cb44faa4edc8e773ce
+Commit message: "add version"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 71f87b9ed01fd883574819cb44faa4edc8e773ce # timeout=10
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins3568975144534155769.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib>dotnet restore 
+  Restoring packages for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj...
+  Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.props.
+  Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.targets.
+  Restore completed in 282.32 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib>dotnet build 
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 45.17 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+  NumberLib -> D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\bin\Debug\netcoreapp2.0\NumberLib.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:02.86
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib>exit 0 
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins296910861385832550.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>dotnet test 
+已開始建置，請稍候...
+建置完成。
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0\NumberLibTest.dll(.NETCoreApp,Version=v2.0) 的測試回合
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180221-13 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+正在啟動測試執行，請稍候...
+
+測試總計: 2。成功: 2。失敗: 0。略過: 0。
+測試回合成功。
+測試執行時間: 1.6959 秒
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>exit 0 
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins6582553484614845583.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI>vstest.console.exe D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0\NumberLibTest.dll /EnableCodeCoverage /Settings:CodeCoverage.runsettings /Logger:trx 
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180307-01 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+正在啟動測試執行，請稍候...
+測試回合將使用替架構 .NETFramework,Version=v4.0 與平台 X86 所建置的 DLL。下列 DLL 將不包含在測試回合中: 
+NumberLibTest.dll 專為架構 2.0 及平台 AnyCPU 建置。
+如需如何管理這些設定的詳細資料，請前往 http://go.microsoft.com/fwlink/?LinkID=236877&clcid=0x409。
+
+1.9834
+資料收集器 'Code Coverage' 的訊息: Cannot find CodeCoverage.exe.。
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0\NumberLibTest.dll 中沒有測試可用。請確定測試探索程式及執行程式已經註冊，且平台與架構的版本設定適當，然後再試一次。
+
+此外還可使用 /TestAdapterPath 命令，指定測試配接器的路徑。範例: /TestAdapterPath:<自訂配接器的路徑>。
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI>exit 0 
+Finished: SUCCESS

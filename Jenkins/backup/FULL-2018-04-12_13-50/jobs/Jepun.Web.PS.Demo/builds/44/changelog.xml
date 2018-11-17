@@ -1,0 +1,17 @@
+commit f5850b0300c42da4fb16291fed79da47f7521952
+tree 0eb86c28763ae3f0bc8ddf0d253617d7fe4c7684
+parent 7aae356b58551a8ad240f7b5a9261af00dc77c8c
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-29 16:55:04 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-29 16:55:04 +0800
+
+    add version
+
+
+
+:100644 100644 10c9f8514181533aa3f6c2ca4524d869038ebcb5 c881bf90b66c98825e1166e798528efb7c8b16bc M	DB/PS/SP/PR_PsMasterOnlineSel.sql
+:100644 100644 d6ad3f9abafbc23e8a9d1a12897074c9520464db 44d92b6d85dd3d6ec0860118029404f464627b05 M	DB/PS/SP/PR_PsProductFundMod.sql
+:100644 100644 e74ff934bca12025bdcc28a23d5f958381c09bbd 5c1cf39eae53ef83fd4c7b484cdc1fd2c65be667 M	DB/PS/SP/PR_TaDistributionForPsSel.sql
+:100644 100644 3fd64b8ef5db38105172083613108f168e5d0fe8 9c11ed65c4c4bdd598fb49bcd7497bdfc8a3b485 M	Jepun.Services.AP.Contract/IPortalService.cs
+:100644 100644 ef12d44ed72d4a632af55688e03a2c16da64bdd1 28bafecdb64c43240806024be50b17bca4bbbb70 M	Jepun.Services.AP.Repository/PortalService.cs
+:100644 100644 96d822942d938b1072008911601380d4c3519ef3 3105c3da91d01b6884723000cc1a4341ee59d402 M	Jepun.Services.AP.WindowService/Jepun.Services.AP.WindowService.csproj
+:100644 100644 480bbe5793d44eebe34367ae84522d6cca7e387e 6e61b6a29f5548371ed7365caa4d2304c5d7e0da M	Jepun.Web.PS/Comm/ServiceHelper.cs

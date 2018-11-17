@@ -1,0 +1,233 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@{
+}
+<div class="container">
+    <div class="row">
+        <section class="content">
+            <div class="container">
+                <div class="cus-breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        <li><a href="~/Home/Index">首頁</a></li>
+                        <li class="active">表單下載</li>
+                    </ol>
+                </div>
+                <div class="page-header-wrapper">
+                    <h3 class="title"><span>表單下載</span></h3>
+                    <hr>
+                    @Html.Raw(Model.Dictionary["Download"])
+
+                    @*<ul class="nav nav-tabs" role="tablist" id="cus-tabs">
+                        <li class="active" role="presentation"><a aria-controls="type1" data-toggle="tab" href="#type1" role="tab">開戶表單</a></li>
+                        <li class="" role="presentation"><a aria-controls="type2" data-toggle="tab" href="#type2" role="tab">交易表單</a></li>
+                        <li class="" role="presentation"><a aria-controls="type3" data-toggle="tab" href="#type3" role="tab">其他表單</a></li>
+                        <li class="" role="presentation"><a aria-controls="type4" data-toggle="tab" href="#type4" role="tab">FATCA</a></li>
+                    </ul>*@
+                </div>
+                @*<div class="download-wrapper">
+                    <div role="tabpanel">
+                        <div role="tabpanel">
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="type1" role="tabpanel">
+                                    <div class="download-table-wrapper">
+                                        <h3 class="pages-title">開戶表單</h3>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped pages-table row2 rowcenter">
+                                                <thead>
+                                                    <tr>
+                                                        <th>表單名稱</th>
+                                                        <th>表單下載</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>基金開戶及交易同意書-自然人</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>基金開戶及交易同意書-法人</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>境外基金帳戶暨傳真交易約定書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type2" role="tabpanel">
+                                    <div class="download-table-wrapper" id="flag2">
+                                        <h3 class="pages-title">交易表單</h3>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped pages-table row2 rowcenter">
+                                                <thead>
+                                                    <tr>
+                                                        <th>表單名稱</th>
+                                                        <th>表單下載</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>受益權單位交易申請書(新臺幣計價)</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>受益權單位交易申請書(外幣計價)</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>定期定額申購書暨轉帳付款授權書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>基金交易委託代扣款授權書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>基金風險預告書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>境外基金交易申請書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>境外基金定期定額申請書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>境外基金扣款轉帳授權書-全國性繳費</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>境外基金扣款轉帳授權書-款項收付銀行</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>境外基金指定扣款銀行說明</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>境外基金通路報酬揭露</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type3" role="tabpanel">
+                                    <div class="download-table-wrapper">
+                                        <h3 class="pages-title">其他表單</h3>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped pages-table row2 rowcenter">
+                                                <thead>
+                                                    <tr>
+                                                        <th>表單名稱</th>
+                                                        <th>表單下載</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>受益人基本資料變更申請書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>受益人交易方式異動申請書-自然人</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>境受益人交易方式異動申請書-法人</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>定期定額授權異動申請書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>投資適性評估調查表-自然人</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>投資適性評估調查表-法人</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>委託代理同意書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>未成年受益人法定代理人同意書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>自然人聲明書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>法人印鑑授權聲明書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>法人印鑑授權書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>自主申購聲明書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>境外基金受益人資料暨交易變更申請書</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type4" role="tabpanel">
+                                    <div class="download-table-wrapper" id="flag4">
+                                        <h3 class="pages-title">FATCA</h3>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped pages-table row2 rowcenter">
+                                                <thead>
+                                                    <tr>
+                                                        <th>表單名稱</th>
+                                                        <th>表單下載</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>FATCA身分聲明書-自然人</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>FATCA身分聲明書-法人</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>W-9</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>W-8BEN-E</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>W-8BEN</td>
+                                                        <td><a href="">表單下載 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿@model Jepun.Web.PS.Models.PsMemberViewModel
+@using Jepun.Web.PS.Comm
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("", "BackMemberDetail", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormBackMemberDetail", onsubmit = "return false" }))
+{
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label>會員ID(身分證字號): <span name="ID"></span></label>
+        </div>
+    </div>
+        <div class="form-group">
+            <div class="col-sm-2 control-label">
+                <label>開始日</label>
+            </div>
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.QryStartDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "上架日" })
+                @Html.ValidationMessageFor(model => model.QryStartDate)
+            </div>
+            <div class="col-sm-2 control-label">
+                <label>結束日</label>
+            </div>
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.QryEndDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "下架日" })
+                @Html.ValidationMessageFor(model => model.QryEndDate)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2 control-label">
+                <label>查詢類型</label>
+            </div>
+            <div class="col-sm-2">
+                @Html.DropDownListFor(model => model.Kind, Jepun.Web.PS.Comm.SelectItemListHelper.GetPointKind()).Sel()
+                @Html.ValidationMessageFor(model => model.Kind)
+            </div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-primary" name="BtnQry">查詢</button>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>日期</th>
+                    <th>項目</th>
+                    <th>扣/積點點數</th>
+                    <th>合計</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2017/5/30</td>
+                    <td>加入會員</td>
+                    <td>+30</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>2017/5/31</td>
+                    <td>XXX</td>
+                    <td>+30</td>
+                    <td>60</td>
+                </tr>
+            </tbody>
+        </table>
+        }
+        <script src="~/Scripts/Apps/BackMemberDetail.js?@ServiceHelper.CacheBusting()"></script>

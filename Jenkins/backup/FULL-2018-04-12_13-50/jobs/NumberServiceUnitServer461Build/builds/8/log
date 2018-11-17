@@ -1,0 +1,213 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitServer461Build
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\Test-pc\git\Jenkins # timeout=10
+Fetching upstream changes from \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\Test-pc\git\Jenkins +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision 632c175bc0af743a3a5ae1ab377c23046ed63088 (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f 632c175bc0af743a3a5ae1ab377c23046ed63088
+Commit message: "add"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 8b8e55588e4f8c63de1d952f4a7c74b39288b7af # timeout=10
+[NumberServiceUnitServer461Build] $ cmd /c call C:\WINDOWS\TEMP\jenkins888392660563844017.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer461Build>cd ClassLibCI 
+
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI>"C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\bin\msbuild.exe" Build.csproj  /p:BuildSetting=BuildSetting.xml /p:ToolSetting=ToolSetting.xml 
+Microsoft (R) Build Engine for .NET Framework 15.7.66.2115 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+已經開始建置於 2018/4/11 下午 05:51:35。
+節點 1 (預設目標) 上的專案 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj"。
+Build:
+  INFO: Start NuGet, Enable Build Project: True
+NuGet:
+  "D:\Jenkins\tools\NuGet.exe" restore "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI.sln"
+  MSBuild auto-detection: using msbuild version '15.7.66.2115' from 'C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\bin'.
+  packages.config 中列出的所有封裝均已安裝。
+Build:
+  INFO: Start Build Project, Enable Build Project: True
+BuildProject:
+  "C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\MSBuild.exe" /p:Configuration=Debug /toolsversion:15.0 "/p:Platform=Any CPU" "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI.sln"
+  Microsoft (R) Build Engine for .NET Framework 15.7.66.2115 版
+  Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+  
+  在此解決方案中一次建置一個專案。若要啟用平行建置，請新增 "/m" 參數。
+  已經開始建置於 2018/4/11 下午 05:51:37。
+  節點 1 (預設目標) 上的專案 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI.sln"。
+  ValidateSolutionConfiguration:
+    建置方案組態 "Debug|Any CPU"。
+  專案 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI.sln" (1) 正在節點 1 (預設目標) 上建置 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj" (2)。
+  GenerateTargetFrameworkMonikerAttribute:
+  將略過目標 "GenerateTargetFrameworkMonikerAttribute"，因為所有輸出檔對於其輸入檔而言都已更新。
+  CoreCompile:
+    C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\Roslyn\csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:DEBUG;TRACE /highentropyva+ /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Microsoft.CSharp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Data.DataSetExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Data.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Net.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xml.Linq.dll" /debug+ /debug:full /filealign:512 /optimize- /out:obj\Debug\ClassLibCI.dll /ruleset:"C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\Team Tools\Static Analysis Tools\\Rule Sets\MinimumRecommendedRules.ruleset" /subsystemversion:6.00 /target:library /utf8output NumberService.cs Properties\AssemblyInfo.cs "C:\WINDOWS\TEMP\.NETFramework,Version=v4.6.1.AssemblyAttributes.cs"
+    搭配來自目錄的編譯器使用共用編譯: C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\Roslyn
+  CopyFilesToOutputDirectory:
+    正在將檔案從 "obj\Debug\ClassLibCI.dll" 複製到 "bin\Debug\ClassLibCI.dll"。
+    ClassLibCI -> D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\bin\Debug\ClassLibCI.dll
+    正在將檔案從 "obj\Debug\ClassLibCI.pdb" 複製到 "bin\Debug\ClassLibCI.pdb"。
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(9,1): warning : SA1600 : CSharp.Documentation : The class must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1600 : CSharp.Documentation : The method must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1300 : CSharp.Naming : method names begin with an upper-case letter: isEven. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(33,2,33,18): warning : SA1005 : CSharp.Spacing : The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+    6 violations encountered.
+  專案 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj" (預設目標) 建置完成。
+  專案 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI.sln" (1) 正在節點 1 (預設目標) 上建置 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibTset\ClassLibTset.csproj" (3)。
+  GenerateTargetFrameworkMonikerAttribute:
+  將略過目標 "GenerateTargetFrameworkMonikerAttribute"，因為所有輸出檔對於其輸入檔而言都已更新。
+  CoreCompile:
+    C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\Roslyn\csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:DEBUG;TRACE /highentropyva+ /reference:D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\bin\Debug\ClassLibCI.dll /reference:D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\packages\MSTest.TestFramework.1.3.0-beta2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll /reference:D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\packages\MSTest.TestFramework.1.3.0-beta2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Collections.Concurrent.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Collections.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.ComponentModel.Annotations.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.ComponentModel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.ComponentModel.EventBasedAsync.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Diagnostics.Contracts.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Diagnostics.Debug.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Diagnostics.Tools.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Diagnostics.Tracing.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Dynamic.Runtime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Globalization.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.IO.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Linq.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Linq.Expressions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Linq.Parallel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Linq.Queryable.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Net.NetworkInformation.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Net.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Net.Requests.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Net.WebHeaderCollection.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.ObjectModel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Reflection.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Reflection.Emit.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Reflection.Emit.ILGeneration.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Reflection.Emit.Lightweight.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Reflection.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Reflection.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Resources.ResourceManager.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.Handles.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.InteropServices.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.InteropServices.WindowsRuntime.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.Numerics.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.Serialization.Json.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.Serialization.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.Serialization.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Security.Principal.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.ServiceModel.Duplex.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.ServiceModel.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.ServiceModel.NetTcp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.ServiceModel.Primitives.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.ServiceModel.Security.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Text.Encoding.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Text.Encoding.Extensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Text.RegularExpressions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Threading.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Threading.Tasks.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Threading.Tasks.Parallel.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Threading.Timer.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Xml.ReaderWriter.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Xml.XDocument.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Xml.XmlSerializer.dll" /debug+ /debug:full /filealign:512 /optimize- /out:obj\Debug\ClassLibTset.dll /ruleset:"C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\Team Tools\Static Analysis Tools\\Rule Sets\MinimumRecommendedRules.ruleset" /subsystemversion:6.00 /target:library /utf8output UnitTest1.cs Properties\AssemblyInfo.cs "C:\WINDOWS\TEMP\.NETFramework,Version=v4.6.1.AssemblyAttributes.cs"
+    搭配來自目錄的編譯器使用共用編譯: C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\Roslyn
+  _CopyFilesMarkedCopyLocal:
+    正在將檔案從 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\bin\Debug\ClassLibCI.dll" 複製到 "bin\Debug\ClassLibCI.dll"。
+    正在將檔案從 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\bin\Debug\ClassLibCI.pdb" 複製到 "bin\Debug\ClassLibCI.pdb"。
+    正在變更時間戳記 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibTset\obj\Debug\ClassLibTset.csproj.CopyComplete"。
+  _CopyOutOfDateSourceItemsToOutputDirectory:
+  將略過目標 "_CopyOutOfDateSourceItemsToOutputDirectory"，因為所有輸出檔對於其輸入檔而言都已更新。
+  CopyFilesToOutputDirectory:
+    正在將檔案從 "obj\Debug\ClassLibTset.dll" 複製到 "bin\Debug\ClassLibTset.dll"。
+    ClassLibTset -> D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibTset\bin\Debug\ClassLibTset.dll
+    正在將檔案從 "obj\Debug\ClassLibTset.pdb" 複製到 "bin\Debug\ClassLibTset.pdb"。
+  專案 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibTset\ClassLibTset.csproj" (預設目標) 建置完成。
+  專案 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI.sln" (預設目標) 建置完成。
+  
+  建置成功。
+  
+  "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI.sln" (預設目標) (1) ->
+  "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj" (預設目標) (2) ->
+  (StyleCop 目標) -> 
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(9,1): warning : SA1600 : CSharp.Documentation : The class must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1600 : CSharp.Documentation : The method must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1300 : CSharp.Naming : method names begin with an upper-case letter: isEven. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(33,2,33,18): warning : SA1005 : CSharp.Spacing : The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  
+      6 個警告
+      0 個錯誤
+  
+  經過時間 00:00:01.53
+Build:
+  INFO: Start UnitTest, Enable UnitTest: True
+UnitTest:
+  "C:\Program Files\dotnet\dotnet.exe" vstest "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibTset\bin\Debug\ClassLibTset.dll" /Framework:.NETFramework,Version=v4.6.1 /Logger:"trx;LogFileName=D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\..\TestResult.trx" /EnableCodeCoverage 
+  Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180221-13 版
+  Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+  
+  正在啟動測試執行，請稍候...
+  資料收集: 找不到資料收集器 'Code Coverage'
+EXEC : warning : Overwriting results file: D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\..\TestResult.trx [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  Results File: D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\..\TestResult.trx
+  
+  測試總計: 2。成功: 2。失敗: 0。略過: 0。
+  測試回合成功。
+  測試執行時間: 0.8690 秒
+Build:
+  INFO: Start StyleCop Scan, Enable StyleCop: True
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(9,1): warning : SA1600 : CSharp.Documentation : The class must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1600 : CSharp.Documentation : The method must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1300 : CSharp.Naming : method names begin with an upper-case letter: isEven. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(1,1): warning : SA1200 : CSharp.Ordering : All using directives must be placed inside of the namespace. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(2,1): warning : SA1200 : CSharp.Ordering : All using directives must be placed inside of the namespace. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(3,1): warning : SA1200 : CSharp.Ordering : All using directives must be placed inside of the namespace. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(4,1): warning : SA1200 : CSharp.Ordering : All using directives must be placed inside of the namespace. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(5,1): warning : SA1200 : CSharp.Ordering : All using directives must be placed inside of the namespace. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  9 violations encountered.
+Build:
+  INFO: Start FxCop Scan, Enable FxCop: True
+FxCop:
+  "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe" "/file:D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\bin\Debug\ClassLibCI.dll" "/rule:C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\Rules" "/out:D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\..\FxCopReport.xml" /searchgac
+  Microsoft (R) FxCop 命令列工具，版本 12.0 (12.0.21005.1) X86
+  Copyright (C) Microsoft Corporation, 著作權所有，並保留一切權利。
+  
+  已載入 dataflowrules.dll...
+  已載入 designrules.dll...
+  已載入 globalizationrules.dll...
+  已載入 interoperabilityrules.dll...
+  已載入 maintainabilityrules.dll...
+  已載入 mobilityrules.dll...
+  已載入 namingrules.dll...
+  已載入 performancerules.dll...
+  已載入 portabilityrules.dll...
+  已載入 reliabilityrules.dll...
+  已載入 securityrules.dll...
+  已載入 securitytransparencyrules.dll...
+  已載入 usagerules.dll...
+  已載入 ClassLibCI.dll...
+  正在初始設定 Introspection 引擎...
+  正在分析...
+  正在初始設定 Phoenix 引擎...
+  正在分析...
+  分析完成。
+  正在寫入 4 則訊息...
+  正在將報告寫入 D:\Jenkins\workspace\NumberServiceUnitServer461Build\FxCopReport.xml...
+  完成: 00:00:02.5082661
+Build:
+  INFO: Start Simian Scan, Enable Simian: False
+  INFO: Start SourceMonitor Analysis, Enable SourceMonitor: True
+SourceMonitor:
+  "C:\Program Files (x86)\SourceMonitor\SourceMonitor.exe" /C "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\SourceMonitorCommands.xml"
+  "D:\Jenkins\tools\msxsl.exe" "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\SourceMonitorReport.xml" "D:\Jenkins\tools\SourceMonitorSummaryGeneration.xsl" -o "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\SourceMonitorSummaryGeneration.xml"
+  "D:\Jenkins\tools\msxsl.exe" "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\SourceMonitorSummaryGeneration.xml" "D:\Jenkins\tools\SourceMonitor.xsl" -o "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\..\SourceMonitorResult.html"
+專案 "D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj" (預設目標) 建置完成。
+
+建置成功。
+
+"D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj" (預設目標) (1) ->
+(BuildProject 目標) -> 
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(9,1): warning : SA1600 : CSharp.Documentation : The class must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1600 : CSharp.Documentation : The method must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1300 : CSharp.Naming : method names begin with an upper-case letter: isEven. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(33,2,33,18): warning : SA1005 : CSharp.Spacing : The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(9,1): warning : SA1600 : CSharp.Documentation : The class must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1600 : CSharp.Documentation : The method must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1300 : CSharp.Naming : method names begin with an upper-case letter: isEven. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(33,2,33,18): warning : SA1005 : CSharp.Spacing : The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\ClassLibCI.csproj] [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+
+
+"D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj" (預設目標) (1) ->
+(UnitTest 目標) -> 
+  EXEC : warning : Overwriting results file: D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\..\TestResult.trx [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+
+
+"D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj" (預設目標) (1) ->
+(StyleCop 目標) -> 
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(9,1): warning : SA1600 : CSharp.Documentation : The class must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1600 : CSharp.Documentation : The method must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1300 : CSharp.Naming : method names begin with an upper-case letter: isEven. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(1,1): warning : SA1200 : CSharp.Ordering : All using directives must be placed inside of the namespace. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(2,1): warning : SA1200 : CSharp.Ordering : All using directives must be placed inside of the namespace. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(3,1): warning : SA1200 : CSharp.Ordering : All using directives must be placed inside of the namespace. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(4,1): warning : SA1200 : CSharp.Ordering : All using directives must be placed inside of the namespace. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\ClassLibCI\NumberService.cs(5,1): warning : SA1200 : CSharp.Ordering : All using directives must be placed inside of the namespace. [D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\Build.csproj]
+
+    22 個警告
+    0 個錯誤
+
+經過時間 00:00:08.99
+
+D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI>exit 0 
+[htmlpublisher] Archiving HTML reports...
+[htmlpublisher] Archiving at BUILD level D:\Jenkins\workspace\NumberServiceUnitServer461Build to C:\Program Files (x86)\Jenkins\jobs\NumberServiceUnitServer461Build\builds\8\htmlreports\Source_Monitor_Report
+[MSTEST-PLUGIN] INFO processing test results in file(s) TestResult.trx
+[MSTEST-PLUGIN] INFO processing report file: D:\Jenkins\workspace\NumberServiceUnitServer461Build\TestResult.trx
+[MSTEST-PLUGIN] WARNING Unable to delete the file D:\Jenkins\workspace\NumberServiceUnitServer461Build\temporary-junit-reports
+[MSTEST-PLUGIN] INFO This file is a reserved temporary file. You can delete it safely.
+[MSTEST-PLUGIN] INFO XML coverage report file not found: D:\Jenkins\workspace\NumberServiceUnitServer461Build\vstest.coveragexml
+
+[MSTEST-PLUGIN] INFO XML coverage report file not found: D:\Jenkins\workspace\NumberServiceUnitServer461Build\TestResult.coveragexml
+
+Finished: SUCCESS

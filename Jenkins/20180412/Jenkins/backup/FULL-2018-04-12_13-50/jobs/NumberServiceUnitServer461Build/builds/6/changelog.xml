@@ -1,0 +1,12 @@
+commit 8b8e55588e4f8c63de1d952f4a7c74b39288b7af
+tree 8461b8da248183cfbf1dcd41dbad0a4a476368e2
+parent e3e6bdecf8d3afc57cb4514f9e27898145950fde
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 16:40:23 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 16:40:23 +0800
+
+    add ver
+
+
+
+:100644 100644 e9707a617c030eb09923ce3b0044c865e88122f7 319541a9e5743ce85f9c038dfefe7fae07aa343f M	ClassLibCI/Build.csproj
+:100644 100644 a24fbaba135077a6fd904cd2090d419595c442aa 20ecdc37642cde3c3a6d469d3b9ead0cf8b449b1 M	ClassLibCI/ToolSetting.xml

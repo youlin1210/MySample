@@ -1,0 +1,2 @@
+/*! jepun 2018-03-29 */
+$(document).ready(function(){var a=$("#FormIndex").comm();a.find("table").TrLunbo(),a.getCtrl("VideoArea").on("click",function(a){a.preventDefault(),window.confirm("您即將離開本公司官網，外部網站所產生之問題或言論，本公司無任何權責。若確定前往，請點擊確認，否則請點選取消或直接關閉此視窗")&&window.open("https://www.youtube.com/channel/UCZbESgwuaFFzRM--9N6tQVQ","中國信託投信","height=500,width=800")})});

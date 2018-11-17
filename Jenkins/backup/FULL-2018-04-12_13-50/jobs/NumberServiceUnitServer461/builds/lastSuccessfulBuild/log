@@ -1,0 +1,191 @@
+¥Ñ­p®É¾¹±Ò°Ê
+«Ø¸m¤¤ ¤u§@°Ï D:\Jenkins\workspace\NumberServiceUnitServer461
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\Test-pc\git\Jenkins # timeout=10
+Fetching upstream changes from \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\Test-pc\git\Jenkins +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision be249c9c49dc15827a24cc32ae4c3d87eb1249e9 (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f be249c9c49dc15827a24cc32ae4c3d87eb1249e9
+Commit message: "add"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 632c175bc0af743a3a5ae1ab377c23046ed63088 # timeout=10
+[NumberServiceUnitServer461] $ cmd /c call C:\WINDOWS\TEMP\jenkins1080483747373478882.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>echo ***°õ¦æNuGet*** 
+***°õ¦æNuGet***
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>"D:\Jenkins\NuGet.exe"  restore D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI.sln 
+MSBuild auto-detection: using msbuild version '15.7.66.2115' from 'C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\bin'.
+packages.config ¤¤¦C¥Xªº©Ò¦³«Ê¸Ë§¡¤w¦w¸Ë¡C
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>exit 0 
+Path To MSBuild.exe: C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\msbuild.exe
+Executing the command cmd.exe /C " "C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\msbuild.exe" /p:Configuration=Debug /toolsversion:15.0 D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj " && exit %%ERRORLEVEL%% from D:\Jenkins\workspace\NumberServiceUnitServer461
+[NumberServiceUnitServer461] $ cmd.exe /C " "C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\msbuild.exe" /p:Configuration=Debug /toolsversion:15.0 D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj " && exit %%ERRORLEVEL%%
+Microsoft (R) Build Engine for .NET Framework 15.7.66.2115 ª©
+Copyright (C) Microsoft Corporation. µÛ§@Åv©Ò¦³¡A¨Ã«O¯d¤@¤ÁÅv§Q¡C
+
+¤w¸g¶}©l«Ø¸m©ó 2018/4/12 ¤W¤È 10:01:05¡C
+¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤Wªº±M®× "D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj"¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  ClassLibCI -> D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\bin\Debug\ClassLibCI.dll
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0mD:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0mD:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(9,1): warning : SA1600 : CSharp.Documentation : The class must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0mD:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1600 : CSharp.Documentation : The method must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0mD:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1300 : CSharp.Naming : method names begin with an upper-case letter: isEven. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0mD:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(33,2,33,18): warning : SA1005 : CSharp.Spacing : The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+  6 violations encountered.
+±M®× "D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+
+«Ø¸m¦¨¥\¡C
+
+"D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj" (¹w³]¥Ø¼Ð) (1) ->
+(StyleCop ¥Ø¼Ð) -> 
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0m  D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0m  D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(9,1): warning : SA1600 : CSharp.Documentation : The class must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0m  D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1600 : CSharp.Documentation : The method must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0m  D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1300 : CSharp.Naming : method names begin with an upper-case letter: isEven. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0m  D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(33,2,33,18): warning : SA1005 : CSharp.Spacing : The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+
+    6 ­ÓÄµ§i
+    0 ­Ó¿ù»~
+
+¸g¹L®É¶¡ 00:00:00.75
+Path To MSBuild.exe: C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\msbuild.exe
+Executing the command cmd.exe /C " "C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\msbuild.exe" /p:Configuration=Debug /toolsversion:15.0 D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibTset\ClassLibTset.csproj " && exit %%ERRORLEVEL%% from D:\Jenkins\workspace\NumberServiceUnitServer461
+[NumberServiceUnitServer461] $ cmd.exe /C " "C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\Bin\msbuild.exe" /p:Configuration=Debug /toolsversion:15.0 D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibTset\ClassLibTset.csproj " && exit %%ERRORLEVEL%%
+Microsoft (R) Build Engine for .NET Framework 15.7.66.2115 ª©
+Copyright (C) Microsoft Corporation. µÛ§@Åv©Ò¦³¡A¨Ã«O¯d¤@¤ÁÅv§Q¡C
+
+¤w¸g¶}©l«Ø¸m©ó 2018/4/12 ¤W¤È 10:01:06¡C
+¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤Wªº±M®× "D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibTset\ClassLibTset.csproj"¡C
+±M®× "D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibTset\ClassLibTset.csproj" (1) ¥¿¦b¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤W«Ø¸m "D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj" (2:2)¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  ClassLibCI -> D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\bin\Debug\ClassLibCI.dll
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0mD:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0mD:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(9,1): warning : SA1600 : CSharp.Documentation : The class must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0mD:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1600 : CSharp.Documentation : The method must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0mD:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1300 : CSharp.Naming : method names begin with an upper-case letter: isEven. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0mD:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(33,2,33,18): warning : SA1005 : CSharp.Spacing : The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+  6 violations encountered.
+±M®× "D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+±N²¤¹L¥Ø¼Ð "CoreCompile"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+_CopyFilesMarkedCopyLocal:
+  ¥¿¦bÅÜ§ó®É¶¡ÂW°O "D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibTset\obj\Debug\ClassLibTset.csproj.CopyComplete"¡C
+_CopyOutOfDateSourceItemsToOutputDirectory:
+±N²¤¹L¥Ø¼Ð "_CopyOutOfDateSourceItemsToOutputDirectory"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CopyFilesToOutputDirectory:
+  ClassLibTset -> D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibTset\bin\Debug\ClassLibTset.dll
+±M®× "D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibTset\ClassLibTset.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+
+«Ø¸m¦¨¥\¡C
+
+"D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibTset\ClassLibTset.csproj" (¹w³]¥Ø¼Ð) (1) ->
+"D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj" (¹w³]¥Ø¼Ð) (2:2) ->
+(StyleCop ¥Ø¼Ð) -> 
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0m  D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0m  D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(9,1): warning : SA1600 : CSharp.Documentation : The class must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0m  D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1600 : CSharp.Documentation : The method must have a documentation header. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0m  D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\NumberService.cs(11,1): warning : SA1300 : CSharp.Naming : method names begin with an upper-case letter: isEven. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+[8mha:////4KhE+UjIwDzgc09cubPHcUMBkXBtilhLw2FeEUky8L64AAAAZx+LCAAAAAAAAP9b85aBtbiIQTOjNKU4P0+vIKc0PTOvWC+3OKk0MydFzzfYCUSHJxblZeal++WXpP65vH32HJ1TQkwMDBVFDFJQfcn5ecX5Oal6zhAapJABAhhBCgsAtVBXn2cAAAA=[0m  D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(1,1): warning : SA1633 : CSharp.Documentation : The file has no header, the header Xml is invalid, or the header is not located at the top of the file. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\Properties\AssemblyInfo.cs(33,2,33,18): warning : SA1005 : CSharp.Spacing : The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'. [D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\ClassLibCI.csproj]
+
+    6 ­ÓÄµ§i
+    0 ­Ó¿ù»~
+
+¸g¹L®É¶¡ 00:00:00.84
+[NumberServiceUnitServer461] $ cmd /c call C:\WINDOWS\TEMP\jenkins7624723144640121475.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>echo ***°õ¦æ vstest*** 
+***°õ¦æ vstest***
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>dotnet vstest D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibTset\bin\Debug\ClassLibTset.dll /Framework:.NETFramework,Version=v4.6.1 /Logger:"trx;LogFileName=D:\Jenkins\workspace\NumberServiceUnitServer461\TestResult.trx" /EnableCodeCoverage 
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180221-13 ª©
+Copyright (C) Microsoft Corporation. µÛ§@Åv©Ò¦³¡A¨Ã«O¯d¤@¤ÁÅv§Q¡C
+
+¥¿¦b±Ò°Ê´ú¸Õ°õ¦æ¡A½Ðµy­Ô...
+¸ê®Æ¦¬¶°: §ä¤£¨ì¸ê®Æ¦¬¶°¾¹ 'Code Coverage'
+WARNING: Overwriting results file: D:\Jenkins\workspace\NumberServiceUnitServer461\TestResult.trx
+Results File: D:\Jenkins\workspace\NumberServiceUnitServer461\TestResult.trx
+
+´ú¸ÕÁ`­p: 2¡C¦¨¥\: 2¡C¥¢±Ñ: 0¡C²¤¹L: 0¡C
+´ú¸Õ¦^¦X¦¨¥\¡C
+´ú¸Õ°õ¦æ®É¶¡: 1.2444 ¬í
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>exit 0 
+[NumberServiceUnitServer461] $ cmd /c call C:\WINDOWS\TEMP\jenkins3361867006006488580.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>echo ***°õ¦æFxCop (¨S¦³«ü©w/rule¡A¨Ï¥Î©Ò¦³³W«h¶i¦æ¤ÀªR)*** 
+***°õ¦æFxCop (¨S¦³«ü©w/rule¡A¨Ï¥Î©Ò¦³³W«h¶i¦æ¤ÀªR)***
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>FxCopCmd /file:D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\bin\Debug\ClassLibCI.dll /out:FxCopReport.xml 
+Microsoft (R) FxCop ©R¥O¦C¤u¨ã¡Aª©¥» 12.0 (12.0.21005.1) X86
+Copyright (C) Microsoft Corporation, µÛ§@Åv©Ò¦³¡A¨Ã«O¯d¤@¤ÁÅv§Q¡C
+
+¤w¸ü¤J dataflowrules.dll...
+¤w¸ü¤J designrules.dll...
+¤w¸ü¤J globalizationrules.dll...
+¤w¸ü¤J interoperabilityrules.dll...
+¤w¸ü¤J maintainabilityrules.dll...
+¤w¸ü¤J mobilityrules.dll...
+¤w¸ü¤J namingrules.dll...
+¤w¸ü¤J performancerules.dll...
+¤w¸ü¤J portabilityrules.dll...
+¤w¸ü¤J reliabilityrules.dll...
+¤w¸ü¤J securityrules.dll...
+¤w¸ü¤J securitytransparencyrules.dll...
+¤w¸ü¤J usagerules.dll...
+¤w¸ü¤J ClassLibCI.dll...
+¥¿¦bªì©l³]©w Introspection ¤ÞÀº...
+¥¿¦b¤ÀªR...
+¥¿¦bªì©l³]©w Phoenix ¤ÞÀº...
+¥¿¦b¤ÀªR...
+¤ÀªR§¹¦¨¡C
+¥¿¦b¼g¤J 4 «h°T®§...
+¥¿¦b±N³ø§i¼g¤J D:\Jenkins\workspace\NumberServiceUnitServer461\FxCopReport.xml...
+§¹¦¨: 00:00:02.6386467
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>rem FxCopCmd /file:D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI\bin\Debug\ClassLibCI.dll /rule:DesignRules.dll /out:FxCopReport.xml 
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>exit 0 
+[NumberServiceUnitServer461] $ cmd /c call C:\WINDOWS\TEMP\jenkins6901079863038330809.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>echo ***°õ¦æSourceMonitor¤ÀªR*** 
+***°õ¦æSourceMonitor¤ÀªR***
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>SourceMonitor /C "D:\Jenkins\tools\SourceMonitorCommand.xml" 
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>"D:\Jenkins\tools\msxsl.exe" SourceMonitorReport.xml "D:\Jenkins\tools\SourceMonitorSummaryGeneration.xsl" -o SourceMonitorSummaryGeneration.xml 
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>"D:\Jenkins\tools\msxsl.exe" SourceMonitorSummaryGeneration.xml "D:\Jenkins\tools\SourceMonitor.xsl" -o SourceMonitorReport.html 
+
+D:\Jenkins\workspace\NumberServiceUnitServer461>exit 0 
+[htmlpublisher] Archiving HTML reports...
+[htmlpublisher] Archiving at BUILD level D:\Jenkins\workspace\NumberServiceUnitServer461 to C:\Program Files (x86)\Jenkins\jobs\NumberServiceUnitServer461\builds\98\htmlreports\Source_Monitor_Report
+[MSTEST-PLUGIN] INFO processing test results in file(s) TestResult.trx
+[MSTEST-PLUGIN] INFO processing report file: D:\Jenkins\workspace\NumberServiceUnitServer461\TestResult.trx
+[MSTEST-PLUGIN] WARNING Unable to delete the file D:\Jenkins\workspace\NumberServiceUnitServer461\temporary-junit-reports
+[MSTEST-PLUGIN] INFO This file is a reserved temporary file. You can delete it safely.
+[MSTEST-PLUGIN] INFO XML coverage report file not found: D:\Jenkins\workspace\NumberServiceUnitServer461\vstest.coveragexml
+
+[MSTEST-PLUGIN] INFO XML coverage report file not found: D:\Jenkins\workspace\NumberServiceUnitServer461\TestResult.coveragexml
+
+Finished: SUCCESS

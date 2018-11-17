@@ -1,0 +1,131 @@
+﻿@using Jepun.Web.PS.Comm
+@model Jepun.Web.PS.Models.LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="PRAGMA" content="NO-CACHE">
+    <!-- IE可能不見得有效 -->
+    <meta http-equiv="EXPIRES" content="0">
+    <!-- 設定成馬上就過期 -->
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <!-- 與第一行是同樣的作用 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">   
+    <link rel="icon" href="~/favicon.ico" type="image/ico" />
+    <title>中國信託投信後台管理網站</title>
+    @Styles.Render("~/Content/backcss")
+</head>
+<body class="none-background">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <a href="~/Home/Index" target="_blank">
+                <img alt="Brand" height="50" src="~/Content/images/Logo.gif">
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+        <!--注意 一定id="FormBackLogin" -->
+        @using (Html.BeginForm("BackLogin", "Account", FormMethod.Post, new { @class = "form-horizontal", id = "FormBackLogin", autocomplete = "off" }))
+        {
+            @Html.AntiForgeryToken()           
+            <div class="form-group">
+                <label class="col-md-2 control-label">入口網站管理登入</label>                
+                <div class="col-md-10"></div>                
+            </div>
+            <hr />
+            @Html.ValidationSummary(true)
+            <div class="form-group ">
+                <div class="col-sm-2 control-label">
+                    <label>員工編號</label>
+                </div>
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.CNO, new { htmlAttributes = new { id = "", @class = "form-control", placeholder = Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.UserId } })
+                    @Html.ValidationMessageFor(model => model.CNO)
+                </div>
+                <div class="col-md-7"></div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-md-2 control-label" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { id = "", @class = "form-control", placeholder = Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.Password } })
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+                <div class="col-md-7"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <label>
+                            <input name="RememberMe" type="checkbox"> @Jepun.Resource.Lab.RememberMe
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="button" class="btn btn-default" name="BtnLogin">確定</button>                   
+                </div>                 
+            </div>
+        }
+    </div>   
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="min-height:30px;background:rgb(17, 117, 105);color:white;">
+        <div class="container text-center">
+            Copyright (c) @DateTime.Now.Year
+        </div>
+    </nav>
+    <!--共用App 一定要加 overflow:auto-->
+    <div class="modal fade" id="GlbAppModal" style="overflow:auto" tabindex="-1" role="dialog" aria-labelledby="GlbAppModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header  btn-info">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="GlbAppModalSub" style="overflow:auto" tabindex="-1" role="dialog" aria-labelledby="GlbAppModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header  btn-info">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--訊息提示-->
+    <div class="modal fade" id="GlbAlertModal" tabindex="-1" role="dialog" aria-labelledby="GlbAlertModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header  btn-info">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/thirdparty")
+    @Scripts.Render("~/bundles/jepun")
+</body>
+</html>
+<script src="~/Scripts/Apps/BackLogin.js?@ServiceHelper.CacheBusting()"></script>

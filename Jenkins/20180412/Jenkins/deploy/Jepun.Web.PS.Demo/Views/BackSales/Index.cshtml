@@ -1,0 +1,202 @@
+﻿@model Jepun.Web.PS.Models.PsSalesViewModel
+@using Jepun.Web.PS.Comm
+@{
+    Layout = null;
+}
+<div class="alert alert-info" role="alert">銷售通路查詢</div>
+@using (Html.BeginForm("", "BackSales", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormBackSales", onsubmit = "return false" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="form-group jepun-upcoming">
+                <div class="col-sm-2 control-label">
+                    <label>上架日</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(model => model.QryStartDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "上架日" })
+                    @Html.ValidationMessageFor(model => model.QryStartDate)
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>下架日</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(model => model.QryEndDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "下架日" })
+                    @Html.ValidationMessageFor(model => model.QryEndDate)
+                </div>
+            </div>
+
+            <div class="form-group jepun-upcoming">
+                <div class="col-sm-2 control-label">
+                    <label>狀態</label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.DropDownListFor(model => model.QryType, Enumerable.Empty<SelectListItem>()).Sel()
+                </div>
+                <div class="col-sm-2">
+                    @Html.DropDownListFor(model => model.QryStatus, Enumerable.Empty<SelectListItem>()).Sel()
+                </div>
+                <div class="col-sm-2 control-label">
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary" name="BtnQry">查詢</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>　標題　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　異動　　　上稿日期　　狀態　<button type="button" class="btn btn-primary btn-xs" name="QryFlow">歷史流程</button></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4">
+                                    <select size="6" class="form-control" name="SalesNo"></select>
+                                    @Html.HiddenFor(model => model.LogSN).Txt()
+                                    @Html.HiddenFor(model => model.Num).Txt()
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>基金名稱</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.CNO, Enumerable.Empty<SelectListItem>()).Sel()
+                    @Html.ValidationMessageFor(model => model.CNO)
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>上架日</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "上架日" })
+                    @Html.ValidationMessageFor(model => model.StartDate)
+                </div>
+                @*<div class="col-sm-2 control-label">
+                    <label>備註</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextAreaFor(Model => Model.Remark).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "備註" })
+                    @Html.ValidationMessageFor(model => model.Remark)
+                </div>*@
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>下架日</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "下架日" })
+                    @Html.ValidationMessageFor(model => model.EndDate)
+                </div>
+            </div>
+                <div class="form-group">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-primary" type="button" name="BtnIns">新增</button>
+                        <button class="btn btn-primary" type="button" name="BtnUpd">修改</button>
+                        <button class="btn btn-primary" type="button" name="BtnDel">刪除</button>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.DropDownListFor(model => model.NextFlow, Enumerable.Empty<SelectListItem>()).Sel()                       
+                        @*@Html.DropDownListFor(model => model.NextFlow, Enumerable.Empty<SelectListItem>()).Sel()
+                        @Html.ValidationMessageFor(model => model.NextFlow)*@
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="btn btn-primary" type="button" name="BtnFlow">確定</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>　據點</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="4">
+                                        <select size="6" class="form-control" name="SalesPlace"></select>
+                                        @Html.HiddenFor(model => model.LogSN2).Txt()
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 control-label">
+                        <label>銀行據點</label>
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.EditorFor(Model => Model.PlaceName).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "銀行據點" })
+                        @Html.ValidationMessageFor(model => model.PlaceName)
+                    </div>
+                    @*<div class="col-sm-2 control-label">
+                        <label>銀行電話</label>
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.EditorFor(Model => Model.Phone).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "銀行電話" })
+                        @Html.ValidationMessageFor(model => model.Phone)
+                    </div>*@
+                </div>
+                @*<div class="form-group">
+                    <div class="col-sm-2 control-label">
+                        <label>銀行營業時間</label>
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.EditorFor(Model => Model.OpenDate).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "請輸入銀行營業時間" })
+                        @Html.ValidationMessageFor(model => model.OpenDate)
+                    </div>
+                </div>*@
+            <div class="form-group">
+                <label class="col-sm-2 control-label">銀行地址</label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <div class="input-group  input-group-rwd">
+                                <span class="input-group-addon input-group-rwd">城市</span>
+                                @Html.DropDownListFor(model => model.MailCityCode, Enumerable.Empty<SelectListItem>()).Sel()
+
+                            </div>
+                            <div>@Html.ValidationMessageFor(model => model.MailCityCode)</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group  input-group-rwd">
+                                <span class="input-group-addon input-group-rwd">市區鄉鎮</span>
+                                @Html.DropDownListFor(model => model.Mail_Code, Enumerable.Empty<SelectListItem>()).Sel()
+
+                            </div>
+                            <div>@Html.ValidationMessageFor(model => model.Mail_Code)</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="input-group input-group-rwd">
+                                <span class="input-group-addon input-group-rwd">通訊地址</span>
+                                @Html.EditorFor(model => model.Mail_Address).Txt(Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.MAIL_ADDRESS)
+
+                            </div>
+                            <div>@Html.ValidationMessageFor(model => model.Mail_Address)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="form-group text-center">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <button class="btn btn-primary" type="button" name="BtnIns2">新增</button>
+                        <button class="btn btn-primary" type="button" name="BtnUpd2">修改</button>
+                        <button class="btn btn-primary" type="button" name="BtnDel2">刪除</button>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </div>
+        </div>
+}
+<script src="~/Scripts/Apps/BackSales.js?@ServiceHelper.CacheBusting()"></script>

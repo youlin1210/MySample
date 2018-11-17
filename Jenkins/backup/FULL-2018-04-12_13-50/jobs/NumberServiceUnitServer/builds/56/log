@@ -1,0 +1,114 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitTest
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\Test-pc\git\Jenkins # timeout=10
+Fetching upstream changes from \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\Test-pc\git\Jenkins +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision 31d4e365c622427c3265db82de1270563b214ba0 (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f 31d4e365c622427c3265db82de1270563b214ba0
+Commit message: "add"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 31d4e365c622427c3265db82de1270563b214ba0 # timeout=10
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins268176174994236208.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib>dotnet restore 
+  Restoring packages for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj...
+  Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.props.
+  Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.targets.
+  Restore completed in 276.1 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 44.64 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+  NumberLib -> D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:01.37
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib>exit 0 
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins3981084110750601465.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>dotnet restore 
+  Restoring packages for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj...
+  Restore completed in 40.82 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 79.44 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\obj\NumberLibTest.csproj.nuget.g.props.
+  Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\obj\NumberLibTest.csproj.nuget.g.targets.
+  Restore completed in 384.73 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 25.19 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 42.39 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 87.98 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  NumberLib -> D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+  NumberLibTest -> D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\NumberLibTest.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:02.14
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>exit 0 
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins2514427976175288884.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>dotnet test -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 39.4 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 49.44 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 76.78 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+已開始建置，請稍候...
+建置完成。
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\NumberLibTest.dll(.NETCoreApp,Version=v2.0) 的測試回合
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180221-13 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+正在啟動測試執行，請稍候...
+
+測試總計: 2。成功: 2。失敗: 0。略過: 0。
+測試回合成功。
+測試執行時間: 1.3617 秒
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>exit 0 
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins4176785948752935416.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0\ 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0>echo .... vstest.console.exe NumberLibTest.dll /EnableCodeCoverage /Logger:trx 
+.... vstest.console.exe NumberLibTest.dll /EnableCodeCoverage /Logger:trx
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0>exit 0 
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins6269701741339688395.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\ 
+
+D:\Jenkins>dotnet msbuild StyleCopSetting.xml 
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+D:\Jenkins\StyleCopSetting.xml(19,5): error MSB4062: 無法從組件 C:\Program Files\dotnet\sdk\2.1.200-preview-007474\\..\StyleCop 4.7\StyleCop.dll 載入 "StyleCopTask" 工作。Could not load file or assembly 'C:\Program Files\dotnet\sdk\2.1.200-preview-007474\\..\StyleCop 4.7\StyleCop.dll'. 系統找不到指定的路徑。 請確認 <UsingTask> 宣告正確、該組件和其所有相依性都可使用，以及該工作包含一個實作 Microsoft.Build.Framework.ITask 的公用類別。
+
+D:\Jenkins>exit 1 
+Build step '執行 Windows 批次指令' marked build as failure
+Finished: FAILURE

@@ -1,0 +1,130 @@
+﻿@using Jepun.Web.PS.Comm
+@model Jepun.Web.PS.Models.PsOptionViewModel
+@{
+    Layout = null;
+}
+<div class="alert alert-info" role="alert">選項設定</div>
+@using (Html.BeginForm("", "BackOption", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormBackOption", onsubmit = "return false" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>選項</label>
+                </div>
+                <div class="col-sm-4">
+                    <select class="form-control" name="Option"></select>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>　排序　　選項　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4">
+                                    <select size="6" class="form-control" name="OptionList"></select>
+                                    @Html.HiddenFor(model => model.LogSN).Txt()
+                                    @Html.HiddenFor(model => model.QueryKey).Txt()
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>名稱</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.Name).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "名稱" })
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>排序</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.Order).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "排序" })
+                    @Html.ValidationMessageFor(model => model.Order)
+                </div>
+            </div>
+
+            <div style="display:none" name="ColShow">
+                <div class="form-group">
+                    <div class="col-sm-2 control-label">
+                        <label>色碼</label>
+                    </div>
+                    <div class="col-sm-4 ">
+                        <input type="color" name="Remark" class="form-control" />
+                    </div>
+                    <div class="col-sm-2 control-label">
+                    </div>
+                    <div class="col-sm-4">
+                    </div>
+                </div>
+            </div>
+            <div style="display:none" name="ExShow">
+                <div class="form-group">
+                    <div class="col-sm-2 control-label">
+                        <label>境內/境外</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select name="Ex1" class="form-control valid" aria-invalid="false">
+                            <option value="01">境內</option>
+                            <option value="00">境外</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2 control-label">
+                        <label>基金類型</label>
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.DropDownListFor(model => model.Ex2, Enumerable.Empty<SelectListItem>()).Sel()
+                        @Html.ValidationMessageFor(model => model.Ex2)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div style="display:none" name="ExShow">
+                    <div class="col-sm-2 control-label">
+                        <label>基金警語</label>
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.EditorFor(Model => Model.Ex3).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "基金警語" })
+                        @Html.ValidationMessageFor(model => model.Ex3)
+                    </div>
+                </div>
+                <div style="display:none" name="CodeShow">
+                    <div class="col-sm-2 control-label">
+                        <label>代碼</label>
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.EditorFor(Model => Model.Code).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "代碼" })
+                        @Html.ValidationMessageFor(model => model.Code)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <button class="btn btn-primary" type="button" name="BtnIns">新增</button>
+                    <button class="btn btn-primary" type="button" name="BtnUpd">修改</button>
+                    <button class="btn btn-primary" type="button" name="BtnDel">刪除</button>
+                    @*<button class="btn btn-primary" type="button" name="BtnBack">還原</button>*@
+                </div>
+                <div class="col-sm-6"></div>
+            </div>
+            @*<div class="form-group">
+                <div name="colView" style="display:none;color:white;"></div>
+            </div>*@
+        </div>
+    </div>
+
+}
+<script src="~/Scripts/Apps/BackOption.js?@ServiceHelper.CacheBusting()"></script>

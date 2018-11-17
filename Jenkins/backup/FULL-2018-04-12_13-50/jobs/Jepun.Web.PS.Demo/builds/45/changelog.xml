@@ -1,0 +1,57 @@
+commit de087265aae62092112b8cfc3d0a95a553f6aa94
+tree de8beb08c7838c3a8b484906d584a5c310a76570
+parent b9d573580395e32add4421161028aed6d9590523
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 15:05:40 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 15:05:40 +0800
+
+    Add version
+
+
+
+:100644 100644 c2befa6a391b0ad340e5c679c79f69879e733e9e e05a587885842fa4044829c89eb502dfc598ead4 M	DB/PS/SP/PR_PsArtMod.sql
+:100644 100644 28bafecdb64c43240806024be50b17bca4bbbb70 2ab26310317c719d5ccecfb812e772876a898221 M	Jepun.Services.AP.Repository/PortalService.cs
+:100644 100644 1b1914a755c8572e1c2ad550c7b175caea7a8e4f 468acaeb495c2610b7aabb2086b80205c567f2f1 M	Jepun.Web.PS/Controllers/BackArtController.cs
+:100644 100644 abbf63faba97c9f0864f58faf1f4f034f5862ad5 0f1013489c4e3ca5d7209aeac346e3d8c12ab0fc M	Jepun.Web.PS/Scripts/Apps/BackArt.js
+:100644 100644 c1bf218049f6bc1d393f20f62be2591f5df26381 7abbdebca3e6a5b53e9f8b034552ed116a050e99 M	Jepun.Web.PS/Views/BackArt/Index.cshtml
+:100644 100644 64de38252cb79775d8c2f15c783b13d2b8ea6a56 89750b6cfc6cb69e8584d94adcbcd801eefdf7a4 M	Jepun.Web.PS/Views/BackMaster/Index.cshtml
+commit 0ef5faf3c0a9253e0df44c1c9ae0e175cc5ab3ff
+tree 04c016bcf095c99362cfde0d0ec9149e09ffa7c2
+parent 45cc44ab6c1eb4d646b42ee4c215eb9f345b6dcb
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 14:03:05 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 14:03:05 +0800
+
+    Add version
+
+
+
+:100644 100644 604b5d8be9215ac618a9a4be4639fe8bed70e72e 2db6f3811fd1ada9384835af4b475462f57a9a42 M	Jepun.Web.PS/Scripts/Apps/HomeFundAcc.js
+:100644 100644 8b7155f7f860e67d5a8aa2b713479072df95cdde 18c2fd2edbe1f877d66d522677f3591aab2b185d M	Jepun.Web.PS/Views/Home/FundAcc.cshtml
+commit c456b2062be7079f696127249986795411f50b3c
+tree bd6c51c5c96455a75b0eb78cc1788e6abd906193
+parent f5850b0300c42da4fb16291fed79da47f7521952
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-30 14:03:01 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-30 14:03:01 +0800
+
+    add version
+
+
+
+:100644 100644 bf3f1dbc423ef145460873c6818a6d69ec293372 a444d765bf8f119e6a6bf5778a1c6da7206d1765 M	DB/PS/SP/PR_PsHoldingWeightCurOnlineSel.sql
+:100644 100644 930a9aa239c46ea0180ee50be7c3224682a876d7 4b990da12d5f4936205874b32c0d5bb25506384d M	DB/PS/SP/PR_PsHoldingWeightOnlineSel.sql
+:100644 100644 5e427397fdf15a6d7a373aa283df43ce3ee0ccea 776626ddc403a4420ed02a0285dd7f9bd552bc85 M	DB/PS/SP/PR_PsHoldingWeightOutSideOnlineSel.sql
+commit 45cc44ab6c1eb4d646b42ee4c215eb9f345b6dcb
+tree b929f04271a695db71f80cf6e3f2048768f986d9
+parent f5850b0300c42da4fb16291fed79da47f7521952
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 10:32:36 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 10:32:36 +0800
+
+    Add version
+
+
+
+:100644 100644 6e61b6a29f5548371ed7365caa4d2304c5d7e0da ea7f204f7b02ddffc75210c7d6582a2a2ddbfaf3 M	Jepun.Web.PS/Comm/ServiceHelper.cs
+:100644 100644 6f89b9d138ff74e593faca78c325012fa480fc7d fc0a25f26fd7c53f4573c0781f8bca967add78ef M	Jepun.Web.PS/Controllers/BackMasterController.cs
+:100644 100644 79ff80e02bbdab2db5712c46ed45ebf0ac756ec1 805edce937e994bc3e0637bce01db9ad8c046f7c M	Jepun.Web.PS/Controllers/HomeController.cs
+:100644 100644 4ff31fa0d33df9aa3b585c4b25f7a9f55f6c8cb1 a1adf2cdc2f554d19ae62fe787993130d8278721 M	Jepun.Web.PS/Models/PsMasterViewModel.cs
+:100644 100644 b058886088d69c4bb50e5ed08214907043c261fb 5455c0ddb1c7e875053084bc782342233f59be57 M	Jepun.Web.PS/Scripts/Apps/BackMaster.js
+:100644 100644 854138163f17ec6b8218a3ba2f241623646443c8 64de38252cb79775d8c2f15c783b13d2b8ea6a56 M	Jepun.Web.PS/Views/BackMaster/Index.cshtml

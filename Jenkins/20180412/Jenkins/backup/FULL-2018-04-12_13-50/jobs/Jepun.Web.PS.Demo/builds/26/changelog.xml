@@ -1,0 +1,15 @@
+commit 187eba28a7e2183d3ac999e0b2b6a858d64bd538
+tree c48ec739ab19e0789d7a002798c7fe248faa75e3
+parent 48b567b484c84764beede3ac4c5900af482ecae7
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-28 11:20:24 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-28 11:20:24 +0800
+
+    Add version
+
+
+
+:100644 100644 22c69fb86e7c198513bc61a030fa120bc18e8002 9274366a3123803724a1da1ea896d3a5fd506933 M	Jepun.Web.PS/Controllers/ProductController.cs
+:100644 100644 2de910f439bf9993d0b3ee999a86b92199e2313c aef3c62d90753477f29e6dcd5a1028383e19a5f5 M	Jepun.Web.PS/Scripts/Apps/ProductFundration.js
+:100644 100644 ca9c0f362ce6da9ef194ce36baa6dd487afbfa7f c6713f032e403fb3bbcf42843238fcfff97340c5 M	Jepun.Web.PS/Scripts/Apps/ProductInsideDetail.js
+:100644 100644 40740bad3000fc92aafbdb97fb61186156465cd7 d9d5a282a33cf49c836e2c0b55c7f8876bf99d0b M	Jepun.Web.PS/Scripts/Apps/ProductInsideDistribution.js
+:100644 100644 9a268f4891da2e3976fbbed42f23afe948077c7c fab3aa1ecbd3f0726ae0d69340facd24ef33da28 M	Jepun.Web.PS/Views/Product/fundration.cshtml

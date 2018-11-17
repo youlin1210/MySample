@@ -1,0 +1,22 @@
+commit be249c9c49dc15827a24cc32ae4c3d87eb1249e9
+tree ca47ec8771e3291477fb16b97dc47ceccd712ed0
+parent ae2433023b9b53ec3115c6e8e8a5fd3192981b3d
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 18:13:05 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 18:13:05 +0800
+
+    add
+
+
+
+:100644 100644 20ecdc37642cde3c3a6d469d3b9ead0cf8b449b1 8febced9a4b1ab00ba2292b4e7d3cfbe04f9a63e M	ClassLibCI/ToolSetting.xml
+commit ae2433023b9b53ec3115c6e8e8a5fd3192981b3d
+tree 63f0b67800d7e9cd8d66551adfff6e70200b4263
+parent 632c175bc0af743a3a5ae1ab377c23046ed63088
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 18:06:21 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 18:06:21 +0800
+
+    add
+
+
+
+:100644 100644 cf525b771c9c4ae1267a36b2e6c756e85234415f 848b0d9382c3d080551eff7a65d4585858db5151 M	ClassLibCI/ToolSetting.Server.xml

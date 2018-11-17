@@ -1,0 +1,122 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@using Jepun.Web.PS.Comm
+@{
+}
+@using (Html.BeginForm("", "CorporateGovernance", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormCorporateGovernance" }))
+{
+<div class="container">
+    <div class="row">
+        <section class="content">
+            <div class="container">
+                <div class="cus-breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        <li><a href="~/Home/Index">首頁</a></li>
+                        <li class="active">公司治理規範及運作</li>
+                    </ol>
+                </div>
+                <div class="page-header-wrapper CorporateGovernance">
+                    <ul name="TabList" class="nav nav-tabs sub-tabs desktop " role="tablist">
+                        <li class="active" role="presentation"><a aria-controls="type1" data-toggle="tab" href="#type1" role="tab">公司治理規範及運作</a></li>
+                        <li class="" role="presentation"><a aria-controls="type2" data-toggle="tab" href="#type2" role="tab">風險管理</a></li>
+                        <li class="" role="presentation"><a aria-controls="type3" data-toggle="tab" href="#type3" role="tab">法令遵循</a></li>
+                        <li class="" role="presentation"><a aria-controls="type4" data-toggle="tab" href="#type4" role="tab">稽核制度</a></li>
+                    </ul>
+                    <label class="mobile-select-arrow">
+                        <select name="TabSelect" class="form-control mobile-select mobile" size="1"  >
+                          
+                            <option value="#type1">公司治理規範及運作</option>
+                            <option value="#type2">風險管理</option>
+                            <option value="#type3">法令遵循</option>
+                            <option value="#type4">稽核制度</option>
+                        </select>
+                    </label>
+
+                    <div role="tabpanel">
+                        <div role="tabpanel">
+                            <div class="tab-content editor-area">
+                                <div class="tab-pane fade in active" id="type1" role="tabpanel">
+                                    @*<h3 class="pages-title">公司治理規範及運作</h3>*@
+                                    <p>為讓中國信託證券投資信託股份有限公司（以下簡稱本公司）的公司治理架構完整且持續精進，本公司在制度面與法規面均遵照監理機關的指導，並諮詢專業單位的建議，制定相關規定如「公司治理實務守則」、「誠信經營守則」、「道德行為準則」等，以落實治理成效，同時掌握國內外對公司治理的趨勢及要求，適時對內部法規檢視與修訂。</p>
+                                    <h3 class="pages-title">公司治理相關規章</h3>
+                                    <div class="table">
+                                        <table class="table table-striped pages-table row2 rowcenter">
+                                            <thead>
+                                                <tr>
+                                                    <th>辦法名稱</th>
+                                                    <th>開啟文件</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>公司治理與董事會架構</td>
+                                                    <td><a target="_blank" href="~/Content/pdf/公司治理與董事會架構.pdf">開啟文件 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>董事會及經理人職責</td>
+                                                    <td><a target="_blank" href="~/Content/pdf/董事會及經理人職責.pdf">開啟文件 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>誠信經營守則</td>
+                                                    <td><a target="_blank" href="~/Content/pdf/誠信經營守則.pdf">開啟文件 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>道德行為守則</td>
+                                                    <td><a target="_blank" href="~/Content/pdf/道德行為準則.pdf">開啟文件 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>董事會議事規範</td>
+                                                    <td><a target="_blank" href="~/Content/pdf/董事會議事規範.pdf">開啟文件 <img class="pdf-icon" src="~/Content/images/pdf-icon.png" alt=""></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type2" role="tabpanel">
+                                    @*<h3 class="pages-title">風險管理</h3>*@
+                                    <p>中信投信經營項目主要為基金管理資產及全權委託資產，本身自有資產部位受限於證券投資信託事業管理規則，僅運用於銀行存款、債券、短期票券及符合一定比率之基金受益憑證等，故風險較不顯著。</p>
+                                    <p>針對基金管理資產及全權委託資產，依循主管機關對投信事業規範、內部控制制度、各項內部投資風險管理辦法及整合風險管理政策等規定，由相關單位依商品特性及營業活動風險訂定相關控管措施，並建立預警機制及作業異常通報流程，以落實證券投資信託事業及日常營業活動之風險管理。</p>
+                                </div>
+                                <div class="tab-pane fade" id="type3" role="tabpanel">
+                                    @*<h3 class="pages-title">法令遵循</h3>*@
+                                    <p>中國信託投信極為關注海內外產業發展趨勢及各項金融政策、法令之變更，於開發並拓展業務的同時，亦嚴格遵循相關法令之規定。</p>
+                                    <p>除適時配合各項國內外法令訂立及更新、檢討各項內部控制作業規範外，各單位必須每半年度辦理自行查核作業，以確保各項業務之辦理均遵循相關法令之規定。</p>
+                                    <p>法令遵循部門亦定期辦理法令遵循之教育訓練，並隨時針對法令之更新或修正為佈達及宣導等作業，使各單位均能即時掌握法令之最新規範。法令遵循主管必須定期向本公司董事會報告，以使董事會及相關高階主管人員能獲悉本公司執行法令遵循事項之狀況，並為適當之決策。</p>
+                                </div>
+                                <div class="tab-pane fade" id="type4" role="tabpanel">
+                                    <h3 class="pages-title">內部稽核組織</h3>
+                                    <p>中國信託證券投資信託(股)公司(以下簡稱本公司)設立隸屬董事會之內部稽核單位，並配置稽核主管及稽核人員，以獨立超然、客觀公正之立場，執行稽核業務，每季向董事會報告。</p>
+                                    <h3 class="pages-title">內部稽核運作</h3>
+                                    <ol>
+                                        <li>本公司內部稽核單位依風險評估結果擬訂年度稽核計畫，包括每月應稽核之項目，並確實執行年度稽核計畫，據以評估本公司之內部控制制度，於檢附工作底稿及相關資料後作成稽核報告。</li>
+                                        <li>本公司內部稽核單位就內部控制制度缺失及異常事項改善情形，包括主管機關或自律機構檢查所發現、本公司及金控母公司內部稽核作業所發現、內部控制制度聲明書所列及自行評估所發現之各項缺失，按季作成追蹤報告並提報董事會至改善為止，並就前項所發現之內部控制制度缺失、異常事項及改善情形，列為各部門績效考核之重要項目。</li>
+                                        <li>本公司各單位每年辦理內部控制制度自行評估一次，再由內部稽核單位覆核各單位之自行評估報告，併同稽核單位所發現之內部控制缺失及異常事項改善情形，以作為董事會及總經理評估本公司整體內部控制制度有效性及出具內部控制制度聲明書之主要依據。</li>
+                                        <li>
+                                            其他稽核工作事項：<br />
+                                            <ul>
+                                                <li>(1)參與本公司各項業務及作業規章之訂定，評估內部控制程序之妥適性。</li>
+                                                <li>(2)持續改進稽核程式、查核流程與技巧，並研發稽核輔助查核工具，以提昇稽核工作之效益。</li>
+                                                <li>(3)持續提昇稽核人員之專業技能，參與增進稽核職能之相關訓練課程，並依個別專業作為分派任務之依據。</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                    <h3 class="pages-title">稽核主管與董事會、監察人之報告及溝通</h3>
+                                    <ol>
+                                        <li>稽核主管定期向監察人報告稽核業務，並列席董事會報告。(依據「證券暨期貨市場各服務事業建立內部控制制度處理準則」規定辦理)。</li>
+                                        <li>每半年就內部控制制度缺失檢討定期與負責人（董事、監察人）進行座談，並作成紀錄，並將座談會議紀錄，提董事會報告。(依據「證券投資信託事業證券投資顧問事業公司治理實務守則」規定辦理)。</li>
+                                        <li>每季就金融檢查機關、本公司及金控母公司內部稽核單位、各單位自行評估所提列檢查意見或查核缺失，及內部控制制度聲明書所列應加強辦理改善事項，向董事會報告。(依據「證券暨期貨市場各服務事業建立內部控制制度處理準則」辦理)。</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+}
+<script src="~/Scripts/Apps/HomeCorporateGovernance.js?@ServiceHelper.CacheBusting()"></script>

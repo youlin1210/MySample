@@ -1,0 +1,14 @@
+﻿@using Jepun.Web.PS.Comm
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("", "BackECTest", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormBackECTest" }))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="alert alert-info text-center" role="alert">
+        您好！！！<span class="text-danger" name="Role"></span>非後端管理的角色
+    </div>
+
+}
+<script src="~/Scripts/Apps/BackECTest.js"></script>

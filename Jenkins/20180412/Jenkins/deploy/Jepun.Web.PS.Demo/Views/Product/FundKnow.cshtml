@@ -1,0 +1,537 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@using Jepun.Web.PS.Comm
+@{
+}
+
+@using (Html.BeginForm("", "FundKnow", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormFundKnow" }))
+{
+<div class="container">
+    <div class="row">
+        <section class="content">
+            <div class="container">
+                <div class="cus-breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        <li><a href="~/Home/Index">首頁</a></li>
+                        <li class="active">基金小百科</li>
+                    </ol>
+                </div>
+                <div class="page-header-wrapper">
+                    <h3 class="title"><span>基金小百科</span></h3>
+                    <hr>
+                    <ul class="nav nav-tabs" role="tablist" id="cus-tabs">
+                        <li class="active" role="presentation"><a aria-controls="type1" data-toggle="tab" href="#type1" role="tab">What</a></li>
+                        <li class="" role="presentation"><a aria-controls="type2" data-toggle="tab" href="#type2" role="tab">Why</a></li>
+                        <li class="" role="presentation"><a aria-controls="type3" data-toggle="tab" href="#type3" role="tab">Who</a></li>
+                        <li class="" role="presentation"><a aria-controls="type4" data-toggle="tab" href="#type4" role="tab">Where</a></li>
+                        <li class="" role="presentation"><a aria-controls="type5" data-toggle="tab" href="#type5" role="tab">When</a></li>
+                        <li class="" role="presentation"><a aria-controls="type6" data-toggle="tab" href="#type6" role="tab">How</a></li>
+                    </ul>
+                </div>
+                <div class="etf-pedia-wrapper editor-area">
+                    <div role="tabpanel">
+                        <div role="tabpanel">
+                            <div class="tab-content">
+
+                                <div class="tab-pane fade in active" id="type1" role="tabpanel">
+                                    <div class="etf-pedia-child">
+                                        <h3 class="title-center">解析共同基金裡的6<span class="big-word">W</span></h3>
+                                        <h3 class="pages-title"><span class="big-word">W</span>hat：甚麼是共同基金?</h3>
+                                        <p>共同基金(Mutual Fund)是集合眾人的資金，委託專業投資機構代為管理操作，經理人會將資金投入於股票、債券、期貨、權證、存款等標的，所創造的利潤由投資人共同分享、風險也共同承擔。</p>
+                                        <p>&nbsp;</p>
+                                        <div class="row clearfix">
+                                            <div class="container">
+                                                <h3 class="pages-title">共同基金的種類</h3>
+                                                <div aria-multiselectable="true" class="panel-group" id="collapse-fund1" role="tablist">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" id="heading-fund1_0" role="tab" style="background-color:#fff;">
+                                                            <div class="panel-title"><a aria-controls="collapse-fund1_0" aria-expanded="false" class="questions collapsed" data-parent="#collapse-fund1" data-target="#collapse-fund1_0" data-toggle="collapse" href="javascript:void(0)"><b></b>依發行公司、基金註冊地區分</a></div>
+                                                        </div>
+                                                        <div aria-labelledby="heading-fund1_0" class="panel-collapse collapse in" id="collapse-fund1_0" role="tabpanel">
+                                                            <div class="panel-body">
+                                                                <div class="tab-pane fade in active" id="type0" role="tabpanel">
+                                                                    <div class="table">
+                                                                        <table class="table table-striped table-hover common-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td style="text-align:left;">境內基金</td>
+                                                                                    <td style="text-align:left;">由台灣的證券投資信託公司所發行管理的基金，在國內登記註冊，並以國內投資人為銷售對象，受我國金融管理委員會監管的基金。</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="text-align:left;">境外基金</td>
+                                                                                    <td style="text-align:left;">由國外基金公司發行管理的基金，登記註冊於我國以外地區，以全球投資人為銷售對象，受註冊當地國相關法律監督，投資地區不限，但引進在我國銷售須先經金管會核備，例如英傑華投資-全球高收益債券基金。</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" id="heading-fund1_1" role="tab">
+                                                            <div class="panel-title"><a aria-controls="collapse-fund1_1" aria-expanded="false" class="questions collapsed" data-parent="#collapse-fund1" data-target="#collapse-fund1_1" data-toggle="collapse" href="javascript:void(0)"><b></b>依交易方式與價格區分</a></div>
+                                                        </div>
+                                                        <div aria-labelledby="heading-fund1_1" class="panel-collapse collapse" id="collapse-fund1_1" role="tabpanel">
+                                                            <div class="panel-body">
+                                                                <div class="tab-pane fade in active" id="type0" role="tabpanel">
+                                                                    <div class="table">
+                                                                        <table class="table table-striped table-hover common-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td style="text-align:left;">開放型基金</td>
+                                                                                    <td style="text-align:left;">資本額不受限，投資人隨時都可向基金公司提出申請或買回基金，不需透過集中市場撮合交易，資金流通性高。此為我國目前共同基金的發展主軸，如中國信託台灣活力基金。</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="text-align:left;">封閉型基金</td>
+                                                                                    <td style="text-align:left;">封閉型基金有固定的發行單位數，因此當發行期滿或達成基金規模時，即不再接受投資人買進或賣出基金。投資人若仍想進行交易，須於集中市場買賣，交易流程與買賣股票相同。</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" id="heading-fund1_2" role="tab">
+                                                            <div class="panel-title"><a aria-controls="collapse-fund1_2" aria-expanded="false" class="questions collapsed" data-parent="#collapse-fund1" data-target="#collapse-fund1_2" data-toggle="collapse" href="javascript:void(0)"><b></b>依投資標的區分</a></div>
+                                                        </div>
+                                                        <div aria-labelledby="heading-fund1_2" class="panel-collapse collapse" id="collapse-fund1_2" role="tabpanel">
+                                                            <div class="panel-body">
+                                                                <div class="tab-pane fade in active" id="type0" role="tabpanel">
+                                                                    <div class="table">
+                                                                        <table class="table table-striped table-hover common-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td style="text-align:left;">股票型</td>
+                                                                                    <td style="text-align:left;">主要投資標的為股票。如:中國信託智能運動基金</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="text-align:left;">固定收益型</td>
+                                                                                    <td style="text-align:left;">主要投資標的為債券。如:中國信託雄鷹新興市場債券基金</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="text-align:left;">平衡型</td>
+                                                                                    <td style="text-align:left;">可投資多重標的，包含股票、債券、現金等的商品。如:中國信託樂齡收益平衡基金</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="text-align:left;">貨幣市場型</td>
+                                                                                    <td style="text-align:left;">投資貨幣市場上短期(一年以內，平均期限120天)有價證券，包含國庫券、商業票據、銀行定期存單、政府短期債券、企業債券等短期有價證券。如:中國信託華盈貨幣基金</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="text-align:left;">不動產證券型</td>
+                                                                                    <td style="text-align:left;">主要投資標的為不動產，即將不動產之所有權切割成單位，讓一般投資人來認購的一種證券化產品，且每年強制分配股息給投資人。如:中國信託全球不動產收益基金。</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" id="heading-fund1_3" role="tab">
+                                                            <div class="panel-title"><a aria-controls="collapse-fund1_3" aria-expanded="false" class="questions collapsed" data-parent="#collapse-fund1" data-target="#collapse-fund1_3" data-toggle="collapse" href="javascript:void(0)"><b></b>依投資區域區分</a></div>
+                                                        </div>
+                                                        <div aria-labelledby="heading-fund1_3" class="panel-collapse collapse" id="collapse-fund1_3" role="tabpanel">
+                                                            <div class="panel-body">
+                                                                <div class="tab-pane fade in active" id="type0" role="tabpanel">
+                                                                    <div class="table">
+                                                                        <table class="table table-striped table-hover common-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td style="text-align:left;">全球型</td>
+                                                                                    <td style="text-align:left;">以全球金融市場為投資對象，且較常鎖定美、英、日、歐洲等金融市場較為發達的地區，所以風險較低、較分散，如:中國信託全球股票入息基金。</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="text-align:left;">區域型</td>
+                                                                                    <td style="text-align:left;">以特定區域的金融市場為投資對象，常見的區域分類包括北美、亞太、歐洲、東南亞、新興市場等，觀其名即可獲悉該基金主要的投資區域，如中國信託亞太多元入息平衡基金，其主要投資區域即為亞太地區。</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="text-align:left;">單一市場型</td>
+                                                                                    <td style="text-align:left;">以單一國家的金融市場為投資對象，且絕大多數投資於上市股票，風險最大，如中國信託台灣活力基金，是百分百投資台灣市場的產品。</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="container">
+                                                <h3 class="pages-title">共同基金的4個獲利來源</h3>
+                                                <ol>
+                                                    <li><b>資本利得：</b><br>基金投資於各種理財工具，因買低賣高而賺取到的價差，反映在基金的每日淨值上，也是投資基金最主要的獲利來源。</li>
+                                                    <li><b>利息收入：</b><br>當基金投資定期存款、債券、或貨幣市場金融商品時，除了商品本身價格的進帳，還會有利息收入。</li>
+                                                    <li><b>股利收入：</b><br>基金持有的上市公司，視營運狀況發放現金股利或股票股利。</li>
+                                                    <li><b>配息再投資：</b><br>基金的利息收入或資本利得可再轉為投資基金，讓不斷增長的單位數創造更多獲利。</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="container">
+                                                <h3 class="pages-title">共同基金的4個組成架構</h3>
+                                                <ol>
+                                                    <li><b>基金管理公司：</b><br>在我國通稱為證券投資信託公司，例如中國信託投資信託證券股份有限公司，簡稱中信投信，它共同基金組成結構的主要人物，其業務是向不特定對象，募集資金並代為操作管理。投資運用的結果，不論損益皆由基金的投資者自行負擔。</li>
+                                                    <li><b>基金經理人：</b><br>代基金公司管理共同基金、全權委託或其他投資計畫，基金經理人秉持自身與背後龐大的投研團隊的專業知識，分析產業、企業趨勢，做出適當的投資決策。我國目前規定一支基金僅能有一名基金經理人。</li>
+                                                    <li><b>保管銀行：</b><br>基於共同基金是在基金經理與資金管理分開的概念下運作，因此每支基金皆有獨立的保管銀行專戶管理基金整體的資金，如中國信託全球短期高收益債券基金的保管銀行為華南商業銀行股份有限公司。</li>
+                                                    <li><b>信託人：</b><br>是針對海外基金才有的職位，信託人代表投資人監督機金公司的運作、審查資金運用等，但不負責下達交易買賣指令。</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="type2" role="tabpanel">
+                                    <div class="eft-pedia-child">
+                                        <h3 class="title-center">解析共同基金裡的6<span class="big-word">W</span></h3>
+                                        <h3 class="pages-title"><span class="big-word">W</span>hy：為什麼要投資共同基金？</h3>
+                                        <p>因為投資基金有6好</p>
+                                        <h4>第一好:簡易的投資方式</h4>
+                                        <p>向國內投信公司開立基金帳戶後，只要填寫申購、贖回或轉申購表單，就能進行交易。若有電子交易權限更能24小時不受時空限制，想交易就交易!如:開啟中信投信電子交易戶，隨時都能下單投資，開戶網址:<a href="https://etrade.ctbcinvestments.com.tw/CTBC.EC/?action=accopen ">https://etrade.ctbcinvestments.com.tw/CTBC.EC/?action=accopen </a></p>
+                                        <p>&nbsp;</p>
+                                        <h4>第二好:分散風險</h4>
+                                        <p>「不要把所有的雞蛋放在同一個籃子裡」，但資金都有限了，可能連一張高價股都買不起，怎麼還能分散?透過投資基金即可匯集眾人資金成為一筆雄厚的金額，就有本錢可以分散投資各種股票了，股票間的相互漲跌可以抵銷單ㄧ個股回檔的損失，風險自然可以分散。</p>
+                                        <p>&nbsp;</p>
+                                        <h4>第三好:讓專家為你的財富把關</h4>
+                                        <p>投資成效受到企業獲利、產業趨勢、國內外政經格局等眾多因素影響，使得一般投資人一想到投資就怯步。因此，交由投資經驗豐富的專業經理人及其背後龐大的投研團隊，在有系統的研判各項資料後做成的投資決定，讓你投資的錢可以獲得更好的報酬。</p>
+                                        <p>&nbsp;</p>
+                                        <h4>第四好:資金獨立保管，投資無安全疑慮</h4>
+                                        <p>基金公司只負責基金的管理與操作，並下達投資的買賣指令，而投資人的基金則獨立由銀行擔任保管機構，且是獨立專戶，因此即使基金公司或保管機構關閉，投資人的財產也不受影響。投資人更能於季報、年報中了解產品目前的持股狀況，在資訊公開的前提下，投資安全無疑慮。</p>
+                                        <p>&nbsp;</p>
+                                        <h4>第五好:節稅</h4>
+                                        <p>依據我國稅法規定每位國民每年都有100萬元的贈與稅免稅額度，投資人更可以利用購買基金的方式，將資產轉移給兒女，且因為我國還未針對開放型基金課徵證券交易所得稅，因此基金投資衍生的獲利又免稅，具有雙重節稅的優勢。</p>
+                                        <p>&nbsp;</p>
+                                        <h4>第六好:小額也能投資</h4>
+                                        <p>每月只要新台幣3,000元就能開始投資，不必在乎近場時點和價格波動，讓時間自然地為你分散投資風險，長期投資加上時間複利的效果，可是有機會為你存下一筆可觀的子女教育基金與退休金。</p>
+                                        <p>&nbsp;</p>
+                                        <div class="row clearfix">
+                                            <div class="container">
+                                                <div class="table">
+                                                    <table class="table table-striped pages-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="3">股票型基金vs股票投資面面觀</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>股票型基金</td>
+                                                                <td>股票</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>投資標的</td>
+                                                                <td>股票</td>
+                                                                <td>股票</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>投資門檻</td>
+                                                                <td>低，每月定期定額申購，最低只要3,000元</td>
+                                                                <td>高</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>影響因子</td>
+                                                                <td>產業趨勢、經濟景氣</td>
+                                                                <td>企業狀況</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>投資難易度</td>
+                                                                <td>較低</td>
+                                                                <td>較高</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>波動風險</td>
+                                                                <td>較低</td>
+                                                                <td>較高</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>手續&管理費</td>
+                                                                <td>較高</td>
+                                                                <td>較低</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="type3" role="tabpanel">
+                                    <div class="etf-pedia-child" id="flag3">
+                                        <h3 class="title-center">解析共同基金裡的6<span class="big-word">W</span></h3>
+                                        <h3 class="pages-title"><span class="big-word">W</span>ho：誰適合投資共同基金？</h3>
+                                        <p>每個人其實都可以將基金做為理財的工具，只是必須挑選自己合適的標的，就像「再漂亮的鞋子如果不合腳，穿著走路還是疼」，因此不要一窩蜂跟著別人去買適合別人的產品，而是要先評估自己的個性、基金的標的與屬性，才能買得安心。</p>
+                                        <p>&nbsp;</p>
+                                        <div class="row clearfix">
+                                            <div class="container">
+                                                <div class="table">
+                                                    <table class="table table-striped pages-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="4">個性決定你適合買甚麼基金</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Question</td>
+                                                                <td colspan="3">好喜歡那個男孩/女孩喔! 要不要跟他/她告白?</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Answer</td>
+                                                                <td>他/她那麼優秀，我只是個魯蛇/剩女，還是算了</td>
+                                                                <td>先從朋友做起，日久生情嘛</td>
+                                                                <td>直接告白吧! 頂多被拒絕，機會可是不等人的</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="4" style="text-align:center;" name="tdAns">看答案 <span class="glyphicon glyphicon-chevron-down"></span></td>
+                                                            </tr>
+                                                            <tr name="trAns1" style="display:none">
+                                                                <td>個性</td>
+                                                                <td>保守型</td>
+                                                                <td>穩健型</td>
+                                                                <td>積極型</td>
+                                                            </tr>
+                                                            <tr name="trAns2" style="display:none">
+                                                                <td>風險承受度</td>
+                                                                <td>RR1、RR2</td>
+                                                                <td>RR3、RR4</td>
+                                                                <td>RR5</td>
+                                                            </tr>
+                                                            <tr name="trAns3" style="display:none">
+                                                                <td>適合的基金類型</td>
+                                                                <td>穩定配息的債券型基金(固定收益型基金)</td>
+                                                                <td>收益、成長兼具的平衡型(混合型)基金</td>
+                                                                <td>風險性高、成長性通常也較高的股票型基金</td>
+                                                            </tr>
+                                                            <tr name="trAns4" style="display:none">
+                                                                <td>產品推薦</td>
+                                                                <td>中國信託全球短期高收益債券基金</td>
+                                                                <td>中國信託樂齡收益平衡基金</td>
+                                                                <td>中國信託台灣活力基金</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p>&nbsp;</p>
+                                        <div class="row clearfix">
+                                            <div class="container">
+                                                <div class="table">
+                                                    <table class="table table-striped pages-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="4">人生階段決定你適合買甚麼基金</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>打拼族</td>
+                                                                <td>中流砥柱</td>
+                                                                <td>樂齡族</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>年齡</td>
+                                                                <td>23~40</td>
+                                                                <td>41~55</td>
+                                                                <td>56以上</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>形象</td>
+                                                                <td>努力投身職場，為了結婚、買車、購屋而努力，收入與支出勉強達平衡</td>
+                                                                <td>事業起飛，為了子女教育、退休生活而準備</td>
+                                                                <td>事業已達高峰、成長力有限，或者已經退休</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>投資目標</td>
+                                                                <td>資產增值</td>
+                                                                <td>資本增值、考慮節稅</td>
+                                                                <td>固定收益、保本</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>風險承受度</td>
+                                                                <td>高</td>
+                                                                <td>中</td>
+                                                                <td>低</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>適合的基金類型</td>
+                                                                <td>積極成長的股票型基金</td>
+                                                                <td>收益、成長兼具的平衡型基金</td>
+                                                                <td>有固定收益來源的固定收益型(債券型基金)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>產品推薦</td>
+                                                                <td>中國信託台灣活力基金</td>
+                                                                <td>中國信託樂齡收益平衡基金</td>
+                                                                <td>中國信託全球短期高收益債券基金</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="type4" role="tabpanel">
+                                    <div class="etf-pedia-child" id="flag4">
+                                        <h3 class="title-center">解析共同基金裡的6<span class="big-word">W</span></h3>
+                                        <h3 class="pages-title"><span class="big-word">W</span>here：去哪裡投資共同基金？</h3>
+                                        <p>&nbsp;</p>
+                                        <p>投資基金，別忽略時間複利的魔力</p>
+                                        <div class="row clearfix">
+                                            <div class="col-xs-12">
+                                                <ol>
+                                                    <li>
+                                                        <b>基金公司：</b>發行該基金的證券投資信託公司(簡稱投信公司)。投資人可以利用書面、傳真、電子交易或親臨基金發行公司進行申購。如已是中信投信之客戶，要申購中信投信發行之基金，可利用以下管道<br>
+                                                        (1) 線上申購:<a href="https://etrade.ctbcinvestments.com.tw/CTBC.EC/">https://etrade.ctbcinvestments.com.tw/CTBC.EC/(僅有已開立中信投信電子交易戶者方可於此平台申購)</a><br>
+                                                        (1) 書面申購表單:<a href="http://www.ctbcinvestments.com/processhtml.aspx?Str_URLTYPE=1&Str_L1ID=S">http://www.ctbcinvestments.com/processhtml.aspx?Str_URLTYPE=1&Str_L1ID=S</a>
+
+                                                    </li>
+                                                    <li>
+                                                        <b>銷售通路：</b>包括銀行、證券商等。投資人可以親臨基金銷售機構或利用網銀、證券商電子交易平台進行申購。                                                 
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="type5" role="tabpanel">
+                                    <div class="etf-pedia-child" id="flag5">
+                                        <h3 class="title-center">解析共同基金裡的6<span class="big-word">W</span></h3>
+                                        <h3 class="pages-title"><span class="big-word">W</span>hen：甚麼時候適合投資共同基金？</h3>
+                                        <p>&nbsp;</p>
+                                        <p>投資基金，別忽略時間複利的魔力</p>
+                                        <div class="row clearfix">
+                                            <div class="col-xs-12">
+                                                <p>買低賣高是所有投資人都希冀的目標，但卻不是每個人都有能力達到的，因此投資人也會選擇定時定額投資，來分散進場時間點的風險，但問題是，甚麼時候要開始定期定額扣款呢?<br />
+                                                    以40歲想要達成100萬為目標，以平均年報酬率3複利計算，31歲開始投資，每月投入金額7,138元、36歲開始投資，每月投入金額15,430元、38歲開始投資，每月投入金額高達26,515元，投入金額已是31歲就開始的3.7倍。你有信心從31歲到38歲，你的個人薪資可以成長3.7倍嗎?<br />
+                                                    因此，當你不知道或沒有把握可以抓準進場時間點時，最適合的投資時機就是「隨時隨地、盡早開始，讓悄悄流走的時間在你的資產增值上留下痕跡」。
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="type6" role="tabpanel">
+                                    <div class="etf-pedia-child" id="flag6">
+                                        <h3 class="title-center">解析共同基金裡的6<span class="big-word">W</span></h3>
+                                        <h3 class="pages-title">Ho<span class="big-word">W</span>：如何投資共同基金？</h3>
+                                        <p>&nbsp;</p>
+                                        <H4>投資致勝法則，選擇口碑好、CP值高的基金標的，5招秘笈教你挑基金</H4>
+                                        <div class="row clearfix">
+                                            <div class="col-xs-12">
+                                                <ol>
+                                                    <li>
+                                                       <p>選擇常獲獎項、專家評鑑肯定的基金。</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>選擇短、中、長期基金績效表現好的基金。</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>選擇基金規模適宜的基金。</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>選擇適合自己風險承受度的基金。</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>選擇經理費、管理費合理的基金。</p>
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                        <p>&nbsp;</p>
+                                        <h4>每月薪水要拿多少來投資基金?</h4>
+                                        <div class="row clearfix">
+                                            <div class="col-xs-12">
+                                                <p>
+                                                    答案因人而異，沒有一定定論，完全視個人的投資偏好、已投資在其他投資商品的比重來決定。假設是偏好高報酬且風險承受度較高的投資商品，投資組合中可提升「股票」、「股票型基金」或「期貨」的比例；假設是寧願賺得少也不願被套牢的投資心態，建議可以選擇「定存」、「債券型基金」、「固定收益型基金」。<br />
+                                                    不過，就整體投資而言，建議採取「333法則」，亦即1/3薪水做投資、1/3薪水做支出、1/3薪水做存款喔~<br />
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <p>&nbsp;</p>
+                                        <h4>一次進場還是分批佈局?</h4>
+                                        <div class="row clearfix">
+                                            <div class="col-xs-12">
+                                                <p>
+                                                    一次買在低點獲利了結的果實才甜美，但若是不幸一次買在高點就會被套牢!還是應該定期定額讓時間來分散風險，但這樣是否賺得不夠快? 有這個疑問的投資人可依據以下幾個方向來考慮投資時究竟要選擇單筆申購或定期定額:
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <p>&nbsp;</p>
+                                        <div class="row clearfix">
+                                            <div class="container">
+                                                <div class="table">
+                                                    <table class="table table-striped pages-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="3">單筆申購vs 定期定額</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>單筆申購</td>
+                                                                <td>定期定額</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>單次投資金額</td>
+                                                                <td>較高</td>
+                                                                <td>較低，許多國內基金每月僅需新台幣3,000元即可申購</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>資金機動性</td>
+                                                                <td>較高</td>
+                                                                <td>較低</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>投資風險</td>
+                                                                <td>較高，受進場點影響</td>
+                                                                <td>較低，不同時點進場可分散風險</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>投資獲利</td>
+                                                                <td>波動度較大</td>
+                                                                <td>穩定</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>適合的投資人</td>
+                                                                <td>可以掌握景氣循環、對投資市場較了解的投資人</td>
+                                                                <td>當投資人不了解市場時，透過此交易方式可以分散風險</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>投資彈性</td>
+                                                                <td>隨時可進場買賣，資金的流通較有彈性</td>
+                                                                <td>定期定額的獲利需要時間來驗證，其複利效果需要較長的時間才能展現，<br>投資人不宜因市場短期波動而終止扣款，屬於中長期的投資方式</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+}
+<script src="~/Scripts/Apps/ProductFundKnow.js?@ServiceHelper.CacheBusting()"></script>

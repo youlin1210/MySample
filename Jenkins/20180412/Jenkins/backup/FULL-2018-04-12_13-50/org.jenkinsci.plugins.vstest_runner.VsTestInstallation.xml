@@ -1,0 +1,10 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<org.jenkinsci.plugins.vstest__runner.VsTestInstallation_-DescriptorImpl plugin="vstestrunner@1.0.7">
+  <installations class="org.jenkinsci.plugins.vstest_runner.VsTestInstallation-array">
+    <org.jenkinsci.plugins.vstest__runner.VsTestInstallation>
+      <name>Default</name>
+      <home>vstest.console.exe</home>
+      <properties/>
+    </org.jenkinsci.plugins.vstest__runner.VsTestInstallation>
+  </installations>
+</org.jenkinsci.plugins.vstest__runner.VsTestInstallation_-DescriptorImpl>

@@ -1,0 +1,55 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.plugins.msbuild.MsBuildBuilder plugin="msbuild@1.29">
+      <msBuildName>MS Build4.0(x64)</msBuildName>
+      <msBuildFile>D:\Jenkins\workspace\TestUnitTest\TestUnitTest\TestUnitTest.csproj</msBuildFile>
+      <cmdLineArgs>/p:Configuration=Debug
+/p:AspnetCompilerPath=&quot;C:\windows\Microsoft.NET\Framework64\v4.0.30319&quot; 
+/p:VisualStudioVersion=12.0</cmdLineArgs>
+      <buildVariablesAsProperties>false</buildVariablesAsProperties>
+      <continueOnBuildFailure>false</continueOnBuildFailure>
+      <unstableIfWarnings>false</unstableIfWarnings>
+      <doNotUseChcpCommand>false</doNotUseChcpCommand>
+    </hudson.plugins.msbuild.MsBuildBuilder>
+    <hudson.plugins.msbuild.MsBuildBuilder plugin="msbuild@1.29">
+      <msBuildName>MS Build4.0(x86)</msBuildName>
+      <msBuildFile>D:\Jenkins\workspace\TestUnitTest\UnitTestProject1\UnitTestProject1.csproj</msBuildFile>
+      <cmdLineArgs>/p:Configuration=Debug
+/p:AspnetCompilerPath=&quot;C:\windows\Microsoft.NET\Framework64\v4.0.30319&quot; 
+/p:VisualStudioVersion=12.0</cmdLineArgs>
+      <buildVariablesAsProperties>false</buildVariablesAsProperties>
+      <continueOnBuildFailure>false</continueOnBuildFailure>
+      <unstableIfWarnings>false</unstableIfWarnings>
+      <doNotUseChcpCommand>false</doNotUseChcpCommand>
+    </hudson.plugins.msbuild.MsBuildBuilder>
+    <org.jenkinsci.plugins.MsTestBuilder plugin="mstestrunner@1.3.0">
+      <msTestName>MsTest 12.0</msTestName>
+      <testFiles>D:\Jenkins\workspace\TestUnitTest\UnitTestProject1\bin\Debug\UnitTestProject1.dll</testFiles>
+      <categories></categories>
+      <resultFile>TestResult.trx</resultFile>
+      <cmdLineArgs></cmdLineArgs>
+      <continueOnFail>false</continueOnFail>
+    </org.jenkinsci.plugins.MsTestBuilder>
+  </builders>
+  <publishers>
+    <hudson.plugins.mstest.MSTestPublisher plugin="mstest@0.23">
+      <testResultsFile>TestResult.trx</testResultsFile>
+      <failOnError>true</failOnError>
+      <keepLongStdio>false</keepLongStdio>
+      <buildTime>0</buildTime>
+    </hudson.plugins.mstest.MSTestPublisher>
+  </publishers>
+  <buildWrappers/>
+</project>

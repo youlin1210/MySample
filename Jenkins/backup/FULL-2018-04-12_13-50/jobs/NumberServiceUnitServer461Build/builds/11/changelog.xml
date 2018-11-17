@@ -1,0 +1,11 @@
+commit be249c9c49dc15827a24cc32ae4c3d87eb1249e9
+tree ca47ec8771e3291477fb16b97dc47ceccd712ed0
+parent ae2433023b9b53ec3115c6e8e8a5fd3192981b3d
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 18:13:05 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 18:13:05 +0800
+
+    add
+
+
+
+:100644 100644 20ecdc37642cde3c3a6d469d3b9ead0cf8b449b1 8febced9a4b1ab00ba2292b4e7d3cfbe04f9a63e M	ClassLibCI/ToolSetting.xml

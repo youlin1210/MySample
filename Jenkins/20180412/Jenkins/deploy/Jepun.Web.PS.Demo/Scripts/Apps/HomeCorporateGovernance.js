@@ -1,0 +1,2 @@
+/*! jepun 2018-03-29 */
+$(document).ready(function(){var a=$("#FormCorporateGovernance").comm();a.getCtrl("TabSelect").on("change",function(b){b.preventDefault(),a.getCtrl("TabList").getCtrl($(this).val(),"href").click()}),a.getCtrl("TabList").getCtrl("tab","data-toggle").on("click",function(b){a.getCtrl("TabSelect").val($(this).attr("href"))})});

@@ -1,0 +1,393 @@
+﻿@using Jepun.Web.PS.Comm
+@model Jepun.Web.PS.Models.BasePageModel
+@{
+    DateTime d1 = new DateTime(1970, 1, 1);
+    DateTime d2 = DateTime.Now.ToUniversalTime();
+    TimeSpan ts = new TimeSpan(d2.Ticks - d1.Ticks);
+    double TotalMilliseconds = ts.TotalMilliseconds;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@Model.Description">
+    <meta name="author" content="@Model.Author">
+    <link rel="icon" href="~/favicon.ico" type="image/ico" />
+    <meta property="og:locale" content="@Model.Locale">
+    <meta property="og:title" content="@Model.Title"> <!-- 預覽主題 -->
+    <meta property="og:type" content="@Model.Type">
+    <meta property="og:url" content="@Model.Url"> <!-- 網站連結 -->
+    <meta property="og:image" content="@Model.ImageUrl"> <!-- 預覽圖片 -->
+    <meta property="og:description" content="@Model.Description"> <!-- 預覽描述 -->
+    <title>@Model.Title</title>
+    @Styles.Render("~/Content/css")
+    <script type="text/javascript">
+    </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    <!-- SLIDER REVOLUTION SCRIPTS  -->
+    <script type="text/javascript">
+    @Html.Raw(Jepun.Web.PS.Controllers.BackHomeController.AddGlobalVariables())
+    </script>
+    @Scripts.Render("~/bundles/thirdparty")
+    @Scripts.Render("~/bundles/jepun")
+    
+</head>
+<body>
+    <form id="DefTargetForm" method="post" target="_blank">
+        <input type="hidden" name="RptName" />
+        <input type="hidden" name="DataString" />
+    </form>
+    <!-- End Loading  -->
+    <!--注意 一定id="FormLayout" -->
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "FormLayout" }))
+    {
+        @Html.AntiForgeryToken()
+    }
+    <div class="wrap container-fluid">
+        <div class="row">
+           
+                <header>
+                    <nav class="navbar navbar-default fixed-top">
+                        @*<div class="container-fluid">
+                            <div class="row">
+                                <div class="member-data">
+                                    <div class="container">
+                                        <ul class="pull-right">
+                                            <li><a href="javascript:void(0)">你好 OOO (紅利點數：100)</a></li>
+                                            <li><a href="javascript:void(0)">登出</a></li>
+                                            <li><a href="javascript:void(0)">密碼變更</a></li>
+                                            <li><a href="javascript:void(0)">資料修改</a></li>
+                                            <li><a target="_blank" href="https://etrade.ctbcinvestments.com.tw/CTBC.EC/">線上交易</a></li>
+                                            <li><a target="_blank" href="https://etrade.ctbcinvestments.com.tw/CTBC.EC/?action=accopen#{AccOpen}">預約開戶</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                        <div class="container">
+                            <div class="row">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#level1-dropdown" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="logo" href="~/Home/Index"><img src="~/Content/images/logo-w.png"></a>
+                                    <div class="social-mobile pull-right hidden-md hidden-lg">
+                                        <a target="_blank" href="https://line.me/R/ti/p/%40ctbcfund"><img src="~/Content/images/line-Icon.png"></a>
+                                    </div>
+                                </div>
+                                <div class="collapse navbar-collapse" id="level1-dropdown">
+                                    <div class="social pull-right hidden-xs">
+                                        <a target="_blank" href="https://line.me/R/ti/p/%40ctbcfund"><img src="~/Content/images/line-Icon.png"></a>
+                                    </div>                                    
+                                    <form class="navbar-form navbar-right" onsubmit="return false;">
+                                        <div class="form-group">
+                                            @*<input class="form-control" placeholder="請輸入您要查詢的關鍵字">*@
+                                            <div class="input-group input-group-sm input-group-rwd">
+                                                <select id="KeyWords" class="jepunhidden">
+                                                    <option class="jepunhidden" value="-1"></option>                                                    
+                                                    @foreach (Jepun.Services.AP.Contract.Models.Option item in ServiceHelper.GetPsKeywordsOnlineT1())
+                                                    {
+                                                        <option value="@item.Code">@item.Name</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-expanded="true"><span>關於我們</span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="~/Home/About">公司簡介</a></li>
+                                                <li><a href="~/Home/Award">得獎記錄</a></li>
+                                                <li><a href="~/Home/CorporateGovernance">公司治理規範及運作</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown hidden-md hidden-lg hide-desktop">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-expanded="true"><span>產品資訊</span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="~/Product/Index">境內基金專區</a></li>
+                                                <li><a href="~/Product/OutArea">境外基金專區</a></li>
+                                                <li><a href="~/Product/ETFArea">ETF專區</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown hidden-md hidden-lg hide-desktop">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-expanded="true"><span>投資好文</span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="~/Home/Market">市場展望</a></li>
+                                                <li><a href="~/Home/FundPerpective">基金透視</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown hidden-md hidden-lg hide-desktop">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-expanded="true"><span>理財小幫手</span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="~/Product/FundKnow">基金小百科</a></li>
+                                                <li><a href="~/Product/ETFKnow">ETF小百科</a></li>
+                                                <li><a href="~/Home/Consultant">投資顧問</a></li>
+                                                <li><a href="javascript:void(0)">退休規劃</a></li>
+                                                <li><a href="~/Product/InvestCount">投資試算</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown hidden-md hidden-lg hide-desktop">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-expanded="true"><span>銷售通路</span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="~/Home/SalesPath">銷售通路查詢</a></li>
+                                                <li><a href="~/Home/SalesReward">銷售通路報酬揭露</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="~/Home/FAQ"><span>常見問題</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+            @RenderBody()
+            <div class="Funds-Warning-wrapper">
+                <div class="Warning-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="warning-btn">
+                                <a class="toggle-btn" id="WarningBtn" data-toggle="collapse" href="#FundsWarnings" aria-expanded="true">
+                                    基金警語 <i class="fa fa-minus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse in" id="FundsWarnings">
+                    <div class="container">
+                        <div class="warning-content">
+                            <p>
+                                本單元資料僅供參考，請勿將其視為買賣基金或其他任何投資之建議或邀約。以上所作任何投資意見與市場分析結果，係依據資料製作當時情況進行判斷，本公司已力求資訊之正確與完整，惟文中之數據、預測或意見仍可能有脫漏或錯誤之處，本公司不保證本資料內容及來源資料之正確及完整性；或因市場環境變化已有變更，投資標的之價格與收益亦將隨時變動，投資人因不同時間進場，將有不同之投資績效，過去的績效亦不代表未來績效之保證，投資人應自行判斷投資標的、投資風險，或尋求專業之投資建議，不應將本資料內容引為投資之唯一依據，若有投資損益或因使用本資料所生之直接或間接損失，應由投資人自行負責。本公司或關係企業與其任何董事、受僱人不因此而承擔任何損害賠償責任。 基金經金融監督管理委員會核准或同意生效，惟不表示絕無風險，基金經理公司以往之經理績效不保證基金之最低投資收益；基金經理公司除盡善良管理人之注意義務外，不負責基金之盈虧，亦不保證最低之收益，投資人申購前應詳閱基金公開說明書。基金應負擔之費用（含分銷費用）已揭露於基金之公開說明書或投資人須知，本公司及銷售機構均備有基金公開說明書(或中譯本)或投資人須知，投資人亦可至本公司網站、公開資訊觀測站或境外基金資訊觀測站中查詢。匯率走勢亦可能影響所投資之海外資產而使資產價值變動；投資人應注意基金投資之風險包括利率風險、債券交易市場流動性不足之風險及投資無擔保公司債之風險；或有因利率變動、債券交易市場流動性不足及定期存單提前解約而影響基金淨值下跌之風險，同時或有受益人大量贖回時，致延遲給付贖回價款之可能。投資涉及新興市場部份，其波動性與風險程度可能較高，且其政治與經濟情勢穩定度可能低於已開發國家，也可能使資產價值受不同程度之影響。本文提及之經濟走勢預測不必然代表基金之績效，基金投資風險請詳閱基金公開說明書。投資人因不同時間進場，將有不同之投資績效，過去之績效亦不代表未來績效之保證。
+                            </p>
+                            <p class="danger">
+                                由於高收益債券之信用評等未達投資等級或未經信用評等，且對利率變動的敏感度甚高，故所投資之基金可能會因利率上升、市場流動性下降，或債券發行機構違約不支付本金、利息或破產而蒙受虧損，不適合無法承擔相關風險之投資人。得投資於高收益債券及非投資等級或未經信用評等之轉換公司債之基金，投資人不宜占其投資組合過高之比重，且適合承受較高風險之非保守型投資人，且基金可投資於美國Rule 144A債券，該債券屬私募性質，較可能發生流動性不足、財務訊息揭露不完整或因價格不透明導致波動性較大之風險。配息型基金配息率不代表基金報酬率，且過去配息率不代表未來配息率，基金淨值可能因市場因素而上下波動，於獲配息時須一併注意基金淨值之變動。基金的配息可能由基金的收益或本金中支付，任何涉及由本金支出的部份，可能導致原始投資金額減損。且因現金股利之配發時間及金額將視個別企業而定，基金係依所投資標的之除息基準日認列股利收入，並於每月終了後，依帳列記錄計算可分配收益，故月配息金額非固定且配息機制可能侵蝕本金。基金進行配息前未先扣除應負擔之相關費用(包含經理費、保管費及其他相關費用等)。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-arrow-up"></i></a>
+            <footer>
+                <div class="Footer-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <b class="company-title">
+                                    中國信託證券投資信託股份有限公司<br>
+                                    中國信託投信獨立經營管理
+                                </b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h3>
+                                    <b>聯絡方式</b>
+                                    <span class="border-line"></span>
+                                </h3>
+                                <ul>
+                                    <li>公司地址：<a href="https://www.google.com.tw/maps/place/115%E5%8F%B0%E5%8C%97%E5%B8%82%E5%8D%97%E6%B8%AF%E5%8D%80%E7%B6%93%E8%B2%BF%E4%BA%8C%E8%B7%AF188%E8%99%9F/25.059107,121.6129637,17z/data=!4m5!3m4!1s0x3442aca7b3424eb7:0x5ecd63f48f8ed396!8m2!3d25.0588446!4d121.6152597" target="_black">台北市11568南港區經貿二路188號12樓</a></li>
+                                    <li>公司電話：<a href="tel:02-26526688">02-26526688</a></li>
+                                    <li>客服專線：<a href="tel:02-26526699">02-26526699</a></li>
+                                    <li>客服信箱：<a href="mailto:cs@ctbcinvestments.com">cs@ctbcinvestments.com</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row col-lg-12">
+                                    <h3><b>其他相關連結</b></h3>
+                                    <span class="border-line"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <ul>
+                                            <li><a target="_blank" href="~/Content/pdf/個資運用聲明.pdf">個資運用聲明</a></li>
+                                            <li><a target="_blank" href="~/Content/pdf/風險預告聲明.pdf">風險預告聲明</a></li>
+                                            <li><a target="_blank" href="~/Content/pdf/中國信託投信隱私權政策.pdf">隱私權政策</a></li>
+                                            <li><a target="_blank" href="~/Content/pdf/資料保密承諾.pdf">資料保密承諾</a></li>
+                                            <li><a target="_blank" href="~/Content/pdf/中國信託投信交易安全機制.pdf">交易安全機制</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <ul>
+                                            <li><a href="~/Home/Mlaundering">防制洗錢及打擊資恐專區</a></li>
+                                            <li><a href="~/Home/LawClue">法定揭露專區</a></li>
+                                            <li><a href="~/Home/Friendliness">金融友善服務專區</a></li>
+                                            <li><a href="~/Home/Investors">機構投資人盡治理守則遵循聲明</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Copyright-area">
+                    <div class="container">
+                        <div class="row">
+                            <p><a href="javascript:void(0)">中國信託投信 版</a>權所有 建議瀏覽器版本 : IE10以上、Chrome、Safari、FireFox</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div class="sidebar-wrapper hidden-xs">
+        <ul>
+            @*<li>
+                <a class="sidebar-btn" href="">
+                    <i class="icon icon-Account"></i>
+                    帳務查詢
+                </a>
+            </li>*@
+            <li>
+                <a class="sidebar-btn" target="_blank" href="https://etrade.ctbcinvestments.com.tw/CTBC.EC/">
+                    <i class="icon icon-Trade"></i>
+                    線上交易
+                </a>
+            </li>
+            <li>
+                <a class="sidebar-btn" target="_blank" href="https://etrade.ctbcinvestments.com.tw/CTBC.EC/?action=accopen#{AccOpen}">
+                    <i class="icon icon-Openaccount"></i>
+                    預約開戶
+                </a>
+            </li>
+            @*<li>
+                <a class="sidebar-btn" href="">
+                    <i class="icon icon-Recommend"></i>
+                    文章推薦
+                </a>
+            </li>
+            <li>
+                <a class="sidebar-btn" href="">
+                    <i class="icon icon-Similar"></i>
+                    同類型理財
+                </a>
+            </li>
+            <li>
+                <a class="sidebar-btn" href="">
+                    <i class="icon icon-History"></i>
+                    瀏覽紀錄
+                </a>
+            </li>
+            <li>
+                <a class="sidebar-btn" href="">
+                    <i class="icon icon-Funds"></i>
+                    觀察基金
+                </a>
+            </li>*@
+        </ul>
+    </div>
+    <div class="sidebar-mobile-wrapper hidden-lg hidden-sm">
+        <ul>
+            @*<li><a class="mobile-btn" href=""><i class="icon icon-Account"></i>帳務查詢</a></li>*@
+            <li><a class="mobile-btn" target="_blank" href="https://etrade.ctbcinvestments.com.tw/CTBC.EC/"><i class="icon icon-Trade"></i>線上交易</a></li>
+            <li><a class="mobile-btn" target="_blank" href="https://etrade.ctbcinvestments.com.tw/CTBC.EC/?action=accopen#{AccOpen}"><i class="icon icon-Openaccount"></i>預約開戶</a></li>
+            @*<li><a class="mobile-btn" href=""><i class="icon icon-Recommend"></i>推薦文章</a></li>
+            <li><a class="mobile-btn" href=""><i class="icon icon-Similar"></i>同類型理財</a></li>
+            <li><a class="mobile-btn" href=""><i class="icon icon-History"></i>瀏覽紀錄</a></li>
+            <li><a class="mobile-btn" href=""><i class="icon icon-Funds"></i>觀察基金</a></li>*@
+        </ul>
+    </div>
+
+
+
+
+    <!--共用App 一定要加 overflow:auto-->
+    <div class="modal fade" id="GlbAppModal" style="overflow:auto" tabindex="-1" role="dialog" aria-labelledby="GlbAppModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <span class="small" style="float:right; margin-right:5px;"><i class="glyphicon glyphicon-time"></i> <span name="GlbServerTime">2017/05/17 10:48:01</span></span>
+                    <h4 class="modal-title"></h4>
+
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="GlbAppModalSub" style="overflow:auto" tabindex="-1" role="dialog" aria-labelledby="GlbAppModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--訊息提示-->
+    <div class="modal fade" id="GlbAlertModal" tabindex="-1" role="dialog" aria-labelledby="GlbAlertModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--ajax-loader-->
+    <div id="GlbLoadingModal"></div>
+    <!--操作逾時-->
+    <div class="modal fade" id="GlbUserTimeoutModal" tabindex="-1" role="dialog" aria-labelledby="GlbUserTimeoutModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header  btn-warning">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">@Jepun.Resource.Lab.MessageAlert</h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--權限提示-->
+    <div class="modal fade" id="GlbPermissionModal" tabindex="-1" role="dialog" aria-labelledby="GlbPermissionModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">warning</h4>
+                </div>
+                <div class="modal-body">No PrtScr permissions!!</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--安控權限-->
+    <div class="btn-group jepun-security-icon draggable" role="group">
+        <button class="btn btn-info btn-xs" type="button" style="display:none;">D</button>
+        <button class="btn btn-success btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-eye-open text-success" aria-hidden="true"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right"></ul>
+    </div>
+     
+    @Scripts.Render("~/bundles/PsJs")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/Apps/_Layout.js?@ServiceHelper.CacheBusting()"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿@using Jepun.Web.PS.Comm
+@model Jepun.Web.PS.Models.BasePageModel
+@{
+}
+@using (Html.BeginForm("", "Master", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormMaster" }))
+{
+    <div class="container">
+        <div class="row">
+            <section class="content">
+                <div class="container">
+                    <div class="cus-breadcrumb-wrapper">
+                        <ol class="breadcrumb">
+                            <li><a href="~/Home/Index">首頁</a></li>
+                            <li class="active">大師開講</li>
+                        </ol>
+                    </div>
+                    <div class="page-header-wrapper">
+                        <h3 class="title"><span>大師開講</span></h3>
+                        <hr>
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="master-area" name="Master">
+                                @Html.Raw(Model.Dictionary["Master"])
+                            </div>
+                            <div class="pagination-wrapper">
+                                <nav aria-label="Page navigation">
+                                </nav>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/HomeMaster.js?@ServiceHelper.CacheBusting()"></script>

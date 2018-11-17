@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Defaulttargets="StyleCop" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>    
+	<!-- file want to scan -->
+    <AnalysisFileIncludes>$(MSBuildStartupDirectory)\**\*.cs</AnalysisFileIncludes>
+    <!-- file dont want to scan -->
+	<AnalysisFileExcludes>
+		$(MSBuildStartupDirectory)\**\*Test.cs;
+		$(MSBuildStartupDirectory)\**\*AssemblyInfo.cs;
+		$(MSBuildStartupDirectory)\**\*.Designer.cs;
+		$(MSBuildStartupDirectory)\**\Reference.cs;
+		$(MSBuildStartupDirectory)\**\Configuration.cs;
+		$(MSBuildStartupDirectory)\**\*.feature.cs;
+		$(MSBuildStartupDirectory)\**\*Steps.cs;</AnalysisFileExcludes>
+  </PropertyGroup>
+
+  <UsingTask AssemblyFile="C:\Users\youlinchen\.nuget\packages\stylecop.msbuild\5.0.0\build\..\tools\StyleCop.dll" TaskName="StyleCopTask"/>
+
+  <Target Name="StyleCop">    
+    <!-- Create a collection of files to scan -->
+	<CreateItem Include="$(AnalysisFileIncludes)" Exclude="$(AnalysisFileExcludes)">
+		<Output TaskParameter="Include" ItemName="StyleCopFiles" />
+	</CreateItem>
+
+	<!-- Execute stylecop scan -->
+    <StyleCopTask
+			ProjectFullPath="$(MSBuildProjectFile)"
+			SourceFiles="@(StyleCopFiles)"
+			ForceFullAnalysis="true"
+			TreatErrorsAsWarnings="true"
+			OutputFile="$(MSBuildStartupDirectory)\StyleCopReport.xml"
+			CacheResults="true" />    
+  </Target>
+</Project>

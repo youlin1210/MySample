@@ -1,0 +1,220 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitTest
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\Test-pc\git\Jenkins # timeout=10
+Fetching upstream changes from \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\Test-pc\git\Jenkins +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision 988c685eb7c23efc3a266b8c8aa0cd277963522e (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f 988c685eb7c23efc3a266b8c8aa0cd277963522e
+Commit message: "add version"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 31d4e365c622427c3265db82de1270563b214ba0 # timeout=10
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins4080614278899252144.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>echo ....執行 NuGet 還原 
+....執行 NuGet 還原
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI>"D:\Jenkins\nuget.exe" restore JenkinsCI.sln 
+MSBuild auto-detection: using msbuild version '15.7.66.2115' from 'C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\bin'.
+Restoring packages for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj...
+Restoring packages for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj...
+Committing restore...
+Tool assets file has not changed. Skipping assets file write. Path: C:\WINDOWS\system32\config\systemprofile\.nuget\packages\.tools\dotnet-xunit\2.3.1\netcoreapp2.0\project.assets.json
+Restore completed in 92.21 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json
+  GET https://api.nuget.org/v3-flatcontainer/xunit/index.json
+  GET https://api.nuget.org/v3-flatcontainer/xunit.runner.visualstudio/index.json
+Committing restore...
+Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.props.
+Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.targets.
+Writing lock file to disk. Path: D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\obj\project.assets.json
+Restore completed in 467.32 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+  OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json 1115ms
+  OK https://api.nuget.org/v3-flatcontainer/xunit.runner.visualstudio/index.json 1136ms
+  OK https://api.nuget.org/v3-flatcontainer/xunit/index.json 1158ms
+  GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/15.7.0-preview-20180320-02/microsoft.net.test.sdk.15.7.0-preview-20180320-02.nupkg
+  GET https://api.nuget.org/v3-flatcontainer/xunit.runner.visualstudio/2.4.0-beta.1.build3958/xunit.runner.visualstudio.2.4.0-beta.1.build3958.nupkg
+  GET https://api.nuget.org/v3-flatcontainer/xunit/2.4.0-beta.1.build3958/xunit.2.4.0-beta.1.build3958.nupkg
+  OK https://api.nuget.org/v3-flatcontainer/xunit.runner.visualstudio/2.4.0-beta.1.build3958/xunit.runner.visualstudio.2.4.0-beta.1.build3958.nupkg 1099ms
+  OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/15.7.0-preview-20180320-02/microsoft.net.test.sdk.15.7.0-preview-20180320-02.nupkg 1107ms
+  OK https://api.nuget.org/v3-flatcontainer/xunit/2.4.0-beta.1.build3958/xunit.2.4.0-beta.1.build3958.nupkg 1108ms
+  GET https://api.nuget.org/v3-flatcontainer/xunit.core/index.json
+  GET https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.testhost/index.json
+  GET https://api.nuget.org/v3-flatcontainer/xunit.assert/index.json
+  GET https://api.nuget.org/v3-flatcontainer/xunit.analyzers/index.json
+  OK https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.testhost/index.json 288ms
+  GET https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.testhost/15.7.0-preview-20180320-02/microsoft.testplatform.testhost.15.7.0-preview-20180320-02.nupkg
+  OK https://api.nuget.org/v3-flatcontainer/xunit.assert/index.json 353ms
+  GET https://api.nuget.org/v3-flatcontainer/xunit.assert/2.4.0-beta.1.build3958/xunit.assert.2.4.0-beta.1.build3958.nupkg
+  OK https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.testhost/15.7.0-preview-20180320-02/microsoft.testplatform.testhost.15.7.0-preview-20180320-02.nupkg 289ms
+  OK https://api.nuget.org/v3-flatcontainer/xunit.core/index.json 1117ms
+  GET https://api.nuget.org/v3-flatcontainer/xunit.core/2.4.0-beta.1.build3958/xunit.core.2.4.0-beta.1.build3958.nupkg
+  OK https://api.nuget.org/v3-flatcontainer/xunit.analyzers/index.json 1188ms
+  GET https://api.nuget.org/v3-flatcontainer/xunit.analyzers/0.8.0/xunit.analyzers.0.8.0.nupkg
+  GET https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.objectmodel/index.json
+  OK https://api.nuget.org/v3-flatcontainer/xunit.analyzers/0.8.0/xunit.analyzers.0.8.0.nupkg 66ms
+  OK https://api.nuget.org/v3-flatcontainer/xunit.assert/2.4.0-beta.1.build3958/xunit.assert.2.4.0-beta.1.build3958.nupkg 1104ms
+  OK https://api.nuget.org/v3-flatcontainer/xunit.core/2.4.0-beta.1.build3958/xunit.core.2.4.0-beta.1.build3958.nupkg 1112ms
+  OK https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.objectmodel/index.json 1099ms
+  GET https://api.nuget.org/v3-flatcontainer/xunit.extensibility.core/index.json
+  GET https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.objectmodel/15.7.0-preview-20180320-02/microsoft.testplatform.objectmodel.15.7.0-preview-20180320-02.nupkg
+  GET https://api.nuget.org/v3-flatcontainer/xunit.extensibility.execution/index.json
+  OK https://api.nuget.org/v3-flatcontainer/xunit.extensibility.core/index.json 313ms
+  GET https://api.nuget.org/v3-flatcontainer/xunit.extensibility.core/2.4.0-beta.1.build3958/xunit.extensibility.core.2.4.0-beta.1.build3958.nupkg
+  OK https://api.nuget.org/v3-flatcontainer/xunit.extensibility.core/2.4.0-beta.1.build3958/xunit.extensibility.core.2.4.0-beta.1.build3958.nupkg 290ms
+  OK https://api.nuget.org/v3-flatcontainer/xunit.extensibility.execution/index.json 1110ms
+  OK https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.objectmodel/15.7.0-preview-20180320-02/microsoft.testplatform.objectmodel.15.7.0-preview-20180320-02.nupkg 1110ms
+  GET https://api.nuget.org/v3-flatcontainer/xunit.extensibility.execution/2.4.0-beta.1.build3958/xunit.extensibility.execution.2.4.0-beta.1.build3958.nupkg
+  OK https://api.nuget.org/v3-flatcontainer/xunit.extensibility.execution/2.4.0-beta.1.build3958/xunit.extensibility.execution.2.4.0-beta.1.build3958.nupkg 1104ms
+Installing xunit.extensibility.execution 2.4.0-beta.1.build3958.
+Installing xunit.extensibility.core 2.4.0-beta.1.build3958.
+Installing Microsoft.TestPlatform.ObjectModel 15.7.0-preview-20180320-02.
+Installing xunit.core 2.4.0-beta.1.build3958.
+Installing xunit.assert 2.4.0-beta.1.build3958.
+Installing xunit.analyzers 0.8.0.
+Installing Microsoft.TestPlatform.TestHost 15.7.0-preview-20180320-02.
+Installing xunit 2.4.0-beta.1.build3958.
+Installing Microsoft.NET.Test.Sdk 15.7.0-preview-20180320-02.
+Installing xunit.runner.visualstudio 2.4.0-beta.1.build3958.
+Committing restore...
+Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\obj\NumberLibTest.csproj.nuget.g.props.
+Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\obj\NumberLibTest.csproj.nuget.g.targets.
+Writing lock file to disk. Path: D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\obj\project.assets.json
+Restore completed in 9.16 sec for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+
+NuGet Config files used:
+    C:\WINDOWS\system32\config\systemprofile\AppData\Roaming\NuGet\NuGet.Config
+    C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.config
+    C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.Fallback.config
+
+Feeds used:
+    C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
+    https://api.nuget.org/v3/index.json
+
+Installed:
+    10 package(s) to D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI>exit 0 
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins6301618085093864705.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib>dotnet restore 
+  Restore completed in 44.24 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 41.05 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+  NumberLib -> D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:02.16
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib>exit 0 
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins155199128497294217.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>dotnet restore 
+  Restoring packages for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj...
+  Restore completed in 18.86 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 28.7 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 982.38 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 20.26 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 52.45 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 81.03 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  NumberLib -> D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+  NumberLibTest -> D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\NumberLibTest.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:02.91
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>exit 0 
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins8926999144559848074.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>dotnet test -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 41.34 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 48.8 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 72.36 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+已開始建置，請稍候...
+建置完成。
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\NumberLibTest.dll(.NETCoreApp,Version=v2.0) 的測試回合
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180221-13 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+正在啟動測試執行，請稍候...
+
+測試總計: 2。成功: 2。失敗: 0。略過: 0。
+測試回合成功。
+測試執行時間: 1.5034 秒
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>"D:\Jenkins\NuGet.exe" restore NumberLibTest.csproj 
+MSBuild auto-detection: using msbuild version '15.7.66.2115' from 'C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\bin'.
+Restoring packages for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj...
+Committing restore...
+Assets file has not changed. Skipping assets file writing. Path: D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\obj\project.assets.json
+Restore completed in 37.99 ms for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+Committing restore...
+Writing tool lock file to disk. Path: C:\WINDOWS\system32\config\systemprofile\.nuget\packages\.tools\dotnet-xunit\2.3.1\netcoreapp2.0\project.assets.json
+Restore completed in 1.26 sec for D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+
+NuGet Config files used:
+    C:\WINDOWS\system32\config\systemprofile\AppData\Roaming\NuGet\NuGet.Config
+    C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.config
+    C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.Fallback.config
+
+Feeds used:
+    C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
+    https://api.nuget.org/v3/index.json
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest>exit 0 
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins2939850487327085010.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>rem cd D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0\ 
+
+D:\Jenkins\workspace\NumberServiceUnitTest>rem vstest.console.exe NumberLibTest.dll /EnableCodeCoverage /Logger:trx 
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\ 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0>vstest.console.exe NumberLibTest.dll /EnableCodeCoverage /Logger:trx 
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180307-01 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+正在啟動測試執行，請稍候...
+2.0819
+資料收集器 'Code Coverage' 的訊息: Cannot find CodeCoverage.exe.。
+System.IO.FileNotFoundException: D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\NumberLibTest.dll 中沒有可用的測試。請確定測試專案具有套件 "Microsoft.NET.Test.Sdk" 的 NuGet 參考，且架構的版本設定適當，然後再試一次。
+   於 Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Hosting.DotnetTestHostManager.GetTestHostProcessStartInfo(IEnumerable`1 sources, IDictionary`2 environmentVariables, TestRunnerConnectionInfo connectionInfo)
+   於 Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Client.ProxyOperationManager.SetupChannel(IEnumerable`1 sources, CancellationToken cancellationToken)
+   於 Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Client.ProxyExecutionManager.StartTestRun(TestRunCriteria testRunCriteria, ITestRunEventsHandler eventHandler)
+
+測試回合已中止。
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0>exit 1 
+Build step '執行 Windows 批次指令' marked build as failure
+Finished: FAILURE

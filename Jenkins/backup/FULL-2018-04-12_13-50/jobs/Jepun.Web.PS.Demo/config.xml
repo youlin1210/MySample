@@ -1,0 +1,63 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Jepun.Web.PS for Demo</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.8.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>\\jprd\git\Jepun.FMS.Out</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>0 16 * * *
+0 18 * * *</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>&quot;D:\Jenkins\NuGet.exe&quot; restore D:\Jenkins\workspace\Jepun.Web\Jepun.Web.sln &#xd;
+&quot;D:\Jenkins\NuGet.exe&quot; restore D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.FMS.sln</command>
+    </hudson.tasks.BatchFile>
+    <hudson.plugins.msbuild.MsBuildBuilder plugin="msbuild@1.29">
+      <msBuildName>MS Build4.0(x64)</msBuildName>
+      <msBuildFile>D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.Web.PS\Jepun.Web.PS.csproj</msBuildFile>
+      <cmdLineArgs>/p:publishUrl=&quot;D:\Jenkins\deploy\Jepun.Web.PS.Demo&quot; /p:Configuration=Demo /p:DeployOnBuild=true /p:PublishProfile=&quot;D:\Jenkins\deploy\Jepun.Web.PS.Demo\PublishProfiles\Jepun.Web.PS.pubxml&quot;  /p:AspnetCompilerPath=&quot;C:\windows\Microsoft.NET\Framework64\v4.0.30319&quot; /p:VisualStudioVersion=12.0</cmdLineArgs>
+      <buildVariablesAsProperties>false</buildVariablesAsProperties>
+      <continueOnBuildFailure>false</continueOnBuildFailure>
+      <unstableIfWarnings>false</unstableIfWarnings>
+      <doNotUseChcpCommand>false</doNotUseChcpCommand>
+    </hudson.plugins.msbuild.MsBuildBuilder>
+    <hudson.tasks.BatchFile>
+      <command>cd D:\Jenkins\&#xd;
+dir&#xd;
+path&#xd;
+call grunt release-ctb-ps-out</command>
+    </hudson.tasks.BatchFile>
+  </builders>
+  <publishers>
+    <hudson.tasks.Mailer plugin="mailer@1.21">
+      <recipients>youlinchen@jepun.com.tw</recipients>
+      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>false</sendToIndividuals>
+    </hudson.tasks.Mailer>
+  </publishers>
+  <buildWrappers/>
+</project>

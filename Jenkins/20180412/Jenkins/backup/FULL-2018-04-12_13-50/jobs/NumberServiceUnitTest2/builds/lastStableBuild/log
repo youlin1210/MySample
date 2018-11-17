@@ -1,0 +1,28 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitTest2
+[NumberServiceUnitTest2] $ cmd /c call C:\WINDOWS\TEMP\jenkins7246026017619719795.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest2>cd D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\ 
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0>vstest.console.exe NumberLibTest.dll /EnableCodeCoverage /Logger:trx 
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180307-01 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+正在啟動測試執行，請稍候...
+2.0395
+資料收集器 'Code Coverage' 的訊息: Cannot find CodeCoverage.exe.。
+[xUnit.net 00:00:00.0041561] xUnit.net VSTest Adapter v2.4.0-beta.1.build3958 (64-bit .NET Core 4.6.26212.01)
+[xUnit.net 00:00:00.4881579]   Discovering: NumberLibTest
+[xUnit.net 00:00:00.5438902]   Discovered:  NumberLibTest
+[xUnit.net 00:00:00.5503990]   Starting:    NumberLibTest
+[xUnit.net 00:00:00.7023434]   Finished:    NumberLibTest
+成功   NumberLibTest.NuberServiceTest.ShouldReturnTrueGivenEvenValue
+成功   NumberLibTest.NuberServiceTest.ShouldReturnFalseGivenOddValue
+結果檔案: D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\TestResults\YOULIN-PC$_YOULIN-PC_2018-03-31_17_06_59.trx
+
+測試總計: 2。成功: 2。失敗: 0。略過: 0。
+測試回合成功。
+測試執行時間: 1.4703 秒
+
+D:\Jenkins\workspace\NumberServiceUnitTest\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0>exit 0 
+Finished: SUCCESS

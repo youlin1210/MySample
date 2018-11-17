@@ -1,0 +1,68 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@using Jepun.Web.PS.Comm
+@{
+}
+@using (Html.BeginForm("", "SecCalendar", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormSecCalendar" }))
+{
+    <div class="container">
+        <div class="row">
+            <section class="content">
+                <div class="container">
+                    <div class="cus-breadcrumb-wrapper">
+                        <ol class="breadcrumb">
+                            <li><a href="~/Home/Index">首頁</a></li>
+                            <li class="active">基金休市日一覽</li>
+                        </ol>
+                    </div>
+                    <div class="page-header-wrapper">
+                        <h3 class="title"><span>中國信託各系列暨總代理基金休市日</span></h3>
+                        <hr>
+                    </div>
+                    <div>
+                        <div class="custom-calendar-wrap custom-calendar-full">
+                            <div class="custom-header clearfix">
+                                <h3 class="custom-month-year">
+                                    <span name="custom-year" class="custom-year"></span>
+                                    <span name="custom-month" class="custom-month"></span>
+                                </h3>
+                                <nav>
+                                    <span name="custom-prev" class="custom-prev"></span>
+                                    <span name="custom-next" class="custom-next"></span>
+                                    @*<span name="custom-current" class="custom-current"></span>*@
+                                </nav>
+                            </div>
+                            <div name="calendar" class="fc-calendar-container">
+
+                            </div>
+
+                            <div class="editor-area">
+                                <div class="col-xs-12 col-sm-12">
+                                    <h4 style="color: #d4b568; ">休市基金</h4>
+                                    <ul name="calendarList"></ul>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <hr />
+                        <ol class="notice-list">
+                            <li style="color: #ff0000;">本公司依各基金公開說明書有關基金營業日之規定揭露休市資訊，如有異動，本公司將於異動日前一週公告之。</li>
+                            <li style="color: #ff0000;"> 如遇天災或不可抗力情事致新增休假日期，本公司得於知悉後立即公告之。</li>
+                        </ol>
+
+                    </div>
+                </div>
+            </section>
+            @*<script>
+                $(document).ready(function () {
+                    var form = $("#FormSecCalendar").comm();
+                  @Html.Raw(Model.Dictionary["Calendar"])
+                   // console.log($.parseJSON(calendardata));
+                    form.getCtrl("calendar").calendar(calendardata);
+                });
+            </script>*@
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/HomeSecCalendar.js?@ServiceHelper.CacheBusting()"></script>
+
+

@@ -1,0 +1,21 @@
+¥Ñ¨Ï¥ÎªÌ [8mha:////4E9IgijjWSh0iFjZlKLafM0SZiAtWdbV06BAJlP2qvUsAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyuEgYe/dLi1CL9yvxSoI0AG1rJssEAAAA=[0myoulinchen ±Ò°Ê
+«Ø¸m¤¤ ¤u§@°Ï D:\Jenkins\workspace\Jepun.Web.PS.Demo
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from 2 remote Git repositories
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\jprd\git\Jepun.FMS.Out # timeout=10
+Fetching upstream changes from \\jprd\git\Jepun.FMS.Out
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\jprd\git\Jepun.FMS.Out +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe config remote.origin1.url \\jprd\git\Jepun.Web # timeout=10
+Fetching upstream changes from \\jprd\git\Jepun.Web
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\jprd\git\Jepun.Web +refs/heads/*:refs/remotes/origin1/*
+Seen branch in repository origin/master
+Seen branch in repository origin1/master
+Seen 2 remote branches
+ > C:\Program Files\Git\bin\git.exe show-ref --tags -d # timeout=10
+Checking out Revision 6b95db00741022e9dee654a774278ed9fb4d1253 (origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f 6b95db00741022e9dee654a774278ed9fb4d1253
+Commit message: "add version"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 6b95db00741022e9dee654a774278ed9fb4d1253 # timeout=10
+Finished: SUCCESS

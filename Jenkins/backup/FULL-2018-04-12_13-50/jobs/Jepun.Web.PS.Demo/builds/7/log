@@ -1,0 +1,26 @@
+¥Ñ¨Ï¥ÎªÌ [8mha:////4E9IgijjWSh0iFjZlKLafM0SZiAtWdbV06BAJlP2qvUsAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyuEgYe/dLi1CL9yvxSoI0AG1rJssEAAAA=[0myoulinchen ±Ò°Ê
+«Ø¸m¤¤ ¤u§@°Ï D:\Jenkins\workspace\Jepun.Web.PS.Demo
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\jprd\git\Jepun.FMS.Out # timeout=10
+Fetching upstream changes from \\jprd\git\Jepun.FMS.Out
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\jprd\git\Jepun.FMS.Out +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision abd11d0f63c4dd590b509b9788a851da25a972f0 (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f abd11d0f63c4dd590b509b9788a851da25a972f0
+Commit message: "ADD VERSION"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 6b95db00741022e9dee654a774278ed9fb4d1253 # timeout=10
+[Jepun.Web.PS.Demo] $ cmd /c call C:\WINDOWS\TEMP\jenkins8244943975103431913.bat
+
+D:\Jenkins\workspace\Jepun.Web.PS.Demo>NuGet restore D:\Jenkins\workspace\Jepun.Web\Jepun.Web.sln  
+'NuGet' ¤£¬O¤º³¡©Î¥~³¡©R¥O¡B¥i°õ¦æªºµ{¦¡©Î§å¦¸ÀÉ¡C
+
+D:\Jenkins\workspace\Jepun.Web.PS.Demo>NuGet restore D:\Jenkins\workspace\Jepun.Web.PS.Demo\Jepun.FMS.sln 
+'NuGet' ¤£¬O¤º³¡©Î¥~³¡©R¥O¡B¥i°õ¦æªºµ{¦¡©Î§å¦¸ÀÉ¡C
+
+D:\Jenkins\workspace\Jepun.Web.PS.Demo>exit 9009 
+Build step '°õ¦æ Windows §å¦¸«ü¥O' marked build as failure
+Finished: FAILURE

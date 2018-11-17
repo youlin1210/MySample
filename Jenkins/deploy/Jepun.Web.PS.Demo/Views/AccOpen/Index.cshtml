@@ -1,0 +1,153 @@
+﻿@using Jepun.Web.PS.Comm
+@model Jepun.Web.PS.Models.AccOpenViewModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("", "AccOpen", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormAccOpen" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="col-md-12 form-group">
+        <p>親愛的用戶您好，請填寫以下欄位資料，以成為本站會員。</p>
+        <p class="text-danger">提醒您:帳號欄位務必請使用您個人的身分證號碼，且相關欄位請填寫真實資料，未來當您申請成為本公司電子交易戶時，</p>
+        <p class="text-danger">您的相關優惠與資訊才能一併轉入喔<a class="text-info">(<u>加入電子交易戶的好處</u>)</a></p>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label muted">姓名:</label>
+        <div class="col-sm-4">
+            @Html.EditorFor(model => model.Name).Txt(Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label muted">身分證字號(帳號):</label>
+        <div class="col-sm-4">
+            @Html.EditorFor(model => model.CNO).Txt(Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.CNO)
+            @Html.ValidationMessageFor(model => model.CNO)
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label muted">E-mail:</label>
+        <div class="col-sm-4">
+            @Html.EditorFor(model => model.Email).Txt(Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.EMAIL)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label muted text-danger">密碼:</label>
+        <div class="col-sm-4">
+            @Html.EditorFor(model => model.NewPwd).Txt(Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.Password)
+            @Html.ValidationMessageFor(model => model.NewPwd)
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label muted text-danger">請再次輸入密碼:</label>
+        <div class="col-sm-4">
+            @Html.EditorFor(model => model.ConfirmPwd).Txt(Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.Password)
+            @Html.ValidationMessageFor(model => model.ConfirmPwd)
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label muted">生日:</label>
+        <div class="col-sm-4">
+            @Html.EditorFor(model => model.Birth_DT).Txt(Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.BRITH_DT)
+            @Html.ValidationMessageFor(model => model.Birth_DT)
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label muted">聯絡電話 (公):</label>
+        <div class="col-sm-2">
+            <div class="input-group input-group-sm input-group-rwd">
+                <span class="input-group-addon input-group-rwd">區碼</span>
+                @Html.EditorFor(model => model.OtelCode).Txt(Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.OTELCODE)
+            </div>
+            <div>@Html.ValidationMessageFor(model => model.OtelCode)</div>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group input-group-sm input-group-rwd">
+                <span class="input-group-addon input-group-rwd">聯絡電話(公)</span>
+                @Html.EditorFor(model => model.OtelPhone).Tel(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.OTELPHONE })
+
+            </div>
+            <div>@Html.ValidationMessageFor(model => model.OtelPhone)</div>
+        </div>
+        <div class="col-sm-2">
+            <div class="input-group input-group-sm input-group-rwd">
+                <span class="input-group-addon input-group-rwd">分機</span>
+                @Html.EditorFor(model => model.OtelExtension).Tel(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "分機" })
+            </div>
+            <div>@Html.ValidationMessageFor(model => model.OtelExtension)</div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label muted">聯絡電話(宅):</label>
+        <div class="col-sm-2">
+            <div class="input-group input-group-sm input-group-rwd">
+                <span class="input-group-addon input-group-rwd">區碼</span>
+                @Html.EditorFor(model => model.HtelCode).Txt(Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.HTELCODE)
+            </div>
+            <div>@Html.ValidationMessageFor(model => model.HtelCode)</div>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group input-group-sm input-group-rwd">
+                <span class="input-group-addon input-group-rwd">聯絡電話(宅)</span>
+                @Html.EditorFor(model => model.HtelPhone).Tel(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.HTELPHONE })
+
+            </div>
+            <div>@Html.ValidationMessageFor(model => model.HtelPhone)</div>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label muted">行動電話:</label>
+        <div class="col-sm-4">
+            @Html.EditorFor(model => model.CellPhone).Txt(Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.CELLPHONE)
+            @Html.ValidationMessageFor(model => model.CellPhone)
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label muted">通訊地址:</label>
+        <div class="col-sm-9">
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <div class="input-group input-group-sm input-group-rwd">
+                        <span class="input-group-addon input-group-rwd">城市</span>
+                        @Html.DropDownListFor(model => model.MailCityCode, Enumerable.Empty<SelectListItem>()).Sel()
+
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.MailCityCode)</div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group input-group-sm input-group-rwd">
+                        <span class="input-group-addon input-group-rwd">市區鄉鎮</span>
+                        @Html.DropDownListFor(model => model.Mail_Code, Enumerable.Empty<SelectListItem>()).Sel()
+
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.Mail_Code)</div>
+                </div>
+                <div class="col-sm-12"><div class="text-danger">@Jepun.Resource.Lab.AddressAlert</div></div>
+                <div class="col-sm-12">
+                    <div class="input-group input-group-sm input-group-rwd">
+                        <span class="input-group-addon input-group-rwd">通訊地址</span>
+                        @Html.EditorFor(model => model.Mail_Address).Txt(Jepun.Resource.Lab.PleaseInput + Jepun.Resource.Lab.MAIL_ADDRESS)
+
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.Mail_Address)</div>
+                </div>
+            </div>
+        </div>
+        @Html.HiddenFor(model => model.LogSN).Txt()
+    </div>
+    <div class="form-group">
+        <div class="text-center">
+            <button class="btn btn-primary" type="button" name="BtnIns">確定</button>
+            <button class="btn btn-primary" type="button" name="BtnReSend">重新寄送</button>
+        </div>
+    </div>
+    <div class="col-md-12 form-group">
+        <p class="text-danger">註1:按下確定後，本公司將發送郵件至您的Email。若您10分鐘後仍未收到email，請點選重新寄送</p>
+        <p class="text-danger">註2:如有任何問題，請於週一~週五 9:00-17:00 來電 02-26526699</p>
+    </div>
+}
+<script src="~/Scripts/Apps/AccOpen.js?@ServiceHelper.CacheBusting()"></script>

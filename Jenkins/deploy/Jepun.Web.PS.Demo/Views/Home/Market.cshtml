@@ -1,0 +1,60 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@using Jepun.Web.PS.Comm
+@{
+}
+@using (Html.BeginForm("", "Market", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormMarket" }))
+{
+    <div class="container">
+        <div class="row">
+            <section class="content">
+                <div class="container">
+                    <div class="cus-breadcrumb-wrapper">
+                        <ol class="breadcrumb">
+                            <li><a href="~/Home/Index">首頁</a></li>
+                            <li class="active">@Model.H1</li>
+                        </ol>
+                    </div>
+                    <div class="page-header-wrapper">
+                        <h3 class="title"><span>@Model.H1</span></h3>
+                        <hr>
+                    </div>
+                    <div class="funds-area">
+                        <div class="col-xs-12">
+                            @*<h3 class="pages-title">@Model.H1</h3>*@
+                            <p>為讓本公司客戶及關注市場變動的投資人，了解目前全球投資環境關心的議題、重大事件等，本公司提供市場展望供您參考</p>
+                            <select class="form-control" name="ArtType"><option>123</option></select>
+                            <hr />
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="table">
+                                <table name="ArtTable" class="table table-striped table-hover common-table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                文章標題
+                                            </th>
+                                            <th>
+                                                文章類型
+                                            </th>
+                                            <th>
+                                                發佈日期
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @*@Html.Raw(Model.Dictionary["News"])*@
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pagination-wrapper">
+                                <nav aria-label="Page navigation">
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/HomeMarket.js?@ServiceHelper.CacheBusting()"></script>

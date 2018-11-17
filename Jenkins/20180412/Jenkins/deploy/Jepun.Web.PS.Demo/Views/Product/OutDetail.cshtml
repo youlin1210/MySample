@@ -1,0 +1,127 @@
+﻿@using Jepun.Web.PS.Comm
+@model Jepun.Web.PS.Models.BasePageModel
+@{
+
+}
+@using (Html.BeginForm("", "OutDetail", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormOutDetail" }))
+{
+
+<div class="container">
+    <input name="ProductOutSideNo" type="hidden" value='@Model.Dictionary["id"]' />
+    <input name="ProductFundName" type="hidden" value='@Model.H1' />
+    <input name="Link" type="hidden" value="@Request["Link"]" />
+    <div class="row">
+        <section class="content">
+            <div class="container">
+                <div class="cus-breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        @Html.Raw(Model.Breadcrumb)
+                    </ol>
+                </div>
+                <div class="page-header-wrapper">
+                    <h3 class="title"><span>@Model.H1</span><span class="text-danger">@Model.Dictionary["ProductAlert"]</span></h3>
+                    <hr>
+                    <ul name="TabList" class="nav nav-tabs sub-tabs desktop " role="tablist">
+                        <li class="active" role="presentation"><a name="Link1" aria-controls="type1" data-toggle="tab" href="#type1" role="tab">產品資訊</a></li>
+                        <li class="" role="presentation"><a name="Link2" aria-controls="type2" data-toggle="tab" href="#type2" role="tab">績效走勢</a></li>
+                        <li class="" role="presentation"><a name="Link3" aria-controls="type3" data-toggle="tab" href="#type3" role="tab">基金持股</a></li>
+                        @Html.Raw(Model.Dictionary["DistributionTitle"])
+                    </ul>
+                    <label class="mobile-select-arrow">
+                        <select name="TabSelect" class="form-control mobile-select mobile" size="1">
+                            <option value="#type1">產品資訊</option>
+                            <option value="#type2">績效走勢</option>
+                            <option value="#type3">基金持股</option>
+                            @Html.Raw(Model.Dictionary["DistributionTitleOption"])
+                        </select>
+                    </label>
+                    <div role="tabpanel">
+                        <div role="tabpanel">
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="type1" role="tabpanel">
+                                    <div class="etf-profile-wrapper">
+                                        @Html.Raw(Model.Dictionary["Product"])
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type2" role="tabpanel">
+                                    <div class="funds-chart-wrapper">
+                                        <div class="chart-field">
+                                            <h3 class="pages-title">淨值走勢</h3>
+                                            <div class="fundration-date row">
+                                                <div class="col-md-8">
+
+                                                    <div class="form-group">
+                                                        <label for="">從：</label>
+                                                        <input data-val="true" data-val-dateformat="請輸入正確年月日(YYYY/MM/DD)"
+                                                               data-val-dateformat-culture="zh-TW"
+                                                               data-val-dateformat-format="YYYY/MM/DD"
+                                                               data-val-required="開始日期 欄位是必要項。"
+                                                               class="form-control-date"
+                                                               placeholder="請輸入 開始日期"
+                                                               name="StartDate" type="text" value="@DateTime.Now.AddMonths(-12).ToString("yyyy/MM/dd")">
+                                                        <label for="">至：</label>
+                                                        <input data-val="true" data-val-dateformat="請輸入正確年月日(YYYY/MM/DD)"
+                                                               data-val-dateformat-culture="zh-TW"
+                                                               data-val-dateformat-format="YYYY/MM/DD"
+                                                               data-val-required="開始日期 欄位是必要項。"
+                                                               class="form-control-date"
+                                                               placeholder="請輸入 開始日期"
+                                                               name="EndDate" type="text" value="@DateTime.Now.ToString("yyyy/MM/dd")">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button name="searchBtn" class="searchBtn">搜尋</button>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-2"></div>
+                                                <div class="col-xs-12 col-sm-8">
+                                                    <canvas name="productline"></canvas>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-2"></div>
+                                            </div>
+                                        </div>
+                                        <div class="recently-table">
+                                            <h3 class="pages-title">基金績效(%)</h3>
+                                            @Html.Raw(Model.Dictionary["FundPerformance"])
+                                            <div class="source text-center">
+                                                <span>資料來源：Lipper、中國信託投信</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type3" role="tabpanel">
+                                    @Html.Raw(Model.Dictionary["HoldingWeight"])
+                                    <h3 class="pages-title">基金持股</h3>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-2"></div>
+                                        <div class="col-xs-12 col-sm-8">
+                                            <canvas name="HoldingWeightPie"></canvas>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-2"></div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="type4" role="tabpanel">
+                                    @Html.Raw(Model.Dictionary["DistributionValue"])
+                                    <div class="notice-field-wrapper">
+                                        <ol class="notice-list">
+                                            <li style="color: #ff0000;">本基金配息來源可能為本金，且進行配息前未先扣除應負擔之相關費用。</li>
+                                            <li style="color: #ff0000;">基金配息率不代表基金報酬率，且過去配息率不代表未來配息率；基金淨值可能因市場因素而上下波動，於獲配息時須一併注意基金淨值之變動。</li>
+                                            <li>基金配息之年化配息率 = 每單位配息金額 ÷ 除息日前一日之淨值 × 一年配息次數 × 100%。年化配息率為估算值。</li>
+                                            <li><a name="testBtn" href="#">查詢歷史配息記錄</a></li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+    </div>
+</div>
+}
+<script src="~/Scripts/Apps/ProductOutDetail.js?@ServiceHelper.CacheBusting()"></script>

@@ -1,0 +1,2515 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Jepun.Core.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Jepun.Core.Data.Common.AccessMode">
+            <summary>
+            分片存取模式\
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Data.Common.AccessMode.None">
+            <summary>
+            空白
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Data.Common.AccessMode.R">
+            <summary>
+            讀
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Data.Common.AccessMode.RW">
+            <summary>
+            讀/寫
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Data.Common.ClusterSwitchingException">
+            <summary>
+            叢集切換錯誤
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Data.Common.ClusterSwitchingException.ErrorCode">
+            <summary>
+            錯誤代碼
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.Common.ClusterSwitchingException.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.Common.ClusterSwitchingException.#ctor(System.String,System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="message">錯誤原因</param>
+            <param name="code">錯誤代碼</param>
+        </member>
+        <member name="M:Jepun.Core.Data.Common.ClusterSwitchingException.#ctor(System.String,System.Exception,System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="message">錯誤原因</param>
+            <param name="inner">Inner Exception</param>
+            <param name="code">錯誤代碼</param>
+        </member>
+        <member name="M:Jepun.Core.Data.Common.ClusterSwitchingException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            This constructor is needed for serialization.
+            </summary>
+            <param name="info">Serialization Info</param>
+            <param name="context">Streaming Context</param>
+        </member>
+        <member name="M:Jepun.Core.Data.Common.ClusterSwitchingException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            使用序列化目標的所有例外狀況物件資料來設定 SerializationInfo。 在還原序列化期間，從在資料流上傳輸的 SerializationInfo 重新組成例外狀況。
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Jepun.Core.Data.Common.DbShardingVirtualBucket">
+            <summary>
+            Db分片虛擬桶
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.Common.DbShardingVirtualBucket.#ctor">
+            <summary>
+              建構子
+            </summary>         
+        </member>
+        <member name="M:Jepun.Core.Data.Common.DbShardingVirtualBucket.GetConnectionName(System.String)">
+            <summary>
+            由 key 來取得 ConnectionName
+            </summary>
+            <param name="key">分片值</param>
+            <returns>ConnectionName</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.Common.DbShardingVirtualBucket.GetBuckets(System.String[])">
+            <summary>
+            依據傳進來的 keys 來產生 對應的DB分片
+            </summary>
+            <param name="keys"></param>
+            <returns>server name,keys  連線名稱,分片值</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.Common.DbShardingVirtualBucket.GetBuckets(System.Char,System.String[])">
+            <summary>
+            依據傳進來的 keys 來產生 對應的DB分片
+            </summary>
+            <param name="am">Access Mode</param>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Jepun.Core.Data.Common.DbShardingVirtualBucket.Instance">
+            <summary>
+            取得唯一Instance
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Data.DbDataAccess.BaseDB">
+            <summary>
+            通用DB物件
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.BaseDB.#ctor">
+            <summary>
+            建構子,連線字串名稱預設值  DEFAULT
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.BaseDB.#ctor(System.String)">
+            <summary>
+            建構子
+            </summary>
+             <param name="connectionStringName">連線字串名</param>       
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.BaseDB.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.BaseDB.Dispose(System.Boolean)">
+            <summary>
+            關閉DB連線
+            </summary>
+            <param name="disposing"> true:要關閉通道 false:關閉通道</param>
+        </member>
+        <member name="P:Jepun.Core.Data.DbDataAccess.BaseDB.DB">
+            <summary>
+            DB連線
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.DbDataAccess.BaseDB.ConnectionStringName">
+            <summary>
+            連線字串名稱
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Data.DbDataAccess.DbAccess">
+            <summary>
+            通用Db存取物件
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.#ctor(System.String,System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="connectionString">連線字串</param>
+            <param name="providerName">連線類型名稱</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.BeginTransaction">
+            <summary>
+            Begin Transaction
+            </summary>
+            <example>
+            <code language="cs" title="Transaction用法">
+            var db = DbFactory.Create();
+            using(var trans = db.BeginTransaction())
+            { 
+                try {
+                    Console.WriteLine(db.ExecuteNonQueryByText("UPDATE Employees SET LastName = 'King', FirstName = 'Robert' WHERE LastName = 'King' and FirstName = 'Robert'", trans));
+                    var arg0 = db.Param("LastName", DbType.String, "King");
+                    var arg1 = db.Param("FirstName", DbType.String, "Robert");
+                    Console.WriteLine(db.ExecuteNonQueryByText("UPDATE Employees SET LastName =  @LastName, FirstName = @FirstName  WHERE LastName = @LastName and FirstName = @FirstName  ", trans, arg0, arg1));
+                    Console.WriteLine(db.ExecuteNonQueryByText("UPDATE Employees SET LastName =  @LastName, FirstName = @FirstName  WHERE LastName = @LastName and FirstName = @FirstName  ", trans, arg0, arg1));
+                    Console.WriteLine(db.ExecuteNonQueryByText("UPDATE Employees SET LastName =  @LastName, FirstName = @FirstName  WHERE LastName = @LastName and FirstName = @FirstName  ", trans, arg0, arg1));
+                    trans.Commit();
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                }
+            }
+                 Console.ReadKey();
+            </code>
+            </example>
+            <see cref="T:System.Data.Common.DbTransaction"/>
+            <returns>DbTransaction</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+            Begin Transaction
+            </summary>
+            <see cref="T:System.Data.Common.DbTransaction"/>
+            <param name="iso">交易鎖定行為</param>
+            /// <returns>DbTransaction</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ChangeDatabase(System.String)">
+            <summary>
+            Change Database
+            </summary>
+            <param name="database">資料庫名稱</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.Close">
+            <summary>
+            Close
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.CreateCommand">
+            <summary>
+            Create Command
+            </summary>
+            <returns>DbCommand</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.EnlistTransaction(System.Transactions.Transaction)">
+            <summary>
+            Enlist Transaction
+            </summary>
+            <param name="transaction">transaction</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.GetSchema">
+            <summary>
+            Get Schema
+            </summary>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.GetSchema(System.String)">
+            <summary>
+            Get Schema
+            </summary>
+            <param name="collectionName">collection Name</param>
+            /// <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.GetSchema(System.String,System.String[])">
+            <summary>
+            Get Schema
+            </summary>
+            <param name="collectionName">collection Name</param>
+            <param name="restrictionValues">restriction Values</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.Dispose(System.Boolean)">
+            <summary>
+            關閉DB Connection
+            </summary>
+            <param name="disposing"> true:要關閉DB false:關閉DB</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.CreateCommand(System.String,System.Data.CommandType,System.Data.Common.DbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            Create Command
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>
+            <param name="Tran">交易</param>
+            <param name="args">參數</param>
+            <returns>DbCommand</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.CreateCommand(System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            Create Command
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>
+            <param name="args">參數</param>
+            <returns>DbCommand</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteNonQuery(System.String,System.Data.CommandType,System.Data.Common.DbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute NonQuery
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>
+            <param name="Tran">交易</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteNonQuery(System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute NonQuery
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>        
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteNonQueryByText(System.String,System.Data.Common.DbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute NonQuery By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="Tran">交易</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteNonQueryByText(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute NonQuery By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteNonQueryByStoredProcedure(System.String,System.Data.Common.DbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute NonQuery By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="Tran">交易</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteNonQueryByStoredProcedure(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute NonQuery By StoredProcedure
+            </summary>
+            <example>
+            <code language="cs" title="傳回值">
+            var db = DbFactory.Create();
+            var arg = db.Param("CustomerID", DbType.String, "11", ParameterDirection.Output,50);
+            db.ExecuteNonQueryByStoredProcedure("TestRetVal",arg);
+            Console.WriteLine(arg.Value);
+            </code>
+            </example>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteScalar(System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Scalar
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>
+            <param name="args">參數</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteScalar``1(System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Scalar
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>
+            <param name="args">參數</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteScalar(System.String,System.Data.CommandType,System.Data.Common.DbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Scalar
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>
+            <param name="Tran">Transaction</param>
+            <param name="args">參數</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteScalar``1(System.String,System.Data.CommandType,System.Data.Common.DbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>
+            <param name="Tran">Transaction</param>
+            <param name="args">參數</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteScalarByText(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Scalar By Text
+            </summary>
+            <example>
+            <code language="cs" title="Scalar參數用法">
+            var arg0 = db.Param("LastName", DbType.String, "King");
+            var arg1 = db.Param("FirstName", DbType.String, "Robert");
+            var val = db.ExecuteScalarByText("SELECT TOP 1 [LastName] FROM [Northwind].[dbo].[Employees] WHERE LastName = @LastName and FirstName = @FirstName ", arg0, arg1);
+            Console.WriteLine(val.ToString());
+            Console.ReadKey();
+            </code>
+            </example>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteScalarByText``1(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Scalar By Text
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteScalarByText(System.String,System.Data.Common.DbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Scalar By Text
+            </summary>
+            <example>
+            <code language="cs" title="Scalar參數用法">
+            var arg0 = db.Param("LastName", DbType.String, "King");
+            var arg1 = db.Param("FirstName", DbType.String, "Robert");
+            var val = db.ExecuteScalarByText("SELECT TOP 1 [LastName] FROM [Northwind].[dbo].[Employees] WHERE LastName = @LastName and FirstName = @FirstName ", arg0, arg1);
+            Console.WriteLine(val.ToString());
+            Console.ReadKey();
+            </code>
+            </example>
+            <param name="commandText">sql語法</param>
+            <param name="Tran">Transaction</param>
+            <param name="args">參數</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteScalarByText``1(System.String,System.Data.Common.DbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Scalar By Text
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="Tran">Transaction</param>
+            <param name="args">參數</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteScalarByStoredProcedure(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Scalar By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteScalarByStoredProcedure``1(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Scalar By StoredProcedure
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteScalarByStoredProcedure(System.String,System.Data.Common.DbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Scalar By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="Tran">Transaction</param>
+            <param name="args">參數</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteScalarByStoredProcedure``1(System.String,System.Data.Common.DbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Scalar By StoredProcedure
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="commandText">預存程序</param>
+            <param name="Tran">Transaction</param>
+            <param name="args">參數</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteReader(System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Reader  在WCF操作時 DbDataReader 無法 回傳只能用 DATATABLE 或 DATASET
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>
+            <param name="args">參數</param>
+            <returns>DataReader</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteTuple``7(System.String[],System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            7Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7">欄位名,要對應</typeparam>
+            <param name="fieldNames"></param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteTuple``6(System.String[],System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            6Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteTuple``5(System.String[],System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            5Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteTuple``4(System.String[],System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            4Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteTuple``3(System.String[],System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            3Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteTuple``2(System.String[],System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            2Tuple物件 列舉 
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteList``1(System.String,System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            取得單一項目值並轉型為 清單
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="fieldName">欄位名,要對應</param>
+            <param name="commandText"></param>        
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteList(System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            取得所有項目值以清單方式,適合大量回傳資料 方便轉換 JSON 使用
+            </summary>                
+            <param name="commandText"></param>        
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <!-- 忽略成員 "M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteDictionary(System.String,System.Data.CommandType,System.Data.Common.DbParameter[])" 中格式錯誤的 XML 註解 -->
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteReader``1(System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Reader
+            </summary>
+            <typeparam name="TEntity">泛型Data Model</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>
+            <param name="args">參數</param>
+            <returns>IEnumerable 泛型Data Model 列舉型別</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteReaderEx``1(System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Reader Extend 針對泛型型別且具有IEntity介面的,但要確保Reader的欄位順序和Initialize參數一致  
+            泛型型別的欄位需允許null 例如    int?  bool?    
+            reader的欄位名稱不須和資料物件一樣,因為邏輯在Initialize方法裡
+            </summary>
+            <typeparam name="TEntity">泛型Data Model</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>
+            <param name="args">參數</param>
+            <returns>IEnumerable 泛型Data Model 列舉型別</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteReaderByText(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Reader By Text
+            </summary>
+            <see cref="T:System.Data.IDataReader"/>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>IDataReader</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteReaderByText``1(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute Reader By Text
+            </summary>
+            <example>
+            <code language="cs" title="DataReader 泛型 參數用法">
+            IEnumerable&lt;Employee&gt; employees2 = db.ExecuteReaderByText&lt;Employee&gt;("SELECT TOP 1000 [LastName],[FirstName],[BirthDate],[Address],[City] FROM [Northwind].[dbo].[Employees] WHERE LastName = @LastName and FirstName = @FirstName ", arg0, arg1);
+            //取第一筆出來
+            Employee ee = employees2.FirstOrDefault();  
+            Console.WriteLine(ee.LastName + ee.FirstName + ee.BirthDate + ee.Address + ee.City);
+            </code>
+            </example>
+            <typeparam name="TEntity">泛型Data Model</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>IEnumerable 泛型Data Model 列舉型別 </returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteReaderByStoredProcedure(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            ExecuteReaderByStoredProcedure
+            </summary>
+            <example>
+            <code language="cs" title="Execute Reader By StoredProcedure">
+            try
+            {
+                var DB = DbFactory.Create();
+                var arg0 = DB.Param("type", DbType.Int16, 1);
+                var arg1 = DB.Param("rguno", DbType.Int32, 1864872410);
+                IDataReader dr = DB.ExecuteReaderByStoredProcedure("pr_app_usermenu", arg0, arg1);
+                while (dr.Read())
+                {
+                    Console.WriteLine(dr["name_"].ToString());
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(LogHelper.BuildExceptionMessage(ex,"error","test"));                 
+            }
+            </code>
+            </example>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>IDataReader</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteReaderByStoredProcedure``1(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            ExecuteReaderByStoredProcedure
+            </summary>
+            <typeparam name="TEntity">泛型Data Model</typeparam>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>IEnumerable 泛型Data Model 列舉型別 </returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteDataSet(System.String,System.Data.CommandType,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute DataSet  指定 每個 TABLE 的 第一個位置    select 'tabA' as TableName ,........  from tabA
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteDataSetByText(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute DataSet By Text
+            </summary>
+            <example>
+            <code language="cs" title="XSLT 於 DATASET用法">
+            var db = DbFactory.Create();
+            //注意 第一個位置是 TableName
+            var ds = db.ExecuteDataSetByText("SELECT TOP 1000 'TestTable' as [TableName],[LastName],[FirstName],[BirthDate],[Address],[City] FROM [Northwind].[dbo].[Employees]");
+            Console.WriteLine(ds.XslTrans( FileHelper.GetAppPath() + "test.xsl"));
+            </code>
+            </example>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteDataSetByStoredProcedure(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute DataSet By StoredProcedure
+            </summary>
+            <example>
+            <code language="cs" title="預存程序 var 參數用法">
+            var CustomerID = db.Param("CustomerID", DbType.String, "BOTTM");
+            using (var ds3 = db.ExecuteDataSetByStoredProcedure("CustOrderHist", CustomerID))
+            {
+                 DataTable dt3 = ds3.Tables[0];
+                 for (int i = 0; i &lt; dt3.Rows.Count; i++)
+                 {
+                     Console.WriteLine(dt3.Rows[i]["ProductName"].ToString() + ":" + dt3.Rows[i][1].ToString());
+                 }
+             }
+             Console.ReadKey();
+            </code>
+            </example>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns> DataSet</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteDataTableByText(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+             Execute DataTable By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns> DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ExecuteDataTableByStoredProcedure(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Execute DataTable By StoredProcedure
+            </summary>
+            <example>
+            <code language="cs" title="DataTable 預存程序 參數用法">
+            var CustomerID = db.Param("CustomerID", DbType.String, "BOTTM");
+            using (var dt3 = db.ExecuteDataTableByStoredProcedure("CustOrderHist", CustomerID))
+            {
+                 for (int i = 0; i &lt; dt3.Rows.Count; i++)
+                 {
+                     Console.WriteLine(dt3.Rows[i]["ProductName"].ToString() + ":" + dt3.Rows[i][1].ToString());
+                 }
+             }
+             Console.ReadKey();
+            </code>
+            </example>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.BulkCopy(System.String,System.Data.DataTable,System.Data.Common.DbConnection)">
+            <summary>
+            大量載入資料(連接會在大量複製作業結束時自動關閉。)
+            產生一條連線
+            </summary>
+            <param name="destinationTableName">伺服器上目的資料表的名稱</param>
+            <param name="otherConn">因為temptable要在同一個session裡,所以必須延續其他連線,避免連線執行完BulkCopy斷掉</param>
+            <param name="dt">資料來源</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.GetStoredProcedureParams(System.String,System.Collections.IDictionary)">
+            <summary>
+            取得特定 SP參數 並和 傳入的值配對產生參數
+            </summary>
+            <param name="spName">SP</param>
+            <param name="values">值</param>
+            <returns>參數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.Param(System.String,System.Data.DbType,System.Byte,System.Byte,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">型別</param>
+            <param name="precision">精密</param>
+            <param name="scale">小數位數數目</param>
+            <param name="value">值</param>
+            <param name="direction">方向</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.Param(System.String,System.Data.DbType,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">型別</param>
+            <param name="value">值</param>
+            <param name="direction">方向</param>
+            <returns>DbParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.Param(System.String,System.Data.DbType,System.Object,System.Data.ParameterDirection,System.Int32)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">型別</param>
+            <param name="value">值</param>
+            <param name="direction">方向</param>
+            <param name="size">長度</param>
+            <returns>DbParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.Param(System.String,System.Object)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="value">值</param>
+            <returns>DbParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.AddParam(System.Collections.Hashtable)">
+            <summary>
+            以Hashtable方式傳入   key 和 value
+            </summary>
+            <param name="ht">Hashtable</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.AddParam(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            以Dictionary方式傳入   key 和 value
+            </summary>
+            <param name="dic">Dictionary</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.AddParam(System.Data.Common.DbParameter[])">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="args">DbParameter</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.AddParam(System.String,System.Data.DbType,System.Byte,System.Byte,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">DB型別</param>
+            <param name="precision">精密</param>
+            <param name="scale">小數位數數目</param>
+            <param name="value">值</param>
+            <param name="direction">參數方向</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.AddParam(System.String,System.Object)">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.AddParam(System.String,System.Data.DbType,System.Object,System.Data.ParameterDirection,System.Int32)">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">DB型別</param>
+            <param name="value">值</param>
+            <param name="direction">參數方向</param>
+            <param name="size">長度</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.AddParam(System.String,System.Data.DbType,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">DB型別</param>
+            <param name="value">值</param>
+            <param name="direction">參數方向</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.ClearParams">
+            <summary>
+            移除所有的參數
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.GetParamVal(System.String)">
+            <summary>
+            取得參數值
+            </summary>
+            <param name="parameterName">參數名</param>
+            <returns>object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.GetParamVal``1(System.String)">
+            <summary>
+            取得指定基本型別參數值
+            </summary>
+            <typeparam name="T">基本型別</typeparam>
+            <param name="parameterName">參數名</param>
+            <returns>指定基本型別</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbAccess.HasConnectionString(System.String)">
+            <summary>
+            連線字串是否存在
+            </summary>
+            <param name="connectionStringName">連線字串名稱</param>
+            <returns>true:存在</returns>
+        </member>
+        <member name="P:Jepun.Core.Data.DbDataAccess.DbAccess.CmdTimeout">
+            <summary>
+            設定 sql command 取得或設定結束執行命令的嘗試並產生錯誤之前的等待時間
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.DbDataAccess.DbAccess.Conn">
+            <summary>
+            Db連線
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.DbDataAccess.DbAccess.ProviderName">
+            <summary>
+            連線類型名稱
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.DbDataAccess.DbAccess.ParaSymbol">
+            <summary>
+            參數型命令字串 @是sql  :是oracle
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.DbDataAccess.DbAccess.State">
+            <summary>
+            連線狀態
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Data.DbDataAccess.DbFactory">
+             <summary>
+            通用DB連線 Factory
+             </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.DbFactory.Create(System.String)">
+            <summary>
+            建立DB連線物件
+            </summary>
+            <example>
+            <code language="cs" title="建立DB">
+            if (!FileHelper.IsExist(JepunConfig.CustomerDllName + ".dll"))
+            {
+               Console.WriteLine("客製化DLL不存在!!");
+               Console.ReadLine();
+               return;
+            }
+            var db = DbFactory.Create(); //default 連線字串
+            </code>
+            </example>
+            <param name="ConnectionStringName">連線字串名</param>
+            <returns>DB連線</returns>
+        </member>
+        <member name="T:Jepun.Core.Data.Common.ManagementConnectionSetting">
+            <summary>
+            管理資料庫連線字串
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Data.Common.ManagementConnectionSetting.DbConnectionSettingCache">
+            <summary>
+            用來放連線字串集合(安全執行緒)
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.Common.ManagementConnectionSetting.GetConnectionString(System.String)">
+            <summary>
+            取得連線字串
+            </summary>
+            <param name="ConnectionStringName">連線字串名稱</param>
+            <returns> Tuple (string, string)  Item1:連線字串   Item2:Provider</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.Common.ManagementConnectionSetting.IsExist(System.String)">
+            <summary>
+            連線字串是否存在
+            </summary>
+            <param name="ConnectionStringName">連線字串名稱</param>
+            <returns>true:存在</returns>
+        </member>
+        <member name="T:Jepun.Core.Data.DbDataAccess.ShardDbAccess">
+            <summary>
+            分片 跨機器(DB) 資料存取
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteDataTableListSP(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String)">
+            <summary>
+            Ttable欄位不同時,可直接取得DataTable清單
+            </summary>
+            <param name="dbs">db 連線</param>
+            <param name="commandText">SP</param>
+            <returns>DataTable清單</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteDataTableSP(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String)">
+            <summary>
+            ExecuteDataTableSP
+            </summary>
+            <param name="dbs">db 連線</param>
+            <param name="commandText">SP</param>        
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteDataSetListSP(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String)">
+            <summary>
+            欄位不同時,可直接取得DataSet清單
+            </summary>
+            <param name="dbs">db 連線</param>
+            <param name="commandText">SP</param>        
+            <returns>DataSet清單</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteDataSetSP(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String)">
+            <summary>
+            ExecuteDataSetSP
+            </summary>
+            <param name="dbs">db 連線</param>
+            <param name="commandText">SP</param>        
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteReader``1(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String,System.Data.CommandType)">
+            <summary>
+            跨DB合併查詢結果
+            </summary>
+            <typeparam name="TEntity">物件型別</typeparam>
+            <param name="dbs">db 連線</param>
+            <param name="commandText">sql指令</param>
+            <param name="commandType">命令類型</param>        
+            <returns>物件集合</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteReaderEx``1(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String,System.Data.CommandType)">
+            <summary>
+            跨DB合併查詢結果
+            </summary>
+            <typeparam name="TEntity">物件型別</typeparam>
+            <param name="dbs">連線</param>
+            <param name="commandText">sql指令</param>
+            <param name="commandType">命令類型</param>
+            <returns>物件集合</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteList``1(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String,System.String,System.Data.CommandType)">
+            <summary>
+            跨DB合併查詢 List
+            </summary>
+            <typeparam name="T">基本型別</typeparam>
+            <param name="dbs">連線</param>
+            <param name="fieldName">欄名</param>
+            <param name="commandText">sql指令</param>
+            <param name="commandType">命令類型</param>
+            <returns>List 泛型</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteTuple``2(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String[],System.String,System.Data.CommandType)">
+            <summary>
+            跨DB合併查詢 Tuple 2
+            </summary>
+            <typeparam name="T1">基本型別</typeparam>
+            <typeparam name="T2">基本型別</typeparam>
+            <param name="dbs">連線</param>
+            <param name="fieldNames">欄名</param>
+            <param name="commandText">sql指令</param>
+            <param name="commandType">命令類型</param>
+            <returns><![CDATA[Tuple<T1, T2> 泛型]]></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteTuple``3(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String[],System.String,System.Data.CommandType)">
+            <summary>
+            跨DB合併查詢 Tuple 3
+            </summary>
+            <typeparam name="T1">基本型別</typeparam>
+            <typeparam name="T2">基本型別</typeparam>
+            <typeparam name="T3">基本型別</typeparam>
+            <param name="dbs">連線</param>
+            <param name="fieldNames">欄名</param>
+            <param name="commandText">sql指令</param>
+            <param name="commandType">命令類型</param>
+            <returns>Tuple  泛型</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteTuple``4(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String[],System.String,System.Data.CommandType)">
+            <summary>
+            跨DB合併查詢 Tuple 4
+            </summary>
+            <typeparam name="T1">基本型別</typeparam>
+            <typeparam name="T2">基本型別</typeparam>
+            <typeparam name="T3">基本型別</typeparam>
+            <typeparam name="T4">基本型別</typeparam>
+            <param name="dbs">連線</param>
+            <param name="fieldNames">欄名</param>
+            <param name="commandText">sql指令</param>
+            <param name="commandType">命令類型</param>         
+            <returns>Tuple  泛型</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteTuple``5(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String[],System.String,System.Data.CommandType)">
+            <summary>
+            跨DB合併查詢 Tuple 5
+            </summary>
+            <typeparam name="T1">基本型別</typeparam>
+            <typeparam name="T2">基本型別</typeparam>
+            <typeparam name="T3">基本型別</typeparam>
+            <typeparam name="T4">基本型別</typeparam>
+            <typeparam name="T5">基本型別</typeparam>
+            <param name="dbs">連線</param>
+            <param name="fieldNames">欄名</param>
+            <param name="commandText">sql指令</param>
+            <param name="commandType">命令類型</param>
+            <returns>Tuple  泛型</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteTuple``6(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String[],System.String,System.Data.CommandType)">
+            <summary>
+            跨DB合併查詢 Tuple 6
+            </summary>
+            <typeparam name="T1">基本型別</typeparam>
+            <typeparam name="T2">基本型別</typeparam>
+            <typeparam name="T3">基本型別</typeparam>
+            <typeparam name="T4">基本型別</typeparam>
+            <typeparam name="T5">基本型別</typeparam>
+            <typeparam name="T6">基本型別</typeparam>
+            <param name="dbs">連線</param>
+            <param name="fieldNames">欄名</param>
+            <param name="commandText">sql指令</param>
+            <param name="commandType">命令類型</param>
+            <returns>Tuple  泛型</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteTuple``7(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String[],System.String,System.Data.CommandType)">
+            <summary>
+            跨DB合併查詢 Tuple 7
+            </summary>
+            <typeparam name="T1">基本型別</typeparam>
+            <typeparam name="T2">基本型別</typeparam>
+            <typeparam name="T3">基本型別</typeparam>
+            <typeparam name="T4">基本型別</typeparam>
+            <typeparam name="T5">基本型別</typeparam>
+            <typeparam name="T6">基本型別</typeparam>
+            <typeparam name="T7">基本型別</typeparam>
+            <param name="dbs">連線</param>
+            <param name="fieldNames">欄名</param>
+            <param name="commandText">sql指令</param>
+            <param name="commandType">命令類型</param>
+            <returns>Tuple  泛型</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteNonQuery(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String,System.Data.CommandType)">
+            <summary>
+            跨DB 執行  I U D
+            </summary>
+            <param name="dbs">連線</param>
+            <param name="commandText">sql指令</param>
+            <param name="commandType">命令類型</param>
+            <returns>異動比數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ExecuteScalar``1(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String,System.Data.CommandType)">
+            <summary>
+            跨DB 執行 取值
+            </summary>
+            <typeparam name="T">Scalar型別</typeparam>
+            <param name="dbs">連線</param>
+            <param name="commandText">sql指令</param>
+            <param name="commandType">命令類型</param>         
+            <returns>集合的值,自己再用 擴充方法來取最大或最小</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.CreateDbAccess(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            取得 分片 DB連線
+            </summary>
+            <param name="buckets">連線名稱,分片值</param>
+            <returns>db 連線</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.CreateDbAccess(System.String[])">
+            <summary>
+            取得 分片 DB連線
+            </summary>
+            <param name="connNames">連線名稱</param>
+            <returns>db 連線</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.SetCmdTimeout(System.Collections.Generic.List{Jepun.Core.Data.DbDataAccess.DbAccess},System.Int32)">
+            <summary>
+            設定  Cmd Timeout
+            </summary>
+            <param name="dbs">連線</param>
+            <param name="timeout">秒</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.GetStoredProcedureParams(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String,System.Collections.IDictionary)">
+            <summary>
+            取得特定 SP參數 並和 傳入的值配對產生參數
+            </summary>
+            <param name="dbs">連線</param>
+            <param name="spName">SP</param>
+            <param name="values">值:只依據名稱配對,找不到就填DBNULL</param>
+            <returns><![CDATA[SP參數集合<連線名稱<參數名稱,參數物件>>]]></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.BulkCopy(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String,System.Data.DataTable)">
+            <summary>
+            大量載入資料,使用本身的連線
+            </summary>
+            <param name="dbs">連線</param>
+            <param name="destinationTableName">伺服器上目的資料表的名稱</param>
+            <param name="dt">資料來源</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.HasConnectionString(System.String)">
+            <summary>
+            連線字串是否存在
+            </summary>
+            <param name="connectionStringName">連線字串名稱</param>
+            <returns>true:存在</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.AddParam(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String,System.Data.DbType,System.Byte,System.Byte,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="dbs">DB連線</param>
+            <param name="parameterName">參數名</param>
+            <param name="type">DB型別</param>
+            <param name="precision">精密</param>
+            <param name="scale">小數位數數目</param>
+            <param name="value">值</param>
+            <param name="direction">參數方向</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.AddParam(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String,System.Data.DbType,System.Object,System.Data.ParameterDirection,System.Int32)">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="dbs">DB連線</param>
+            <param name="parameterName">參數名</param>
+            <param name="type">DB型別</param>
+            <param name="value">值</param>
+            <param name="direction">參數方向</param>
+            <param name="size">長度</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.AddParam(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String,System.Data.DbType,System.Object)">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="dbs">DB連線</param>
+            <param name="parameterName">參數名</param>
+            <param name="type">DB型別</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.AddParam(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Data.Common.DbParameter}})">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="dbs">DB連線</param>
+            <param name="parameters"><![CDATA[GetStoredProcedureParams 的參數集合 =><連線名稱<參數名稱,參數物件>>]]></param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.ClearParams(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess})">
+            <summary>
+            移除所有的參數
+            </summary>
+            <param name="dbs">DB連線</param>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.GetParamVal(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String)">
+            <summary>
+            取得參數值
+            </summary>
+            <param name="dbs">DB連線</param>
+            <param name="parameterName">參數名</param>
+            <returns>object 陣列</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.DbDataAccess.ShardDbAccess.GetParamVal``1(System.Collections.Generic.Dictionary{System.String,Jepun.Core.Data.DbDataAccess.DbAccess},System.String)">
+            <summary>
+            取得指定基本型別參數值
+            </summary>
+            <typeparam name="T">基本型別</typeparam>
+            <param name="dbs">DB連線</param>
+            <param name="parameterName">參數名</param>
+            <returns>Dictionary</returns>
+        </member>
+        <member name="T:Jepun.Core.Data.OracleDataAccess.BaseOracleDB">
+            <summary>
+            Base Oracle DB物件
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Data.OracleDataAccess.BaseOracleDB.db">
+            <summary>
+            Oracle DB 操作物件
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Data.OracleDataAccess.BaseOracleDB.connectionStringName">
+            <summary>
+            連線字串名稱
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.BaseOracleDB.#ctor">
+            <summary>
+            提供抽象繼承操作ORACLE DB
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.BaseOracleDB.#ctor(System.String)">
+            <summary>
+            提供抽象繼承操作ORACLE DB
+            </summary>
+            <param name="connectionStringName">連線字串名稱</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.BaseOracleDB.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.BaseOracleDB.Dispose(System.Boolean)">
+            <summary>
+            關閉DB Connection
+            </summary>
+            <param name="disposing"> true:要關閉DB false:關閉DB</param>
+        </member>
+        <member name="P:Jepun.Core.Data.OracleDataAccess.BaseOracleDB.DB">
+            <summary>
+            Oracle 存取物件
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.OracleDataAccess.BaseOracleDB.ConnectionStringName">
+            <summary>
+            連線字串名稱
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Data.OracleDataAccess.OracleAccess">
+            <summary>
+            Oracle 存取物件
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.#ctor(System.String)">
+            <summary>
+            建構子\
+            </summary>
+            <param name="connectionString">連線字串</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.BeginTransaction">
+            <summary>
+            Begin Transaction
+            </summary>
+            <returns>OracleTransaction</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+            Begin Transaction
+            </summary>
+            <param name="isolationLevel">交易鎖定型別</param>
+            /// <returns>OracleTransaction</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ChangeDatabase(System.String)">
+            <summary>
+            Change Database
+            </summary>
+            <param name="databaseName">資料庫名稱</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ClearAllPools">
+            <summary>
+            Clear All Pools
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ClearPool(Oracle.ManagedDataAccess.Client.OracleConnection)">
+            <summary>
+            Clea rPool
+            </summary>
+            <param name="conn">資料庫連線</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.Close">
+            <summary>
+            Close連線
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.CreateCommand">
+            <summary>
+            Create Command
+            </summary>
+            <returns>OracleCommand</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.EnlistDistributedTransaction(System.EnterpriseServices.ITransaction)">
+            <summary>
+            Enlist Distributed Transaction
+            </summary>
+            <param name="itrans">DTC</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.EnlistTransaction(System.Transactions.Transaction)">
+            <summary>
+            Enlist Transaction
+            </summary>
+            <param name="transaction">Transaction</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.GetSchema">
+            <summary>
+            GetS chema
+            </summary>
+            <see cref="T:System.Data.DataTable"/>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.GetSchema(System.String)">
+            <summary>
+            GetSchema
+            </summary>
+            <see cref="T:System.Data.DataTable"/>
+            <param name="collectionName">collection Name</param>       
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.GetSchema(System.String,System.String[])">
+            <summary>
+            GetSchema
+            </summary>
+            <param name="collectionName">collection Name</param>
+            <param name="restrictionsArray">restrictions Array</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.GetSessionInfo">
+            <summary>
+            Get Session Info
+            </summary>
+            <returns>OracleGlobalization</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.GetSessionInfo(Oracle.ManagedDataAccess.Client.OracleGlobalization)">
+            <summary>
+            Get Session Info
+            </summary>
+            <param name="oraGlob">Oracle Globalization</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.Dispose(System.Boolean)">
+            <summary>
+            關閉DB Connection
+            </summary>
+            <param name="disposing"> true:要關閉DB false:關閉DB</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.CreateCommand(System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleTransaction,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            CreateCommand
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="Tran">交易</param>
+            <param name="args">參數</param>
+            <returns>OracleCommand</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.CreateCommand(System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            CreateCommand
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>OracleCommand</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteNonQuery(System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleTransaction,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute NonQuery
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="Tran">交易</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteNonQuery(System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute NonQuery
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>        
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteNonQueryByText(System.String,Oracle.ManagedDataAccess.Client.OracleTransaction,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute NonQuery By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="Tran">交易</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteNonQueryByText(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute NonQuery By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteNonQueryByStoredProcedure(System.String,Oracle.ManagedDataAccess.Client.OracleTransaction,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute NonQuery By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="Tran">交易</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteNonQueryByStoredProcedure(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute NonQuery By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteScalar(System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute Scalar
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteScalar``1(System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute Scalar
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteScalarByText(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute Scalar By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteScalarByText``1(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+             Execute Scalar By Text
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteScalarByStoredProcedure(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute Scalar By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteScalarByStoredProcedure``1(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute Scalar By StoredProcedure
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteReader(System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute Reader
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>OracleDataReader</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteTuple``7(System.String[],System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            7Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7">欄位名,要對應</typeparam>
+            <param name="fieldNames"></param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteTuple``6(System.String[],System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            6Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteTuple``5(System.String[],System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            5Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteTuple``4(System.String[],System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            4Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteTuple``3(System.String[],System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            3Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteTuple``2(System.String[],System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            2Tuple物件 列舉 
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteList``1(System.String,System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            取得單一項目值並轉型為 清單
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="fieldName">欄位名,要對應</param>
+            <param name="commandText"></param>        
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteReader``1(System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute Reader
+            </summary>
+            <typeparam name="TEntity">泛型Data Model</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>IEnumerable 泛型Data Model 列舉型別</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteReaderEx``1(System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute Reader Extend 針對泛型型別且具有IEntity介面的,但要確保Reader的欄位順序和Initialize參數一致  
+            泛型型別的欄位需允許null 例如    int?  bool?    
+            reader的欄位名稱不須和資料物件一樣,因為邏輯在Initialize方法裡
+            </summary>
+            <typeparam name="TEntity">泛型Data Model</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>
+            <param name="args">參數</param>
+            <returns>IEnumerable 泛型Data Model 列舉型別</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteReaderByText(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute Reader By Text
+            </summary>
+            <see cref="T:System.Data.IDataReader"/>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>IDataReader</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteReaderByText``1(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute Reader By Text
+            </summary>
+            <typeparam name="TEntity">泛型Data Model</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>IEnumerable 泛型Data Model 列舉型別</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteReaderByStoredProcedure(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute Reader By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>IDataReader</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteReaderByStoredProcedure``1(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute Reader By StoredProcedure
+            </summary>
+            <typeparam name="TEntity">泛型Data Model</typeparam>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>IEnumerable 泛型Data Model 列舉型別</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteDataSet(System.String,System.Data.CommandType,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute DataSet     指定 每個 TABLE 的 第一個位置    select 'tabA' as TableName ,........  from tabA
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteDataSetByText(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute DataSet By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteDataSetByStoredProcedure(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute DataSet By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns> DataSet</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteDataTableByText(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+             Execute DataTable By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns> DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ExecuteDataTableByStoredProcedure(System.String,Oracle.ManagedDataAccess.Client.OracleParameter[])">
+            <summary>
+            Execute DataTable By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.BulkCopy(System.String,System.Data.DataTable,Oracle.DataAccess.Client.OracleConnection)">
+            <summary>
+            大量載入資料,不支援Transaction，無法Rollback
+            </summary>
+            <param name="destinationTableName">目的TableName</param>
+            <param name="otherConn">延續其他連線,避免連線執行完BulkCopy斷掉</param>
+            <param name="dt">資料來源</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.Param(System.String,Oracle.ManagedDataAccess.Client.OracleDbType,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">型別</param>
+            <param name="value">值</param>
+            <param name="direction">方向</param>
+            <returns>OracleParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.Param(System.String,Oracle.ManagedDataAccess.Client.OracleDbType,System.Object,System.Data.ParameterDirection,System.Int32)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">型別</param>
+            <param name="value">值</param>
+            <param name="direction">方向</param>
+            <param name="size">長度</param>
+            <returns>OracleParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.Param(System.String,Oracle.ManagedDataAccess.Client.OracleDbType,System.Object,System.Data.ParameterDirection,System.String)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">型別</param>
+            <param name="value">值</param>
+            <param name="direction">方向</param>
+            <param name="udtTypeName">UDT</param>
+            <returns>SqlParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.Param(System.String,Oracle.ManagedDataAccess.Client.OracleDbType,System.Data.ParameterDirection,System.String)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">型別</param>
+            <param name="direction">方向</param>
+            <param name="udtTypeName">UDT</param>
+            <returns>OracleParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.Param(System.String,System.Object)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="value">值</param>
+            <returns>OracleParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.AddParam(System.Collections.Hashtable)">
+            <summary>
+            以Hashtable方式傳入   key 和 value
+            </summary>
+            <param name="ht">Hashtable</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.AddParam(Oracle.ManagedDataAccess.Client.OracleParameter)">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="arg">OracleParameter</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.AddParam(System.String,System.Object)">
+            <summary>
+             直接加參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.AddParam(System.String,Oracle.ManagedDataAccess.Client.OracleDbType,System.Object,System.Data.ParameterDirection,System.Int32)">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">DB型別</param>
+            <param name="value">值</param>
+            <param name="direction">參數方向</param>
+            <param name="size">長度</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.AddParam(System.String,Oracle.ManagedDataAccess.Client.OracleDbType,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">DB型別</param>
+            <param name="value">值</param>
+            <param name="direction">參數方向</param>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.ClearParams">
+            <summary>
+            移除所有的參數
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleAccess.GetParamVal(System.String)">
+            <summary>
+            取得參數值
+            </summary>
+            <param name="parameterName">參數名</param>
+            <returns>object</returns>
+        </member>
+        <member name="P:Jepun.Core.Data.OracleDataAccess.OracleAccess.CmdTimeout">
+            <summary>
+            設定 sql command 取得或設定結束執行命令的嘗試並產生錯誤之前的等待時間
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.OracleDataAccess.OracleAccess.State">
+            <summary>
+            連線狀態
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Data.OracleDataAccess.OracleFactory">
+            <summary>
+            Oracle DB連線 Factory
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.OracleDataAccess.OracleFactory.Create(System.String)">
+            <summary>
+            建立DB連線物件
+            </summary>
+            <param name="ConnectionStringName">連線字串名</param>
+            <returns>DB連線</returns>
+        </member>
+        <member name="T:Jepun.Core.Data.Resource.ErrorResource">
+            <summary>
+              用於查詢當地語系化字串等的強類型資源類別。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.Resource.ErrorResource.ResourceManager">
+            <summary>
+              傳回這個類別使用的快取的 ResourceManager 執行個體。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.Resource.ErrorResource.Culture">
+            <summary>
+              覆寫目前執行緒的 CurrentUICulture 屬性，對象是所有
+              使用這個強類型資源類別的資源查閱。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.Resource.ErrorResource.ClusterSwitchingError">
+            <summary>
+              查詢類似 叢集切換錯誤 目前狀態:{0} 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.Resource.ErrorResource.CommandError">
+            <summary>
+              查詢類似 指令錯誤,Method:{0},CommandText:{1} 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.Resource.ErrorResource.ConnectionStringNotFound">
+            <summary>
+              查詢類似 無連線字串: {0} 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.Resource.ErrorResource.CreateConnectionError">
+            <summary>
+              查詢類似 產生連線錯誤,連線字串: {0} 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.Resource.ErrorResource.CreateDbProviderFactoryError">
+            <summary>
+              查詢類似 產生DB Provider錯誤,連線字串: {0} 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.Resource.ErrorResource.HashtableError">
+            <summary>
+              查詢類似 Hashtable產生錯誤,HashKey:{0} 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.Resource.ErrorResource.ParameterError">
+            <summary>
+              查詢類似 參數錯誤,參數名稱:{0} 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Data.SqlDataAccess.BaseSqlDB">
+            <summary>
+            Base Sql DB物件
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Data.SqlDataAccess.BaseSqlDB.db">
+            <summary>
+            Sql DB 操作物件
+            </summary>
+        </member>
+        <member name="F:Jepun.Core.Data.SqlDataAccess.BaseSqlDB.connectionStringName">
+            <summary>
+            連線字串名稱
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.BaseSqlDB.#ctor">
+            <summary>
+            提供抽象繼承操作SQL DB
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.BaseSqlDB.#ctor(System.String)">
+            <summary>
+            提供抽象繼承操作SQL DB
+            </summary>
+            <param name="connectionStringName">連線字串名稱</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.BaseSqlDB.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.BaseSqlDB.Dispose(System.Boolean)">
+            <summary>
+            關閉DB Connection
+            </summary>
+            <param name="disposing"> true:要關閉DB false:關閉DB</param>
+        </member>
+        <member name="P:Jepun.Core.Data.SqlDataAccess.BaseSqlDB.DB">
+            <summary>
+            Sql DB 操作物件
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.SqlDataAccess.BaseSqlDB.ConnectionStringName">
+            <summary>
+            連線字串名稱
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Data.SqlDataAccess.SqlAccess">
+            <summary>
+            Sql DB 存取物件
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.#ctor(System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="connectionString">連線字串</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.BeginTransaction">
+            <summary>
+            Begin Transaction
+            </summary>
+            <returns>SqlTransaction</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+            Begin Transaction
+            </summary>
+            <param name="iso">交易鎖定型別</param>
+            <returns>SqlTransaction</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.BeginTransaction(System.String)">
+            <summary>
+            Begin Transaction
+            </summary>
+            <param name="transactionName">交易名稱</param>
+            <returns>SqlTransaction</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.BeginTransaction(System.Data.IsolationLevel,System.String)">
+            <summary>
+            BeginTransaction
+            </summary>
+            <param name="iso">交易鎖定型別</param>
+            <param name="transactionName">交易名稱</param>
+            <returns>SqlTransaction</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ChngeDatabase(System.String)">
+            <summary>
+            Chnge Database
+            </summary>
+            <param name="database">資料庫名稱</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ClearAllPools">
+            <summary>
+            Clear All Pools
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ClearPool(System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Clear Pool
+            </summary>
+            <param name="connection">資料庫連線</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.Close">
+            <summary>
+            Close
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.CreateCommand">
+            <summary>
+            Create Command
+            </summary>
+            <returns>SqlCommand</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.EnlistDistributedTransaction(System.EnterpriseServices.ITransaction)">
+            <summary>
+            Enlist Distributed Transaction
+            </summary>
+            <param name="transaction">transaction</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.EnlistTransaction(System.Transactions.Transaction)">
+            <summary>
+            Enlist Transaction
+            </summary>
+            <param name="transaction">transaction</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.GetSchema">
+            <summary>
+            Get Schema
+            </summary>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.GetSchema(System.String)">
+            <summary>
+            Get Schema
+            </summary>
+            <param name="collectionName">collection Name</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.GetSchema(System.String,System.String[])">
+            <summary>
+            GetSchema
+            </summary>
+            <param name="collectionName">collection Name</param>
+            <param name="restrictionValues">restriction Values</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.Dispose(System.Boolean)">
+            <summary>
+            關閉DB Connection
+            </summary>
+            <param name="disposing"> true:要關閉DB false:不關閉DB</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.CreateCommand(System.String,System.Data.CommandType,System.Data.SqlClient.SqlTransaction,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Create Command
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="Tran">交易</param>
+            <param name="args">參數</param>
+            <returns>SqlCommand</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.CreateCommand(System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Create Command
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>SqlCommand</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteNonQuery(System.String,System.Data.CommandType,System.Data.SqlClient.SqlTransaction,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute NonQuery
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="Tran">交易</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteNonQuery(System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute NonQuery
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>        
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteNonQueryByText(System.String,System.Data.SqlClient.SqlTransaction,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute NonQuery By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="Tran">交易</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteNonQueryByText(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute NonQuery By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteNonQueryByStoredProcedure(System.String,System.Data.SqlClient.SqlTransaction,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute NonQuery By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="Tran">交易</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteNonQueryByStoredProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute NonQuery ByStored Procedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>更新或新增筆數</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteScalar(System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Scalar
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteScalar``1(System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Scalar
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteScalarByText(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Scalar ByText
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteScalarByText``1(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Scalar ByText
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteScalarByStoredProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Scalar By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteScalarByStoredProcedure``1(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Scalar By StoredProcedure
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteReader(System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Reader
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>SqlDataReader</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteTuple``7(System.String[],System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            7Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7">欄位名,要對應</typeparam>
+            <param name="fieldNames"></param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteTuple``6(System.String[],System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            6Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteTuple``5(System.String[],System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            5Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteTuple``4(System.String[],System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            4Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteTuple``3(System.String[],System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            3Tuple物件 列舉
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteTuple``2(System.String[],System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            2Tuple物件 列舉 
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="fieldNames">欄位名,要對應</param>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteList``1(System.String,System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            取得單一項目值並轉型為 清單
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="fieldName">欄位名,要對應</param>
+            <param name="commandText"></param>        
+            <param name="commandType"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteReader``1(System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Reader
+            </summary>
+            <typeparam name="TEntity">泛型Data Model</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>IEnumerable 泛型Data Model 列舉型別</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteReaderEx``1(System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Reader Extend 針對泛型型別且具有IEntity介面的,但要確保Reader的欄位順序和Initialize參數一致  
+            泛型型別的欄位需允許null 例如    int?  bool?    
+            reader的欄位名稱不須和資料物件一樣,因為邏輯在Initialize方法裡  
+            </summary>
+            <typeparam name="TEntity">泛型Data Model</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure Name</param>
+            <param name="args">參數</param>
+            <returns>IEnumerable 泛型Data Model 列舉型別</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteReaderByText(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Reader By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>IDataReader</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteReaderByText``1(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Reader By Text
+            </summary>
+            <typeparam name="TEntity">泛型Data Model</typeparam>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>IEnumerable 泛型Data Model 列舉型別</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteReaderByStoredProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Reader By Stored Procedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>IDataReader</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteReaderByStoredProcedure``1(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute Reader By StoredProcedure
+            </summary>
+            <typeparam name="TEntity">泛型Data Model</typeparam>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>IEnumerable 泛型Data Model 列舉型別</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteDataSet(System.String,System.Data.CommandType,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute DataSet   指定 每個 TABLE 的 第一個位置    select 'tabA' as TableName ,........  from tabA
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="commandType">Text or StoreProcedure</param>
+            <param name="args">參數</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteDataSetByText(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute DataSet By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteDataSetByStoredProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute DataSet By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns> DataSet</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteDataTableByText(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+             Execute DataTable By Text
+            </summary>
+            <param name="commandText">sql語法</param>
+            <param name="args">參數</param>
+            <returns> DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ExecuteDataTableByStoredProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute DataTable By StoredProcedure
+            </summary>
+            <param name="commandText">預存程序</param>
+            <param name="args">參數</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.BulkCopy(System.String,System.Data.DataTable,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            大量載入資料
+            </summary>
+            <param name="destinationTableName">目的TableName</param>
+            <param name="otherConn">延續其他連線,避免連線執行完BulkCopy斷掉</param>
+            <param name="dt">資料來源</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.Param(System.String,System.Data.SqlDbType,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">型別</param>
+            <param name="value">值</param>
+            <param name="direction">方向</param>
+            <returns>SqlParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.Param(System.String,System.Data.SqlDbType,System.Object,System.Data.ParameterDirection,System.Int32)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">型別</param>
+            <param name="value">值</param>
+            <param name="direction">方向</param>
+            <param name="size">長度</param>
+            <returns>SqlParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.Param(System.String,System.Data.SqlDbType,System.Object,System.Data.ParameterDirection,System.String)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">型別</param>
+            <param name="value">值</param>
+            <param name="direction">方向</param>
+            <param name="udtTypeName">UDT</param>
+            <returns>SqlParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.Param(System.String,System.Data.SqlDbType,System.Data.ParameterDirection,System.String)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">型別</param>
+            <param name="direction">方向</param>
+            <param name="udtTypeName">UDT</param>
+            <returns>SqlParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.Param(System.String,System.Object)">
+            <summary>
+            取得參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="value">值</param>
+            <returns>SqlParameter</returns>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.AddParam(System.Collections.Hashtable)">
+            <summary>
+            以Hashtable方式傳入   key 和 value
+            </summary>
+            <param name="ht">Hashtable</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.AddParam(System.Data.SqlClient.SqlParameter)">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="arg">SqlParameter</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.AddParam(System.String,System.Object)">
+            <summary>
+             直接加參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.AddParam(System.String,System.Data.SqlDbType,System.Object,System.Data.ParameterDirection,System.Int32)">
+            <summary>
+            直接加參數
+            </summary>
+            <seealso cref="T:System.Data.SqlDbType"/>
+            <param name="parameterName">參數名</param>
+            <param name="type">DB型別</param>
+            <param name="value">值</param>
+            <param name="direction">參數方向</param>
+            <param name="size">長度</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.AddParam(System.String,System.Data.SqlDbType,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            直接加參數
+            </summary>
+            <param name="parameterName">參數名</param>
+            <param name="type">DB型別</param>
+            <param name="value">值</param>
+            <param name="direction">參數方向</param>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.ClearParams">
+            <summary>
+            移除所有的參數
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlAccess.GetParamVal(System.String)">
+            <summary>
+            取得參數值
+            </summary>
+            <param name="parameterName">參數名</param>
+            <returns>object</returns>
+        </member>
+        <member name="P:Jepun.Core.Data.SqlDataAccess.SqlAccess.CmdTimeout">
+            <summary>
+            設定 sql command 取得或設定結束執行命令的嘗試並產生錯誤之前的等待時間
+            </summary>
+        </member>
+        <member name="P:Jepun.Core.Data.SqlDataAccess.SqlAccess.State">
+            <summary>
+            連線狀態
+            </summary>
+        </member>
+        <member name="T:Jepun.Core.Data.SqlDataAccess.SqlFactory">
+            <summary>
+            Sql DB 連線 Factory
+            </summary>
+        </member>
+        <member name="M:Jepun.Core.Data.SqlDataAccess.SqlFactory.Create(System.String)">
+            <summary>
+            Create
+            </summary>
+        </member>
+    </members>
+</doc>

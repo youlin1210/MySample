@@ -1,0 +1,16 @@
+commit f16369b7b7720b85d450e93f25ff5342781ec387
+tree f0fb0168266ce660ebefa5d4e4d55848e0f971b9
+parent 71f87b9ed01fd883574819cb44faa4edc8e773ce
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-30 10:36:16 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-30 10:36:16 +0800
+
+    add version
+
+
+
+:100644 100644 b2c2292e2e1958fd6dbd5417268576eb525c2f94 676fcef8b5579245ec22525f24f9859bc1906ae6 M	JenkinsCI/.vs/JenkinsCI/v15/.suo
+:100644 100644 5096266a838dd817726f9d80923589c3f0377958 3613e9902a45baa9805cb89e868db4cdd0297359 M	JenkinsCI/.vs/JenkinsCI/v15/Server/sqlite3/storage.ide
+:100644 100644 d8248afafe83526f4f9257d4adcfb8b6e45ded73 fe9ac2845eca6fe6da8a63cd096d9cf9e24ece10 M	JenkinsCI/.vs/JenkinsCI/v15/Server/sqlite3/storage.ide-shm
+:100644 100644 3de836668dc3fc748fa78c08e3667783ffda6b0f e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 M	JenkinsCI/.vs/JenkinsCI/v15/Server/sqlite3/storage.ide-wal
+:100644 000000 5e9650954d8270db41e43fae4930b3fef6e2624f 0000000000000000000000000000000000000000 D	JenkinsCI/CodeCoverage.runsettings
+:100644 000000 0ee51ae47de404ae5dcbe575e3f49725bcce27d9 0000000000000000000000000000000000000000 D	JenkinsCI/CodeCoverage.testsettings

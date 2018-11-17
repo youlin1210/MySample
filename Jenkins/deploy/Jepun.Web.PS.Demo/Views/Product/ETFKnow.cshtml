@@ -1,0 +1,269 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@{
+    
+}
+<div class="container">
+    <div class="row">
+        <section class="content">
+            <div class="container">
+                <div class="cus-breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        <li><a href="~/Home/Index">首頁</a></li>
+                        <li class="active">ETF小百科</li>
+                    </ol>
+                </div>
+                <div class="page-header-wrapper">
+                    <h3 class="title"><span>ETF小百科</span></h3>
+                    <hr>
+                    <ul class="nav nav-tabs" role="tablist" id="cus-tabs">
+                        <li class="active" role="presentation"><a aria-controls="type1" data-toggle="tab" href="#type1" role="tab">What</a></li>
+                        <li class="" role="presentation"><a aria-controls="type2" data-toggle="tab" href="#type2" role="tab">Who</a></li>
+                        <li class="" role="presentation"><a aria-controls="type3" data-toggle="tab" href="#type3" role="tab">Why</a></li>
+                        <li class="" role="presentation"><a aria-controls="type4" data-toggle="tab" href="#type4" role="tab">How</a></li>
+                    </ul>
+                </div>
+                <div class="etf-pedia-wrapper editor-area">
+                    <div role="tabpanel">
+                        <div role="tabpanel">
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="type1" role="tabpanel">
+                                    <div class="etf-pedia-child">
+                                        <h3 class="title-center">解析ETF裡的4<span class="big-word">W</span></h3>
+                                        <h3 class="pages-title"><span class="big-word">W</span>hat：何謂ETF</h3>
+                                        <p>ETF（Exchange-Traded Fund)是可以在交易所交易的基金，在交易所正式的名稱是「指數股票型基金」，拆解成三部分更能理解此項商品的特色。</p>
+                                        <div class="div-table clearfix">
+                                            <div class="row">
+                                                <div class="col-sm-8 col-xs-12 div-td">
+                                                    <p style="color: #ff0003;">
+                                                        <b>指數：</b>
+                                                        <br /> 「被動」追蹤某一指數表現，是一項指數化投資的商品
+                                                    </p>
+                                                    <p style="color: #1b7da8;">
+                                                        <b>股票型：</b>
+                                                        <br /> 跟股票一樣可以在集中市場掛牌交易
+                                                    </p>
+                                                    <p style="color: #017f7b;">
+                                                        <b>基金：</b>
+                                                        <br /> 由投信公司管理並發行受益憑證做為投資人持有資產的表徵，方式類似共同基金
+                                                    </p>
+                                                </div>
+                                                <div class="col-sm-4 col-xs-12 div-td"><img class="img-responsive" src="~/Content/images/pedia1-1.png" /></div>
+                                            </div>
+                                        </div>
+                                        <p>因此，ETF是被動追蹤某一指數表現的共同基金，投資組合盡可能比照指數成分股，且在集中市場掛牌，如同一般股票的交易買賣。</p>
+                                        <p>&nbsp;</p>
+                                        <h3 class="title-center">ETF三大特性</h3>
+                                        <div class="row clearfix">
+                                            <div class="col-xs-12 col-sm-6">
+                                                <h3 class="pages-title">特性1：被動管理、追求指數報酬率</h3>
+                                                <p>
+                                                    ETF投資組合被動地依照所追蹤指數的組成成份股與權重來建立，因此ETF的報酬率貼近追蹤指數之報酬率。
+                                                    <br /> &nbsp;
+                                                </p>
+                                                <div class="table">
+                                                    <table class="table table-striped pages-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>&nbsp;</th>
+                                                                <th>主動式基金</th>
+                                                                <th>主動式基金(ETF)</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>績效目標</td>
+                                                                <td>擊敗加權指數</td>
+                                                                <td>貼近追蹤指數</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>管理費</td>
+                                                                <td>高</td>
+                                                                <td>低</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>持股透明度</td>
+                                                                <td>依各基金管理公司揭露程度而定</td>
+                                                                <td>貼近指數持股與權重，透明度高</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>風險分散程度</td>
+                                                                <td>依據經理人操盤風格而異</td>
+                                                                <td>高</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>指數連棟興</td>
+                                                                <td>低</td>
+                                                                <td>高</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6">
+                                                <h3 class="pages-title">特性2：同時具備股票、基金之特色</h3>
+                                                <p>ETF是由投信公司發行管理之基金，但買賣的方式如同股票，投資人只要有股票交易帳戶，就可在次級市場買賣、進行融資融券交易，價格也取決於市場供需。</p>
+                                                <div class="table">
+                                                    <table class="table table-striped pages-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th></th>
+                                                                <th>被動式基金(ETF)</th>
+                                                                <th>股票</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>追蹤標的指數</td>
+                                                                <td>有</td>
+                                                                <td>無</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>風險分散</td>
+                                                                <td>有</td>
+                                                                <td>無，除非一次買進大量股票</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>風險分散機率</td>
+                                                                <td>較低(千分之一)</td>
+                                                                <td>較高(千分之三)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>信用交易</td>
+                                                                <td>可</td>
+                                                                <td>可, 但有限制</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>平盤以下放空</td>
+                                                                <td>可</td>
+                                                                <td>不可</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>研究各股</td>
+                                                                <td>不用</td>
+                                                                <td>要</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="container">
+                                                <h3 class="pages-title">特性3：實物申購、買回機制</h3>
+                                                <p>ETF可於初級市場進行實物申購、買回，亦即投資人可透過參與證券商以一籃子的股票，來與ETF的基金管理人對價交換受益憑證，反之，也可以持有的受益憑證對價交換一籃子股票。</p>
+                                                <h3 class="title-center">ETF類型</h3>
+                                                <div class="row clearfix">
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div><img class="img-responsive" src="~/Content/images/pedia1-2.png" /></div>
+                                                        <h4 style="color: #d4b568; text-align: center;">股票ETF：主要投資於股票市場。</h4>
+                                                        <p><b>以投資區域可畫分成</b>：</p>
+                                                        <ul>
+                                                            <li><b>全球型：</b>包括全球各區域或是跨區域的ETF。</li>
+                                                            <li><b>區域型：</b>包括：北美、拉丁美洲、歐洲、新興歐洲、紐澳、亞洲、中東等ETF。</li>
+                                                            <li><b>單一國家型</b>，包括：美國、墨西哥、巴西、俄羅斯、中國、印度、泰國、印尼、越南、台灣等各個國家。</li>
+                                                            <li><b>以產業類別：</b>還可以分為金融、科技、醫療、消費、能源、公用事業、房地產、電訊、營建、航運等各種產業ETF。</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div><img class="img-responsive" src="~/Content/images/pedia1-3.png" /></div>
+                                                        <h4 style="color: #d4b568; text-align: center;">債券ETF：主要投資於各種類債券。</h4>
+                                                        <p><b>以投資等級可畫分成： </b></p>
+                                                        <ul>
+                                                            <li>公債、投資級公司債和高收益債ETF。</li>
+                                                        </ul>
+                                                        <p><b>若以投資標的來看： </b></p>
+                                                        <ul>
+                                                            <li>還有新興市場債ETF、資產抵押債ETF、可轉債ETF、通膨指數債券ETF等。</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row clearfix">
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div><img class="img-responsive" src="~/Content/images/pedia1-4.png" /></div>
+                                                        <h4 style="color: #d4b568; text-align: center;">匯率ETF：主要連結匯率或相關指數。</h4>
+                                                        <ul>
+                                                            <li><b>連結「單一貨幣」</b>，包括：美元、英鎊、歐元、日圓、紐幣、人民幣、印度、俄羅斯、巴西、南非等貨幣ETF。</li>
+                                                            <li><b>連結「一籃子貨幣」</b>，包括：十大工業國貨幣指數ETF。</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div><img class="img-responsive" src="~/Content/images/pedia1-5.png" /></div>
+                                                        <h4 style="color: #d4b568; text-align: center;"><b>商品ETF：</b>主要投資於商品原物料市場。</h4>
+                                                        <ul>
+                                                            <li><b>商品ETF：</b>綜合原油、貴金屬、基本金屬、農產品等原物料的ETF。</li>
+                                                            <li><b>能源ETF：</b>包括：石油、天然氣等ETF。</li>
+                                                            <li><b>貴金屬ETF：</b>包括：黃金、白銀和鈀金等ETF。</li>
+                                                            <li><b>工業金屬ETF：</b>包括：基本金屬、銅、鎳等ETF。</li>
+                                                            <li><b>農產品ETF：</b>包括：綜合農產品、牲畜商品。</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type2" role="tabpanel">
+                                    <div class="eft-pedia-child">
+                                        <h3 class="title-center">解析ETF裡的4<span class="big-word">W</span></h3>
+                                        <h3 class="pages-title"><span class="big-word">W</span>ho：誰適合投資ETF</h3>
+                                        <ol>
+                                            <li><b>一般共同基金的投資人：</b><br>平時就有在投資共同基金的投資人，除了主動式操盤的基金標的，當投資人看好某一投資市場或產業時，即可佈局追蹤參與含括該投資市場或產業指數的指數型基金。</li>
+                                            <li><b>覺得股票投資成本太高的投資人：</b><br>熱衷於短線交易的投資人，在買賣個股時需要支付一定的成本，而指數型基金的證交稅指有股票的1/3，可以為此類投資人省下可觀的費用。</li>
+                                            <li><b>總是聽說隔壁王媽媽買了哪支股票就跟進的投資人：</b><br>不懂產業發產趨勢也無法進行個股分析語言就，因此，只能依據身邊人的口碑來買賣的投資人，因此僅需依據指數型基金的高低點判斷進場時點，即是非常適合這類投資人的金融產品。</li>
+                                            <li><b>有避險需求的投資人：</b><br>過去以「現貨、期貨」買賣來避險的投資人，現在還可以透過「現貨、指數型基金」來避險</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type3" role="tabpanel">
+                                    <div class="etf-pedia-child" id="flag3">
+                                        <h3 class="title-center">解析ETF裡的4<span class="big-word">W</span></h3>
+                                        <h3 class="pages-title"><span class="big-word">W</span>hy：投資ETF三大優勢</h3>
+                                        <div class="row clearfix">
+                                            <div class="col-sm-4 col-xs-12">
+                                                <div><img class="img-responsive" src="~/Content/images/pedia3-1.png" /></div>
+                                                <h4>優勢1：荷包<span class="big-word">省</span></h4>
+                                                <p>因ETF無須龐大的投研團隊來從事相關分析，而是依據追蹤指數的持股與比重來建立商品的投資組合，因此，ETF的管理費遠較一般的共同基金低。即使與股票相較，ETF的交易稅也比一般股票的交易稅省了三分之二。</p>
+                                            </div>
+                                            <div class="col-sm-4 col-xs-12">
+                                                <div><img class="img-responsive" src="~/Content/images/pedia3-2.png" /></div>
+                                                <h4>優勢2：便利<span class="big-word">買</span></h4>
+                                                <p>投資人可在股票交易時間內，隨時透過證券商下單，此外，ETF買賣價格的升降單位固定，投資人可輕易掌握預估報酬及風險。</p>
+                                            </div>
+                                            <div class="col-sm-4 col-xs-12">
+                                                <div><img class="img-responsive" src="~/Content/images/pedia3-3.png" /></div>
+                                                <h4>優勢3：風險<span class="big-word">低</span></h4>
+                                                <p>由於申購ETF等於讓投資人一次買進一籃子績優股，投資風險較各股的買賣低，投資人也不必受限於資金不足而不能申購多檔股票，有效分散投資風險。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type4" role="tabpanel">
+                                    <div class="etf-pedia-child" id="flag4">
+                                        <h3 class="title-center">解析ETF裡的4<span class="big-word">W</span></h3>
+                                        <h3 class="pages-title">Ho<span class="big-word">W</span>：如何申購ETF</h3>
+                                        <p>指數型基金的申購依據基金掛牌上市前後，共有二種申購方式：</p>
+                                        <div class="row clearfix">
+                                            <div class="col-xs-12">
+                                                <ol>
+                                                    <li>
+                                                        <b>IPO(基金掛牌上市前)以現金申購 / 初級市場</b><br>
+                                                        過去由於指數型基金的申購門檻較高，使得許多非機構投資人無法參與ETF初級市場的造市機會，而目前主管機關已經核准小額投資人可以在指數型基金上市前，即以現金向發行該基金的投信公司或銷售機構提出申購，惟參與最低金額門檻較高。
+                                                        <img src="~/Content/images/pedia4-1.png" alt="" class="img-responsive">
+                                                    </li>
+                                                    <li>
+                                                        <b>次級市場</b><br>
+                                                        指數型基金掛牌上市後，即可透過集中交易市場買賣。由於初級市場的參與門檻較高，因此對於一般投資人而言可以等基金掛牌上市後直接在集中市場買賣指數型基金，交易方式和股票買賣完全相同；此外，也可透過銀行等銷售機構進行單筆申購或定期定額申購。
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

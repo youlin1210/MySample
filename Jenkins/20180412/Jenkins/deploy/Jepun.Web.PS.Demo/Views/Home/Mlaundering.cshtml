@@ -1,0 +1,57 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@using Jepun.Web.PS.Comm
+@{
+}
+
+@using (Html.BeginForm("", "Mlaundering", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormMlaundering" }))
+{
+    <div class="container">
+        <div class="row">
+            <section class="content">
+                <div class="container">
+                    <div class="cus-breadcrumb-wrapper">
+                        <ol class="breadcrumb">
+                            <li><a href="~/Home/Index">首頁</a></li>
+                            <li class="active">防制洗錢及打擊資恐專區</li>
+                        </ol>
+                    </div>
+
+                    <div class="page-header-wrapper">
+                        <h3 class="title"><span>防制洗錢及打擊資恐專區</span></h3>
+                        <hr />
+                        <div class="editor-area">
+                            <div class="col-xs-12 col-sm-12">
+                                <h3 class="pages-title">防制洗錢及打擊資恐專區</h3>
+                                <p>為對您有多一些瞭解並建全台灣金融環境，本公司確實落實開戶、交易時之客戶審查程序，以保護您的資產安全。</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 ">
+                                <h3 class="pages-title">法令宣導</h3>
+                                <ul name="laundering" class="mlaundering">
+                                    @Html.Raw(Model.Dictionary["Laundering"])
+                                </ul>
+                                <div class="pagination-wrapper">
+                                    <nav aria-label="Page navigation">
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 ">
+                                <h3 class="pages-title">相關連結</h3>
+                                <ul class="mlaundering">
+                                    <li><a target="_blank" href="http://www.amlo.moj.gov.tw">行政院洗錢防制辦公室</a></li>
+                                    <li><a target="_blank" href="http://www.amlo.moj.gov.tw">行政院洗錢防制辦公室</a></li>
+                                    <li><a target="_blank" href="http://www.amlo.moj.gov.tw">行政院洗錢防制辦公室</a></li>
+                                    <li><a target="_blank" href="http://www.amlo.moj.gov.tw">行政院洗錢防制辦公室</a></li>
+                                    <li><a target="_blank" href="http://www.amlo.moj.gov.tw">行政院洗錢防制辦公室</a></li>
+                                    <li><a target="_blank" href="http://www.amlo.moj.gov.tw">行政院洗錢防制辦公室</a></li>
+                                </ul>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}
+    <script src="~/Scripts/Apps/HomeMlaundering.js?@ServiceHelper.CacheBusting()"></script>
+

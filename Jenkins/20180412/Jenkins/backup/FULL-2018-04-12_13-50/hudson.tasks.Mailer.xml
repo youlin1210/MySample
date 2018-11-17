@@ -1,0 +1,12 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson.tasks.Mailer_-DescriptorImpl plugin="mailer@1.21">
+  <defaultSuffix>@gmail.com</defaultSuffix>
+  <hudsonUrl>http://localhost:8080/</hudsonUrl>
+  <smtpAuthUsername>jepunwebtest</smtpAuthUsername>
+  <smtpAuthPassword>{AQAAABAAAAAgh9P7aEtKcrvnI2LwypAuR6a+OusWldQTKv1YbhbH7ZSC+8FPkdeuYd1doLY1t5Og}</smtpAuthPassword>
+  <replyToAddress>youlinchen@jepun.com.tw</replyToAddress>
+  <smtpHost>smtp.gmail.com</smtpHost>
+  <useSsl>true</useSsl>
+  <smtpPort>587</smtpPort>
+  <charset>UTF-8</charset>
+</hudson.tasks.Mailer_-DescriptorImpl>

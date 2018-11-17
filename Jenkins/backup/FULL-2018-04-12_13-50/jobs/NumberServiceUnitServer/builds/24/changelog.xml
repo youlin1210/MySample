@@ -1,0 +1,11 @@
+commit 5059b95abd945c69552f69a8f375144ab3ee788c
+tree 73f576716da2343c59b6685b34c517aa3adee301
+parent 44446df969358ddc85a51e14c0e924ddf525251b
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-29 17:14:25 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-29 17:14:25 +0800
+
+    add CodeCoverage
+
+
+
+:100644 100644 0ee51ae47de404ae5dcbe575e3f49725bcce27d9 0ee51ae47de404ae5dcbe575e3f49725bcce27d9 R100	JenkinsCI/NumberService.testsettings	JenkinsCI/CodeCoverage.testsettings

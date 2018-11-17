@@ -1,0 +1,12 @@
+commit f3afe1beb62585846f34bfb8f04e484fa63c66d6
+tree ea2f586525591c46ef6d8292d31662b1693e0a0d
+parent 187eba28a7e2183d3ac999e0b2b6a858d64bd538
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-28 17:51:18 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-28 17:51:18 +0800
+
+    add version
+
+
+
+:100644 100644 d184dc8388fcc92f781c24d13ae4f0a7ac264b79 be9fb2d799a609544c6d94dc778ffbe0cccfa5c1 M	DB/EC/SP/PR_TaSecCalendarSel.sql
+:100644 100644 805eaeff3c10044f031bd27c3cf9b330ab30e6d4 e74ff934bca12025bdcc28a23d5f958381c09bbd M	DB/PS/SP/PR_TaDistributionForPsSel.sql

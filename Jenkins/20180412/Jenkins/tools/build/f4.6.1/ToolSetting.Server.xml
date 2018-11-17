@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!--MsBuild Settings-->
+	<PropertyGroup>
+		<MsBuildPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\MSBuild.exe</MsBuildPath>
+	</PropertyGroup>
+
+	<!--MsTest Settings-->
+	<PropertyGroup>
+		<MsTestPath>C:\Program Files\dotnet\dotnet.exe</MsTestPath>
+		<MsTestResultOutputPath>$(MSBuildStartupDirectory)\..\TestResult.trx</MsTestResultOutputPath>
+		<CodeCoverageResultXmlPath>$(MSBuildStartupDirectory)\CoverageReport.xml</CodeCoverageResultXmlPath>
+		<CodeCoverageXslPath>D:\Jenkins\tools\CodeCoverageConverter\MSTestCoverageToEmma.xsl</CodeCoverageXslPath>
+	</PropertyGroup>
+
+	<!--StyleCop Settings-->
+	<UsingTask AssemblyFile="D:\Jenkins\workspace\NumberServiceUnitServer461Build\ClassLibCI\packages\StyleCop.MSBuild.5.0.0\tools\StyleCop.dll" TaskName="StyleCopTask"/>
+	<PropertyGroup>		
+		<StyleCopOutputPath>$(MSBuildStartupDirectory)\..\StyleCopViolations.xml</StyleCopOutputPath>
+	</PropertyGroup>
+
+	<!--FxCop Settings-->
+	<PropertyGroup>
+		<FxCopPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe</FxCopPath>
+		<FxCopRulePath>C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\Team Tools\Static Analysis Tools\FxCop\Rules</FxCopRulePath>
+		<FxCopResultOutputPath>$(MSBuildStartupDirectory)\..\FxCopReport.xml</FxCopResultOutputPath>
+	</PropertyGroup>
+
+	<!--Simian Settings-->
+	<PropertyGroup>
+		<SimianPath>C:\Program Files (x86)\Simian\simian-2.3.33.exe</SimianPath>
+		<SimianFormatter>xml:$(MSBuildStartupDirectory)\SimianReport.xml</SimianFormatter>
+		<SimianThreshold>3</SimianThreshold>
+		<SimianLanguage>cs</SimianLanguage>
+	</PropertyGroup>
+
+	<!--SourceMonitor Settings-->
+	<PropertyGroup>
+		<SourceMonitorPath>C:\Program Files (x86)\SourceMonitor\SourceMonitor.exe</SourceMonitorPath>
+		<SourceMonitorResultPath>$(MSBuildStartupDirectory)\SourceMonitorReport.xml</SourceMonitorResultPath>
+		<SourceMonitorCommand>
+			<![CDATA[<sourcemonitor_commands>
+        <write_log>false</write_log>
+        <command>          
+          <project_file>$(MSBuildStartupDirectory)\SourceMonitorResult.smproj</project_file>
+		  <project_language>C#</project_language>
+          <source_directory>$(MSBuildStartupDirectory)\</source_directory>
+          <include_subdirectories>true</include_subdirectories>
+		  <checkpoint_name>Checkpoint 1</checkpoint_name>
+          <parse_utf8_files>True</parse_utf8_files>
+          <export>
+			<export_file>$(SourceMonitorResultPath)</export_file>
+			<export_type>2</export_type>
+			<export_option>1</export_option>           
+          </export>
+        </command>
+      </sourcemonitor_commands>]]>
+		</SourceMonitorCommand>
+		<SourceMonitorSummaryXslPath>D:\Jenkins\tools\SourceMonitorSummaryGeneration.xsl</SourceMonitorSummaryXslPath>
+		<SourceMonitorResultXslPath>D:\Jenkins\tools\SourceMonitor.xsl</SourceMonitorResultXslPath>
+	</PropertyGroup>
+
+	<!--Tools Settings-->
+	<PropertyGroup>
+		<NuGetPath>D:\Jenkins\tools\NuGet.exe</NuGetPath>
+		<XslConverterPath>D:\Jenkins\tools\msxsl.exe</XslConverterPath>
+		<CodeCoverageConverterPath>D:\Jenkins\tools\CodeCoverageConverter\CodeCoverageConverter.exe</CodeCoverageConverterPath>
+	</PropertyGroup>
+</Project>

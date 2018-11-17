@@ -1,0 +1,150 @@
+¥Ñ¨Ï¥ÎªÌ [8mha:////4E9IgijjWSh0iFjZlKLafM0SZiAtWdbV06BAJlP2qvUsAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyuEgYe/dLi1CL9yvxSoI0AG1rJssEAAAA=[0myoulinchen ±Ò°Ê
+«Ø¸m¤¤ ¤u§@°Ï D:\Jenkins\workspace\Jepun.Web.Base
+Cloning the remote Git repository
+Cloning repository \\jprd\git\Jepun.Web
+ > C:\Program Files\Git\bin\git.exe init D:\Jenkins\workspace\Jepun.Web.Base # timeout=10
+Fetching upstream changes from \\jprd\git\Jepun.Web
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\jprd\git\Jepun.Web +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\jprd\git\Jepun.Web # timeout=10
+ > C:\Program Files\Git\bin\git.exe config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\jprd\git\Jepun.Web # timeout=10
+Fetching upstream changes from \\jprd\git\Jepun.Web
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\jprd\git\Jepun.Web +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision 6a8594350288381793c98d23d83e3a90910aa415 (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f 6a8594350288381793c98d23d83e3a90910aa415
+Commit message: "Add version"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 6a8594350288381793c98d23d83e3a90910aa415 # timeout=10
+[Jepun.Web.Base] $ cmd /c call C:\WINDOWS\TEMP\jenkins7321645568583873907.bat
+
+D:\Jenkins\workspace\Jepun.Web.Base>"D:\Jenkins\NuGet.exe" restore D:\Jenkins\workspace\Jepun.Web\Jepun.Web.sln  
+MSBuild auto-detection: using msbuild version '15.7.66.2115' from 'C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\bin'.
+packages.config ¤¤¦C¥Xªº©Ò¦³«Ê¸Ë§¡¤w¦w¸Ë¡C
+
+D:\Jenkins\workspace\Jepun.Web.Base>exit 0 
+Path To MSBuild.exe: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe
+Executing the command cmd.exe /C " C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe /p:Configuration=Release /p:AspnetCompilerPath=C:\windows\Microsoft.NET\Framework64\v4.0.30319 /p:VisualStudioVersion=12.0 D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj " && exit %%ERRORLEVEL%% from D:\Jenkins\workspace\Jepun.Web.Base
+[Jepun.Web.Base] $ cmd.exe /C " C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe /p:Configuration=Release /p:AspnetCompilerPath=C:\windows\Microsoft.NET\Framework64\v4.0.30319 /p:VisualStudioVersion=12.0 D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj " && exit %%ERRORLEVEL%%
+Microsoft (R) Build Engine ª©¥» 4.7.2556.0
+[Microsoft .NET Framework¡Aª©¥» 4.0.30319.42000]
+Copyright (C) Microsoft Corporation. µÛ§@Åv©Ò¦³¡A¨Ã«O¯d¤@¤ÁÅv§Q¡C
+
+¤w¸g¶}©l«Ø¸m©ó 2018/3/27 ¤U¤È 05:22:28¡C
+¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤Wªº±M®× "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj"¡C
+PrepareForBuild:
+  ¥¿¦b«Ø¥ß¥Ø¿ý "bin\Release\"¡C
+  ¥¿¦b«Ø¥ß¥Ø¿ý "obj\Release\"¡C
+±M®× "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj" (1) ¥¿¦b¸`ÂI 1 (¹w³]¥Ø¼Ð) ¤W«Ø¸m "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\Jepun.Web.Resource.csproj" (2)¡C
+PrepareForBuild:
+  ¥¿¦b«Ø¥ß¥Ø¿ý "bin\Release\"¡C
+  ¥¿¦b«Ø¥ß¥Ø¿ý "obj\Release\"¡C
+CoreResGen:
+  "C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools\resgen.exe" /useSourcePath /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Microsoft.CSharp.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Core.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.DataSetExtensions.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.Linq.dll" /compile ErrorMessage.resx,obj\Release\Jepun.Web.Resource.ErrorMessage.resources Label.resx,obj\Release\Jepun.Web.Resource.Label.resources ErrorMessage.en-us.resx,obj\Release\Jepun.Web.Resource.ErrorMessage.en-us.resources ErrorMessage.zh-cn.resx,obj\Release\Jepun.Web.Resource.ErrorMessage.zh-cn.resources Label.en-us.resx,obj\Release\Jepun.Web.Resource.Label.en-us.resources Label.zh-cn.resx,obj\Release\Jepun.Web.Resource.Label.zh-cn.resources
+  ¥¿¦b³B²z¸ê·½ÀÉ "ErrorMessage.resx" ¦Ü "obj\Release\Jepun.Web.Resource.ErrorMessage.resources"¡C
+  ¥¿¦b³B²z¸ê·½ÀÉ "Label.resx" ¦Ü "obj\Release\Jepun.Web.Resource.Label.resources"¡C
+  ¥¿¦b³B²z¸ê·½ÀÉ "ErrorMessage.en-us.resx" ¦Ü "obj\Release\Jepun.Web.Resource.ErrorMessage.en-us.resources"¡C
+  ¥¿¦b³B²z¸ê·½ÀÉ "ErrorMessage.zh-cn.resx" ¦Ü "obj\Release\Jepun.Web.Resource.ErrorMessage.zh-cn.resources"¡C
+  ¥¿¦b³B²z¸ê·½ÀÉ "Label.en-us.resx" ¦Ü "obj\Release\Jepun.Web.Resource.Label.en-us.resources"¡C
+  ¥¿¦b³B²z¸ê·½ÀÉ "Label.zh-cn.resx" ¦Ü "obj\Release\Jepun.Web.Resource.Label.zh-cn.resources"¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+  C:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE /highentropyva+ /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Microsoft.CSharp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.DataSetExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.Linq.dll" /debug:pdbonly /filealign:512 /optimize+ /out:obj\Release\Jepun.Web.Resource.dll /subsystemversion:6.00 /resource:obj\Release\Jepun.Web.Resource.ErrorMessage.resources /resource:obj\Release\Jepun.Web.Resource.Label.resources /target:library /utf8output ErrorMessage.Designer.cs Label.Designer.cs Properties\AssemblyInfo.cs "C:\WINDOWS\TEMP\.NETFramework,Version=v4.5.AssemblyAttributes.cs"
+GenerateSatelliteAssemblies:
+  ¥¿¦b«Ø¥ß¥Ø¿ý "obj\Release\en-us"¡C
+  ¥¿¦b«Ø¥ß¥Ø¿ý "obj\Release\zh-cn"¡C
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools\x64\AL.exe /culture:en-us /out:obj\Release\en-us\Jepun.Web.Resource.resources.dll /template:obj\Release\Jepun.Web.Resource.dll /embed:obj\Release\Jepun.Web.Resource.ErrorMessage.en-us.resources /embed:obj\Release\Jepun.Web.Resource.Label.en-us.resources
+GenerateSatelliteAssemblies:
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools\x64\AL.exe /culture:zh-cn /out:obj\Release\zh-cn\Jepun.Web.Resource.resources.dll /template:obj\Release\Jepun.Web.Resource.dll /embed:obj\Release\Jepun.Web.Resource.ErrorMessage.zh-cn.resources /embed:obj\Release\Jepun.Web.Resource.Label.zh-cn.resources
+CopyFilesToOutputDirectory:
+  ¥¿¦b±NÀÉ®×±q "obj\Release\Jepun.Web.Resource.dll" ½Æ»s¨ì "bin\Release\Jepun.Web.Resource.dll"¡C
+  Jepun.Web.Resource -> D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\bin\Release\Jepun.Web.Resource.dll
+  ¥¿¦b±NÀÉ®×±q "obj\Release\Jepun.Web.Resource.pdb" ½Æ»s¨ì "bin\Release\Jepun.Web.Resource.pdb"¡C
+  ¥¿¦b«Ø¥ß¥Ø¿ý "bin\Release\en-us"¡C
+  ¥¿¦b±NÀÉ®×±q "obj\Release\en-us\Jepun.Web.Resource.resources.dll" ½Æ»s¨ì "bin\Release\en-us\Jepun.Web.Resource.resources.dll"¡C
+  ¥¿¦b«Ø¥ß¥Ø¿ý "bin\Release\zh-cn"¡C
+  ¥¿¦b±NÀÉ®×±q "obj\Release\zh-cn\Jepun.Web.Resource.resources.dll" ½Æ»s¨ì "bin\Release\zh-cn\Jepun.Web.Resource.resources.dll"¡C
+±M®× "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\Jepun.Web.Resource.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+GenerateTargetFrameworkMonikerAttribute:
+±N²¤¹L¥Ø¼Ð "GenerateTargetFrameworkMonikerAttribute"¡A¦]¬°©Ò¦³¿é¥XÀÉ¹ï©ó¨ä¿é¤JÀÉ¦Ó¨¥³£¤w§ó·s¡C
+CoreCompile:
+  C:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE /highentropyva+ /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.Charts.v16.1.Core.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.CodeParser.v16.1.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.Data.v16.1.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.Pdf.v16.1.Core.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.PivotGrid.v16.1.Core.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.Printing.v16.1.Core.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.Sparkline.v16.1.Core.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.Utils.v16.1.UI.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.Xpf.Printing.v16.1.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.XtraCharts.v16.1.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.XtraCharts.v16.1.Wizard.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.XtraPrinting.v16.1.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.XtraReports.v16.1.dll" /reference:"C:\Program Files (x86)\DevExpress 16.1\Components\Bin\Framework\DevExpress.XtraReports.v16.1.Extensions.dll" /reference:D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.Common.dll /reference:D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.LoadBalancing.dll /reference:D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.Log.dll /reference:D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.WCF.dll /reference:D:\Jenkins\workspace\Jepun.Web\DLLs\Jepun.Core.Web.dll /reference:D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Services.Common.Contract.dll /reference:D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Services.Message.Contract.dll /reference:D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\bin\Release\Jepun.Web.Resource.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Microsoft.CSharp.dll" /reference:D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.ComponentModel.DataAnnotations.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Configuration.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.DataSetExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Net.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.dll" /reference:D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll /reference:"C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.dll" /reference:D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll /reference:D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll /reference:D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll /reference:D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll /reference:D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.Linq.dll" /debug:pdbonly /filealign:512 /optimize+ /out:obj\Release\Jepun.Web.Base.dll /subsystemversion:6.00 /target:library /utf8output Common\AppFieldsHelper.cs Common\CommonHelper.cs Common\GlobalCacheKey.cs Common\GlobalPath.cs Common\GlobalVariable.cs Common\NodeHelper.cs Enum\AppendType.cs Enum\ContextualState.cs Enum\DataAction.cs Enum\Direction.cs Enum\EventType.cs Enum\HhmSelect.cs "Enum\HtmEvent .cs" Enum\PrincipalMode.cs Enum\StyleType.cs Enum\TextAlign.cs Enum\ValidationState.cs Html\HtmlAttrs.cs Html\MvcHtmlExtension.cs Html\WebControls.cs Models\CacheInfo.cs Models\HtmlCtrlModels.cs Models\NodeModels.cs Models\Option.cs Properties\AssemblyInfo.cs Report\ReportHelper.cs Validation\AgeNeedAttribute.cs Validation\AgeRangeAttribute.cs Validation\BooleanRequiredAttribute.cs Validation\CheckBoxSelectAttribute.cs Validation\ChkRuleAttribute.cs Validation\DateFormatAttribute.cs Validation\DateRangeAttributes.cs Validation\DateTimeFormatAttribute.cs Validation\IdCardAttribute.cs Validation\NotEqualToAttribute.cs Validation\ChkneedAttribute.cs Validation\PhoneMaskAttribute.cs Validation\MvcValidHelper.cs Validation\RequireDependAttribute.cs Validation\RequireDependWithAttribute.cs Validation\RequireGroupAttribute.cs Validation\SelectItemAttribute.cs Validation\ValChgGroupAttribute.cs Web\ApiFilter\RequireHttpsAttribute.cs Web\BaseApiController.cs Web\BaseController.cs Web\BaseViewPage.cs Web\Filter\CompressAttribute.cs Web\Filter\CustomHandleErrorAttribute.cs Web\Filter\ExLogAttribute.cs Web\Filter\LogAttribute.cs Web\Filter\LoginCheckFilterAttribute.cs Web\Filter\NoCacheAttribute.cs "C:\WINDOWS\TEMP\.NETFramework,Version=v4.5.AssemblyAttributes.cs"
+_CopyFilesMarkedCopyLocal:
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.Common.dll" ½Æ»s¨ì "bin\Release\Jepun.Core.Common.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.LoadBalancing.dll" ½Æ»s¨ì "bin\Release\Jepun.Core.LoadBalancing.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.Log.dll" ½Æ»s¨ì "bin\Release\Jepun.Core.Log.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.WCF.dll" ½Æ»s¨ì "bin\Release\Jepun.Core.WCF.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\DLLs\Jepun.Core.Web.dll" ½Æ»s¨ì "bin\Release\Jepun.Core.Web.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Services.Common.Contract.dll" ½Æ»s¨ì "bin\Release\Jepun.Services.Common.Contract.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Services.Message.Contract.dll" ½Æ»s¨ì "bin\Release\Jepun.Services.Message.Contract.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\bin\Release\Jepun.Web.Resource.dll" ½Æ»s¨ì "bin\Release\Jepun.Web.Resource.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" ½Æ»s¨ì "bin\Release\Microsoft.Web.Infrastructure.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll" ½Æ»s¨ì "bin\Release\System.Web.Helpers.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll" ½Æ»s¨ì "bin\Release\System.Web.Mvc.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll" ½Æ»s¨ì "bin\Release\System.Web.Razor.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll" ½Æ»s¨ì "bin\Release\System.Web.WebPages.Deployment.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll" ½Æ»s¨ì "bin\Release\System.Web.WebPages.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll" ½Æ»s¨ì "bin\Release\System.Web.WebPages.Razor.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\SevenZipSharp.dll" ½Æ»s¨ì "bin\Release\SevenZipSharp.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Dapper.dll" ½Æ»s¨ì "bin\Release\Dapper.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Newtonsoft.Json.dll" ½Æ»s¨ì "bin\Release\Newtonsoft.Json.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\NLog.dll" ½Æ»s¨ì "bin\Release\NLog.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Services.Mail.Contract.dll" ½Æ»s¨ì "bin\Release\Jepun.Services.Mail.Contract.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\bin\Release\Jepun.Web.Resource.pdb" ½Æ»s¨ì "bin\Release\Jepun.Web.Resource.pdb"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.Common.pdb" ½Æ»s¨ì "bin\Release\Jepun.Core.Common.pdb"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.Common.xml" ½Æ»s¨ì "bin\Release\Jepun.Core.Common.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.LoadBalancing.pdb" ½Æ»s¨ì "bin\Release\Jepun.Core.LoadBalancing.pdb"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.LoadBalancing.xml" ½Æ»s¨ì "bin\Release\Jepun.Core.LoadBalancing.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.Log.pdb" ½Æ»s¨ì "bin\Release\Jepun.Core.Log.pdb"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.Log.xml" ½Æ»s¨ì "bin\Release\Jepun.Core.Log.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.WCF.pdb" ½Æ»s¨ì "bin\Release\Jepun.Core.WCF.pdb"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Core.WCF.xml" ½Æ»s¨ì "bin\Release\Jepun.Core.WCF.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\DLLs\Jepun.Core.Web.pdb" ½Æ»s¨ì "bin\Release\Jepun.Core.Web.pdb"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\DLLs\Jepun.Core.Web.xml" ½Æ»s¨ì "bin\Release\Jepun.Core.Web.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Services.Common.Contract.pdb" ½Æ»s¨ì "bin\Release\Jepun.Services.Common.Contract.pdb"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Services.Common.Contract.xml" ½Æ»s¨ì "bin\Release\Jepun.Services.Common.Contract.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Services.Message.Contract.pdb" ½Æ»s¨ì "bin\Release\Jepun.Services.Message.Contract.pdb"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Services.Message.Contract.xml" ½Æ»s¨ì "bin\Release\Jepun.Services.Message.Contract.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.xml" ½Æ»s¨ì "bin\Release\System.Web.Helpers.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.xml" ½Æ»s¨ì "bin\Release\System.Web.Mvc.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.xml" ½Æ»s¨ì "bin\Release\System.Web.Razor.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.xml" ½Æ»s¨ì "bin\Release\System.Web.WebPages.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.xml" ½Æ»s¨ì "bin\Release\System.Web.WebPages.Deployment.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.xml" ½Æ»s¨ì "bin\Release\System.Web.WebPages.Razor.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\NLog.xml" ½Æ»s¨ì "bin\Release\NLog.xml"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Services.Mail.Contract.pdb" ½Æ»s¨ì "bin\Release\Jepun.Services.Mail.Contract.pdb"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\Jepun.Services.Mail.Contract.xml" ½Æ»s¨ì "bin\Release\Jepun.Services.Mail.Contract.xml"¡C
+  ¥¿¦b«Ø¥ß¥Ø¿ý "bin\Release\en-us"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\bin\Release\en-us\Jepun.Web.Resource.resources.dll" ½Æ»s¨ì "bin\Release\en-us\Jepun.Web.Resource.resources.dll"¡C
+  ¥¿¦b«Ø¥ß¥Ø¿ý "bin\Release\zh-cn"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\bin\Release\zh-cn\Jepun.Web.Resource.resources.dll" ½Æ»s¨ì "bin\Release\zh-cn\Jepun.Web.Resource.resources.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\en-us\Jepun.Core.Common.resources.dll" ½Æ»s¨ì "bin\Release\en-us\Jepun.Core.Common.resources.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\zh-CN\Jepun.Core.Common.resources.dll" ½Æ»s¨ì "bin\Release\zh-CN\Jepun.Core.Common.resources.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\en-us\Jepun.Core.WCF.resources.dll" ½Æ»s¨ì "bin\Release\en-us\Jepun.Core.WCF.resources.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\Dlls\zh-CN\Jepun.Core.WCF.resources.dll" ½Æ»s¨ì "bin\Release\zh-CN\Jepun.Core.WCF.resources.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\DLLs\en-us\Jepun.Core.Web.resources.dll" ½Æ»s¨ì "bin\Release\en-us\Jepun.Core.Web.resources.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\DLLs\zh-CN\Jepun.Core.Web.resources.dll" ½Æ»s¨ì "bin\Release\zh-CN\Jepun.Core.Web.resources.dll"¡C
+  ¥¿¦b«Ø¥ß¥Ø¿ý "bin\Release\zh-Hant"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\zh-Hant\System.Web.Helpers.resources.dll" ½Æ»s¨ì "bin\Release\zh-Hant\System.Web.Helpers.resources.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\zh-Hant\System.Web.Mvc.resources.dll" ½Æ»s¨ì "bin\Release\zh-Hant\System.Web.Mvc.resources.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\zh-Hant\System.Web.Razor.resources.dll" ½Æ»s¨ì "bin\Release\zh-Hant\System.Web.Razor.resources.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\zh-Hant\System.Web.WebPages.resources.dll" ½Æ»s¨ì "bin\Release\zh-Hant\System.Web.WebPages.resources.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\zh-Hant\System.Web.WebPages.Deployment.resources.dll" ½Æ»s¨ì "bin\Release\zh-Hant\System.Web.WebPages.Deployment.resources.dll"¡C
+  ¥¿¦b±NÀÉ®×±q "D:\Jenkins\workspace\Jepun.Web\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\zh-Hant\System.Web.WebPages.Razor.resources.dll" ½Æ»s¨ì "bin\Release\zh-Hant\System.Web.WebPages.Razor.resources.dll"¡C
+_CopyAppConfigFile:
+  ¥¿¦b±NÀÉ®×±q "app.config" ½Æ»s¨ì "bin\Release\Jepun.Web.Base.dll.config"¡C
+CopyFilesToOutputDirectory:
+  ¥¿¦b±NÀÉ®×±q "obj\Release\Jepun.Web.Base.dll" ½Æ»s¨ì "bin\Release\Jepun.Web.Base.dll"¡C
+  Jepun.Web.Base -> D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\bin\Release\Jepun.Web.Base.dll
+  ¥¿¦b±NÀÉ®×±q "obj\Release\Jepun.Web.Base.pdb" ½Æ»s¨ì "bin\Release\Jepun.Web.Base.pdb"¡C
+±M®× "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj" (¹w³]¥Ø¼Ð) «Ø¸m§¹¦¨¡C
+
+«Ø¸m¦¨¥\¡C
+    0 ­ÓÄµ§i
+    0 ­Ó¿ù»~
+
+¸g¹L®É¶¡ 00:00:06.75
+Finished: SUCCESS

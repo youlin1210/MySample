@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<sourcemonitor_commands>
+<write_log>false</write_log>
+	<command>
+       <project_file>SourceMonitorReport.smp</project_file>
+	   <project_language>C#</project_language>
+	   <file_extensions>*.cs</file_extensions>       
+	   <source_directory>D:\Jenkins\workspace\NumberServiceUnitServer461\ClassLibCI\ClassLibCI</source_directory>
+	   <include_subdirectories>true</include_subdirectories>
+	   <checkpoint_name>Checkpoint 1</checkpoint_name>
+	   <parse_utf8_files>True</parse_utf8_files>
+       <export>
+           <export_file>SourceMonitorReport.xml</export_file>
+           <export_type>2</export_type>
+           <export_option>1</export_option>
+       </export>
+   </command>
+</sourcemonitor_commands>

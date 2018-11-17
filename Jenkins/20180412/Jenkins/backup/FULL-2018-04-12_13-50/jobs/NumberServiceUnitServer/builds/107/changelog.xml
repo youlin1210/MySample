@@ -1,0 +1,70 @@
+commit 5022c5f92908b0558cd2fa90659bf54dc5b5225c
+tree b28963b8d4afc62baac7cce291d5ff2c59d1930a
+parent 8494d4f9af7b7fd6ff2f81c50a2502bc5d34250a
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-09 13:55:21 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-09 13:55:21 +0800
+
+    add
+
+
+
+:100644 100644 fd265ad9bc2093baa6d907f6c53337acaf6a8cdc 767ff5e1e37df1c99107458414b11620d46df61a M	ClassLibCI/ClassLibCI/ClassLibCI.csproj
+commit 8494d4f9af7b7fd6ff2f81c50a2502bc5d34250a
+tree f76664bc675202e8cda36c356e5718982981e31e
+parent 47d61da51a4f3ad3dae43b839b71160130c6de06
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-09 13:53:16 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-09 13:53:16 +0800
+
+    add
+
+
+
+:100644 100644 85f20167c6d5a67834d0e941da9d9c6ed50c123b c44f435430c1f9d1dbed9b7610c02ac264341bae M	ClassLibCI/ClassLibCI/StyleCopSetting.xml
+commit 47d61da51a4f3ad3dae43b839b71160130c6de06
+tree f7c9c07bf999480706ce7af8af77c2def39f85da
+parent 5b80e5bea86fc6336e441da54148accf311edc62
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-09 13:44:00 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-09 13:44:00 +0800
+
+    add v
+
+
+
+:100644 100644 d9b428609b9695defc680d514f5eef49594d6681 cf025ada390b2478d3f3afc3d10d23b6d71f2905 M	ClassLibCI/ClassLibCI.sln
+:100644 100644 c5b78246077f47d1df17e0df08a09ba36df6e9d6 fd265ad9bc2093baa6d907f6c53337acaf6a8cdc M	ClassLibCI/ClassLibCI/ClassLibCI.csproj
+:000000 100644 0000000000000000000000000000000000000000 85f20167c6d5a67834d0e941da9d9c6ed50c123b A	ClassLibCI/ClassLibCI/StyleCopSetting.xml
+:100644 100644 cf5759147a4e091f4995cfda8e3e46f1c32c5f5b 569a6367a68f23590bade760c40a84d700f02b6b M	ClassLibCI/ClassLibTset/ClassLibTset.csproj
+commit 5b80e5bea86fc6336e441da54148accf311edc62
+tree d1fd86644be7e747535cd91ae56fdce69eb567fc
+parent 9c9383a6eec3174023ffa04e78286f912e60c8e0
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-09 13:35:15 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-09 13:35:15 +0800
+
+    add p
+
+
+
+:000000 100644 0000000000000000000000000000000000000000 274682228d71f7dc3868294ccce29b38e2da9ad1 A	ClassLibCI/ClassLibCI/packages.config
+commit 9c9383a6eec3174023ffa04e78286f912e60c8e0
+tree 1b77c44945282f2710d57f199fb29abd6c85254e
+parent e5738fe527492f78473f48d0423fb3f1bf8915c7
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-09 11:42:53 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-09 11:42:53 +0800
+
+    add
+
+
+
+:000000 100644 0000000000000000000000000000000000000000 edb5123afde37c03baf90a4a5312234cf3c20f03 A	ClassLibCI/ClassLibTset/StyleCop.Cache
+:100644 100644 cf2d094f8db2f06348226848248a01b48e9e80de 57c44f04201609499418c572ba2db9f3b75dc512 M	ClassLibCI/ClassLibTset/packages.config
+commit e5738fe527492f78473f48d0423fb3f1bf8915c7
+tree e9d5b00d1a823b00db8f1d9149e099deb6db1f6e
+parent a3f241e70919f34901c3b2ae04ddf7f156124744
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-09 10:59:13 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-09 10:59:13 +0800
+
+    add
+
+
+
+:000000 100644 0000000000000000000000000000000000000000 53107ac01dc564e8dd5974c8ee08087ed3420338 A	ClassLibCI/ClassLibTset/Properties/AssemblyInfo.cs

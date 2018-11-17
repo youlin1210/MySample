@@ -1,0 +1,121 @@
+﻿@model Jepun.Web.PS.Models.PsBannerViewModel
+@using Jepun.Web.PS.Comm
+@{
+    Layout = null;
+}
+<div class="alert alert-info" role="alert">首頁Banner</div>
+@using (Html.BeginForm("", "BackBanner", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormBackBanner", onsubmit = "return false" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="form-group jepun-upcoming">
+                    <div class="col-sm-2 control-label">
+                        <label>狀態</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.DropDownListFor(model => model.QryType, Enumerable.Empty<SelectListItem>()).Sel()
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.DropDownListFor(model => model.QryStatus, Enumerable.Empty<SelectListItem>()).Sel()
+                    </div>
+                    <div class="col-sm-2 control-label">
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-primary" name="BtnQry">查詢</button>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="">　標題　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　異動　　　上稿日期　　狀態　<button type="button" class="btn btn-primary btn-xs" name="QryFlow">歷史流程</button></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4">
+                                    <select size="6" class="form-control" name="BannerNo"></select>
+                                    @Html.HiddenFor(model => model.LogSN).Txt()
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>標題</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.Title).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "標題" })
+                    @Html.ValidationMessageFor(model => model.Title)
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>排序: </label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.Sort).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "排序" })
+                    @Html.ValidationMessageFor(model => model.Sort)
+                </div>
+                @*<div class="col-sm-2 control-label">
+                    <label>備註</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextAreaFor(Model => Model.Remark).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "備註" })
+                    @Html.ValidationMessageFor(model => model.Remark)
+                </div>*@
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>圖片上傳(1920 X 660): </label>
+                </div>
+                <div class="col-sm-4">
+                    <select class="form-control" name="BannerFile"></select>
+                    @Html.TextBoxFor(Model => Model.InputFile, new { type = "file", accept = "image/*" }).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "檔案" })
+                    <button class="btn btn-default" type="button" name="BtnInsFile">新增檔案</button>
+                    <button class="btn btn-primary" type="button" name="BtnDelFile">刪除檔案</button>
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>連結</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.Link).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "連結" })
+                    @Html.ValidationMessageFor(model => model.Link)
+                </div>
+            </div>     
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>上架日</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "上架日" })
+                    @Html.ValidationMessageFor(model => model.StartDate)
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>下架日</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "下架日" })
+                    @Html.ValidationMessageFor(model => model.EndDate)
+                </div>
+            </div>    
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+            <button class="btn btn-primary" type="button" name="BtnIns">新增</button>
+            <button class="btn btn-primary" type="button" name="BtnUpd">修改</button>
+            <button class="btn btn-primary" type="button" name="BtnDel">刪除</button>
+        </div>
+        <div class="col-sm-3">
+            @Html.DropDownListFor(model => model.NextFlow, Enumerable.Empty<SelectListItem>()).Sel()
+        </div>
+        <div class="col-sm-3">
+            <button class="btn btn-primary" type="button" name="BtnFlow">確定</button>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/BackBanner.js?@ServiceHelper.CacheBusting()"></script>

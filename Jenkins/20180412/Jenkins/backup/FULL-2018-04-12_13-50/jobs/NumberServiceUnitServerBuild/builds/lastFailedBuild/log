@@ -1,0 +1,95 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitServerBuild
+Cloning the remote Git repository
+Cloning repository \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe init D:\Jenkins\workspace\NumberServiceUnitServerBuild # timeout=10
+Fetching upstream changes from \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\Test-pc\git\Jenkins +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\Test-pc\git\Jenkins # timeout=10
+ > C:\Program Files\Git\bin\git.exe config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\Test-pc\git\Jenkins # timeout=10
+Fetching upstream changes from \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\Test-pc\git\Jenkins +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision 7f280ac876fedb2d51ff1f1fe4a9e2f231dac5aa (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f 7f280ac876fedb2d51ff1f1fe4a9e2f231dac5aa
+Commit message: "add"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 7f280ac876fedb2d51ff1f1fe4a9e2f231dac5aa # timeout=10
+[NumberServiceUnitServerBuild] $ cmd /c call C:\WINDOWS\TEMP\jenkins7697366265526969068.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServerBuild>cd JenkinsCI 
+
+D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI>"C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\bin\msbuild.exe" Build.csproj  /p:BuildSetting=BuildSetting.xml /p:ToolSetting=ToolSetting.xml	 
+Microsoft (R) Build Engine for .NET Framework 15.7.66.2115 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+已經開始建置於 2018/4/12 上午 11:32:00。
+節點 1 (預設目標) 上的專案 "D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj"。
+Build:
+  INFO: Start DotNet Restore, Enable Build Project: True
+NuGet:
+  "C:\Program Files\dotnet\dotnet.exe" restore "D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\JenkinsCI.sln"
+    Restoring packages for D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLibTest\NumberLibTest.csproj...
+    Restoring packages for D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj...
+    Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.props.
+    Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.targets.
+    Restore completed in 391.33 ms for D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj.
+    Restore completed in 120.73 ms for D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+    Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLibTest\obj\NumberLibTest.csproj.nuget.g.props.
+    Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLibTest\obj\NumberLibTest.csproj.nuget.g.targets.
+    Restore completed in 2.86 sec for D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+Build:
+  INFO: Start DotNet Build Project, Enable Build Project: True
+BuildProject:
+  "C:\Program Files\dotnet\dotnet.exe" build -c Debug -f netcoreapp2.0 "D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\JenkinsCI.sln"
+  Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+  Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+  
+    Restore completed in 16.72 ms for D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj.
+    Restore completed in 23.96 ms for D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+    Restore completed in 76.62 ms for D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+NumberService.cs(6,21): warning CA1822: Member isEven does not access instance data and can be marked as static (Shared in VisualBasic) [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj] [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj]
+CSC : error CS2012: 無法開啟 'D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\obj\Debug\netcoreapp2.0\NumberLib.dll' 進行寫入 -- 'The process cannot access the file 'D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\obj\Debug\netcoreapp2.0\NumberLib.dll' because it is being used by another process.' [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj] [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj]
+NumberService.cs(6,21): warning CA1822: Member isEven does not access instance data and can be marked as static (Shared in VisualBasic) [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj] [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj]
+    NumberLib -> D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\bin\Debug\netcoreapp2.0\NumberLib.dll
+    NumberLibTest -> D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0\NumberLibTest.dll
+  
+  建置失敗。
+  
+NumberService.cs(6,21): warning CA1822: Member isEven does not access instance data and can be marked as static (Shared in VisualBasic) [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj] [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj]
+NumberService.cs(6,21): warning CA1822: Member isEven does not access instance data and can be marked as static (Shared in VisualBasic) [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj] [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj]
+CSC : error CS2012: 無法開啟 'D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\obj\Debug\netcoreapp2.0\NumberLib.dll' 進行寫入 -- 'The process cannot access the file 'D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\obj\Debug\netcoreapp2.0\NumberLib.dll' because it is being used by another process.' [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj] [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj]
+      2 個警告
+      1 個錯誤
+  
+  經過時間 00:00:04.63
+D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj(36,3): error MSB3073: ""C:\Program Files\dotnet\dotnet.exe" build -c Debug -f netcoreapp2.0 "D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\JenkinsCI.sln"" 命令以返回碼 1 結束。
+專案 "D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj" (預設目標) 建置完成 -- 失敗。
+
+建置失敗。
+
+"D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj" (預設目標) (1) ->
+(BuildProject 目標) -> 
+  NumberService.cs(6,21): warning CA1822: Member isEven does not access instance data and can be marked as static (Shared in VisualBasic) [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj] [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj]
+  NumberService.cs(6,21): warning CA1822: Member isEven does not access instance data and can be marked as static (Shared in VisualBasic) [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj] [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj]
+  NumberService.cs(6,21): warning CA1822: Member isEven does not access instance data and can be marked as static (Shared in VisualBasic) [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj] [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj]
+  NumberService.cs(6,21): warning CA1822: Member isEven does not access instance data and can be marked as static (Shared in VisualBasic) [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj] [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj]
+
+
+"D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj" (預設目標) (1) ->
+(BuildProject 目標) -> 
+  CSC : error CS2012: 無法開啟 'D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\obj\Debug\netcoreapp2.0\NumberLib.dll' 進行寫入 -- 'The process cannot access the file 'D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\obj\Debug\netcoreapp2.0\NumberLib.dll' because it is being used by another process.' [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj] [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj]
+  CSC : error CS2012: 無法開啟 'D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\obj\Debug\netcoreapp2.0\NumberLib.dll' 進行寫入 -- 'The process cannot access the file 'D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\obj\Debug\netcoreapp2.0\NumberLib.dll' because it is being used by another process.' [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\NumberLib\NumberLib.csproj] [D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj]
+  D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\Build.csproj(36,3): error MSB3073: ""C:\Program Files\dotnet\dotnet.exe" build -c Debug -f netcoreapp2.0 "D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI\JenkinsCI.sln"" 命令以返回碼 1 結束。
+
+    4 個警告
+    3 個錯誤
+
+經過時間 00:00:11.61
+
+D:\Jenkins\workspace\NumberServiceUnitServerBuild\JenkinsCI>exit 1 
+Build step '執行 Windows 批次指令' marked build as failure
+Finished: FAILURE

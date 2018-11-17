@@ -1,0 +1,77 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@using Jepun.Web.PS.Comm
+@{
+}
+@using (Html.BeginForm("", "FundAcc", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormFundAcc" }))
+{
+    <div class="container">
+        <div class="row">
+            <section class="content">
+                <div class="container">
+                    <div class="cus-breadcrumb-wrapper">
+                        <ol class="breadcrumb">
+                            <li><a href="~/Home/Index">首頁</a></li>
+                            <li class="active">@Model.H1</li>
+                        </ol>
+                    </div>
+                    <div class="page-header-wrapper">
+                        <h3 class="title"><span>@Model.H1</span></h3>
+                        <hr>
+                    </div>
+                    <div class="funds-area">
+                        <div class="col-xs-12">
+                            @*<h3 class="pages-title">@Model.H1</h3>*@
+                            <p>
+                                若您要透過臨櫃或傳真書面方式申購本公司所發行之基金，基金款項之繳費請依據各基金之匯款銀行、戶名、帳號與最低申購金額辦理<br />
+                                若您是本公司電子交易戶，可透過線上交易平台<a target="_blank" href="https://etrade.ctbcinvestments.com.tw/CTBC.EC/">https://etrade.ctbcinvestments.com.tw/CTBC.EC/</a>申購基金
+                            </p>
+                            <div class="col-xs-12 col-sm-4"> <select class="form-control" name="FundName"></select></div>
+                            <div class="col-xs-12">
+                                <hr />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="table">
+                                <table name="FundAccTable" class="table table-striped table-hover common-table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                基金名稱
+                                            </th>
+                                            <th>
+                                                級別
+                                            </th>
+                                            <th>
+                                                匯款銀行
+                                            </th>
+                                            <th>
+                                                匯款戶名
+                                            </th>
+                                            <th>
+                                                匯款帳號
+                                            </th>
+                                            <th>
+                                                單筆申購最低金額
+                                            </th>
+                                            <th>
+                                                定期定額申購每次最低金額
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @*@Html.Raw(Model.Dictionary["News"])*@
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pagination-wrapper">
+                                <nav aria-label="Page navigation">
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/HomeFundAcc.js?@ServiceHelper.CacheBusting()"></script>

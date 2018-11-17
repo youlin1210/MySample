@@ -1,0 +1,95 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitTestClient
+[NumberServiceUnitTestClient] $ cmd /c call C:\WINDOWS\TEMP\jenkins3347258521612893453.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTestClient>cd D:\JenkinsGit\JenkinsCI\NumberLib 
+
+D:\JenkinsGit\JenkinsCI\NumberLib>dotnet restore 
+  Restore completed in 35.77 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+
+D:\JenkinsGit\JenkinsCI\NumberLib>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 34.5 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+  NumberLib -> D:\JenkinsGit\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:00.93
+
+D:\JenkinsGit\JenkinsCI\NumberLib>exit 0 
+[NumberServiceUnitTestClient] $ cmd /c call C:\WINDOWS\TEMP\jenkins545910338757670973.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTestClient>cd D:\JenkinsGit\JenkinsCI\NumberLibTest 
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>dotnet restore 
+  Restore completed in 37.78 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 50.74 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 71.69 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 41.09 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 50.94 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 72.82 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  NumberLib -> D:\JenkinsGit\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+  NumberLibTest -> D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\NumberLibTest.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:01.70
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>exit 0 
+[NumberServiceUnitTestClient] $ cmd /c call C:\WINDOWS\TEMP\jenkins8848298290955421988.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTestClient>cd D:\JenkinsGit\JenkinsCI\NumberLibTest 
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>dotnet test -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 39.41 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 53.15 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 73.36 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+已開始建置，請稍候...
+建置完成。
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\NumberLibTest.dll(.NETCoreApp,Version=v2.0) 的測試回合
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180221-13 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+正在啟動測試執行，請稍候...
+
+測試總計: 2。成功: 2。失敗: 0。略過: 0。
+測試回合成功。
+測試執行時間: 1.1990 秒
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>exit 0 
+[NumberServiceUnitTestClient] $ cmd /c call C:\WINDOWS\TEMP\jenkins6513733622043197984.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTestClient>cd D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\ 
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0>vstest.console.exe NumberLibTest.dll /EnableCodeCoverage /Logger:trx 
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180307-01 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+正在啟動測試執行，請稍候...
+1.7255
+資料收集器 'Code Coverage' 的訊息: Cannot find CodeCoverage.exe.。
+System.IO.FileNotFoundException: D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\NumberLibTest.dll 中沒有可用的測試。請確定測試專案具有套件 "Microsoft.NET.Test.Sdk" 的 NuGet 參考，且架構的版本設定適當，然後再試一次。
+   於 Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Hosting.DotnetTestHostManager.GetTestHostProcessStartInfo(IEnumerable`1 sources, IDictionary`2 environmentVariables, TestRunnerConnectionInfo connectionInfo)
+   於 Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Client.ProxyOperationManager.SetupChannel(IEnumerable`1 sources, CancellationToken cancellationToken)
+   於 Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Client.ProxyExecutionManager.StartTestRun(TestRunCriteria testRunCriteria, ITestRunEventsHandler eventHandler)
+
+測試回合已中止。
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0>exit 1 
+Build step '執行 Windows 批次指令' marked build as failure
+Finished: FAILURE

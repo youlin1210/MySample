@@ -1,0 +1,36 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@{
+
+}
+<div class="container inner">
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <h1>@Model.H1</h1>
+        </div>
+        <div class="col-md-12 form-group">
+            <p class="color-danger">您的密碼輸入不正確，請重新輸入，若您忘記密碼，請點選「忘記密碼」，系統將自動發送一組新的</p>
+            <p class="color-danger">密碼到您留存的email</p>
+        </div>
+        <div class="col-md-12 form-group">
+            <p>親愛的投資人您好，請輸入您的會員帳號與密碼，如您是本公司電子交易戶，可直接使用您</p>
+            <p>的電子交易戶帳號(您的身分證字號)與密碼登入。如您非本公司電子交易戶，亦未申請註冊本公</p>
+            <p>司會員，請您先點選<a>「<u>加入會員</u>」</a></p>
+        </div>
+            <div class="col-md-12 form-group">
+                <p>帳號</p>
+                <input class="form-control">
+            </div>
+            <div class="col-md-12 form-group">
+                <p>密碼</p>
+                <input type="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="col-md-12 form-group">
+                <p>請輸入以下驗證碼</p>
+                <input>
+                <a>( <u>重新取得驗證碼</u> )</a>
+            </div>
+            <div class="col-md-8">
+                <button type="button" class="btn btn-primary">確定</button>
+            </div>
+        </div>
+</div>

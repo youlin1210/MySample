@@ -1,0 +1,16 @@
+commit 71f87b9ed01fd883574819cb44faa4edc8e773ce
+tree 15f1093c443f7f7ed59c2da56e44714c07aa47e1
+parent 5059b95abd945c69552f69a8f375144ab3ee788c
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-29 17:39:00 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-29 17:39:00 +0800
+
+    add version
+
+
+
+:100644 100644 2344b3fe2d5999b8f3a5e456b3ff3ae41cb0d132 b2c2292e2e1958fd6dbd5417268576eb525c2f94 M	JenkinsCI/.vs/JenkinsCI/v15/.suo
+:000000 100644 0000000000000000000000000000000000000000 5e9650954d8270db41e43fae4930b3fef6e2624f A	JenkinsCI/CodeCoverage.runsettings
+:100644 100644 4751494510e2d27d80e34844ca3a5c20ad4f1708 97e04b90367e69cf205d1035b5ee74d98d2c2ed8 M	JenkinsCI/JenkinsCI.sln
+:100644 100644 425e6d2157e4a496b3e3a0fab781c9b3f41513ca 24525930e5c8de3f080ecbc583ed3053918dc0ab M	JenkinsCI/NumberLib/obj/Debug/netcoreapp2.0/NumberLib.csproj.FileListAbsolute.txt
+:000000 100644 0000000000000000000000000000000000000000 a2485d497d408100739edde1fc5fcfd84ab065f0 A	JenkinsCI/NumberLib/obj/Debug/netcoreapp2.0/NumberLib.csprojResolveAssemblyReference.cache
+:100644 100644 62b5eecc1acb108fe09e7f72cc26b044ba93a215 334010510c4da56b6969b5fabc06d76754f61b86 M	JenkinsCI/NumberLibTest/obj/Debug/netcoreapp2.0/NumberLibTest.csprojResolveAssemblyReference.cache

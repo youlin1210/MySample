@@ -1,0 +1,34 @@
+commit 44446df969358ddc85a51e14c0e924ddf525251b
+tree fdc76b1215ee81927a5811c718b9a80114b28ffc
+parent 1aa30945743ac4f6d920b2be00035684cc558025
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-29 16:33:08 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-29 16:33:08 +0800
+
+    add
+
+
+
+:100644 100644 a3750f4effee12b4ba621803d5e20ffd3e2adc10 0ee51ae47de404ae5dcbe575e3f49725bcce27d9 M	JenkinsCI/NumberService.testsettings
+commit 1aa30945743ac4f6d920b2be00035684cc558025
+tree 286ecc490b2dcb5e4ec62bb012b4e38c5476f2cd
+parent b0a744e5fb344c4cf1547007a470ce12557542fa
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-29 16:19:51 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-29 16:19:51 +0800
+
+    add version
+
+
+
+:100644 100644 8dc6beb2a726777c784641de434e3b0f7705a720 2344b3fe2d5999b8f3a5e456b3ff3ae41cb0d132 M	JenkinsCI/.vs/JenkinsCI/v15/.suo
+:100644 100644 231d2388d034fb6923721c20d8fac5a5c4bfe5e3 4751494510e2d27d80e34844ca3a5c20ad4f1708 M	JenkinsCI/JenkinsCI.sln
+:100644 100644 d406eefddb92b75ad37b3cfafe4efdf45edab815 20e46d34b94c01d1beced743bb2d64f82cc59c52 M	JenkinsCI/NumberLib/bin/Debug/netcoreapp2.0/NumberLib.dll
+:100644 100644 960062a1c3399ea2029e35adfaec3c9dcdf8addd edbbdf5587ff76f89259d0c4f44eae7f368a9063 M	JenkinsCI/NumberLib/bin/Debug/netcoreapp2.0/NumberLib.pdb
+:100644 100644 24525930e5c8de3f080ecbc583ed3053918dc0ab 425e6d2157e4a496b3e3a0fab781c9b3f41513ca M	JenkinsCI/NumberLib/obj/Debug/netcoreapp2.0/NumberLib.csproj.FileListAbsolute.txt
+:100644 000000 27a52150e68d381cacb8de5fb27302f4e03f6e8f 0000000000000000000000000000000000000000 D	JenkinsCI/NumberLib/obj/Debug/netcoreapp2.0/NumberLib.csprojResolveAssemblyReference.cache
+:100644 100644 d406eefddb92b75ad37b3cfafe4efdf45edab815 20e46d34b94c01d1beced743bb2d64f82cc59c52 M	JenkinsCI/NumberLib/obj/Debug/netcoreapp2.0/NumberLib.dll
+:100644 100644 960062a1c3399ea2029e35adfaec3c9dcdf8addd edbbdf5587ff76f89259d0c4f44eae7f368a9063 M	JenkinsCI/NumberLib/obj/Debug/netcoreapp2.0/NumberLib.pdb
+:100644 100644 d406eefddb92b75ad37b3cfafe4efdf45edab815 20e46d34b94c01d1beced743bb2d64f82cc59c52 M	JenkinsCI/NumberLibTest/bin/Debug/netcoreapp2.0/NumberLib.dll
+:100644 100644 960062a1c3399ea2029e35adfaec3c9dcdf8addd edbbdf5587ff76f89259d0c4f44eae7f368a9063 M	JenkinsCI/NumberLibTest/bin/Debug/netcoreapp2.0/NumberLib.pdb
+:100644 100644 ece1a8a1a5de71239015ad5152d2f5771241774c b0b93e380ce34fccb533a218ca2b7c1ba5b06735 M	JenkinsCI/NumberLibTest/bin/Debug/netcoreapp2.0/NumberLibTest.runtimeconfig.dev.json
+:100644 100644 73ebd6ec2408d46e18b15572b5b877bbe3c1dd58 62b5eecc1acb108fe09e7f72cc26b044ba93a215 M	JenkinsCI/NumberLibTest/obj/Debug/netcoreapp2.0/NumberLibTest.csprojResolveAssemblyReference.cache
+:000000 100644 0000000000000000000000000000000000000000 a3750f4effee12b4ba621803d5e20ffd3e2adc10 A	JenkinsCI/NumberService.testsettings

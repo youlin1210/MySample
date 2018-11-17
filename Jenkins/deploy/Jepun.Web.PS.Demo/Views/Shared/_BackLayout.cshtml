@@ -1,0 +1,224 @@
+﻿@using Jepun.Web.PS.Comm
+@model Jepun.Web.PS.Models.LayoutViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <link rel="icon" href="~/favicon.ico" type="image/ico" />
+    <title>中國信託投信後台管理網站</title>
+    @*<title>@ViewBag.Title</title>*@
+    @Styles.Render("~/Content/backcss")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="none-background">
+    <form id="DefTargetForm" method="post" target="_blank">
+        <input type="hidden" name="RptName" />
+        <input type="hidden" name="DataString" />
+    </form>
+    <!--注意 一定id="FormLayout" -->
+    @using (Html.BeginForm("BackLogout", "Account", FormMethod.Post, new { id = "FormLayout"}))
+    {
+        @Html.AntiForgeryToken()
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-layout-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="~/Home/Index" target="_blank">
+                        <img alt="Brand" height="50" src="~/Content/images/Logo.gif">
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-layout-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-jepun-view="AccOpen" name="AccOpen">會員申請</a>
+                        </li>    
+                        <li>
+                            <a href="#">使用者:@Model.UserId</a>
+                        </li>                        
+                        <li>
+                            <a href="#" title="Logout" id="GlbLogout">登出</a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    <nav class="navbar navbar-default jepun-navbar-fixed-second">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" name="funButton" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-layout-navbar-collapse-2" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse nav-paddingtop" id="bs-layout-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li class="hidden"><a href="#" data-jepun-view="BackUpComing" name="BackUpComing">主管／法遵覆核</a></li>
+                    <li class="hidden"><a href="#" data-jepun-view="BackAdmin" name="BackAdmin">管理設定</a></li>
+                    <li class="hidden"><a href="#" data-jepun-view="ECMail" name="ECMail">郵件設定</a></li>
+                    <li class="hidden"><a href="#" data-jepun-view="BackOption" name="BackOption">選項設定</a></li>
+                    <li class="hidden"><a href="#" data-jepun-view="BackBanner" name="BackBanner">首頁Banner</a></li>
+                    <li class="hidden"><a href="#" data-jepun-view="BackKeywords" name="BackKeywords">關鍵字查詢</a></li>
+                    <li class="dropdown hidden">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" name="BackProduct">產品資訊 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            @*<li class="hidden"><a href="#" data-jepun-view="BackProductETF" name="BackProductETF">ETF專區</a></li>*@
+                            <li class="hidden"><a href="#" data-jepun-view="BackProductFund" name="BackProductFund">境內基金專區</a></li>
+                            <li class="hidden"><a href="#" data-jepun-view="BackHoldingWeightCur" name="BackHoldingWeightCur">貨幣型境內基金持股</a></li>
+                            <li class="hidden"><a href="#" data-jepun-view="BackHoldingWeight" name="BackHoldingWeight">境內基金持股</a></li>
+                            <li class="hidden"><a href="#" data-jepun-view="BackFundPerformance" name="BackFundPerformance">境內基金績效</a></li>
+                            <li class="hidden"><a href="#" data-jepun-view="BackProductOutSide" name="BackProductOutSide">境外專區</a></li>
+                            <li class="hidden"><a href="#" data-jepun-view="BackHoldingWeightOutSide" name="BackHoldingWeightOutSide">境外基金持股</a></li>
+                            <li class="hidden"><a href="#" data-jepun-view="BackFundPerformanceOut" name="BackFundPerformanceOut">境外基金績效</a></li>
+                            @*<li role="separator" class="divider"></li>
+                            <li class="hidden"><a href="#" data-jepun-view="BackProductPrivateFund" name="BackProductPrivateFund">私募專區</a></li>*@
+                        </ul>
+                    </li>       
+                    <li class="dropdown hidden">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" name="BackLink">快速連結 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="hidden"><a href="#" data-jepun-view="BackDocDownload" name="BackDocDownload">表單下載</a></li>
+                            <li class="hidden"><a href="#" data-jepun-view="BackFeeRate" name="BackFeeRate">手續費率表</a></li>
+                            <li class="hidden"><a href="#" data-jepun-view="BackFundAcc" name="BackFundAcc">基金匯款帳號</a></li>
+                        </ul>
+                    </li>
+                    <li class="hidden"><a href="#" data-jepun-view="BackArt" name="BackArt">投資好文</a></li>    
+                    <li class="hidden"><a href="#" data-jepun-view="BackMaster" name="BackMaster">大師開講</a></li>
+                    <li class="hidden"><a href="#" data-jepun-view="BackNews" name="BackNews">公告訊息</a></li>                                                     
+                    @*<li class="hidden"><a href="#" data-jepun-view="BackActivity" name="BackActivity">活動專區</a></li>*@                    
+                    <li class="hidden"><a href="#" data-jepun-view="BackSales" name="BackSales">銷售通路查詢</a></li>
+                    <li class="dropdown hidden">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" name="BackOtherLink">其他相關連結 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="hidden"><a href="#" data-jepun-view="BackLaundering" name="BackLaundering">防制洗錢及打擊資恐專區</a></li>
+                            <li class="hidden"><a href="#" data-jepun-view="BackClue" name="BackClue">法定揭露專區</a></li>
+                            <li class="hidden"><a href="#" data-jepun-view="BackInvestors" name="BackInvestors">機構投資人盡治理守則遵循聲明</a></li>
+                        </ul>
+                    </li>
+                    @*<li class="hidden"><a href="#" data-jepun-view="BackMember" name="BackMember">會員資料查詢</a></li>*@
+                    
+                    @*<li class="hidden"><a href="#" data-jepun-view="BackStock" name="BackStock">全球股市休市一覽</a></li>*@
+                    
+                    
+                    
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    }
+    <div class="backbody">@RenderBody()</div>
+        
+
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="min-height:30px;background:rgb(17, 117, 105);color:white;">
+        <div class="container text-center">Copyright (c) @DateTime.Now.Year</div>
+    </nav>
+    <!--共用App 一定要加 overflow:auto-->
+    <div class="modal fade" id="GlbAppModal" style="overflow:auto" tabindex="-1" role="dialog" aria-labelledby="GlbAppModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header  btn-info">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="GlbAppModalSub" style="overflow:auto" tabindex="-1" role="dialog" aria-labelledby="GlbAppModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header  btn-info">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--訊息提示-->
+    <div class="modal fade" id="GlbAlertModal" style="overflow:auto" tabindex="-1" role="dialog" aria-labelledby="GlbAlertModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--ajax-loader-->
+    <div id="GlbLoadingModal"></div>
+    <!--操作逾時-->
+    <div class="modal fade" id="GlbUserTimeoutModal" tabindex="-1" role="dialog" aria-labelledby="GlbUserTimeoutModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header  btn-warning">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">@Jepun.Resource.Lab.MessageAlert</h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--權限提示-->
+    <div class="modal fade" id="GlbPermissionModal" tabindex="-1" role="dialog" aria-labelledby="GlbPermissionModal-label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header  btn-info">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">warning</h4>
+                </div>
+                <div class="modal-body">No PrtScr permissions!!</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Jepun.Resource.Lab.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--安控權限-->
+    <div class="btn-group jepun-security-icon draggable" role="group">
+        <button class="btn btn-info btn-xs" type="button" style="display:none;">D</button>
+        <ul class="dropdown-menu dropdown-menu-right"></ul>
+    </div>
+    <script type="text/javascript">
+
+     
+    @Html.Raw(Jepun.Web.PS.Controllers.BackHomeController.AddGlobalVariables())
+    </script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/thirdparty")
+    @Scripts.Render("~/bundles/jepun")
+    @Scripts.Render("~/bundles/jepunglb")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/Apps/_BackLayout.js"></script>
+</body>
+</html>

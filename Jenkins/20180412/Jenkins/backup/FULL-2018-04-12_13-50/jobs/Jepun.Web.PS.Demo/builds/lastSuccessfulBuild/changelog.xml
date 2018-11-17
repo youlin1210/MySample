@@ -1,0 +1,59 @@
+commit 7aae356b58551a8ad240f7b5a9261af00dc77c8c
+tree 4de5d4e2e1a222610af7feac15b4eb650f4a81e9
+parent 8df7780611da8aa39733439a1714c1c57f4bd3fe
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-29 14:22:48 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-29 14:22:48 +0800
+
+    Add version
+
+
+
+:100644 100644 0409ba871452750ffa9f7b0d810df0dcc3273a49 79fc404bb3676b82e152f92578c376d8eaddd88a M	Jepun.Web.PS/Content/Site.css
+commit 8df7780611da8aa39733439a1714c1c57f4bd3fe
+tree 9896affe9de077e8965303e93dbc50f8a74e201d
+parent abf6883b9600cd1ecf6334084023f9065d1622f4
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-29 11:56:51 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-29 11:56:51 +0800
+
+    Add version
+
+
+
+:100644 100644 cf5caa92c3b0035e58e871f8f5470aeddbc407a5 2bc74ee5399803c4012ba627ead07ee2917b32b0 M	Jepun.Web.PS/Views/Home/Index.cshtml
+:100644 100644 7a2166af2ae08d62f3eef9dd255f479d5d64e2d7 b553d44f1f64b2b96235c898da26bd371a0e7071 M	Jepun.Web.PS/Views/Shared/_Layout.cshtml
+commit abf6883b9600cd1ecf6334084023f9065d1622f4
+tree 19cd016faf491d0061b853085f3edea23cfb48ca
+parent 5713e0a94a85b476fafe635a5213af2c9ab8e6d2
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-29 11:45:20 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-29 11:45:20 +0800
+
+    Add version
+
+
+
+:100644 100644 a8b5a2f24a102922ef188f9df22f0057b1f2d1db 3a6cf4ac135ed3ab60f679430c903455442606f5 M	Jepun.Web.PS/Views/BackOption/Index.cshtml
+:100644 100644 5e0bca77df6a3c90d188e9d5b5c9350ca8b28827 cc2b67fc4b5a8c7bff4acb372fc1bb29d4cad06a M	Jepun.Web.PS/Views/Product/InsideDistribution.cshtml
+commit 5713e0a94a85b476fafe635a5213af2c9ab8e6d2
+tree 49430341a043e1fac747f99d0f3e1af8e80e7953
+parent 86dbc9251e7dad5a4ad367b027c7d67b50bec6d0
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-29 11:01:53 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-29 11:01:53 +0800
+
+    Add version
+
+
+
+:100644 100644 114f0c88dbf3e733083392fbcb525ea47add859e feb9dedcb8e731bf6ed7b5fc2bb3885045826e77 M	DB/PS/SP/PR_PsProductFundSel.sql
+:100644 100644 5a730f6c0b61ead5c407b8004d1350e05e120800 cdc4f23b67099572597a14a0abd41f0e7fb48b8b M	Jepun.Web.PS/Models/PsProductFundViewModel.cs
+:100644 100644 5941478fa78f13c5ee29c8b9e58bee14fb722cb1 e9cebde5914ab8017acb8bd87a8d7027e20890fa M	Jepun.Web.PS/Views/BackProductFund/Index.cshtml
+commit 86dbc9251e7dad5a4ad367b027c7d67b50bec6d0
+tree d4cf213b91b8e81b0d0b61f9be1bb145b50f50aa
+parent f3afe1beb62585846f34bfb8f04e484fa63c66d6
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-29 09:56:05 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-29 09:56:05 +0800
+
+    Add version
+
+
+
+:100644 100644 9274366a3123803724a1da1ea896d3a5fd506933 900a52f93eaf64fb4ceabaf18910dd46f6294f37 M	Jepun.Web.PS/Controllers/ProductController.cs

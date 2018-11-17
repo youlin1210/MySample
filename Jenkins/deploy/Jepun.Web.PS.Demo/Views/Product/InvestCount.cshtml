@@ -1,0 +1,80 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@using Jepun.Web.PS.Comm
+@{
+
+}
+@using (Html.BeginForm("", "InvestCount", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormInvestCount" }))
+{
+    <div class="container">
+        <div class="row">
+            <section class="content">
+                <div class="container">
+                    <div class="cus-breadcrumb-wrapper">
+                        <ol class="breadcrumb">
+                            <li><a href="~/Home/Index">首頁</a></li>
+                            <li class="active">投資試算</li>
+                        </ol>
+                    </div>
+                    <div class="page-header-wrapper">
+                        <h3 class="title"><span>投資試算</span></h3>
+                        <hr>
+
+                        <div class="row clearfix">
+                            <div class="container">
+                                <div class="table">
+                                    <table class="table table-striped pages-table">
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-sm-4" style="background-color:#017f7b;color:#ffffff">目標金額(單位:元)(新台幣)</td>
+                                                <td><input name="Amt" type="number"/> 元</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-sm-4" style="background-color:#017f7b;color:#ffffff">投資年限(年)</td>
+                                                <td><input name="Year" type="number" /> 年</td>
+                                            </tr>
+                                            <tr>
+                                                <td sclass="col-sm-4" style="background-color:#017f7b;color:#ffffff">投資報酬率(%)</td>
+                                                <td><input name="Rate" type="number" /> %</td>
+                                            </tr>                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <p style="color:#0026ff">投資報酬率設定說明: 若您屬於難以承受本金損失風險之客戶，那麼建議您可以設定5%；反之，若您屬於期望高報酬且可以承受本金損失風險之客戶，建議您設定20%，甚至更高的投報率。此處之投資報酬率為累積報酬率</p>
+                        
+                        
+                        <br />
+
+                        <button class="btn btn-primary" type="button" name="BtnSend">確定</button>
+
+                        <p>&nbsp;</p>
+
+                        <div class="row clearfix">
+                            <div class="container">
+                                <div class="table">
+                                    <table class="table table-striped pages-table">
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-sm-4" style="background-color:#017f7b;color:#ffffff">單筆投資金額(單位:元)(新台幣)</td>
+                                                <td><span name="FundOrderAmt"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-sm-4" style="background-color:#017f7b;color:#ffffff" >定期定額投資金額(單位:月/元)(新台幣)</td>
+                                                <td><span name="FundContractAmt"></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/ProductInvestCount.js?@ServiceHelper.CacheBusting()"></script>

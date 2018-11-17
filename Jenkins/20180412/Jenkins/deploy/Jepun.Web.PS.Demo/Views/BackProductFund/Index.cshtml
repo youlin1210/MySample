@@ -1,0 +1,317 @@
+﻿@model Jepun.Web.PS.Models.PsProductFundViewModel
+@using Jepun.Web.PS.Comm
+@{
+    Layout = null;
+}
+<div class="alert alert-info" role="alert">境內基金專區</div>
+@using (Html.BeginForm("", "BackProductFund", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormBackProductFund", onsubmit = "return false" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="form-group jepun-upcoming">
+                <div class="col-sm-2 control-label">
+                    <label>上架日</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(model => model.QryStartDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "上架日" })
+                    @Html.ValidationMessageFor(model => model.QryStartDate)
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>下架日</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(model => model.QryEndDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "下架日" })
+                    @Html.ValidationMessageFor(model => model.QryEndDate)
+                </div>
+            </div>
+
+            <div class="form-group jepun-upcoming">
+                <div class="col-sm-2 control-label">
+                    <label>狀態</label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.DropDownListFor(model => model.QryType, Enumerable.Empty<SelectListItem>()).Sel()
+                </div>
+                <div class="col-sm-2">
+                    @Html.DropDownListFor(model => model.QryStatus, Enumerable.Empty<SelectListItem>()).Sel()
+                </div>
+                <div class="col-sm-2 control-label">
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary" name="BtnQry">查詢</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>　標題　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　異動　　　上稿日期　　狀態　<button type="button" class="btn btn-primary btn-xs" name="QryFlow">歷史流程</button></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select size="6" class="form-control" name="ProductFundNo"></select>
+                                    @Html.HiddenFor(model => model.LogSN).Txt()
+                                    @Html.HiddenFor(model => model.CID).Txt()
+                                    @Html.HiddenFor(model => model.FID).Txt()
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>基金名稱</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.Fund, Enumerable.Empty<SelectListItem>()).Sel()
+                    @Html.ValidationMessageFor(model => model.Fund)
+                </div>
+                <div class="col-sm-1">
+                    <button class="btn btn-primary" type="button" name="BtnCopy">複製</button>
+                </div>
+                @*<div class="col-sm-1 control-label">
+                    <label>基金類型</label>
+                </div>
+                <div class="col-sm-3">
+                    @Html.DropDownListFor(model => model.FundType, Enumerable.Empty<SelectListItem>()).Sel()
+                    @Html.ValidationMessageFor(model => model.FundType)
+                </div>*@
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>經理人</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.Manager).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "經理人" })
+                    @Html.ValidationMessageFor(model => model.Manager)
+                </div>
+            </div>
+                <div class="form-group">
+                    <div class="col-sm-2 control-label">
+                        <label>現任</label>
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.EditorFor(Model => Model.CurrentJob).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "現任" })
+                        @Html.ValidationMessageFor(model => model.CurrentJob)
+                    </div>
+                </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>學歷</label>
+                </div>
+                <div class="col-sm-10">
+                    @Html.TextAreaFor(Model => Model.Education).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "學歷" })
+                    @Html.ValidationMessageFor(model => model.Education)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>經歷</label>
+                </div>
+                <div class="col-sm-10">
+                    @Html.TextAreaFor(Model => Model.Experience).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "經歷" })
+                    @Html.ValidationMessageFor(model => model.Experience)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>產品特色</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextAreaFor(Model => Model.Character).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "產品特色" })
+                    @Html.ValidationMessageFor(model => model.Character)
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>風險等級</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.RiskLv, Enumerable.Empty<SelectListItem>()).Sel()
+                    @Html.ValidationMessageFor(model => model.RiskLv)
+                </div>
+            </div>
+            <div class="form-group">               
+                <div class="col-sm-2 control-label">
+                    <label>計價幣別</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.CurType).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "計價幣別" })
+                    @Html.ValidationMessageFor(model => model.CurType)
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>收益分配</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextAreaFor(Model => Model.Benefit).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "收益分配" })
+                    @Html.ValidationMessageFor(model => model.Benefit)
+                </div>
+            </div>
+            <div class="form-group">                          
+                <div class="col-sm-2 control-label">
+                    <label>投資標的</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextAreaFor(Model => Model.Subject).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "投資標的" })
+                    @Html.ValidationMessageFor(model => model.Subject)
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>經理費</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.ManagerCost).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "經理費" })
+                    @Html.ValidationMessageFor(model => model.ManagerCost)
+                </div>
+            </div>
+            <div class="form-group">                                          
+                <div class="col-sm-2 control-label">
+                    <label>保管費</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.PreserveCost).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "保管費" })
+                    @Html.ValidationMessageFor(model => model.PreserveCost)
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>成立日期</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(model => model.EstablishDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "成立日期" })
+                    @Html.ValidationMessageFor(model => model.EstablishDate)
+                </div>
+            </div>
+            <div class="form-group">                                        
+                <div class="col-sm-2 control-label">
+                    <label>保管機構</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.PreserveAgency).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "保管機構" })
+                    @Html.ValidationMessageFor(model => model.PreserveAgency)
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>申購手續費</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.FundFee).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "申購手續費" })
+                    @Html.ValidationMessageFor(model => model.FundFee)
+                </div>
+            </div>
+            <div class="form-group">              
+                <div class="col-sm-2 control-label">
+                    <label>短線交易費用</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextAreaFor(Model => Model.ShortFee).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "短線交易費用" })
+                    @Html.ValidationMessageFor(model => model.ShortFee)
+                </div>  
+                <div class="col-sm-2 control-label">
+                    <label>基金警語</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextAreaFor(Model => Model.ProductAlert).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "基金警語" })
+                    @Html.ValidationMessageFor(model => model.ProductAlert)
+                </div>       
+            </div>
+            <div class="form-group">                
+                <div class="col-sm-2 control-label">
+                    <label>買回給付日</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.PayDay).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "買回給付日" })
+                    @Html.ValidationMessageFor(model => model.PayDay)
+                </div>  
+            </div>
+            <div class="form-group">                 
+                <div class="col-sm-2 control-label">
+                    <label>上架日</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "上架日" })
+                    @Html.ValidationMessageFor(model => model.StartDate)
+                </div>      
+                <div class="col-sm-2 control-label">
+                    <label>下架日</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { max = "2100-12-31" } }).DT(new HtmlAttrs { PlaceHolder = "YYYY / MM / DD", ErrMsg = Jepun.Resource.Lab.PleaseInput + "下架日" })
+                    @Html.ValidationMessageFor(model => model.EndDate)
+                </div>                                       
+                @*<div class="col-sm-2 control-label">
+                    <label>備註</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextAreaFor(Model => Model.Remark).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "備註" })
+                    @Html.ValidationMessageFor(model => model.Remark)
+                </div>*@
+            </div>
+            @*<div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>單筆申購最低金額</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.OrderLowCost).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "單筆申購最低金額" })
+                    @Html.ValidationMessageFor(model => model.OrderLowCost)
+                </div>
+            </div>*@
+            <div class="form-group">                  
+                <input type="hidden" name="FileKind">
+                <div class="col-sm-2 control-label">
+                    <label>投資月報: </label>
+                </div>
+                <div class="col-sm-4" data-jepun-key="1">
+                    <select class="form-control" name="ProductFundFile1"></select>
+                    @Html.TextBoxFor(Model => Model.InputFile_1, new { type = "file", accept = "application/pdf" }).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "檔案" })
+                    <button class="btn btn-default" type="button" name="BtnInsFile1">新增檔案</button>
+                    <button class="btn btn-primary" type="button" name="BtnDelFile1">刪除檔案</button>
+                </div>  
+                <div class="col-sm-2 control-label">
+                    <label>簡式公開說明書: </label>
+                </div>
+                <div class="col-sm-4" data-jepun-key="2">
+                    <select class="form-control" name="ProductFundFile2"></select>
+                    @Html.TextBoxFor(Model => Model.InputFile_2, new { type = "file", accept = "application/pdf" }).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "檔案" })
+                    <button class="btn btn-default" type="button" name="BtnInsFile2">新增檔案</button>
+                    <button class="btn btn-primary" type="button" name="BtnDelFile2">刪除檔案</button>
+                </div>                             
+            </div>
+            <div class="form-group">               
+                <div class="col-sm-2 control-label">
+                    <label>公開說明書: </label>
+                </div>
+                <div class="col-sm-4" data-jepun-key="3">
+                    <select class="form-control" name="ProductFundFile3"></select>
+                    @Html.TextBoxFor(Model => Model.InputFile_3, new { type = "file", accept = "application/pdf" }).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "檔案" })
+                    <button class="btn btn-default" type="button" name="BtnInsFile3">新增檔案</button>
+                    <button class="btn btn-primary" type="button" name="BtnDelFile3">刪除檔案</button>
+                </div>
+                <div class="col-sm-2 control-label">
+                    @*<label>備註</label>*@
+                </div>
+                <div class="col-sm-4">
+                    @*@Html.TextAreaFor(Model => Model.Remark).Txt(new HtmlAttrs { PlaceHolder = Jepun.Resource.Lab.PleaseInput + "備註" })
+                    @Html.ValidationMessageFor(model => model.Remark)*@
+                </div>
+            </div>    
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+            <button class="btn btn-primary" type="button" name="BtnIns">新增</button>
+            <button class="btn btn-primary" type="button" name="BtnUpd">修改</button>
+            <button class="btn btn-primary" type="button" name="BtnDel">刪除</button>
+        </div>
+        <div class="col-sm-3">
+            @Html.DropDownListFor(model => model.NextFlow, Enumerable.Empty<SelectListItem>()).Sel()
+            
+            @*@Html.DropDownListFor(model => model.NextFlow, Enumerable.Empty<SelectListItem>()).Sel()
+            @Html.ValidationMessageFor(model => model.NextFlow)*@
+        </div>
+        <div class="col-sm-3">
+            <button class="btn btn-primary" type="button" name="BtnFlow">確定</button>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/BackProductFund.js?@ServiceHelper.CacheBusting()"></script>

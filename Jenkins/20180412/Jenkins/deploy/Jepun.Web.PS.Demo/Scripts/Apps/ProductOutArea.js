@@ -1,0 +1,2 @@
+/*! jepun 2018-03-29 */
+$(document).ready(function(){var a=$("#FormOutArea").comm();a.getCtrl(a.getCtrl("AID").val()).show(),a.getCtrl("AID").on("change",function(b){b.preventDefault();var c=$(this);$(".OutsideGroup").hide(),a.getCtrl(c.val()).show()})});

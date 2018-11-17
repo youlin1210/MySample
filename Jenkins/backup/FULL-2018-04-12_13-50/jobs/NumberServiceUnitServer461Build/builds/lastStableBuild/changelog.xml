@@ -1,0 +1,49 @@
+commit 2e61d401d517f3a52ef06fb404ef9446f0a10b60
+tree c5c9cf5149c86becfd7c8f701d8fcf1fe1f344a2
+parent 7f280ac876fedb2d51ff1f1fe4a9e2f231dac5aa
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-12 11:53:21 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-12 11:53:21 +0800
+
+    add
+
+
+
+:000000 100644 0000000000000000000000000000000000000000 cbaca9d57e6ddf162ec922f841c916aa54a73ee3 A	JenkinsCI/Build.Server.csproj
+:000000 100644 0000000000000000000000000000000000000000 fac5fac530acde3ccc01e04ab5906fd8463eabae A	JenkinsCI/BuildSetting.Server.xml
+:000000 100644 0000000000000000000000000000000000000000 eb1ce1a8e27cdaddcfd8b1aa003a500900e47d08 A	JenkinsCI/ToolSetting.Server.xml
+commit 7f280ac876fedb2d51ff1f1fe4a9e2f231dac5aa
+tree 1ec356f93f9c93368858c4a5f91fe014856b8368
+parent be088ab8c68b8e9fa79163ebe20a319b655cf0ae
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-12 11:16:38 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-12 11:16:38 +0800
+
+    add
+
+
+
+:000000 100644 0000000000000000000000000000000000000000 cbaca9d57e6ddf162ec922f841c916aa54a73ee3 A	JenkinsCI/Build.csproj
+:000000 100644 0000000000000000000000000000000000000000 fac5fac530acde3ccc01e04ab5906fd8463eabae A	JenkinsCI/BuildSetting.xml
+:000000 100644 0000000000000000000000000000000000000000 a670efc22ad6cecc7bfa975f47315fe6f9fbccfc A	JenkinsCI/ToolSetting.xml
+commit be088ab8c68b8e9fa79163ebe20a319b655cf0ae
+tree a8d14cd9711318363f6a94e6a86228d422f6e17c
+parent ffb8d1258d4fbcbd8d77dc4797a0134f467cdc68
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-12 10:54:26 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-12 10:54:26 +0800
+
+    add version
+
+
+
+:100644 100644 47142757ca74f094a0edb8188126098facd11175 1e418c2f1b63a7fca659f6abac65c21611afd853 M	JenkinsCI/NumberLib/NumberLib.csproj
+commit ffb8d1258d4fbcbd8d77dc4797a0134f467cdc68
+tree d8b3a64be0e444b61a3ec066cd6bc841b78d74c4
+parent be249c9c49dc15827a24cc32ae4c3d87eb1249e9
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-12 10:51:19 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-12 10:51:19 +0800
+
+    add
+
+
+
+:100644 000000 7703cfa3f9da06a532ffd5dccf269504d04b289f 0000000000000000000000000000000000000000 D	JenkinsCI/.vs/JenkinsCI/v15/.suo
+:100644 100644 bea08fb007af5bdca305488845957eef325344c4 47142757ca74f094a0edb8188126098facd11175 M	JenkinsCI/NumberLib/NumberLib.csproj

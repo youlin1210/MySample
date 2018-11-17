@@ -1,0 +1,156 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitServer
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\Test-pc\git\Jenkins # timeout=10
+Fetching upstream changes from \\Test-pc\git\Jenkins
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\Test-pc\git\Jenkins +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision 01aaacf79397d5e227b82fc532c84d6bf8f5e943 (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f 01aaacf79397d5e227b82fc532c84d6bf8f5e943
+Commit message: "add version"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 01aaacf79397d5e227b82fc532c84d6bf8f5e943 # timeout=10
+[NumberServiceUnitServer] $ cmd /c call C:\WINDOWS\TEMP\jenkins776656965215436253.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer>echo ....執行 NuGet 還原 
+....執行 NuGet 還原
+
+D:\Jenkins\workspace\NumberServiceUnitServer>echo ....cd D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI 
+....cd D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI
+
+D:\Jenkins\workspace\NumberServiceUnitServer>echo ...."D:\Jenkins\nuget.exe" restore JenkinsCI.sln 
+...."D:\Jenkins\nuget.exe" restore JenkinsCI.sln
+
+D:\Jenkins\workspace\NumberServiceUnitServer>exit 0 
+[NumberServiceUnitServer] $ cmd /c call C:\WINDOWS\TEMP\jenkins8739815962926088475.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer>cd D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib 
+
+D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib>dotnet restore 
+  Restoring packages for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\NumberLib.csproj...
+  Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.props.
+  Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.targets.
+  Restore completed in 172.71 ms for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\NumberLib.csproj.
+
+D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 41.59 ms for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\NumberLib.csproj.
+  NumberLib -> D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:01.19
+
+D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib>exit 0 
+[NumberServiceUnitServer] $ cmd /c call C:\WINDOWS\TEMP\jenkins4190539939740274840.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer>cd D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest 
+
+D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest>dotnet restore 
+  Restoring packages for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\NumberLibTest.csproj...
+  Restore completed in 37.94 ms for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 76.4 ms for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\obj\NumberLibTest.csproj.nuget.g.props.
+  Generating MSBuild file D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\obj\NumberLibTest.csproj.nuget.g.targets.
+  Restore completed in 369.7 ms for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+
+D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 39.25 ms for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 49.53 ms for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 75.7 ms for D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  NumberLib -> D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+  NumberLibTest -> D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\NumberLibTest.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:02.11
+
+D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest>exit 0 
+[NumberServiceUnitServer] $ cmd /c call C:\WINDOWS\TEMP\jenkins6691656205311085070.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer>rem cd D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest 
+
+D:\Jenkins\workspace\NumberServiceUnitServer>rem dotnet test -c Release -f netcoreapp2.0  
+
+D:\Jenkins\workspace\NumberServiceUnitServer>exit 0 
+[NumberServiceUnitServer] $ cmd /c call C:\WINDOWS\TEMP\jenkins436007842816590614.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer>cd D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\ 
+
+D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0>dotnet vstest NumberLibTest.dll /Framework:.NETCoreApp,Version=v2.0 /Logger:"trx;LogFileName=JepunTestResult.trx" /EnableCodeCoverage 
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180221-13 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+正在啟動測試執行，請稍候...
+資料收集: 找不到資料收集器 'Code Coverage'
+WARNING: Overwriting results file: D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\TestResults\JepunTestResult.trx
+Results File: D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\TestResults\JepunTestResult.trx
+
+測試總計: 2。成功: 2。失敗: 0。略過: 0。
+測試回合成功。
+測試執行時間: 1.3221 秒
+
+D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0>exit 0 
+[NumberServiceUnitServer] $ cmd /c call C:\WINDOWS\TEMP\jenkins2210799403314119508.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer>rem echo ....單元測試涵蓋率 
+
+D:\Jenkins\workspace\NumberServiceUnitServer>rem D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\ 
+
+D:\Jenkins\workspace\NumberServiceUnitServer>rem "D:\Jenkins\tools\CodeCoverageConverter\CodeCoverageConverter.exe" TestResults coverage.xml 
+
+D:\Jenkins\workspace\NumberServiceUnitServer>rem "D:\Jenkins\tools\msxsl.exe" coverage.xml - o coverageResult.xml 
+
+D:\Jenkins\workspace\NumberServiceUnitServer>exit 0 
+[NumberServiceUnitServer] $ cmd /c call C:\WINDOWS\TEMP\jenkins7596231274519492573.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer>echo ....cd D:\Jenkins\ 
+....cd D:\Jenkins\
+
+D:\Jenkins\workspace\NumberServiceUnitServer>echo ....dotnet msbuild StyleCopSetting.xml 
+....dotnet msbuild StyleCopSetting.xml
+
+D:\Jenkins\workspace\NumberServiceUnitServer>exit 0 
+[NumberServiceUnitServer] $ cmd /c call C:\WINDOWS\TEMP\jenkins3605498108364473344.bat
+
+D:\Jenkins\workspace\NumberServiceUnitServer>"C:\Program Files (x86)\SourceMonitor\SourceMonitor.exe" /C "D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\sourcemonitor_commands.xml" 
+
+D:\Jenkins\workspace\NumberServiceUnitServer>"D:\Jenkins\tools\msxsl.exe" SourceMonitorReport.xml "D:\Jenkins\workspace\NumberServiceUnitServer\SourceMonitorSummaryGeneration.xsl" -o SourceMonitorSummaryGeneration.xml 
+
+Error occurred while loading document 'SourceMonitorReport.xml'.
+
+Code:   0x800c0006
+The system cannot locate the object specified.
+
+D:\Jenkins\workspace\NumberServiceUnitServer>"D:\Jenkins\tools\msxsl.exe" SourceMonitorSummaryGeneration.xml "D:\Jenkins\workspace\NumberServiceUnitServer\SourceMonitor.xsl" -o SourceMonitorResult.html 
+
+Error occurred while loading document 'SourceMonitorSummaryGeneration.xml'.
+
+Code:   0x800c0006
+The system cannot locate the object specified.
+
+D:\Jenkins\workspace\NumberServiceUnitServer>exit 1 
+Build step '執行 Windows 批次指令' marked build as failure
+[htmlpublisher] Archiving HTML reports...
+[htmlpublisher] Archiving at PROJECT level D:\Jenkins\workspace\NumberServiceUnitServer to C:\Program Files (x86)\Jenkins\jobs\NumberServiceUnitServer\htmlreports\HTML_Report
+[MSTEST-PLUGIN] INFO processing test results in file(s) D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\TestResults\JepunTestResult.trx
+[MSTEST-PLUGIN] INFO processing report file: D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\TestResults\JepunTestResult.trx
+[MSTEST-PLUGIN] WARNING Unable to delete the file D:\Jenkins\workspace\NumberServiceUnitServer\temporary-junit-reports
+[MSTEST-PLUGIN] INFO This file is a reserved temporary file. You can delete it safely.
+[MSTEST-PLUGIN] INFO XML coverage report file not found: D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\TestResults\vstest.coveragexml
+
+[MSTEST-PLUGIN] INFO XML coverage report file not found: D:\Jenkins\workspace\NumberServiceUnitServer\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\TestResults\JepunTestResult.coveragexml
+
+Finished: FAILURE

@@ -1,0 +1,81 @@
+commit a8bcd60eb95d1b311406cd20290d8e001d37ad5b
+tree bdd4e1d2685ecdd976f37fbfe1c1942d4ef19ebe
+parent 5b98612fd14c608f754f1fe0387390e1d7c4fa52
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 17:51:58 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 17:51:58 +0800
+
+    Add version
+
+
+
+:100644 100644 c6713f032e403fb3bbcf42843238fcfff97340c5 dbc09a794b38cfe75e3123abf2bec7f181c1b4f2 M	Jepun.Web.PS/Scripts/Apps/ProductInsideDetail.js
+:100644 100644 17192004c0bfdcb786e177932f83ddcf664cd455 31ca7dba3f679c2bca17aa5fc8a462c9b9586963 M	Jepun.Web.PS/Scripts/Apps/ProductOutDetail.js
+:100644 100644 5be1beb652dc24e03ea31bacc656aacd351d0bfa 4db73fb93cd35288d7857a01d11a38878565d4be M	Jepun.Web.PS/Views/Product/InsideDetail.cshtml
+:100644 100644 187f0b48f6a50ba172900dd52a8e1eca1093c62b ab7540c34676ddb483f9b8fc79cf9213c5aa6732 M	Jepun.Web.PS/Views/Product/OutDetail.cshtml
+commit 5b98612fd14c608f754f1fe0387390e1d7c4fa52
+tree 76b3207f31abe82c93292b6e515ec79c95d16b8b
+parent bbc55ec062cb087d0fa4893390ae6fc25ecde7a6
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 17:10:07 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 17:10:07 +0800
+
+    Add version
+
+
+
+:100644 100644 900ece3ac2e48f6d7d97071420c0330ceae71623 e7d30056865b9f676f9ae59190a8047b79d65f92 M	Jepun.Web.PS/Views/Home/FAQ.cshtml
+commit bbc55ec062cb087d0fa4893390ae6fc25ecde7a6
+tree f24b0b6a6fd49cbfa32c56cbe4a136fd0f8477e1
+parent 300ce3cb9d797b60a4377dac11f5489f50587833
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 17:05:53 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 17:05:53 +0800
+
+    Add version
+
+
+
+:100644 100644 5a027c77c1730068a97bffd148997fd3eee0fc23 8569b49618a1268f9b332c3d94f20a50f767d467 M	Jepun.Web.PS/Controllers/ProductController.cs
+commit 83070f7e1eebf769b44032fa4c60066e001d333d
+tree 8c4ee49650448125ba7f716291fb749617f1862c
+parent b8b020d32e527ff5a537a129c579b202458e94cb
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 17:01:02 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 17:01:02 +0800
+
+    Add version
+
+
+
+:100644 100644 900a52f93eaf64fb4ceabaf18910dd46f6294f37 5a027c77c1730068a97bffd148997fd3eee0fc23 M	Jepun.Web.PS/Controllers/ProductController.cs
+commit 2204acdf994935a9ae509bc4423d532301b19a87
+tree 394b9f874ffb70fa44dc63db0c4bb0309d3fdf5d
+parent b8b020d32e527ff5a537a129c579b202458e94cb
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-30 16:55:01 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-03-30 16:55:01 +0800
+
+    add version
+
+
+
+:000000 100644 0000000000000000000000000000000000000000 2447454be7876e8892aa016f4052617eaeced76b A	DB/PS/Ini/TruncateTable.sql
+commit b8b020d32e527ff5a537a129c579b202458e94cb
+tree ab4f967f4585919404ce3829ecab40d8149a4602
+parent f5bc332ee7faaaf4484b2a93130d0792cff5a8fe
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 16:50:49 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 16:50:49 +0800
+
+    Add version
+
+
+
+:100644 100644 cc2b67fc4b5a8c7bff4acb372fc1bb29d4cad06a eb3a1464827ed182a9851017824c20c79e21a0e6 M	Jepun.Web.PS/Views/Product/InsideDistribution.cshtml
+:100644 100644 466489c7a7919af4a70c61ce3d14b449fe8ee402 315b458462bb37c4f2a0798def001a4037715359 M	Jepun.Web.PS/Views/Product/OutsideDistribution.cshtml
+commit f5bc332ee7faaaf4484b2a93130d0792cff5a8fe
+tree 78f17b8d14f2f63169930f607639b6f37789cfba
+parent de087265aae62092112b8cfc3d0a95a553f6aa94
+author JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 16:39:31 +0800
+committer JEPUN\LoganChang <gs912104@gmail.com> 2018-03-30 16:39:31 +0800
+
+    Add version
+
+
+
+:100644 100644 fab3aa1ecbd3f0726ae0d69340facd24ef33da28 5904098f4b2e4062635c930234e70b893f625c7e M	Jepun.Web.PS/Views/Product/fundration.cshtml

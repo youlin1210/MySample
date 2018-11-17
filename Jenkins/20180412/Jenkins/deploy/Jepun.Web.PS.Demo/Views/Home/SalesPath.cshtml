@@ -1,0 +1,61 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@using Jepun.Web.PS.Comm
+@{
+}
+@using (Html.BeginForm("", "SalesPath", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormSalesPath" }))
+{
+    <div class="container">
+        <div class="row">
+            <section class="content">
+                <div class="container">
+                    <div class="cus-breadcrumb-wrapper">
+                        <ol class="breadcrumb">
+                            <li><a href="~/Home/Index">首頁</a></li>
+                            <li class="active">@Model.H1</li>
+                        </ol>
+                    </div>
+                    <div class="page-header-wrapper">
+                        <h3 class="title"><span>@Model.H1</span></h3>
+                        <hr>
+                    </div>
+                    <div class="funds-area">
+                        <div class="col-xs-12">
+                            @*<h3 class="pages-title">@Model.H1</h3>*@
+                            <p>本公司發行與總代理之各項基金，除可透過本公司線上交易平台或臨櫃書面、傳真申購外，亦可於以下銷售據點申購</p>
+                            <div class="col-xs-12 col-sm-4"> <select class="form-control" name="PlaceName"></select></div>
+                            <div class="col-xs-12 col-sm-4"> <select class="form-control" name="FundName"></select></div>
+                            <div class="col-xs-12">
+                                <hr />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="table">
+                                <table name="SaleTable" class="table table-striped table-hover common-table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                基金名稱
+                                            </th>
+                                            <th>
+                                                銷售據點
+                                            </th>
+    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @*@Html.Raw(Model.Dictionary["News"])*@
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pagination-wrapper">
+                                <nav aria-label="Page navigation">
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/HomeSalesPath.js?@ServiceHelper.CacheBusting()"></script>

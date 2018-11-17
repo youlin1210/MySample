@@ -1,0 +1,89 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\NumberServiceUnitTest3
+[NumberServiceUnitTest3] $ cmd /c call C:\WINDOWS\TEMP\jenkins637786326705596165.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest3>cd D:\JenkinsGit\JenkinsCI\NumberLib 
+
+D:\JenkinsGit\JenkinsCI\NumberLib>dotnet restore 
+  Restoring packages for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj...
+  Generating MSBuild file D:\JenkinsGit\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.props.
+  Generating MSBuild file D:\JenkinsGit\JenkinsCI\NumberLib\obj\NumberLib.csproj.nuget.g.targets.
+  Restore completed in 266.36 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+
+D:\JenkinsGit\JenkinsCI\NumberLib>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 39.52 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+  NumberLib -> D:\JenkinsGit\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:02.22
+
+D:\JenkinsGit\JenkinsCI\NumberLib>exit 0 
+[NumberServiceUnitTest3] $ cmd /c call C:\WINDOWS\TEMP\jenkins5716489423971242685.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest3>cd D:\JenkinsGit\JenkinsCI\NumberLibTest 
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>dotnet restore 
+  Restore completed in 18.72 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restoring packages for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj...
+  Restore completed in 184.93 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Generating MSBuild file D:\JenkinsGit\JenkinsCI\NumberLibTest\obj\NumberLibTest.csproj.nuget.g.props.
+  Generating MSBuild file D:\JenkinsGit\JenkinsCI\NumberLibTest\obj\NumberLibTest.csproj.nuget.g.targets.
+  Restore completed in 1.89 sec for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>dotnet build -c Release -f netcoreapp2.0  
+Microsoft (R) Build Engine for .NET Core 15.6.82.30579 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+  Restore completed in 44.45 ms for D:\JenkinsGit\JenkinsCI\NumberLib\NumberLib.csproj.
+  Restore completed in 54.42 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  Restore completed in 77.17 ms for D:\JenkinsGit\JenkinsCI\NumberLibTest\NumberLibTest.csproj.
+  NumberLib -> D:\JenkinsGit\JenkinsCI\NumberLib\bin\Release\netcoreapp2.0\NumberLib.dll
+  NumberLibTest -> D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Release\netcoreapp2.0\NumberLibTest.dll
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:02.74
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>exit 0 
+[NumberServiceUnitTest3] $ cmd /c call C:\WINDOWS\TEMP\jenkins7450653358452733617.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest3>cd D:\JenkinsGit\JenkinsCI\NumberLibTest 
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>echo ....dotnet test -c Release -f netcoreapp2.0  
+....dotnet test -c Release -f netcoreapp2.0 
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>exit 0 
+[NumberServiceUnitTest3] $ cmd /c call C:\WINDOWS\TEMP\jenkins6615264430907563269.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest3>cd D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0\ 
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0>vstest.console.exe NumberLibTest.dll /EnableCodeCoverage /Logger:trx 
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180307-01 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+正在啟動測試執行，請稍候...
+2.0309
+資料收集器 'Code Coverage' 的訊息: Cannot find CodeCoverage.exe.。
+[xUnit.net 00:00:00.0035589] xUnit.net VSTest Adapter v2.4.0-beta.1.build3958 (64-bit .NET Core 4.6.26212.01)
+[xUnit.net 00:00:00.5803710]   Discovering: NumberLibTest
+[xUnit.net 00:00:00.6242246]   Discovered:  NumberLibTest
+[xUnit.net 00:00:00.6287705]   Starting:    NumberLibTest
+[xUnit.net 00:00:00.7596413]   Finished:    NumberLibTest
+成功   NumberLibTest.NuberServiceTest.ShouldReturnTrueGivenEvenValue
+成功   NumberLibTest.NuberServiceTest.ShouldReturnFalseGivenOddValue
+結果檔案: D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0\TestResults\YOULIN-PC$_YOULIN-PC_2018-04-02_09_48_04.trx
+
+測試總計: 2。成功: 2。失敗: 0。略過: 0。
+測試回合成功。
+測試執行時間: 1.6164 秒
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0>exit 0 
+Finished: SUCCESS

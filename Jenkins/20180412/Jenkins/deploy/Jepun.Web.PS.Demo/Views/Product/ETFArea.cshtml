@@ -1,0 +1,490 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@{
+}
+<div class="container">
+    <div class="row">
+        <section class="content">
+            <div class="container">
+                <div class="cus-breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        <li><a href="~/Home/Index">首頁</a></li>
+                        <li class="active">ETF專區</li>
+                    </ol>
+                </div>
+                <div class="page-header-wrapper">
+                    <h3 class="title"><span>ETF專區</span></h3>
+                    <hr>
+                    <ul class="nav nav-tabs" role="tablist" id="cus-tabs">
+                        <li class="active" role="presentation"><a aria-controls="type1" data-toggle="tab" href="#type1" role="tab">台灣ETF</a></li>
+                        <li class="" role="presentation"><a aria-controls="type2" data-toggle="tab" href="#type2" role="tab">市場1</a></li>
+                        <li class="" role="presentation"><a aria-controls="type3" data-toggle="tab" href="#type3" role="tab">市場2</a></li>
+                        <li class="" role="presentation"><a aria-controls="type4" data-toggle="tab" href="#type4" role="tab">市場3</a></li>
+                        <li class="" role="presentation"><a aria-controls="type5" data-toggle="tab" href="#type5" role="tab">市場4</a></li>
+                        <li class="" role="presentation"><a aria-controls="type6" data-toggle="tab" href="#type6" role="tab">市場5</a></li>
+                        <li class="" role="presentation"><a href="timely.html">即時預估淨值</a></li>
+                    </ul>
+                </div>
+                <div class="funds-area-wrapper">
+                    <div role="tabpanel">
+                        <div role="tabpanel">
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="type1" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover common-table row1left">
+                                            <thead>
+                                                <tr>
+                                                    <th>基金名稱 <a href="javascript:void(0)"><i class="fa fa-caret-down"></i></a></th>
+                                                    <th>日期</th>
+                                                    <th>淨值</th>
+                                                    <th>較前日漲跌</th>
+                                                    <th>較前日漲跌(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託台灣優勢基金</a></td>
+                                                    <td>11/20</td>
+                                                    <td>16.99</td>
+                                                    <td class="down">-0.03 ▼</td>
+                                                    <td class="down">-0.30% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託台灣活力基金</a></td>
+                                                    <td>11/20</td>
+                                                    <td>14.49</td>
+                                                    <td class="down">-0.41 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託精穩基金</a></td>
+                                                    <td>11/20</td>
+                                                    <td>18.0958</td>
+                                                    <td class="raise">0.0417 ▲</td>
+                                                    <td class="raise">2.50% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託全球新興市場策略債券基金-A/累積型</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.3734</td>
+                                                    <td class="down">-0.0081 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託華盈貨幣市場基金</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.9507</td>
+                                                    <td class="raise">0.0004 ▲</td>
+                                                    <td class="raise">4% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託台灣優勢基金</a></td>
+                                                    <td>11/20</td>
+                                                    <td>16.99</td>
+                                                    <td class="down">-0.03 ▼</td>
+                                                    <td class="down">-0.30% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託台灣活力基金</a></td>
+                                                    <td>11/20</td>
+                                                    <td>14.49</td>
+                                                    <td class="down">-0.41 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託精穩基金</a></td>
+                                                    <td>11/20</td>
+                                                    <td>18.0958</td>
+                                                    <td class="raise">0.0417 ▲</td>
+                                                    <td class="raise">2.50% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託全球新興市場策略債券基金-A/累積型</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.3734</td>
+                                                    <td class="down">-0.0081 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託華盈貨幣市場基金</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.9507</td>
+                                                    <td class="raise">0.0004 ▲</td>
+                                                    <td class="raise">4% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託台灣優勢基金</a></td>
+                                                    <td>11/20</td>
+                                                    <td>16.99</td>
+                                                    <td class="down">-0.03 ▼</td>
+                                                    <td class="down">-0.30% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託台灣活力基金</a></td>
+                                                    <td>11/20</td>
+                                                    <td>14.49</td>
+                                                    <td class="down">-0.41 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託精穩基金</a></td>
+                                                    <td>11/20</td>
+                                                    <td>18.0958</td>
+                                                    <td class="raise">0.0417 ▲</td>
+                                                    <td class="raise">2.50% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託全球新興市場策略債券基金-A/累積型</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.3734</td>
+                                                    <td class="down">-0.0081 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="funds-detail.html">中國信託華盈貨幣市場基金</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.9507</td>
+                                                    <td class="raise">0.0004 ▲</td>
+                                                    <td class="raise">4% ▲</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type2" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover common-table row1left">
+                                            <thead>
+                                                <tr>
+                                                    <th>基金名稱 <a href=""><i class="fa fa-caret-down"></i></a></th>
+                                                    <th>日期</th>
+                                                    <th>淨值</th>
+                                                    <th>較前日漲跌</th>
+                                                    <th>較前日漲跌(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣優勢基金2</a></td>
+                                                    <td>11/20</td>
+                                                    <td>16.99</td>
+                                                    <td class="down">-0.03 ▼</td>
+                                                    <td class="down">-1.1% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣活力基金2</a></td>
+                                                    <td>11/20</td>
+                                                    <td>14.49</td>
+                                                    <td class="down">-0.41 ▼</td>
+                                                    <td class="down">-1% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託精穩基金2</a></td>
+                                                    <td>11/20</td>
+                                                    <td>18.0958</td>
+                                                    <td class="raise">0.0417 ▲</td>
+                                                    <td class="raise">5% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託全球新興市場策略債券基金-A/累積型2</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.3734</td>
+                                                    <td class="down">-0.0081 ▼</td>
+                                                    <td class="down">-1.40% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託華盈貨幣市場基金2</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.9507</td>
+                                                    <td class="raise">0.0004 ▲</td>
+                                                    <td class="raise">4% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣優勢基金2</a></td>
+                                                    <td>11/20</td>
+                                                    <td>16.99</td>
+                                                    <td class="down">-0.03 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣活力基金2</a></td>
+                                                    <td>11/20</td>
+                                                    <td>14.49</td>
+                                                    <td class="down">-0.41 ▼</td>
+                                                    <td class="down">-1% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託精穩基金2</a></td>
+                                                    <td>11/20</td>
+                                                    <td>18.0958</td>
+                                                    <td class="raise">0.0417 ▲</td>
+                                                    <td class="raise">5% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託全球新興市場策略債券基金-A/累積型2</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.3734</td>
+                                                    <td class="down">-0.0081 ▼</td>
+                                                    <td class="down">-1.40% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託華盈貨幣市場基金2</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.9507</td>
+                                                    <td class="raise">0.0004 ▲</td>
+                                                    <td class="raise">4% ▲</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type3" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover common-table row1left">
+                                            <thead>
+                                                <tr>
+                                                    <th>基金名稱 <a href=""><i class="fa fa-caret-down"></i></a></th>
+                                                    <th>日期</th>
+                                                    <th>淨值</th>
+                                                    <th>較前日漲跌</th>
+                                                    <th>較前日漲跌(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣優勢基金3</a></td>
+                                                    <td>11/20</td>
+                                                    <td>16.99</td>
+                                                    <td class="down">-0.03 ▼</td>
+                                                    <td class="down">-0.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣活力基金3</a></td>
+                                                    <td>11/20</td>
+                                                    <td>14.49</td>
+                                                    <td class="down">-0.41 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託精穩基金3</a></td>
+                                                    <td>11/20</td>
+                                                    <td>18.0958</td>
+                                                    <td class="raise">0.0417 ▲</td>
+                                                    <td class="raise">1.50% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託全球新興市場策略債券基金-A/累積型3</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.3734</td>
+                                                    <td class="down">-0.0081 ▼</td>
+                                                    <td class="down">-0.50% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託華盈貨幣市場基金3</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.9507</td>
+                                                    <td class="raise">0.0004 ▲</td>
+                                                    <td class="raise">4% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣優勢基金3</a></td>
+                                                    <td>11/20</td>
+                                                    <td>16.99</td>
+                                                    <td class="down">-0.03 ▼</td>
+                                                    <td class="down">-0.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣活力基金3</a></td>
+                                                    <td>11/20</td>
+                                                    <td>14.49</td>
+                                                    <td class="down">-0.41 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託精穩基金3</a></td>
+                                                    <td>11/20</td>
+                                                    <td>18.0958</td>
+                                                    <td class="raise">0.0417 ▲</td>
+                                                    <td class="raise">1.50% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託全球新興市場策略債券基金-A/累積型3</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.3734</td>
+                                                    <td class="down">-0.0081 ▼</td>
+                                                    <td class="down">-0.50% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託華盈貨幣市場基金3</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.9507</td>
+                                                    <td class="raise">0.0004 ▲</td>
+                                                    <td class="raise">4% ▲</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type4" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover common-table row1left">
+                                            <thead>
+                                                <tr>
+                                                    <th>基金名稱 <a href=""><i class="fa fa-caret-down"></i></a></th>
+                                                    <th>日期</th>
+                                                    <th>淨值</th>
+                                                    <th>較前日漲跌</th>
+                                                    <th>較前日漲跌(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣優勢基金4</a></td>
+                                                    <td>11/20</td>
+                                                    <td>16.99</td>
+                                                    <td class="down">-0.03 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣活力基金4</a></td>
+                                                    <td>11/20</td>
+                                                    <td>14.49</td>
+                                                    <td class="down">-0.41 ▼</td>
+                                                    <td class="down">-2.50% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託精穩基金4</a></td>
+                                                    <td>11/20</td>
+                                                    <td>18.0958</td>
+                                                    <td class="raise">0.0417 ▲</td>
+                                                    <td class="raise">4.10% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託全球新興市場策略債券基金-A/累積型4</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.3734</td>
+                                                    <td class="down">-0.0081 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託華盈貨幣市場基金4</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.9507</td>
+                                                    <td class="raise">0.0004 ▲</td>
+                                                    <td class="raise">4% ▲</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type5" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover common-table row1left">
+                                            <thead>
+                                                <tr>
+                                                    <th>基金名稱 <a href=""><i class="fa fa-caret-down"></i></a></th>
+                                                    <th>日期</th>
+                                                    <th>淨值</th>
+                                                    <th>較前日漲跌</th>
+                                                    <th>較前日漲跌(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣優勢基金5</a></td>
+                                                    <td>11/20</td>
+                                                    <td>16.99</td>
+                                                    <td class="down">-0.03 ▼</td>
+                                                    <td class="down">-0.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣活力基金5</a></td>
+                                                    <td>11/20</td>
+                                                    <td>14.49</td>
+                                                    <td class="down">-0.41 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託精穩基金5</a></td>
+                                                    <td>11/20</td>
+                                                    <td>18.0958</td>
+                                                    <td class="raise">0.0417 ▲</td>
+                                                    <td class="raise">4% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託全球新興市場策略債券基金-A/累積型5</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.3734</td>
+                                                    <td class="down">-0.0081 ▼</td>
+                                                    <td class="down">-0.20% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託華盈貨幣市場基金5</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.9507</td>
+                                                    <td class="raise">0.0004 ▲</td>
+                                                    <td class="raise">4% ▲</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type6" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover common-table row1left">
+                                            <thead>
+                                                <tr>
+                                                    <th>基金名稱 <a href=""><i class="fa fa-caret-down"></i></a></th>
+                                                    <th>日期</th>
+                                                    <th>淨值</th>
+                                                    <th>較前日漲跌</th>
+                                                    <th>較前日漲跌(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣優勢基金6</a></td>
+                                                    <td>11/20</td>
+                                                    <td>16.99</td>
+                                                    <td class="down">-0.03 ▼</td>
+                                                    <td class="down">-1.10% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託台灣活力基金6</a></td>
+                                                    <td>11/20</td>
+                                                    <td>14.49</td>
+                                                    <td class="down">-0.41 ▼</td>
+                                                    <td class="down">-0.04% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託精穩基金6</a></td>
+                                                    <td>11/20</td>
+                                                    <td>18.0958</td>
+                                                    <td class="raise">0.0417 ▲</td>
+                                                    <td class="raise">2% ▲</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託全球新興市場策略債券基金-A/累積型6</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.3734</td>
+                                                    <td class="down">-0.0081 ▼</td>
+                                                    <td class="down">-0.05% ▼</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="etf-detail.html">中國信託華盈貨幣市場基金6</a></td>
+                                                    <td>11/17</td>
+                                                    <td>10.9507</td>
+                                                    <td class="raise">0.0004 ▲</td>
+                                                    <td class="raise">4% ▲</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

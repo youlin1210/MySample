@@ -1,0 +1,32 @@
+¥Ñ¨Ï¥ÎªÌ [8mha:////4E9IgijjWSh0iFjZlKLafM0SZiAtWdbV06BAJlP2qvUsAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyuEgYe/dLi1CL9yvxSoI0AG1rJssEAAAA=[0myoulinchen ±Ò°Ê
+«Ø¸m¤¤ ¤u§@°Ï D:\Jenkins\workspace\NumberServiceUnitTest
+[NumberServiceUnitTest] $ cmd /c call C:\WINDOWS\TEMP\jenkins3126063260480104564.bat
+
+D:\Jenkins\workspace\NumberServiceUnitTest>cd D:\JenkinsGit\JenkinsCI\NumberLibTest 
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>dotnet test 
+
+Åwªï¨Ï¥Î .NET Core!
+---------------------
+²`¤J¤F¸Ñ .NET Core @ https://aka.ms/dotnet-docs¡C¨Ï¥Î dotnet --help ¥i¬d¬Ý¥i¥Îªº©R¥O¡A©Î«e©¹ https://aka.ms/dotnet-cli-docs¡C
+
+»»´ú
+--------------
+.NET Core ¤u¨ã·|¦¬¶°¨Ï¥Î¤è¦¡¸ê®Æ¡A¥H§ïµ½±zªºÅéÅç¡C¸ê®Æ¬°°Î¦W§Î¦¡¡A¥B¤£§t©R¥O¦C¤Þ¼Æ¡C¸ê®Æ¥Ñ Microsoft ¦¬¶°¨Ã·|»PªÀ¸s¦@¥Î¡C
+¨Ï¥Î±zºD¥Îªº´ß¼h¡A±N DOTNET_CLI_TELEMETRY_OPTOUT Àô¹ÒÅÜ¼Æ³]©w¬° 1¡A§Y¥i°h¥X»»´ú¡C
+±z¥i²`¤J¾\Åª .NET Core ¤u¨ã»»´ú @ https://aka.ms/dotnet-cli-telemetry¡C
+¤w¶}©l«Ø¸m¡A½Ðµy­Ô...
+«Ø¸m§¹¦¨¡C
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest\bin\Debug\netcoreapp2.0\NumberLibTest.dll(.NETCoreApp,Version=v2.0) ªº´ú¸Õ¦^¦X
+Microsoft (R) Test Execution Command Line Tool 15.7.0-preview-20180221-13 ª©
+Copyright (C) Microsoft Corporation. µÛ§@Åv©Ò¦³¡A¨Ã«O¯d¤@¤ÁÅv§Q¡C
+
+¥¿¦b±Ò°Ê´ú¸Õ°õ¦æ¡A½Ðµy­Ô...
+
+´ú¸ÕÁ`­p: 2¡C¦¨¥\: 2¡C¥¢±Ñ: 0¡C²¤¹L: 0¡C
+´ú¸Õ¦^¦X¦¨¥\¡C
+´ú¸Õ°õ¦æ®É¶¡: 1.4717 ¬í
+
+D:\JenkinsGit\JenkinsCI\NumberLibTest>exit 0 
+Finished: SUCCESS

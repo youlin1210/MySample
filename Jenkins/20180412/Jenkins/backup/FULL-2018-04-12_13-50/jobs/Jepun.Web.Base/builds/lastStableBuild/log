@@ -1,0 +1,61 @@
+由使用者 unknown or anonymous 啟動
+建置中 工作區 D:\Jenkins\workspace\Jepun.Web.Base
+ > C:\Program Files\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url \\jprd\git\Jepun.Web # timeout=10
+Fetching upstream changes from \\jprd\git\Jepun.Web
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > C:\Program Files\Git\bin\git.exe fetch --tags --progress \\jprd\git\Jepun.Web +refs/heads/*:refs/remotes/origin/*
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision 6a8594350288381793c98d23d83e3a90910aa415 (refs/remotes/origin/master)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f 6a8594350288381793c98d23d83e3a90910aa415
+Commit message: "Add version"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk 6a8594350288381793c98d23d83e3a90910aa415 # timeout=10
+[Jepun.Web.Base] $ cmd /c call C:\WINDOWS\TEMP\jenkins1122313442381963199.bat
+
+D:\Jenkins\workspace\Jepun.Web.Base>D:\Jenkins\NuGet.exe restore D:\Jenkins\workspace\Jepun.Web\Jepun.Web.sln  
+MSBuild auto-detection: using msbuild version '15.7.66.2115' from 'C:\Program Files (x86)\Microsoft Visual Studio\Preview\Community\MSBuild\15.0\bin'.
+packages.config 中列出的所有封裝均已安裝。
+
+D:\Jenkins\workspace\Jepun.Web.Base>exit 0 
+Path To MSBuild.exe: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe
+Executing the command cmd.exe /C " C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe /p:Configuration=Release /p:AspnetCompilerPath=C:\windows\Microsoft.NET\Framework64\v4.0.30319 /p:VisualStudioVersion=12.0 D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj " && exit %%ERRORLEVEL%% from D:\Jenkins\workspace\Jepun.Web.Base
+[Jepun.Web.Base] $ cmd.exe /C " C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe /p:Configuration=Release /p:AspnetCompilerPath=C:\windows\Microsoft.NET\Framework64\v4.0.30319 /p:VisualStudioVersion=12.0 D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj " && exit %%ERRORLEVEL%%
+Microsoft (R) Build Engine 版本 4.7.2556.0
+[Microsoft .NET Framework，版本 4.0.30319.42000]
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+已經開始建置於 2018/3/30 下午 03:40:28。
+節點 1 (預設目標) 上的專案 "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj"。
+專案 "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj" (1) 正在節點 1 (預設目標) 上建置 "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\Jepun.Web.Resource.csproj" (2)。
+CoreResGen:
+  相對於資源的來源檔案，並沒有資源過期。將略過產生資源。
+GenerateTargetFrameworkMonikerAttribute:
+將略過目標 "GenerateTargetFrameworkMonikerAttribute"，因為所有輸出檔對於其輸入檔而言都已更新。
+CoreCompile:
+將略過目標 "CoreCompile"，因為所有輸出檔對於其輸入檔而言都已更新。
+GenerateSatelliteAssemblies:
+將略過目標 "GenerateSatelliteAssemblies"，因為所有輸出檔對於其輸入檔而言都已更新。
+GenerateSatelliteAssemblies:
+將略過目標 "GenerateSatelliteAssemblies"，因為所有輸出檔對於其輸入檔而言都已更新。
+CopyFilesToOutputDirectory:
+  Jepun.Web.Resource -> D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\bin\Release\Jepun.Web.Resource.dll
+專案 "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Resource\Jepun.Web.Resource\Jepun.Web.Resource.csproj" (預設目標) 建置完成。
+GenerateTargetFrameworkMonikerAttribute:
+將略過目標 "GenerateTargetFrameworkMonikerAttribute"，因為所有輸出檔對於其輸入檔而言都已更新。
+CoreCompile:
+將略過目標 "CoreCompile"，因為所有輸出檔對於其輸入檔而言都已更新。
+_CopyAppConfigFile:
+將略過目標 "_CopyAppConfigFile"，因為所有輸出檔對於其輸入檔而言都已更新。
+CopyFilesToOutputDirectory:
+  Jepun.Web.Base -> D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\bin\Release\Jepun.Web.Base.dll
+專案 "D:\Jenkins\workspace\Jepun.Web\Jepun.Web.Base\Jepun.Web.Base\Jepun.Web.Base.csproj" (預設目標) 建置完成。
+
+建置成功。
+    0 個警告
+    0 個錯誤
+
+經過時間 00:00:00.47
+Finished: SUCCESS

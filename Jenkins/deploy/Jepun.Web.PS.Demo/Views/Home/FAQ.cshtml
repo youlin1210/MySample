@@ -1,0 +1,524 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@{
+}
+<div class="container">
+    <div class="row">
+        <section class="content">
+            <div class="container">
+                <div class="cus-breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        <li><a href="index">首頁</a></li>
+                        <li class="active">常見問題</li>
+                    </ol>
+                </div>
+                <div class="page-header-wrapper">
+                    <h3 class="title"><span>常見問題</span></h3>
+                    <hr>
+                    <ul class="nav nav-tabs" role="tablist" id="cus-tabs">
+                        <li class="active" role="presentation"><a aria-controls="type1" data-toggle="tab" href="#type1" role="tab">開戶</a></li>
+                        <li class="" role="presentation"><a aria-controls="type2" data-toggle="tab" href="#type2" role="tab">單筆申購</a></li>
+                        <li class="" role="presentation"><a aria-controls="type3" data-toggle="tab" href="#type3" role="tab">定期定額申購</a></li>
+                        <li class="" role="presentation"><a aria-controls="type4" data-toggle="tab" href="#type4" role="tab">定期定額異動</a></li>
+                        @*<li class="" role="presentation"><a aria-controls="type5" data-toggle="tab" href="#type5" role="tab">境外基金申購</a></li>*@
+                        <li class="" role="presentation"><a aria-controls="type6" data-toggle="tab" href="#type6" role="tab">買回 / 轉申購</a></li>
+                        @*<li class="" role="presentation"><a aria-controls="type7" data-toggle="tab" href="#type7" role="tab">紅利</a></li>*@
+                        <li class="" role="presentation"><a aria-controls="type8" data-toggle="tab" href="#type8" role="tab">其他</a></li>
+                    </ul>
+                </div>
+                <div class="faq-wrapper">
+                    <div role="tabpanel">
+                        <div role="tabpanel">
+                            <div class="tab-content editor-area">
+                                <div class="tab-pane fade in active" id="type1" role="tabpanel">
+                                    <h3 class="pages-title">開戶</h3>
+                                    <div aria-multiselectable="true" class="panel-group" id="collapse-questions1" role="tablist">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions1_0" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions1_0" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions1" data-target="#collapse-questions1_0" data-toggle="collapse" href="javascript:void(0)"><b></b>Q：申請開立投信基金網路交易帳戶，該如何辦理？應該寄回哪些文件？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions1_0" class="panel-collapse collapse in" id="collapse-questions1_0" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：您可透過以下二種方式之一申請</b></p>
+                                                    <ol>
+                                                        <li>請您透過<u><a href="https://etrade.ctbcinvestments.com.tw/CTBC.EC/?action=accopen#{AccOpen}" target="_blank">中國信託投信網站，點選［預約開戶］</a></u>依照指示將您的資料填寫後，請列印開戶文件，備齊雙證件影本(未成年人或受輔助宣告人檢附文件請參考說明)用印後以掛號寄至：115台北市南港區經貿二路188號12樓 中國信託投信客服中心。</li>
+                                                        <li>請您自行下載列印<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=29" target="_blank">中國信託投信開戶約定同意書(自然人適用)</a></u>或聯繫客服人員為您準備開戶書。</li>
+                                                    </ol>
+                                                    <p>&nbsp;</p>
+                                                    <p>(說明)</p>
+                                                    <ul>
+                                                        <li>未滿十四歲之受益人且尚未申請身分證者，可以『戶口名簿』影本替代身分證影本。未成年之受益人(未滿二十歲)，並請加附法定代理人父母雙方雙證件影本，單親未成年之受益人(未滿二十歲)，請加附註明監護權歸屬之戶籍謄本影本。</li>
+                                                        <li>受輔助宣告之受益人，請加附輔助人雙證件影本。</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions1_1" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions1_1" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions1" data-target="#collapse-questions1_1" data-toggle="collapse" href="javascript:void(0)"><b></b>Q：我已開過戶了，但是我該如何增加交易服務方式?</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions1_1" class="panel-collapse collapse" id="collapse-questions1_1" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：新增電子交易服務：您可透過以下二種方式之一申請</b></p>
+                                                    <ul>
+                                                        <li>請至<u><a href="~/Home/Index" target="_blank">中國信託投信網站</a></u>，點選［預約開戶］依照指示將您的資料填寫後，請列印【受益人交易方式異動申請書】，加蓋中國信託投信原留印鑑，並檢附雙證件影本以掛號寄至：115台北市南港區經貿二路188號12樓 中國信託投信客服中心。</li>
+                                                        <li><p>請填寫並用印<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=29" target="_blank">【受益人交易方式異動申請書】</a></u>並檢附雙證件影本以掛號寄回中國信託投信辦理。</p></li>
+                                                    </ul>
+                                                    <p>&nbsp;</p>
+                                                    <p class="ans"><b></b>新增傳真交易服務：</p>
+                                                    <p>請填寫並用印<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=29" target="_blank">【受益人交易方式異動申請書】</a></u>寄回中國信託投信辦理。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type2" role="tabpanel">
+                                    <h3 class="pages-title">單筆申購</h3>
+                                    <div aria-multiselectable="true" class="panel-group" id="collapse-questions2" role="tablist">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions2_0" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions2_0" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions2" data-target="#collapse-questions2_0" data-toggle="collapse" href="javascript:void(0)"><b></b>Q：如何申購中國信託投信基金</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions2_0" class="panel-collapse collapse in" id="collapse-questions2_0" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>請下載<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=1035" target="_blank">受益權單位交易申請書(新台幣計價)</a></u>或<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=1035" target="_blank">受益權單位交易申請書(外幣計價)</a></u>進行申購</p>
+                                                    <p>
+                                                        <b>＊若您是中國信託投信網路交易戶，您亦可透過下列方式進行申購：</b>
+                                                        <br />請至中國信託投信網站，點選［線上交易］輸入身分證帳號與密碼，登入後點選「基金申購」→「單筆申購」即可進行申購
+                                                    </p>
+                                                    <p><b>※外幣級別基金:未開放網路交易。 </b></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions2_1" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions2_1" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions2" data-target="#collapse-questions2_1" data-toggle="collapse" href="javascript:void(0)"><b></b>Q：申購基金的淨值是以哪一天為基準日？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions2_1" class="panel-collapse collapse" id="collapse-questions2_1" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <ul>
+                                                        <li>
+                                                            <b>國內貨幣市場型基金</b>
+                                                            <br /> 申購：營業日11：30前(電子交易11：30前，書面委扣11：00前)，以當日淨值計算，逾時以次一營業日計算。
+                                                        </li>
+                                                        <li>
+                                                            <b>除前述基金外之其他基金</b>
+                                                            <br /> 申購：營業日16：30前(電子交易16:30前，書面委扣16：00前)，以當日淨值計算，逾時以次一營業日計算。
+                                                        </li>
+                                                    </ul>
+                                                    <p><b>※若您設定的扣款銀行為中國信託銀行，截止時間每營業日11：00前，以當日淨值計算，逾時以次一營業日計算。</b></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions2_2" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions2_2" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions2" data-target="#collapse-questions2_2" data-toggle="collapse" href="javascript:void(0)"><b></b>Q：申購手續費如何計算？ </a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions2_2" class="panel-collapse collapse" id="collapse-questions2_2" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>請至中國信託投信官網<u><a href="~/Home/FeeRateTable" target="_blank">【手續費率表】</a></u>頁面進行查詢</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions2_3" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions2_3" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions2" data-target="#collapse-questions2_3" data-toggle="collapse" href="javascript:void(0)"><b></b>Q：申購匯款及轉帳帳號一覽表？ </a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions2_3" class="panel-collapse collapse" id="collapse-questions2_3" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>請至中國信託投信官網<u><a href="~/Home/FundAcc" target="_blank">【基金匯款帳號】</a></u>頁面進行查詢</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions2_4" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions2_4" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions2" data-target="#collapse-questions2_4" data-toggle="collapse" href="javascript:void(0)"><b></b>Q：單筆最低申購金額限制？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions2_4" class="panel-collapse collapse" id="collapse-questions2_4" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>請至中國信託投信官網<u><a href="~/Home/FundAcc" target="_blank">【基金匯款帳號】</a></u>頁面進行查詢</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type3" role="tabpanel">
+                                    <h3 class="pages-title">定期定額申購</h3>
+                                    <div aria-multiselectable="true" class="panel-group" id="collapse-questions3" role="tablist">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions3_1" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions3_1" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions3" data-target="#collapse-questions3_1" data-toggle="collapse" href="javascript:void(0)">Q：如何定期定額申購中國信託投信基金？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions3_1" class="panel-collapse collapse in" id="collapse-questions3_1" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>請下載<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=1035" target="_blank">【定期定額申購書暨轉帳付款授權書】</a></u>進行申購</p>
+                                                    <p>
+                                                        <b>＊若您是中國信託投信網路交易戶，您亦可透過下列方式進行申購：</b>
+                                                        <br />請至中國信託投信網站，點選［線上交易］輸入身分證帳號與密碼，登入後點選「基金申購」→「定期定額申購」即可進行申購
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions3_2" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions3_2" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions3" data-target="#collapse-questions3_2" data-toggle="collapse" href="javascript:void(0)">Q：中國信託投信基金定期定額扣款日是哪一天？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions3_2" class="panel-collapse collapse" id="collapse-questions3_2" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>
+                                                        凡定期定額投資中國信託境內全系列基金，扣款日包括每月7日、17日，如若遇假日則順延至下一個營業日扣款。
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions3_3" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions3_3" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions3" data-target="#collapse-questions3_3" data-toggle="collapse" href="javascript:void(0)">Q：定期定額申購中國信託投信基金的手續費如何計算？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions3_3" class="panel-collapse collapse" id="collapse-questions3_3" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>請至中國信託投信官網<u><a href="~/Home/FeeRateTable" target="_blank">【手續費率表】</a></u>頁面進行查詢</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions3_4" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions3_4" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions3" data-target="#collapse-questions3_4" data-toggle="collapse" href="javascript:void(0)">Q：如何新增或刪除線上交易的扣款帳號？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions3_4" class="panel-collapse collapse" id="collapse-questions3_4" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>您可下載<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=1035" target="_blank">【定期定額授權異動申請書】</a></u><u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=1035" target="_blank">【定期定額申購書暨轉帳付款授權書】</a></u>，列印填寫用印後寄回中國信託投信辦理。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions3_5" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions3_5" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions3" data-target="#collapse-questions3_5" data-toggle="collapse" href="javascript:void(0)">Q：定時定額每次最低申購金額？？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions3_5" class="panel-collapse collapse" id="collapse-questions3_5" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>定時定額最低申購金額為台幣$3,000(不含手續費) ，新臺幣以仟元為單位累加，外幣計價基金暫不開放定期定額申購。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type4" role="tabpanel">
+                                    <h3 class="pages-title">定期定額異動</h3>
+                                    <div aria-multiselectable="true" class="panel-group" id="collapse-questions4" role="tablist">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions4_1" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions4_1" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions4" data-target="#collapse-questions4_1" data-toggle="collapse" href="javascript:void(0)">Q：是否可以修改定期定額扣款日，多久前提出申請才能於當月生效？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions4_1" class="panel-collapse collapse in" id="collapse-questions4_1" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>請下載列印<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=1035" target="_blank">【定期定額授權異動申請書】</a></u>，修改定期定額扣款日並用印後寄回寄回中國信託投信辦理。</p>
+                                                    <p>
+                                                        <b>＊若您是中國信託投信網路交易戶，您亦可透過下列方式進行異動：</b>
+                                                        <br />請至中國信託投信網站，點選［線上交易］登入身分證帳號與密碼，登入後點選「交易查詢/異動」→「定期定額查詢/變更」→「欲變更之契約」即可進行定時定額異動
+                                                    </p>
+                                                    <p>
+                                                        <b>＊扣款日變更需於5個營業日前(含)16:30前提出變更申請，才能於當月生效，否則於次月生效。</b>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="tab-pane fade" id="type5" role="tabpanel">
+                                    <h3 class="pages-title">境外基金申請</h3>
+                                    <div aria-multiselectable="true" class="panel-group" id="collapse-questions5" role="tablist">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions5_1" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions5_1" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions5" data-target="#collapse-questions5_1" data-toggle="collapse" href="javascript:void(0)">Q：如何單筆申購境外基金</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions5_1" class="panel-collapse collapse in" id="collapse-questions5_1" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>請填寫<a href="">「境外基金交易申請書」</a>，並採取以下兩種方式之一進行匯款</p>
+                                                    <ol>
+                                                        <li>自行以受益人名義於當日15:00前匯款(含手續費)至集保帳戶，並將境外基金交易申請書與匯款單傳真至中國信託投信，並來電確認。</li>
+                                                        <li>
+                                                            請填寫「境外基金扣款轉帳授權書―全國性繳費」或「境外基金扣款轉帳授權書―款項收付銀行」或「境外基金扣款轉帳授權書―郵局專用」，且 需經該扣款行核印成功，且於當日中午12:00前將款項(含手續費)存入指定扣款帳戶。完成後，將境外基金交易申請書與境外基金扣款轉帳授權書傳真至中國信託投信，並來電確認。
+                                                        </li>
+                                                    </ol>
+                                                    <p></p>
+                                                    <small>傳真電話 : 02-27891339∣客服專線 : 02-26526699∣<a href="">款項約定收付銀行一覽表</a></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions5_2" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions5_2" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions5" data-target="#collapse-questions5_2" data-toggle="collapse" href="javascript:void(0)">Q：如何定期定額申購境外基金</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions5_2" class="panel-collapse collapse" id="collapse-questions5_2" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>
+                                                        請填寫<a href="">「境外基金定期定額申請書」</a>，並填寫「境外基金扣款轉帳授權書―全 國性繳費」或「境外基金扣款轉帳授權書―款項收付銀行」，且需經該扣款行 核印成功。完成後，將境外基金定期定額申請書與境外基金扣款轉帳授權書 傳真至中國信託投信，並來電確認。
+                                                    </p>
+                                                    <p></p>
+                                                    <small>傳真電話 : 02-27891339∣客服專線 : 02-26526699∣<a href="">款項約定收付銀行一覽表</a></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                                <div class="tab-pane fade" id="type6" role="tabpanel">
+                                    <h3 class="pages-title">買回 / 轉申購</h3>
+                                    <div aria-multiselectable="true" class="panel-group" id="collapse-questions6" role="tablist">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions6_1" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions6_1" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions6" data-target="#collapse-questions6_1" data-toggle="collapse" href="javascript:void(0)">Q：如何辦理基金買回或轉申購？ </a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions6_1" class="panel-collapse collapse in" id="collapse-questions6_1" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：您可透過以下三種方式之一辦理：</b></p>
+                                                    <ol>
+                                                        <li>中國信託投信電子交易戶可直接登入中國信託投信網站，點選［線上交易］輸入身分證字號與密碼，點選「買回/轉申購」即可進行買回。營業日下午4:30以前辦理之買回/轉申購，視為當日交易、營業日下午4:30以後、假日及休市期間辦理之買回轉申購，則視為次一營業日之交易。</li>
+                                                        <li>已申請傳真交易服務客戶，可下載<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=1035" target="_blank">受益權單位交易申請書(新台幣計價)</a></u>或<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=1035" target="_blank">受益權單位交易申請書(外幣計價)</a></u>進行傳真買回/轉申購(限已約定銀行帳戶)</li>
+                                                        <li>亦可由本人親自攜帶身分證正本、開戶申購基金時的原留印鑑章、本人之銀行（或郵局）帳號存摺至本公司辦理。</li>
+                                                    </ol>
+                                                    <p>
+                                                        <b>＊領有實體受益憑證之投資人，須繳回實體憑證始得辦理買回，如有疑問請洽客服。</b>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions6_2" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions6_2" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions6" data-target="#collapse-questions6_2" data-toggle="collapse" href="javascript:void(0)">Q：網路買回、轉申購基金有無任何限制？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions6_2" class="panel-collapse collapse" id="collapse-questions6_2" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>網路每日買回最高額度為500萬元，轉換則無上限。惟受益權單位數不及300個單位者，不得請求部分買回。不同基金的交易限制可能有所不同，請於交易前詳閱注意事項，並以各檔基金之公開說明書內容為主。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions6_3" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions6_3" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions6" data-target="#collapse-questions6_3" data-toggle="collapse" href="javascript:void(0)">Q：買回及轉申購之淨值計算基準日是哪一天？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions6_3" class="panel-collapse collapse" id="collapse-questions6_3" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>營業日(T日)下午4:30以前辦理之買回轉申購，買回的淨值都以次一營業日(T+1)為準。</p>
+                                                    <div class="table">
+                                                        <table class="table table-striped pages-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>基金</th>
+                                                                    <th>買回淨值日</th>
+                                                                    <th>轉申購淨值日</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>國內貨幣市場型</td>
+                                                                    <td>申請日後第一個營業日(T+1)</td>
+                                                                    <td>申請日後第一個營業日(T+1)</td>
+                                                                </tr>  
+                                                                <tr>
+                                                                    <td>國內股票型</td>
+                                                                    <td>申請日後第一個營業日(T+1)</td>
+                                                                    <td>申請日後第三個營業日(T+3)</td>
+                                                                </tr>        
+                                                                <tr>
+                                                                    <td>國內平衡型</td>
+                                                                    <td>申請日後第一個營業日(T+1)</td>
+                                                                    <td>申請日後第三個營業日(T+3)</td>
+                                                                </tr>         
+                                                                <tr>
+                                                                    <td>國外股票型</td>
+                                                                    <td>申請日後第一個營業日(T+1)</td>
+                                                                    <td>申請日後第五個營業日(T+5)</td>
+                                                                </tr>  
+                                                                <tr>
+                                                                    <td>國外債券型</td>
+                                                                    <td>申請日後第一個營業日(T+1)</td>
+                                                                    <td>申請日後第五個營業日(T+5)</td>
+                                                                </tr>  
+                                                                <tr>
+                                                                    <td>不動產證券化型</td>
+                                                                    <td>申請日後第一個營業日(T+1)</td>
+                                                                    <td>申請日後第五個營業日(T+5)</td>
+                                                                </tr>  
+                                                                <tr>
+                                                                    <td>國外平衡型</td>
+                                                                    <td>申請日後第一個營業日(T+1)</td>
+                                                                    <td>申請日後第五個營業日(T+5)</td>
+                                                                </tr>                                                                                                                     
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions6_4" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions6_4" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions6" data-target="#collapse-questions6_4" data-toggle="collapse" href="javascript:void(0)">Q：基金買回何時可以收到款項？ </a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions6_4" class="panel-collapse collapse" id="collapse-questions6_4" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <ol>
+                                                        <li>貨幣型基金 : T+1</li>
+                                                        <li>國內股票型/國內平衡型: T+3</li>
+                                                        <li>海外平衡型/海外股票型/不動產證券化型/全球股債平衡型/高收益債券型/海外債券型:T+5</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type7" role="tabpanel">
+                                    <h3 class="pages-title">紅利</h3>
+                                    <div aria-multiselectable="true" class="panel-group" id="collapse-questions7" role="tablist">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions7_1" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions7_1" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions7" data-target="#collapse-questions7_1" data-toggle="collapse" href="javascript:void(0)">Q：紅利點數是甚麼，以及有甚麼用途</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions7_1" class="panel-collapse collapse in" id="collapse-questions7_1" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions7_2" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions7_2" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions7" data-target="#collapse-questions7_2" data-toggle="collapse" href="javascript:void(0)">Q：如何累積紅利點數</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions7_2" class="panel-collapse collapse" id="collapse-questions7_2" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="type8" role="tabpanel">
+                                    <h3 class="pages-title">其他</h3>
+                                    <div aria-multiselectable="true" class="panel-group" id="collapse-questions8" role="tablist">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions8_1" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions8_1" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions8" data-target="#collapse-questions8_1" data-toggle="collapse" href="javascript:void(0)">Q：忘記線上交易密碼，如何補發？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions8_1" class="panel-collapse collapse in" id="collapse-questions8_1" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>若您是中國信託投信網路交易戶，可直接透過<u><a href="~/Home/Index" target="_blank">中國信託投信網站</a></u>，點選［線上交易］→「忘記密碼/重新寄送密碼函」進行補發，補發之密碼將寄送至您於本公司留存的Email</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions8_2" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions8_2" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions8" data-target="#collapse-questions8_2" data-toggle="collapse" href="javascript:void(0)">Q：如何辦理資料變更？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions8_2" class="panel-collapse collapse" id="collapse-questions8_2" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>中國信託電子交易戶可直接於<u><a href="~/Home/Index" target="_blank">中國信託投信網站</a></u>點選［線上交易］進行電話、傳真、 E-mail、交易密碼之變更，欲變更其餘項目，請填寫「<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=29" target="_blank">受益人基本資料變更申請書</a></u>」後用印寄回本公司辦理 (如欲變更通訊地址與戶籍地址不同時，請檢附六個月內之繳費單或對帳單;內容至少包含受益人姓名及地址) 。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions8_3" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions8_3" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions8" data-target="#collapse-questions8_3" data-toggle="collapse" href="javascript:void(0)">Q：如何新增或刪除線上交易的扣款及買回帳號？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions8_3" class="panel-collapse collapse" id="collapse-questions8_3" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：</b></p>
+                                                    <p>請下載列印<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=29" target="_blank">【受益人交易方式異動申請書】(自然人適用)</a></u>，填寫用印後寄回本公司辦理。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions8_4" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions8_4" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions8" data-target="#collapse-questions8_4" data-toggle="collapse" href="javascript:void(0)">Q：如何辦理原留印鑑變更？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions8_4" class="panel-collapse collapse" id="collapse-questions8_4" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：您可透過以下二種方式之一進行變更：</b></p>
+                                                    <ol>
+                                                        <li>
+                                                            <b>本人備妥以下文件親至中國信託投信辦理：</b>
+                                                            <br />(1)滿20歲者： 備身分證正本、新舊印鑑。
+                                                            <br />(2)未滿20歲者：由法定代理人備法定代理人父母雙方的身分證正本、新舊印鑑及受益人本人的身分證正本、新舊印鑑(未成年之受益人未滿14歲且尚未申請身分證者，可以『戶口名簿』正本替代)。
+                                                        </li>
+                                                        <li>
+                                                            <b>郵寄辦理：</b>
+                                                            <br />(1)滿20歲者：下載列印<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=29" target="_blank">【受益人基本資料變更申請書】</a></u>，並加蓋新舊印鑑、備妥身分證正反面影本後寄回本公司。
+                                                            <br />(2)未滿20歲者：下載列印<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=29" target="_blank">【受益人基本資料變更申請書】</a></u>，並加蓋新舊印鑑、備妥法定代理人父母雙方與受益人本人的身分證影本後(未成年之受益人未滿14歲且尚未申請身分證者，可以戶口名簿影本替代)寄回本公司辦理。
+                                                        </li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions8_5" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions8_5" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions8" data-target="#collapse-questions8_5" data-toggle="collapse" href="javascript:void(0)">Q：原留印鑑遺失，該如何辦理？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions8_5" class="panel-collapse collapse" id="collapse-questions8_5" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：您可透過以下二種方式之一進行變更：</b></p>
+                                                    <ol>
+                                                        <li>
+                                                            <b>本人備妥以下文件親至中國信託投信辦理：</b>
+                                                            <br />(1)滿20歲者： 備身分證正本、新印鑑。
+                                                            <br />(2)未滿20歲者：由法定代理人備法定代理人父母雙方的身分證正本、新印鑑及受益人本人的身分證正本、新印鑑(未成年之受益人未滿14歲且尚未申請身分證者，可以戶口名簿影本替代身分證影本)。
+                                                        </li>
+                                                        <li>
+                                                            <b>郵寄辦理：</b>
+                                                            <br />(1)滿20歲者：下載列印<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=29" target="_blank">【受益人基本資料變更申請書】</a></u>，並加蓋新印鑑、備妥身分證正反面影本、<span class="text-danger">印鑑證明正本</span>後寄回本公司辦理。
+
+                                                            <br />(2)未滿20歲者：下載列印<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=29" target="_blank">【受益人基本資料變更申請書】</a></u>，並加蓋新印鑑、備妥法定代理人<span class="text-danger">父母雙方</span>與<span class="text-danger">受益人本人</span>的身分證影本及印鑑證明正本(未成年之受益人未滿14歲且尚未申請身分證者，可以戶口名簿影本替代)後寄回本公司辦理。
+                                                        </li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" id="heading-questions8_6" role="tab">
+                                                <div class="panel-title"><a aria-controls="collapse-questions8_6" aria-expanded="false" class="questions collapsed" data-parent="#collapse-questions8" data-target="#collapse-questions8_6" data-toggle="collapse" href="javascript:void(0)">Q：如何辦理姓名變更？</a></div>
+                                            </div>
+                                            <div aria-labelledby="heading-questions8_6" class="panel-collapse collapse" id="collapse-questions8_6" role="tabpanel">
+                                                <div class="panel-body">
+                                                    <p class="ans"><b>A：您可透過以下二種方式之一進行變更：</b></p>
+                                                    <ol>
+                                                        <li>
+                                                            <b>本人備妥以下文件親至中國信託投信辦理：</b>
+                                                            <br />(1)滿20歲者： 備身分證正本、三個月內戶籍謄本正本、新舊印鑑。
+                                                            <br />(2)未滿20歲者：由法定代理人備法定代理人父母雙方的身分證正本、新舊印鑑及受益人本人的身分證正本(未成年之受益人未滿十四歲且尚未申請身分證者，可以『戶口名簿』影本替代)、新舊印鑑及三個月內戶籍謄本正本。
+                                                        </li>
+                                                        <li>
+                                                            <b>郵寄辦理：</b>
+                                                            <br />(1)滿20歲者：下載列印<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=29" target="_blank">【受益人基本資料變更申請書】</a></u>，並加蓋新舊印鑑、檢附身分證正反面影本、三個月內戶籍謄本正本後寄回本公司辦理。
+                                                            <br />(2)未滿20歲者：下載列印<u><a href="~/Home/GetPsDocDownloadOnlineT2?DocNo=29" target="_blank">【受益人基本資料變更申請書】</a></u>，並加蓋新舊印鑑、檢附法定代理人父母雙方與受益人本人身分證影本(未成年之受益人未滿14歲且尚未申請身分證者，可以『戶口名簿』影本替代)、三個月內戶籍謄本正本後寄回本公司辦理。
+                                                        </li>
+                                                    </ol>
+                                                    <p>備註 : 郵寄辦理印鑑掛失者，請檢附印鑑證明正本(未成年人需另加附法定代理人父母雙方之印鑑證明正本)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

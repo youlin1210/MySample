@@ -1,0 +1,160 @@
+commit 632c175bc0af743a3a5ae1ab377c23046ed63088
+tree 864449b1146c65d668575f6204aa757c58beb71d
+parent 4afb8dce00a4810705d051e9799ea3242c73fb10
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:50:56 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:50:56 +0800
+
+    add
+
+
+
+:100644 100644 7f1538f467b2a82e43f08dd1c94cc9b136f705f9 02cd9279d0139cda3d797c8ad4ef8206fb8c84ef M	ClassLibCI/BuildSetting.Server.xml
+:100644 100644 08dcfc21fa688d43626bc779551b979e145df234 ae40a13e1153f6c7321caa6b9e391aa4d9f9e048 M	ClassLibCI/ClassLibCI/ClassLibCI.csproj
+:100644 100644 3c1e867e2e76449141a935bda14fbbd148bd783c cf525b771c9c4ae1267a36b2e6c756e85234415f M	ClassLibCI/ToolSetting.Server.xml
+commit 4afb8dce00a4810705d051e9799ea3242c73fb10
+tree 7191c307dd6eef9058b04a440a76975dee2b35ca
+parent 605e0e8970c87affce1e3b5d190397a21046e6af
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:36:53 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:36:53 +0800
+
+    aaa
+
+
+
+:100644 100644 6e725f5eaa954daf6b52cdd9265d43770668a08b 08dcfc21fa688d43626bc779551b979e145df234 M	ClassLibCI/ClassLibCI/ClassLibCI.csproj
+commit 605e0e8970c87affce1e3b5d190397a21046e6af
+tree 09a0d9e93eeb5ceb723f120de3f566c6e1f46119
+parent 305c2b02ff5389cc341648e81246b3d5e3c494d9
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:35:06 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:35:06 +0800
+
+    add
+
+
+
+:100644 100644 2477f5da93dd2f88c729169c20df417cfbcbcca2 6e725f5eaa954daf6b52cdd9265d43770668a08b M	ClassLibCI/ClassLibCI/ClassLibCI.csproj
+commit 305c2b02ff5389cc341648e81246b3d5e3c494d9
+tree 937f1dc375f6d7f9fc2b6222b11f7b9809418bb1
+parent c8ead95e9baadba91a7fdf56a53007cbf3dc292b
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:26:46 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:26:46 +0800
+
+    add
+
+
+
+:100644 100644 02cd9279d0139cda3d797c8ad4ef8206fb8c84ef 7f1538f467b2a82e43f08dd1c94cc9b136f705f9 M	ClassLibCI/BuildSetting.Server.xml
+:100644 100644 84d302f9e525e016218da681f9b9577246c55483 3c1e867e2e76449141a935bda14fbbd148bd783c M	ClassLibCI/ToolSetting.Server.xml
+commit c8ead95e9baadba91a7fdf56a53007cbf3dc292b
+tree 50a743cfef22dc3480e846a755075a2bfeeadf79
+parent e0c0cf4aeeac708f478dfa805826d3ea36b3794f
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:23:39 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:23:39 +0800
+
+    add
+
+
+
+:100644 100644 88262be70cada7efc2b8cbbd5c5de408ebf48720 02cd9279d0139cda3d797c8ad4ef8206fb8c84ef M	ClassLibCI/BuildSetting.Server.xml
+commit e0c0cf4aeeac708f478dfa805826d3ea36b3794f
+tree 375d3f831e60021e18db7a57acb99fbf56e55c42
+parent 18c295d816b661844cd2f38d8f81b33e38dbc611
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:23:14 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:23:14 +0800
+
+    add
+
+
+
+:100644 100644 9b312fb800e0b12cb75292a6c012405457dc5240 2477f5da93dd2f88c729169c20df417cfbcbcca2 M	ClassLibCI/ClassLibCI/ClassLibCI.csproj
+:100644 100644 cf525b771c9c4ae1267a36b2e6c756e85234415f 84d302f9e525e016218da681f9b9577246c55483 M	ClassLibCI/ToolSetting.Server.xml
+commit 18c295d816b661844cd2f38d8f81b33e38dbc611
+tree 62a88ab1f5d0d4958bd8e24147ffa720a1a9ba52
+parent edf5f56dd7071dcbda5a265e512b3aad99e27f37
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:18:11 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:18:11 +0800
+
+    add
+
+
+
+:100644 100644 02cd9279d0139cda3d797c8ad4ef8206fb8c84ef 88262be70cada7efc2b8cbbd5c5de408ebf48720 M	ClassLibCI/BuildSetting.Server.xml
+commit edf5f56dd7071dcbda5a265e512b3aad99e27f37
+tree 5e3bcc680640895c7b06cdc1b19c21dba5395aac
+parent 9bb3118105b9efb6d70e1ccc2db05684360861e6
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:07:55 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:07:55 +0800
+
+    add
+
+
+
+:100644 100644 7f24e0352145f93c358b0f6c4b547bc5c19343c2 cf525b771c9c4ae1267a36b2e6c756e85234415f M	ClassLibCI/ToolSetting.Server.xml
+commit 9bb3118105b9efb6d70e1ccc2db05684360861e6
+tree e997aa20c8a17cc83c74208fd42fa8ceb1137fde
+parent 8b8e55588e4f8c63de1d952f4a7c74b39288b7af
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:01:25 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 17:01:25 +0800
+
+    add version
+
+
+
+:000000 100644 0000000000000000000000000000000000000000 319541a9e5743ce85f9c038dfefe7fae07aa343f A	ClassLibCI/Build.Server.csproj
+:000000 100644 0000000000000000000000000000000000000000 02cd9279d0139cda3d797c8ad4ef8206fb8c84ef A	ClassLibCI/BuildSetting.Server.xml
+:000000 100644 0000000000000000000000000000000000000000 7f24e0352145f93c358b0f6c4b547bc5c19343c2 A	ClassLibCI/ToolSetting.Server.xml
+commit 8b8e55588e4f8c63de1d952f4a7c74b39288b7af
+tree 8461b8da248183cfbf1dcd41dbad0a4a476368e2
+parent e3e6bdecf8d3afc57cb4514f9e27898145950fde
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 16:40:23 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 16:40:23 +0800
+
+    add ver
+
+
+
+:100644 100644 e9707a617c030eb09923ce3b0044c865e88122f7 319541a9e5743ce85f9c038dfefe7fae07aa343f M	ClassLibCI/Build.csproj
+:100644 100644 a24fbaba135077a6fd904cd2090d419595c442aa 20ecdc37642cde3c3a6d469d3b9ead0cf8b449b1 M	ClassLibCI/ToolSetting.xml
+commit e3e6bdecf8d3afc57cb4514f9e27898145950fde
+tree 569b0032b029e2f11278aad4bfe217dd742f6a95
+parent 6cb57300f2829d81104a7ff84aaa7979835bb233
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 16:30:05 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 16:30:05 +0800
+
+    add bbb
+
+
+
+:100644 100644 c546417e253c6a6a569c8244d1e9f78f3936bbff e9707a617c030eb09923ce3b0044c865e88122f7 M	ClassLibCI/Build.csproj
+commit 6cb57300f2829d81104a7ff84aaa7979835bb233
+tree cb9807a97df2b0b76917a185a7087974c8d7688f
+parent 2ddae574f4ccaa6566992117ee646e9a144c8e82
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 16:19:09 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 16:19:09 +0800
+
+    add build
+
+
+
+:100644 100644 3da0dd283ccee43bfa05ed92d1fe45df8dc308e8 c546417e253c6a6a569c8244d1e9f78f3936bbff M	ClassLibCI/Build.csproj
+:100644 100644 efc14027ccfd1d774935f78be351f37a23c26b19 02cd9279d0139cda3d797c8ad4ef8206fb8c84ef M	ClassLibCI/BuildSetting.xml
+:100644 100644 dff7666ba45d528450c2e9a445db87532b0c4ae6 a24fbaba135077a6fd904cd2090d419595c442aa M	ClassLibCI/ToolSetting.xml
+commit 2ddae574f4ccaa6566992117ee646e9a144c8e82
+tree a9302fb6e2a2f1ab09c8f2247d05951bac2f4ddb
+parent 63e5d430703ca79c751b6f3acd5f77c54d0acb9b
+author JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 16:10:04 +0800
+committer JEPUN\youlinchen <youlin1210@gmail.com> 2018-04-11 16:10:04 +0800
+
+    add version
+
+
+
+:000000 100644 0000000000000000000000000000000000000000 1fdd8fc739fe310ebc66a7dcfd3048e8803e0972 A	ClassLibCI/.vs/ClassLibCI/v15/.suo
+:000000 100644 0000000000000000000000000000000000000000 3da0dd283ccee43bfa05ed92d1fe45df8dc308e8 A	ClassLibCI/Build.csproj
+:000000 100644 0000000000000000000000000000000000000000 c43f811ccff52caea8ffd45f42649873431355a2 A	ClassLibCI/BuildSetting.Test.xml
+:000000 100644 0000000000000000000000000000000000000000 efc14027ccfd1d774935f78be351f37a23c26b19 A	ClassLibCI/BuildSetting.xml
+:000000 100644 0000000000000000000000000000000000000000 89f76e09a2a934edb4302e9a61961ed1f5433816 A	ClassLibCI/ToolSetting.Test.xml
+:000000 100644 0000000000000000000000000000000000000000 dff7666ba45d528450c2e9a445db87532b0c4ae6 A	ClassLibCI/ToolSetting.xml
+:000000 100644 0000000000000000000000000000000000000000 23f9eea8923d006b237c57a513b0efc82c2e65fc A	ClassLibCI/msbuild.bat
+:000000 100644 0000000000000000000000000000000000000000 7703cfa3f9da06a532ffd5dccf269504d04b289f A	JenkinsCI/.vs/JenkinsCI/v15/.suo
+:100644 100644 2ee905841a83738a0335d5273b6956f734e491b1 bea08fb007af5bdca305488845957eef325344c4 M	JenkinsCI/NumberLib/NumberLib.csproj

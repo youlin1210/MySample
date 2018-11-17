@@ -1,0 +1,27 @@
+﻿@model Jepun.Web.PS.Models.BasePageModel
+@{
+}
+<div class="container">
+    <div class="row">
+        <section class="content">
+            <div class="container">
+                <div class="cus-breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        @Html.Raw(Model.Breadcrumb)
+                    </ol>
+                </div>
+                <div class="page-header-wrapper">
+                    <h3 class="title"><span>@Html.Raw(Model.H1)</span></h3>
+                    <hr>
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="master-area" name="Master">
+                            @Html.Raw(Model.Dictionary["Master"])
+                        </div>
+                     
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

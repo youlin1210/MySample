@@ -1,0 +1,221 @@
+﻿@using Jepun.Web.PS.Comm
+@model Jepun.Web.PS.Models.BasePageModel
+@{
+    ViewBag.Title = "Home Page";
+}
+@using (Html.BeginForm("", "Index", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormIndex" }))
+        {
+            
+<div id="index-banner" class="carousel slide" data-ride="carousel">
+   
+    @Html.Raw(Model.Dictionary["Banner"])
+    @*<ol class="carousel-indicators">
+            <li data-target="#index-banner" data-slide-to="0" class="active"></li>
+            <li data-target="#index-banner" data-slide-to="1"></li>
+            <li data-target="#index-banner" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <a href="javascript:void(0)"><img src="~/Content/images/index-banner1.jpg" alt="..."></a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"><img src="~/Content/images/index-banner1.jpg" alt="..."></a>
+            </div>
+        </div>*@
+    <a class="left carousel-control" href="#index-banner" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">上一張</span>
+    </a>
+    <a class="right carousel-control" href="#index-banner" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">下一張</span>
+    </a>
+</div>
+    <div class="container">
+        <div class="row">
+            <section class="Services-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4">
+                            <h3 class="title"><span>產品資訊</span></h3>
+                            <hr>
+                            <div class="main-menu main-menu1">
+                                <div class="main-menu-child">
+                                    <ul class="Services-area-IEhack1">
+                                        <li><a href="~/Product/Index">境內基金專區</a></li>
+                                        <li><a href="~/Product/OutArea">境外基金專區</a></li>
+                                        @*<li><a href="~/Product/ETFArea">ETF專區</a></li>*@
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <h3 class="title"><span>快速連結</span></h3>
+                            <hr>
+                            <div class="main-menu main-menu2">
+                                <div class="main-menu-child">
+                                    <ul class="Services-area-IEhack2">
+                                        <li><a href="~/Product/Fundration">配息資訊</a></li>
+                                        <li><a href="~/Home/Download">表單下載</a></li>
+                                        <li><a href="~/Home/SecCalendar">基金休市日</a></li>
+                                        <li><a href="~/Home/Step">申購流程</a></li>
+                                        <li><a href="~/Home/FeeRateTable">手續費率表</a></li>
+                                        <li><a href="~/Home/FundAcc">基金匯款帳號</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <h3 class="title"><span>投資好文</span></h3>
+                            <hr>
+                            <div class="main-menu main-menu3">
+                                <div class="main-menu-child">
+                                    <ul class="Services-area-IEhack3">
+                                        <li><a href="~/Home/Market">市場展望</a></li>
+                                        <li><a href="~/Home/FundPerpective">基金透視</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="Blogs-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h3 class="title"><span>大師開講</span><a class="btn cus-btn blue-btn" href="~/Home/Master">其他專家意見 <i class="fa fa-angle-right"></i></a></h3>
+                            <hr>
+                            <div class="master-area">
+                                @Html.Raw(Model.Dictionary["Master"])
+
+                                @*<div class="row">
+                                    <div class="master-photo col-xs-12 col-sm-7">
+                                        <img class="img-responsive" src="~/Content/images/index-master1.jpg" alt="">
+                                    </div>
+                                    <div class="master-article col-xs-12 col-sm-5">
+                                        <h4 class="article-title"><a href="javascript:void(0)">中信投信經紀人表示...</a></h4>
+                                        <p>網通要去自主如今吸收新人秘密提高搜索引擎即使購物必須博士一台，普遍不可能精華樣子也不沒想，傢俱建築。</p>
+                                        <a class="btn cus-btn orange-btn pull-right" href="">詳細內容</a>
+                                    </div>
+                                </div>*@
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h3 class="title"><span>公告訊息</span><a class="btn cus-btn blue-btn" href="~/Home/News">觀看更多訊息 <i class="fa fa-angle-right"></i></a></h3>
+                            <hr>
+                            <div class="news-area">
+                                @Html.Raw(Model.Dictionary["News"])
+                                @*<div class="index-news">
+                                    <div class="news-title">
+                                        <b>2018.01.03</b><span class="news-category">產品公告</span>
+                                    </div>
+                                    <a href="javascript:void(0)">
+                                        <p>新增第一商業銀行為本公司經理之中國信託智能運動基金之銷售機構</p>
+                                    </a>
+                                </div>
+                                <div class="index-news">
+                                    <div class="news-title">
+                                        <b>2018.01.03</b><span class="news-category">產品公告</span>
+                                    </div>
+                                    <a href="javascript:void(0)">
+                                        <p>英傑華投資系列基金(已撤銷核備)2017年臨時股東大會</p>
+                                    </a>
+                                </div>
+                                <div class="index-news">
+                                    <div class="news-title">
+                                        <b>2018.01.03</b><span class="news-category">產品公告</span>
+                                    </div>
+                                    <a href="javascript:void(0)">
+                                        <p>公告2018年1月15日中國信託雄鷹新興市場債券基金(本基金有相當比重投資於非投資等級之高風險債券且基金之配息來源可能為本金)暫停計價</p>
+                                    </a>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="Funds-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="title"><span>基金淨值</span>@*<a class="btn cus-btn blue-btn" href="">到價通知 <i class="fa fa-bullhorn"></i></a>*@</h3>
+                            <hr>
+                            <div class="funds-area">
+                                
+                                @Html.Raw(Model.Dictionary["FundProduct"])
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="QuickLink-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <h3 class="title"><span>理財小幫手</span></h3>
+                            <hr>
+                            <ul>
+                                <li>
+                                    <a class="quicklink-btn" href="~/Product/FundKnow"><i class="link-icon funds"><img src="~/Content/images/quick-link1.png" data-hover="Content/images/quick-link1-w.png"></i>基金小百科</a>
+                                </li>
+                                <li>
+                                    <a class="quicklink-btn" href="~/Product/ETFKnow"><i class="link-icon ETF"><img src="~/Content/images/quick-link2.png" data-hover="Content/images/quick-link2-w.png"></i>ETF小百科</a>
+                                </li>
+                                <li>
+                                    <a class="quicklink-btn" href="~/Home/Consultant"><i class="link-icon consultant"><img src="~/Content/images/quick-link3.png" data-hover="Content/images/quick-link3-w.png"></i>投資顧問</a>
+                                </li>
+                                <li>
+                                    <a class="quicklink-btn" href="javascript:void(0)"><i class="link-icon retire"><img src="~/Content/images/quick-link4.png" data-hover="Content/images/quick-link4-w.png"></i>退休規劃</a>
+                                </li>
+                                <li>
+                                    <a class="quicklink-btn" href="~/Product/InvestCount"><i class="link-icon investment"><img src="~/Content/images/quick-link5.png" data-hover="Content/images/quick-link5-w.png"></i>投資試算</a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                            <h3 class="title"><span>銷售通路</span></h3>
+                            <hr>
+                            <div class="SalePath-area">
+                                <div class="col-xs-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="sale-path sale-link1">
+                                            <div class="sale-path-child">
+                                                <div class="link-content">
+                                                    <a href="~/Home/SalesPath">銷售通路查詢</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="sale-path sale-link2">
+                                            <div class="sale-path-child">
+                                                <div class="link-content">
+                                                    <a href="~/Home/SalesReward">銷售通路報酬揭露</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="clearfix"></div>
+                            <h3 class="title"><span>影音專區</span><a name="VideoArea" class="btn cus-btn blue-btn" href="javascript:void(0)" >觀看其他影片 <i class="fa fa-angle-right"></i></a></h3>
+                            <hr>
+                            <div class="Video-area embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/9c82i5AMzjs?rel=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/HomeIndex.js?@ServiceHelper.CacheBusting()"></script>
+
+
+

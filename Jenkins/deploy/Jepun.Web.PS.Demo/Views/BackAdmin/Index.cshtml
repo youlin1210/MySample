@@ -1,0 +1,69 @@
+﻿@model Jepun.Web.PS.Models.PsAdminViewModel
+@using Jepun.Web.PS.Comm
+@{
+    Layout = null;
+}
+<div class="alert alert-info" role="alert">帳號管理</div>
+@using (Html.BeginForm("", "BackAdmin", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "FormBackAdmin", onsubmit = "return false" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>　員工　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　角色　　　　　　　　　　　　　狀態</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4">
+                                    <select size="6" class="form-control" name="EmpNo"></select>
+                                    @Html.HiddenFor(model => model.LogSN).Txt()
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>  
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>ID</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.Id).Txt()
+                </div>
+                <div class="col-sm-2 control-label">
+                    <label>權限</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.Role, Enumerable.Empty<SelectListItem>()).Sel()
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label>Email</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(Model => Model.Email).Txt()
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <button class="btn btn-primary" type="button" name="BtnIns">新增</button>
+                    <button class="btn btn-primary" type="button" name="BtnUpd">更新</button>
+                    <button class="btn btn-primary" type="button" name="BtnDel">刪除身份</button>
+                    <button class="btn btn-primary" type="button" name="BtnBack">還原身份</button>
+                </div>
+                <div class="col-sm-6"></div>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Apps/BackAdmin.js?@ServiceHelper.CacheBusting()"></script>
